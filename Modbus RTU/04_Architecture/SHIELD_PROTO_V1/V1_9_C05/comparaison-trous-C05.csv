@@ -1,0 +1,6 @@
+ST_X,ST_Y,ST_diameter_mm,target_X,target_Y,shield_old_X,shield_old_Y,shield_target_X,shield_target_Y,shield_drill_mm,status,source
+57.86000112,29.2111303,3.200001,79.61,97.38999999999999,79.61,97.39,79.61,97.39,2.8,USED_EXISTING_ANCHOR,native Altium Pads6; ST ODB profile and drill package available locally
+12.14000112,29.2111303,3.200001,33.89,97.38999999999999,33.89,97.39,33.89,97.39,2.8,USED_EXISTING_ANCHOR,native Altium Pads6; ST ODB profile and drill package available locally
+10.86600062,105.40899924,3.200001,32.6159995,21.192131059999994,32.62,21.19,32.616,21.192131,2.8,USED_EXISTING_ANCHOR,native Altium Pads6; ST ODB profile and drill package available locally
+59.12600062,104.13899924,3.200001,80.8759995,22.46213105999999,,,,,,NOT_USED_NO_NEW_HOLE,native Altium Pads6; ST ODB profile and drill package available locally
+43.89000112,53.3411303,3.200001,65.64,73.25999999999999,,,,,,NOT_USED_NO_NEW_HOLE,native Altium Pads6; ST ODB profile and drill package available locally

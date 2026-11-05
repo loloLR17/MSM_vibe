@@ -1,0 +1,3332 @@
+{
+  "source": "ST official MB1549.PcbDoc in MB1549 BDP4.0, project Board_PCB_Revision=C/Board_Assembly_Revision=05",
+  "origin_ST_mm": [
+    884.83968828,
+    875.5017618199998
+  ],
+  "units": "Altium int32 1e-4mil; 0.00000254mm/unit; x right/y up top view; subtract Board6 origin",
+  "native_total_pads": 1288,
+  "header_pads_compared_to_independent_ODB": 240,
+  "max_ODB_delta_mm": 2.0097183471152322e-14,
+  "headers": [
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "45",
+      "xy_ST_mm": [
+        3.25000112,
+        45.7211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 16
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "47",
+      "xy_ST_mm": [
+        3.25000112,
+        43.1811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 22
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "49",
+      "xy_ST_mm": [
+        3.25000112,
+        40.6411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "48",
+      "xy_ST_mm": [
+        5.79000112,
+        43.1811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 17
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "46",
+      "xy_ST_mm": [
+        5.79000112,
+        45.7211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 25
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "50",
+      "xy_ST_mm": [
+        5.79000112,
+        40.6411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 106
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "56",
+      "xy_ST_mm": [
+        5.79000112,
+        33.0211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 151
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "52",
+      "xy_ST_mm": [
+        5.79000112,
+        38.1011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 104
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "54",
+      "xy_ST_mm": [
+        5.79000112,
+        35.5611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 34
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "55",
+      "xy_ST_mm": [
+        3.25000112,
+        33.0211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 160
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "53",
+      "xy_ST_mm": [
+        3.25000112,
+        35.5611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 10
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "51",
+      "xy_ST_mm": [
+        3.25000112,
+        38.1011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 180
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "61",
+      "xy_ST_mm": [
+        3.25000112,
+        25.4011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 35
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "63",
+      "xy_ST_mm": [
+        3.25000112,
+        22.8611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 124
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "65",
+      "xy_ST_mm": [
+        3.25000112,
+        20.3211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 75
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "64",
+      "xy_ST_mm": [
+        5.79000112,
+        22.8611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 176
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "62",
+      "xy_ST_mm": [
+        5.79000112,
+        25.4011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 14
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "66",
+      "xy_ST_mm": [
+        5.79000112,
+        20.3211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 67
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "60",
+      "xy_ST_mm": [
+        5.79000112,
+        27.9411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "58",
+      "xy_ST_mm": [
+        5.79000112,
+        30.4811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 100
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "59",
+      "xy_ST_mm": [
+        3.25000112,
+        27.9411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 88
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "57",
+      "xy_ST_mm": [
+        3.25000112,
+        30.4811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 159
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "70",
+      "xy_ST_mm": [
+        5.79000112,
+        15.2411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "68",
+      "xy_ST_mm": [
+        5.79000112,
+        17.7811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 169
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "69",
+      "xy_ST_mm": [
+        3.25000112,
+        15.2411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 154
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "67",
+      "xy_ST_mm": [
+        3.25000112,
+        17.7811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "44",
+      "xy_ST_mm": [
+        5.79000112,
+        48.2611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 172
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "43",
+      "xy_ST_mm": [
+        3.25000112,
+        48.2611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 112
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "25",
+      "xy_ST_mm": [
+        3.25000112,
+        71.1211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 134
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "27",
+      "xy_ST_mm": [
+        3.25000112,
+        68.5811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 40
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "26",
+      "xy_ST_mm": [
+        5.79000112,
+        71.1211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "28",
+      "xy_ST_mm": [
+        5.79000112,
+        68.5811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 60
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "34",
+      "xy_ST_mm": [
+        5.79000112,
+        60.9611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 30
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "30",
+      "xy_ST_mm": [
+        5.79000112,
+        66.0411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 74
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "32",
+      "xy_ST_mm": [
+        5.79000112,
+        63.5011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 65
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "33",
+      "xy_ST_mm": [
+        3.25000112,
+        60.9611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 69
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "31",
+      "xy_ST_mm": [
+        3.25000112,
+        63.5011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 122
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "29",
+      "xy_ST_mm": [
+        3.25000112,
+        66.0411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 139
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "39",
+      "xy_ST_mm": [
+        3.25000112,
+        53.3411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 23
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "41",
+      "xy_ST_mm": [
+        3.25000112,
+        50.8011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 78
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "42",
+      "xy_ST_mm": [
+        5.79000112,
+        50.8011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 80
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "40",
+      "xy_ST_mm": [
+        5.79000112,
+        53.3411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 113
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "38",
+      "xy_ST_mm": [
+        5.79000112,
+        55.8811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 138
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "36",
+      "xy_ST_mm": [
+        5.79000112,
+        58.4211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 39
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "37",
+      "xy_ST_mm": [
+        3.25000112,
+        55.8811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 136
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "35",
+      "xy_ST_mm": [
+        3.25000112,
+        58.4211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 50
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "15",
+      "xy_ST_mm": [
+        3.25000112,
+        83.8211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 199
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "17",
+      "xy_ST_mm": [
+        3.25000112,
+        81.2811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 120
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "16",
+      "xy_ST_mm": [
+        5.79000112,
+        83.8211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 190
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "18",
+      "xy_ST_mm": [
+        5.79000112,
+        81.2811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 131
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "24",
+      "xy_ST_mm": [
+        5.79000112,
+        73.6611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 204
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "20",
+      "xy_ST_mm": [
+        5.79000112,
+        78.7411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "22",
+      "xy_ST_mm": [
+        5.79000112,
+        76.2011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "23",
+      "xy_ST_mm": [
+        3.25000112,
+        73.6611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 121
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "21",
+      "xy_ST_mm": [
+        3.25000112,
+        76.2011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 61
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "19",
+      "xy_ST_mm": [
+        3.25000112,
+        78.7411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "9",
+      "xy_ST_mm": [
+        3.25000112,
+        91.4411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 76
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "11",
+      "xy_ST_mm": [
+        3.25000112,
+        88.9011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 129
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "13",
+      "xy_ST_mm": [
+        3.25000112,
+        86.3611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 198
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "12",
+      "xy_ST_mm": [
+        5.79000112,
+        88.9011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 19
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "10",
+      "xy_ST_mm": [
+        5.79000112,
+        91.4411303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "14",
+      "xy_ST_mm": [
+        5.79000112,
+        86.3611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 195
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "8",
+      "xy_ST_mm": [
+        5.79000112,
+        93.9811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "2",
+      "xy_ST_mm": [
+        5.79000112,
+        101.6011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 117
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "4",
+      "xy_ST_mm": [
+        5.79000112,
+        99.0611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 27
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "6",
+      "xy_ST_mm": [
+        5.79000112,
+        96.5211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 128
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "7",
+      "xy_ST_mm": [
+        3.25000112,
+        93.9811303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 153
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "5",
+      "xy_ST_mm": [
+        3.25000112,
+        96.5211303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 203
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "3",
+      "xy_ST_mm": [
+        3.25000112,
+        99.0611303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 28
+    },
+    {
+      "ref": "CN11",
+      "component_index": 83,
+      "number": "1",
+      "xy_ST_mm": [
+        3.25000112,
+        101.6011303
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 116
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "33",
+      "xy_ST_mm": [
+        56.59000112,
+        33.0211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 183
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "34",
+      "xy_ST_mm": [
+        59.13000112,
+        33.0211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 141
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "31",
+      "xy_ST_mm": [
+        56.59000112,
+        35.5611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 142
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "20",
+      "xy_ST_mm": [
+        59.13000112,
+        50.8011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 52
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "18",
+      "xy_ST_mm": [
+        59.13000112,
+        53.3411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 146
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "12",
+      "xy_ST_mm": [
+        59.13000112,
+        60.9611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 148
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "10",
+      "xy_ST_mm": [
+        59.13000112,
+        63.5011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 101
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "1",
+      "xy_ST_mm": [
+        56.59000112,
+        73.6611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 202
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "4",
+      "xy_ST_mm": [
+        59.13000112,
+        71.1211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 26
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "6",
+      "xy_ST_mm": [
+        59.13000112,
+        68.5811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 11
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "8",
+      "xy_ST_mm": [
+        59.13000112,
+        66.0411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 137
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "14",
+      "xy_ST_mm": [
+        59.13000112,
+        58.4211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 119
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "16",
+      "xy_ST_mm": [
+        59.13000112,
+        55.8811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 184
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "22",
+      "xy_ST_mm": [
+        59.13000112,
+        48.2611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "24",
+      "xy_ST_mm": [
+        59.13000112,
+        45.7211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 162
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "26",
+      "xy_ST_mm": [
+        59.13000112,
+        43.1811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 15
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "28",
+      "xy_ST_mm": [
+        59.13000112,
+        40.6411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 13
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "30",
+      "xy_ST_mm": [
+        59.13000112,
+        38.1011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 108
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "9",
+      "xy_ST_mm": [
+        56.59000112,
+        63.5011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 92
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "7",
+      "xy_ST_mm": [
+        56.59000112,
+        66.0411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 36
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "5",
+      "xy_ST_mm": [
+        56.59000112,
+        68.5811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "3",
+      "xy_ST_mm": [
+        56.59000112,
+        71.1211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 49
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "2",
+      "xy_ST_mm": [
+        59.13000112,
+        73.6611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 145
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "19",
+      "xy_ST_mm": [
+        56.59000112,
+        50.8011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 185
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "17",
+      "xy_ST_mm": [
+        56.59000112,
+        53.3411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "15",
+      "xy_ST_mm": [
+        56.59000112,
+        55.8811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 102
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "13",
+      "xy_ST_mm": [
+        56.59000112,
+        58.4211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 12
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "11",
+      "xy_ST_mm": [
+        56.59000112,
+        60.9611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 74
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "29",
+      "xy_ST_mm": [
+        56.59000112,
+        38.1011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 103
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "27",
+      "xy_ST_mm": [
+        56.59000112,
+        40.6411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "25",
+      "xy_ST_mm": [
+        56.59000112,
+        43.1811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 93
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "23",
+      "xy_ST_mm": [
+        56.59000112,
+        45.7211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 21
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "21",
+      "xy_ST_mm": [
+        56.59000112,
+        48.2611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 186
+    },
+    {
+      "ref": "CN10",
+      "component_index": 205,
+      "number": "32",
+      "xy_ST_mm": [
+        59.13000112,
+        35.5611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 105
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "20",
+      "xy_ST_mm": [
+        13.41000112,
+        45.7211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 14
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "18",
+      "xy_ST_mm": [
+        13.41000112,
+        48.2611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 106
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "12",
+      "xy_ST_mm": [
+        13.41000112,
+        55.8811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "10",
+      "xy_ST_mm": [
+        13.41000112,
+        58.4211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 113
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "1",
+      "xy_ST_mm": [
+        10.87000112,
+        68.5811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 167
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "4",
+      "xy_ST_mm": [
+        13.41000112,
+        66.0411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 112
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "6",
+      "xy_ST_mm": [
+        13.41000112,
+        63.5011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 78
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "8",
+      "xy_ST_mm": [
+        13.41000112,
+        60.9611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 23
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "14",
+      "xy_ST_mm": [
+        13.41000112,
+        53.3411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 25
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "16",
+      "xy_ST_mm": [
+        13.41000112,
+        50.8011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 17
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "22",
+      "xy_ST_mm": [
+        13.41000112,
+        43.1811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 22
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "24",
+      "xy_ST_mm": [
+        13.41000112,
+        40.6411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 34
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "26",
+      "xy_ST_mm": [
+        13.41000112,
+        38.1011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 129
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "28",
+      "xy_ST_mm": [
+        13.41000112,
+        35.5611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 151
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "30",
+      "xy_ST_mm": [
+        13.41000112,
+        33.0211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 100
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "9",
+      "xy_ST_mm": [
+        10.87000112,
+        58.4211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 39
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "7",
+      "xy_ST_mm": [
+        10.87000112,
+        60.9611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 181
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "5",
+      "xy_ST_mm": [
+        10.87000112,
+        63.5011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 136
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "3",
+      "xy_ST_mm": [
+        10.87000112,
+        66.0411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 89
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "2",
+      "xy_ST_mm": [
+        13.41000112,
+        68.5811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 16
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "19",
+      "xy_ST_mm": [
+        10.87000112,
+        45.7211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 180
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "17",
+      "xy_ST_mm": [
+        10.87000112,
+        48.2611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 104
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "15",
+      "xy_ST_mm": [
+        10.87000112,
+        50.8011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 152
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "13",
+      "xy_ST_mm": [
+        10.87000112,
+        53.3411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 55
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "11",
+      "xy_ST_mm": [
+        10.87000112,
+        55.8811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 138
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "29",
+      "xy_ST_mm": [
+        10.87000112,
+        33.0211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 88
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "27",
+      "xy_ST_mm": [
+        10.87000112,
+        35.5611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 160
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "25",
+      "xy_ST_mm": [
+        10.87000112,
+        38.1011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 159
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "23",
+      "xy_ST_mm": [
+        10.87000112,
+        40.6411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN9",
+      "component_index": 203,
+      "number": "21",
+      "xy_ST_mm": [
+        10.87000112,
+        43.1811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 10
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "20",
+      "xy_ST_mm": [
+        59.13000112,
+        77.7251303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 200
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "18",
+      "xy_ST_mm": [
+        59.13000112,
+        80.2651303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 56
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "12",
+      "xy_ST_mm": [
+        59.13000112,
+        87.8851303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 132
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "10",
+      "xy_ST_mm": [
+        59.13000112,
+        90.4251303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 144
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "1",
+      "xy_ST_mm": [
+        56.59000112,
+        100.5851303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 29
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "4",
+      "xy_ST_mm": [
+        59.13000112,
+        98.0451303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 168
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "6",
+      "xy_ST_mm": [
+        59.13000112,
+        95.5051303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 107
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "8",
+      "xy_ST_mm": [
+        59.13000112,
+        92.9651303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "14",
+      "xy_ST_mm": [
+        59.13000112,
+        85.3451303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 51
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "16",
+      "xy_ST_mm": [
+        59.13000112,
+        82.8051303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 164
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "9",
+      "xy_ST_mm": [
+        56.59000112,
+        90.4251303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 18
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "7",
+      "xy_ST_mm": [
+        56.59000112,
+        92.9651303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 150
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "5",
+      "xy_ST_mm": [
+        56.59000112,
+        95.5051303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 31
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "3",
+      "xy_ST_mm": [
+        56.59000112,
+        98.0451303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 71
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "2",
+      "xy_ST_mm": [
+        59.13000112,
+        100.5851303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 77
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "19",
+      "xy_ST_mm": [
+        56.59000112,
+        77.7251303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 90
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "17",
+      "xy_ST_mm": [
+        56.59000112,
+        80.2651303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 182
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "15",
+      "xy_ST_mm": [
+        56.59000112,
+        82.8051303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 62
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "13",
+      "xy_ST_mm": [
+        56.59000112,
+        85.3451303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 9
+    },
+    {
+      "ref": "CN7",
+      "component_index": 204,
+      "number": "11",
+      "xy_ST_mm": [
+        56.59000112,
+        87.8851303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 91
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "12",
+      "xy_ST_mm": [
+        13.41000112,
+        78.7411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 27
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "10",
+      "xy_ST_mm": [
+        13.41000112,
+        81.2811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 28
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "1",
+      "xy_ST_mm": [
+        10.87000112,
+        91.4411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 5
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "4",
+      "xy_ST_mm": [
+        13.41000112,
+        88.9011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 158
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "6",
+      "xy_ST_mm": [
+        13.41000112,
+        86.3611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 116
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "8",
+      "xy_ST_mm": [
+        13.41000112,
+        83.8211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 117
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "14",
+      "xy_ST_mm": [
+        13.41000112,
+        76.2011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 179
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "16",
+      "xy_ST_mm": [
+        13.41000112,
+        73.6611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 33
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "9",
+      "xy_ST_mm": [
+        10.87000112,
+        81.2811303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 131
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "7",
+      "xy_ST_mm": [
+        10.87000112,
+        83.8211303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 190
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "5",
+      "xy_ST_mm": [
+        10.87000112,
+        86.3611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 195
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "3",
+      "xy_ST_mm": [
+        10.87000112,
+        88.9011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 19
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "2",
+      "xy_ST_mm": [
+        13.41000112,
+        91.4411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 42
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "15",
+      "xy_ST_mm": [
+        10.87000112,
+        73.6611303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 204
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "13",
+      "xy_ST_mm": [
+        10.87000112,
+        76.2011303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN8",
+      "component_index": 202,
+      "number": "11",
+      "xy_ST_mm": [
+        10.87000112,
+        78.7411303
+      ],
+      "drill_mm": 1.1,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "45",
+      "xy_ST_mm": [
+        64.21000112,
+        45.69612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 71
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "47",
+      "xy_ST_mm": [
+        64.21000112,
+        43.15612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 162
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "49",
+      "xy_ST_mm": [
+        64.21000112,
+        40.61612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 147
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "48",
+      "xy_ST_mm": [
+        66.75000112,
+        43.15612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 56
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "46",
+      "xy_ST_mm": [
+        66.75000112,
+        45.69612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 164
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "50",
+      "xy_ST_mm": [
+        66.75000112,
+        40.61612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 137
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "56",
+      "xy_ST_mm": [
+        66.75000112,
+        32.99612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 11
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "52",
+      "xy_ST_mm": [
+        66.75000112,
+        38.07612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 26
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "54",
+      "xy_ST_mm": [
+        66.75000112,
+        35.53612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "55",
+      "xy_ST_mm": [
+        64.21000112,
+        32.99612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 101
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "53",
+      "xy_ST_mm": [
+        64.21000112,
+        35.53612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 149
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "51",
+      "xy_ST_mm": [
+        64.21000112,
+        38.07612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 48
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "61",
+      "xy_ST_mm": [
+        64.21000112,
+        25.37612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 84
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "63",
+      "xy_ST_mm": [
+        64.21000112,
+        22.83612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "65",
+      "xy_ST_mm": [
+        64.21000112,
+        20.29612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 54
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "64",
+      "xy_ST_mm": [
+        66.75000112,
+        22.83612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 183
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "62",
+      "xy_ST_mm": [
+        66.75000112,
+        25.37612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 114
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "66",
+      "xy_ST_mm": [
+        66.75000112,
+        20.29612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 87
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "60",
+      "xy_ST_mm": [
+        66.75000112,
+        27.91612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 148
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "58",
+      "xy_ST_mm": [
+        66.75000112,
+        30.45612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 179
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "59",
+      "xy_ST_mm": [
+        64.21000112,
+        27.91612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 200
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "57",
+      "xy_ST_mm": [
+        64.21000112,
+        30.45612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 145
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "70",
+      "xy_ST_mm": [
+        66.75000112,
+        15.21612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 174
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "68",
+      "xy_ST_mm": [
+        66.75000112,
+        17.75612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 63
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "69",
+      "xy_ST_mm": [
+        64.21000112,
+        15.21612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 82
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "67",
+      "xy_ST_mm": [
+        64.21000112,
+        17.75612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 109
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "44",
+      "xy_ST_mm": [
+        66.75000112,
+        48.23612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 52
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "43",
+      "xy_ST_mm": [
+        64.21000112,
+        48.23612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 150
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "25",
+      "xy_ST_mm": [
+        64.21000112,
+        71.09612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 73
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "27",
+      "xy_ST_mm": [
+        64.21000112,
+        68.55612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 163
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "26",
+      "xy_ST_mm": [
+        66.75000112,
+        71.09612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 20
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "28",
+      "xy_ST_mm": [
+        66.75000112,
+        68.55612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 41
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "34",
+      "xy_ST_mm": [
+        66.75000112,
+        60.93612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "30",
+      "xy_ST_mm": [
+        66.75000112,
+        66.01612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 31
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "32",
+      "xy_ST_mm": [
+        66.75000112,
+        63.47612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 49
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "33",
+      "xy_ST_mm": [
+        64.21000112,
+        60.93612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 143
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "31",
+      "xy_ST_mm": [
+        64.21000112,
+        63.47612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 62
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "29",
+      "xy_ST_mm": [
+        64.21000112,
+        66.01612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 58
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "39",
+      "xy_ST_mm": [
+        64.21000112,
+        53.31612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "41",
+      "xy_ST_mm": [
+        64.21000112,
+        50.77612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 57
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "42",
+      "xy_ST_mm": [
+        66.75000112,
+        50.77612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 47
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "40",
+      "xy_ST_mm": [
+        66.75000112,
+        53.31612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 146
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "38",
+      "xy_ST_mm": [
+        66.75000112,
+        55.85612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 173
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "36",
+      "xy_ST_mm": [
+        66.75000112,
+        58.39612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 33
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "37",
+      "xy_ST_mm": [
+        64.21000112,
+        55.85612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 167
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "35",
+      "xy_ST_mm": [
+        64.21000112,
+        58.39612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 59
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "15",
+      "xy_ST_mm": [
+        64.21000112,
+        83.79612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 51
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "17",
+      "xy_ST_mm": [
+        64.21000112,
+        81.25612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 152
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "16",
+      "xy_ST_mm": [
+        66.75000112,
+        83.79612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "18",
+      "xy_ST_mm": [
+        66.75000112,
+        81.25612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 141
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "24",
+      "xy_ST_mm": [
+        66.75000112,
+        73.63612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 36
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "20",
+      "xy_ST_mm": [
+        66.75000112,
+        78.71612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "22",
+      "xy_ST_mm": [
+        66.75000112,
+        76.17612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 55
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "23",
+      "xy_ST_mm": [
+        64.21000112,
+        73.63612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 142
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "21",
+      "xy_ST_mm": [
+        64.21000112,
+        76.17612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 53
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "19",
+      "xy_ST_mm": [
+        64.21000112,
+        78.71612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 156
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "9",
+      "xy_ST_mm": [
+        64.21000112,
+        91.41612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 191
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "11",
+      "xy_ST_mm": [
+        64.21000112,
+        88.87612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 144
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "13",
+      "xy_ST_mm": [
+        64.21000112,
+        86.33612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 132
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "12",
+      "xy_ST_mm": [
+        66.75000112,
+        88.87612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 72
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "10",
+      "xy_ST_mm": [
+        66.75000112,
+        91.41612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 170
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "14",
+      "xy_ST_mm": [
+        66.75000112,
+        86.33612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 166
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "8",
+      "xy_ST_mm": [
+        66.75000112,
+        93.95612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 37
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "2",
+      "xy_ST_mm": [
+        66.75000112,
+        101.57612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 157
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "4",
+      "xy_ST_mm": [
+        66.75000112,
+        99.03612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 29
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "6",
+      "xy_ST_mm": [
+        66.75000112,
+        96.49612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "7",
+      "xy_ST_mm": [
+        64.21000112,
+        93.95612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 107
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "5",
+      "xy_ST_mm": [
+        64.21000112,
+        96.49612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 168
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "3",
+      "xy_ST_mm": [
+        64.21000112,
+        99.03612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 77
+    },
+    {
+      "ref": "CN12",
+      "component_index": 84,
+      "number": "1",
+      "xy_ST_mm": [
+        64.21000112,
+        101.57612908
+      ],
+      "drill_mm": 1.000001,
+      "plated": true,
+      "angle": 270.0,
+      "net_index": 135
+    }
+  ],
+  "mechanical_pads": [
+    {
+      "ref": "__board__",
+      "component_index": 65535,
+      "number": "0",
+      "xy_ST_mm": [
+        57.86000112,
+        29.2111303
+      ],
+      "drill_mm": 3.200001,
+      "plated": false,
+      "angle": 90.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "__board__",
+      "component_index": 65535,
+      "number": "0",
+      "xy_ST_mm": [
+        12.14000112,
+        29.2111303
+      ],
+      "drill_mm": 3.200001,
+      "plated": false,
+      "angle": 90.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "__board__",
+      "component_index": 65535,
+      "number": "0",
+      "xy_ST_mm": [
+        10.86600062,
+        105.40899924
+      ],
+      "drill_mm": 3.200001,
+      "plated": false,
+      "angle": 90.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "__board__",
+      "component_index": 65535,
+      "number": "0",
+      "xy_ST_mm": [
+        59.12600062,
+        104.13899924
+      ],
+      "drill_mm": 3.200001,
+      "plated": false,
+      "angle": 90.0,
+      "net_index": 65535
+    },
+    {
+      "ref": "__board__",
+      "component_index": 65535,
+      "number": "0",
+      "xy_ST_mm": [
+        43.89000112,
+        53.3411303
+      ],
+      "drill_mm": 3.200001,
+      "plated": false,
+      "angle": 90.0,
+      "net_index": 65535
+    }
+  ],
+  "components": [
+    {
+      "ref": "CN1",
+      "pattern": "CON_USBMICROB_MOLEX_105017-0001_H2P90",
+      "xy_ST_mm": [
+        48.96600062,
+        133.3080011
+      ],
+      "angle": 180.0,
+      "height_mm": 2.89999928
+    },
+    {
+      "ref": "CN15",
+      "pattern": "CON_USB-TYPEC_COXOC_317JD24BZTF3K3C3",
+      "xy_ST_mm": [
+        45.2700009,
+        -0.01886966
+      ],
+      "angle": 360.0,
+      "height_mm": 2.9599991599999997
+    },
+    {
+      "ref": "LD3",
+      "pattern": "LED_0603_RED",
+      "xy_ST_mm": [
+        29.97000102,
+        105.68112976
+      ],
+      "angle": 90.0,
+      "height_mm": 0.5999987999999999
+    },
+    {
+      "ref": "CN11",
+      "pattern": "CON_SAMTEC_TSW-135-07-X-D",
+      "xy_ST_mm": [
+        4.52000112,
+        58.4211303
+      ],
+      "angle": 270.0,
+      "height_mm": 8.380001019999998
+    },
+    {
+      "ref": "CN12",
+      "pattern": "CON_SAMTEC_TSW-135-07-X-D",
+      "xy_ST_mm": [
+        65.48000112,
+        58.39612908
+      ],
+      "angle": 270.0,
+      "height_mm": 8.380001019999998
+    },
+    {
+      "ref": "B1",
+      "pattern": "SWI_WEALTHMETAL_TD-0341_4P_BLUE",
+      "xy_ST_mm": [
+        7.77120112,
+        6.2749303
+      ],
+      "angle": 270.0,
+      "height_mm": 7.55000014
+    },
+    {
+      "ref": "B2",
+      "pattern": "SWI_WEALTHMETAL_TD-0341_4P_BLACK",
+      "xy_ST_mm": [
+        62.45740112,
+        6.2749303
+      ],
+      "angle": 270.0,
+      "height_mm": 7.55000014
+    },
+    {
+      "ref": "CN8",
+      "pattern": "CON_SAMTEC_SSW-108-23-X-D_N144_ARD",
+      "xy_ST_mm": [
+        12.14000112,
+        82.5511303
+      ],
+      "angle": 90.0,
+      "height_mm": 8.51000076
+    },
+    {
+      "ref": "CN9",
+      "pattern": "CON_SAMTEC_SSW-115-23-X-D_N144_ARD",
+      "xy_ST_mm": [
+        12.14000112,
+        50.8011303
+      ],
+      "angle": 90.0,
+      "height_mm": 8.51000076
+    },
+    {
+      "ref": "CN7",
+      "pattern": "CON_SAMTEC_SSW-110-23-X-D_N144_ARD",
+      "xy_ST_mm": [
+        57.86000112,
+        89.1551303
+      ],
+      "angle": 90.0,
+      "height_mm": 8.51000076
+    },
+    {
+      "ref": "CN10",
+      "pattern": "CON_SAMTEC_SSW-117-23-X-D_N144_ARD",
+      "xy_ST_mm": [
+        57.86000112,
+        53.3411303
+      ],
+      "angle": 90.0,
+      "height_mm": 8.51000076
+    },
+    {
+      "ref": "LD2",
+      "pattern": "LED_0603_VISHAY_VLMB1300-GS08_BLUE_1A2K_H0P8",
+      "xy_ST_mm": [
+        33.17000224,
+        105.68112976
+      ],
+      "angle": 90.0,
+      "height_mm": 0.8000009399999999
+    },
+    {
+      "ref": "LD1",
+      "pattern": "LED_0603_GREEN",
+      "xy_ST_mm": [
+        36.37000092,
+        105.68112976
+      ],
+      "angle": 90.0,
+      "height_mm": 0.5999987999999999
+    }
+  ]
+}

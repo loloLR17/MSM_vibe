@@ -1,0 +1,7 @@
+{
+  "file": "exports/shield-nu.step",
+  "raw_sha256": "412799c73700b5fd2d3032fa24f6f61e4d50828edb0bec8dbe255143f24a5508",
+  "normalized_sha256": "f91898822a0cfbf7f5669698a506d4ebbbee8136a0bfb2e890357cbd62fe1dfe",
+  "tokens_identical": true,
+  "scope": "new candidate bare-shield STEP only, official ST source untouched"
+}

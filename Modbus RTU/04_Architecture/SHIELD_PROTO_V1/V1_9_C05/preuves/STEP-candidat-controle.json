@@ -1,0 +1,13 @@
+{
+  "isValid": true,
+  "solids": 1,
+  "bbox_mm": [
+    20.0,
+    110.0,
+    -117.0,
+    -17.0,
+    0.0,
+    1.51
+  ],
+  "scope": "normalized new bare shield STEP, no C05 physical qualification"
+}

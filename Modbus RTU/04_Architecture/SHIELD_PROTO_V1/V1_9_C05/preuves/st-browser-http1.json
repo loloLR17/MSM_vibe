@@ -1,0 +1,5 @@
+{
+  "purpose": "bounded anonymous public quote only, no upload/cart/account/order/security changes",
+  "profile_isolated": true,
+  "error": "Error: CDP timeout Page.navigate"
+}

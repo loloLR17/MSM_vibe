@@ -1,0 +1,1 @@
+First call TypeError: missing aAppendToMe; corrected argument None, then native import timed out45s. No imported board used; raw Altium CFB parser and independent ODB coordinate checks used instead.

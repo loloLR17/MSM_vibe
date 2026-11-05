@@ -1,0 +1,59 @@
+{
+  "release": "NON_LIBERE_NO_GO_PHYSICAL",
+  "source_head": "ad4b698f42a7b174e92227a88ce68d8c9c8935b1",
+  "board_sha256": "d83b9d3d590a8b48d27882255c6c586213779678fbf001c0d449b07362a16634",
+  "files": [
+    {
+      "name": "TR2_Shield_Proto_V1-B_Cu.gbl",
+      "sha256": "8d395fc84436869422cc418817fed4a2464439b566008bbfc860d1cea775faa3",
+      "bytes": 283769
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-B_Mask.gbs",
+      "sha256": "75b415cdb80dec36a82b0af223f183d51249e813fd152bbd0beb89ef34dd28af",
+      "bytes": 5549
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-B_Silkscreen.gbo",
+      "sha256": "af95b206e90364a467f554172a93862de7cf54efbf6d78aea5f280b6043cfb90",
+      "bytes": 7189
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-Edge_Cuts.gm1",
+      "sha256": "c14014245213f1a99d9cd8c0a11a280ff00bccae7b822c0ba12ae270e1973682",
+      "bytes": 694
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-F_Cu.gtl",
+      "sha256": "2e82edd888732a2798be17643e34c467b9b4e408aa0b096e7de375d12a9210f4",
+      "bytes": 283364
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-F_Mask.gts",
+      "sha256": "57fcf7d8e698cd84a766648c83b06b2eb611a6b6f089c4de2f9275a3be1a6f06",
+      "bytes": 5549
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-F_Silkscreen.gto",
+      "sha256": "d92959168c87364fc39fd71d3ecf75af0c4a0e4bcda6fd5624cf2668fb00951e",
+      "bytes": 44901
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-NPTH.drl",
+      "sha256": "5853bd70ccf670c7e7f29b0e355209954201c24ec145588a9344b54d93fd8ca6",
+      "bytes": 602
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-PTH.drl",
+      "sha256": "3db6a82e969cdfbee625bacaff4a8ee52b573fbfd2efe51d0f541661eed8b2ef",
+      "bytes": 3080
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-job.gbrjob",
+      "sha256": "e03f7acae1e0f9d8fde8e9e021148354bc6f3f4f38825524f8d9eb55acb13cf5",
+      "bytes": 2530
+    }
+  ],
+  "ZIP": "TR2_SHIELD_V19_NON_LIBERE.zip",
+  "ZIP_sha256": "ddc0d5c45569dd48a3d06bd6a8ea0604a629c0ebb40b639d449320fa60acdbdd"
+}

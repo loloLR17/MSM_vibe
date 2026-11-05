@@ -1,0 +1,29 @@
+{
+  "status": "PASS_NOMINAL_CAD_ONLY",
+  "ST_native_vs_ODB_pins": 240,
+  "source_delta_mm": 2.0097183471152322e-14,
+  "shield_header_pins_compared": 106,
+  "max_native_C05_to_corrected_shield_delta_mm": 9.999999974752427e-07,
+  "changed_routes": [
+    8,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "unchanged_routes": 25,
+  "all_modules_schematic_project_rules_outline_retainer_holes": "UNCHANGED",
+  "old_shield_files_preserved": 324,
+  "ERC": 0,
+  "DRC": 0,
+  "unconnected": 0,
+  "schematic_parity": 0,
+  "CAM_files": 10,
+  "Excellon_max_center_quantization_error_mm": 0.00013099999999965917,
+  "physical_gate_XY": "NOT_VERIFIED_CORRECTED_PRINT",
+  "physical_gate_Z": "NOT_VERIFIED_G_AND_MATING",
+  "fabrication": "NO_GO",
+  "zip_sha256": "ddc0d5c45569dd48a3d06bd6a8ea0604a629c0ebb40b639d449320fa60acdbdd"
+}

@@ -1,0 +1,14 @@
+{
+  "time_s": 92.78154468536377,
+  "solids": 1060,
+  "bbox": [
+    -5.218048215738236e-13,
+    70.0000000000009,
+    -0.968974624500596,
+    134.4578943105348,
+    -10.007600064396481,
+    8.55999641794758
+  ],
+  "valid": true,
+  "scope": "official C05 STEP reopened and validity checked; no claim of shield assembly mating/optical fit; originals outside Git"
+}

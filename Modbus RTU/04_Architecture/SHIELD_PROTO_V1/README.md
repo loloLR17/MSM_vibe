@@ -1,3 +1,5 @@
+> **Nouveau candidat V1.9 C05** : [correction issue de la CAO officielle ST](V1_9_C05/README.md), [gabarits100% corrigés](V1_9_C05/exports/GABARITS_C05_V19_100POURCENT.pdf). Les positionsV1.4/V1.8 ci-dessous sont historiques ; CN7 était décalé de1,016mm. **Fabrication toujours NO-GO**, nouvelle vérification physique obligatoire.
+
 > **Intégration mécanique V1.5 disponible** : [assemblage éditable et vues](mechanical/V1_5/README.md), [décision avant PCB](docs/DECISION_LIBERATION_PCB_V1_5.md), [maturité du boîtier](docs/MATURITE_BOITIER_V1_5.md), [LED/USER](docs/OPTIQUE_USER_V1_5.md). Le PCB reste V1.4 inchangé. **READY_FOR_PHYSICAL_CHECK / BLOCKED_FABRICATION** : les guides LED/USER doivent être vérifiés AVANT commande s’ils impactent la géométrie du shield. Cette règle V1.5 remplace les phrases antérieures qui reportaient toute ergonomie après PCB. Aucune fabrication autorisée.
 
 # Shield TR2 V1.4 — femelle2×3 pour mâles CN12 en quinconce

@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://www.st.com/opla?download=true",
+    "error": "The read operation timed out"
+  },
+  {
+    "url": "https://www.st.com/resource/en/license_agreement/dm00205757.pdf",
+    "error": "The read operation timed out"
+  },
+  {
+    "url": "https://www.st.com/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf?download=true",
+    "error": "The read operation timed out"
+  }
+]

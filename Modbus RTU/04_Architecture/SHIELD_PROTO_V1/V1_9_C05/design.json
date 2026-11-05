@@ -1,0 +1,662 @@
+{
+  "version": "1.9-C05-candidate",
+  "mission": "TR2-20261105-SHIELD-V19-C05-OFFICIAL-CAD",
+  "root_uuid": "8eb28e17-31a2-58df-b072-5cb49c8aa8e3",
+  "date": "2026-11-05",
+  "release": "BLOCKED_FABRICATION",
+  "board_outline_mm": [
+    [
+      20,
+      17
+    ],
+    [
+      110,
+      17
+    ],
+    [
+      110,
+      117
+    ],
+    [
+      20,
+      117
+    ]
+  ],
+  "layers": 2,
+  "components": [
+    {
+      "ref": "J1",
+      "value": "NUCLEO_CN7",
+      "kind": "dual",
+      "n": 10,
+      "xy_mm": [
+        78.34,
+        26.016
+      ],
+      "schematic_xy": [
+        55.88,
+        45.72
+      ],
+      "nets": {
+        "5": "SD_SCK",
+        "10": "FRAM_SCK",
+        "12": "FRAM_MISO",
+        "14": "FRAM_MOSI",
+        "16": "FRAM_CS",
+        "20": "SD_CS"
+      },
+      "pin_types": {
+        "5": "output",
+        "10": "output",
+        "12": "input",
+        "14": "output",
+        "16": "output",
+        "20": "output"
+      },
+      "uuid": "9b14ca82-d539-540a-9776-b6dbb139a5ee",
+      "footprint": "TR2:J1_NUCLEO_CN7",
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x10",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
+    },
+    {
+      "ref": "J2",
+      "value": "NUCLEO_CN8",
+      "kind": "dual",
+      "n": 8,
+      "xy_mm": [
+        32.62,
+        35.16
+      ],
+      "schematic_xy": [
+        55.88,
+        96.52
+      ],
+      "nets": {
+        "4": "ACC_CS",
+        "6": "ACC_SCK",
+        "8": "ACC_MISO",
+        "10": "ACC_MOSI",
+        "7": "+3V3",
+        "11": "GND",
+        "13": "GND"
+      },
+      "pin_types": {
+        "4": "output",
+        "6": "output",
+        "8": "input",
+        "10": "output",
+        "7": "power_out",
+        "11": "power_out"
+      },
+      "uuid": "fcdb1be0-3004-550a-96e0-09c3aee7d3ba",
+      "footprint": "TR2:J2_NUCLEO_CN8",
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x8",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
+    },
+    {
+      "ref": "J3",
+      "value": "NUCLEO_CN9",
+      "kind": "dual",
+      "n": 15,
+      "xy_mm": [
+        32.62,
+        58.02
+      ],
+      "schematic_xy": [
+        55.88,
+        154.94
+      ],
+      "nets": {
+        "8": "SD_MOSI",
+        "10": "SD_MISO"
+      },
+      "pin_types": {
+        "8": "output",
+        "10": "input"
+      },
+      "uuid": "732b3b0b-58f2-58e9-831d-36e1be7d845f",
+      "footprint": "TR2:J3_NUCLEO_CN9",
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x15",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
+    },
+    {
+      "ref": "J4",
+      "value": "NUCLEO_CN10",
+      "kind": "dual",
+      "n": 17,
+      "xy_mm": [
+        78.34,
+        52.94
+      ],
+      "schematic_xy": [
+        55.88,
+        228.6
+      ],
+      "nets": {
+        "14": "RTU_TX",
+        "16": "RTU_RX"
+      },
+      "pin_types": {
+        "14": "output",
+        "16": "input"
+      },
+      "uuid": "c83fa3f9-f86f-5747-8d28-c4e826b71b67",
+      "footprint": "TR2:J4_NUCLEO_CN10",
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x17",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
+    },
+    {
+      "ref": "J5",
+      "value": "CN12_65_70_2X3_FEMALE",
+      "kind": "dual",
+      "n": 3,
+      "xy_mm": [
+        85.96,
+        106.305001
+      ],
+      "schematic_xy": [
+        162.56,
+        48.26
+      ],
+      "nets": {
+        "5": "RTU_DE"
+      },
+      "pin_types": {
+        "5": "output"
+      },
+      "uuid": "0349d0d4-8512-5aa0-8312-66858bb4e6e1",
+      "footprint": "TR2:J5_CN12_65_70_2X3_FEMALE",
+      "physical_pin_numbers": {
+        "1": "CN12-65/PD10 NC empty",
+        "2": "CN12-66/PG8 NC male",
+        "3": "CN12-67/PG7 NC male",
+        "4": "CN12-68/PG5 NC male",
+        "5": "CN12-69/PG4 RTU_DE male",
+        "6": "CN12-70/PG6 NC empty"
+      },
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "SSW-103-01-F-D",
+      "connector_gender": "FEMALE",
+      "body_height_nominal_mm": 8.51,
+      "tail_length_mm": 2.64,
+      "mating_face": "DOWN_TO_EXISTING_NUCLEO_MALE",
+      "mechanical_note": "Samtec SSW10301FD underneath,0.025inch square matingpost, existing males staggered66..69; measured tip8.22/body2.40; actual Zio stack still unverified",
+      "operator_populated_pins": [
+        66,
+        67,
+        68,
+        69
+      ],
+      "body_size_nominal_mm": [
+        4.95,
+        8.13
+      ],
+      "mating_insertion_min_mm": 3.68,
+      "mating_insertion_max_mm": 6.35,
+      "male_section_nominal_mm": 0.635
+    },
+    {
+      "ref": "J6",
+      "value": "ADAFRUIT_4718",
+      "kind": "fram",
+      "n": 9,
+      "xy_mm": [
+        45,
+        59
+      ],
+      "schematic_xy": [
+        162.56,
+        101.6
+      ],
+      "nets": {
+        "3": "FRAM_CS",
+        "4": "FRAM_MOSI",
+        "5": "FRAM_MISO",
+        "6": "FRAM_SCK",
+        "7": "GND",
+        "9": "+3V3"
+      },
+      "pin_types": {
+        "3": "input",
+        "4": "input",
+        "5": "output",
+        "6": "input",
+        "7": "power_in",
+        "8": "power_out",
+        "9": "power_in"
+      },
+      "uuid": "6a242382-d935-5772-83f0-77bf04061899",
+      "footprint": "TR2:J6_ADAFRUIT_4718",
+      "assembly_side": "TOP",
+      "power_note": "VIN/JP1-9 fed from Nucleo3V3 per manufacturer; regulator output JP1-8 NC",
+      "candidate_mpn": "2212S-09G-85",
+      "connector_gender": "FEMALE"
+    },
+    {
+      "ref": "J7",
+      "value": "ADAFRUIT_4682",
+      "kind": "sd",
+      "n": 9,
+      "xy_mm": [
+        40.5,
+        106
+      ],
+      "schematic_xy": [
+        162.56,
+        160.02
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "GND",
+        "3": "SD_SCK",
+        "4": "SD_MISO",
+        "5": "SD_MOSI",
+        "6": "SD_CS"
+      },
+      "pin_types": {
+        "1": "power_in",
+        "2": "power_in",
+        "3": "input",
+        "4": "output",
+        "5": "input",
+        "6": "input"
+      },
+      "uuid": "c596d58a-1f93-5084-8de7-3914057baa72",
+      "footprint": "TR2:J7_ADAFRUIT_4682",
+      "assembly_side": "TOP",
+      "mechanical_note": "Socket push-push opening towards -X per 4UCON15882/Eagle R180; leftward shift3.5mm, actual throat/height gate remains",
+      "candidate_mpn": "2212S-09G-85",
+      "connector_gender": "FEMALE"
+    },
+    {
+      "ref": "J8",
+      "value": "ST_MKIGIBV2",
+      "kind": "dil",
+      "n": 12,
+      "xy_mm": [
+        45,
+        24
+      ],
+      "schematic_xy": [
+        287.02,
+        66.04
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "+3V3",
+        "13": "GND",
+        "21": "ACC_CS",
+        "22": "ACC_SCK",
+        "23": "ACC_MOSI",
+        "24": "ACC_MISO"
+      },
+      "pin_types": {
+        "1": "power_in",
+        "2": "power_in",
+        "13": "power_in",
+        "21": "input",
+        "22": "input",
+        "23": "input",
+        "24": "output"
+      },
+      "uuid": "2d6cb883-1cf0-5b3d-b297-864900a98bbc",
+      "footprint": "TR2:J8_ST_MKIGIBV2",
+      "assembly_side": "TOP",
+      "row_pitch_mm": 15.24,
+      "physical_entrance_measured_mm": 15.2,
+      "release_gate": "Ground physically identified by user bottom-right JP2; nominal15.24mm from measured15.2mm, body envelope still requires assembly inspection",
+      "candidate_mpn": "2 x DS1023-1*12S21",
+      "connector_gender": "FEMALE"
+    },
+    {
+      "ref": "J9",
+      "value": "MIKROE_3863",
+      "kind": "click",
+      "n": 8,
+      "xy_mm": [
+        105,
+        80
+      ],
+      "schematic_xy": [
+        287.02,
+        132.08
+      ],
+      "nets": {
+        "3": "RTU_DE",
+        "7": "+3V3",
+        "8": "GND",
+        "9": "GND",
+        "13": "RTU_TX",
+        "14": "RTU_RX"
+      },
+      "pin_types": {
+        "3": "input",
+        "7": "power_in",
+        "8": "power_in",
+        "9": "power_in",
+        "13": "input",
+        "14": "output"
+      },
+      "uuid": "de265aaa-28e0-5a72-89e1-9fac3d23e5c6",
+      "footprint": "TR2:J9_MIKROE_3863",
+      "assembly_side": "TOP",
+      "notes": "RE pin2 NC, existing module J2 common DE-/RE preserved; VCCSEL3V3. Secondary bus remains on overhanging module, no GND2 net on shield",
+      "candidate_mpn": "2 x DS1023-1*8S21",
+      "connector_gender": "FEMALE"
+    },
+    {
+      "ref": "R1",
+      "value": "10k",
+      "kind": "resistor",
+      "n": 2,
+      "xy_mm": [
+        37,
+        31
+      ],
+      "schematic_xy": [
+        264.16,
+        205.74
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "ACC_CS"
+      },
+      "pin_types": {},
+      "uuid": "66c4b8d6-4e88-55d6-acbd-7c7894683f3e",
+      "footprint": "TR2:R1_10k",
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
+    },
+    {
+      "ref": "R2",
+      "value": "10k",
+      "kind": "resistor",
+      "n": 2,
+      "xy_mm": [
+        71,
+        76
+      ],
+      "schematic_xy": [
+        264.16,
+        223.52
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "FRAM_CS"
+      },
+      "pin_types": {},
+      "uuid": "1db46d95-bbda-5074-b8ae-ebf5f384b0a4",
+      "footprint": "TR2:R2_10k",
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
+    },
+    {
+      "ref": "R3",
+      "value": "10k",
+      "kind": "resistor",
+      "n": 2,
+      "xy_mm": [
+        55,
+        107
+      ],
+      "schematic_xy": [
+        264.16,
+        241.3
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "SD_CS"
+      },
+      "pin_types": {},
+      "uuid": "f23fa699-c673-5f4c-ae15-64a7b482ed60",
+      "footprint": "TR2:R3_10k",
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
+    },
+    {
+      "ref": "R4",
+      "value": "10k",
+      "kind": "resistor",
+      "n": 2,
+      "xy_mm": [
+        98,
+        108
+      ],
+      "schematic_xy": [
+        337.82,
+        205.74
+      ],
+      "nets": {
+        "1": "RTU_DE",
+        "2": "GND"
+      },
+      "pin_types": {},
+      "uuid": "cec83182-8317-5fe4-bcfb-e68c76960341",
+      "footprint": "TR2:R4_10k",
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
+    },
+    {
+      "ref": "C1",
+      "value": "100n",
+      "kind": "capacitor",
+      "n": 2,
+      "xy_mm": [
+        38,
+        52
+      ],
+      "schematic_xy": [
+        337.82,
+        223.52
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "pin_types": {},
+      "uuid": "464cee31-439c-535a-9350-a594a3190294",
+      "footprint": "TR2:C1_100n",
+      "assembly_side": "TOP",
+      "candidate_mpn": "C315C104K5R5TA",
+      "lead_pitch_mm": 2.54
+    },
+    {
+      "ref": "C2",
+      "value": "10u_10V",
+      "kind": "capacitor",
+      "n": 2,
+      "xy_mm": [
+        38,
+        78
+      ],
+      "schematic_xy": [
+        337.82,
+        241.3
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "pin_types": {},
+      "uuid": "2454dcf0-e4b4-5874-88ca-f883ddbdf9d7",
+      "footprint": "TR2:C2_10u_10V",
+      "assembly_side": "TOP",
+      "candidate_mpn": "ECA1HM100",
+      "lead_pitch_mm": 2.0,
+      "body_diameter_max_mm": 5.5
+    },
+    {
+      "ref": "TP1",
+      "value": "TP_3V3",
+      "kind": "testpoint",
+      "n": 1,
+      "xy_mm": [
+        52,
+        79
+      ],
+      "schematic_xy": [
+        370.84,
+        68.58
+      ],
+      "nets": {
+        "1": "+3V3"
+      },
+      "pin_types": {},
+      "uuid": "5d57dd2f-216f-5d43-95cf-0f16007ebd48",
+      "footprint": "TR2:TP1_TP_3V3",
+      "assembly_side": "TOP"
+    },
+    {
+      "ref": "TP2",
+      "value": "TP_GND",
+      "kind": "testpoint",
+      "n": 1,
+      "xy_mm": [
+        57,
+        79
+      ],
+      "schematic_xy": [
+        370.84,
+        86.36
+      ],
+      "nets": {
+        "1": "GND"
+      },
+      "pin_types": {},
+      "uuid": "1da2c27e-3b89-566f-8fba-5eb8c5c1f20d",
+      "footprint": "TR2:TP2_TP_GND",
+      "assembly_side": "TOP"
+    },
+    {
+      "ref": "TP3",
+      "value": "TP_ACC_SCK",
+      "kind": "testpoint",
+      "n": 1,
+      "xy_mm": [
+        67,
+        30
+      ],
+      "schematic_xy": [
+        370.84,
+        104.14
+      ],
+      "nets": {
+        "1": "ACC_SCK"
+      },
+      "pin_types": {},
+      "uuid": "158999c0-3af0-5ee8-acd3-499cbacfd69b",
+      "footprint": "TR2:TP3_TP_ACC_SCK",
+      "assembly_side": "TOP"
+    },
+    {
+      "ref": "TP4",
+      "value": "TP_SD_CS",
+      "kind": "testpoint",
+      "n": 1,
+      "xy_mm": [
+        57,
+        99
+      ],
+      "schematic_xy": [
+        370.84,
+        121.92
+      ],
+      "nets": {
+        "1": "SD_CS"
+      },
+      "pin_types": {},
+      "uuid": "cf6a0e49-b240-5793-ba2c-005d0d148c7d",
+      "footprint": "TR2:TP4_TP_SD_CS",
+      "assembly_side": "TOP"
+    }
+  ],
+  "mounting_holes_mm": [
+    [
+      32.616,
+      21.192131
+    ],
+    [
+      33.89,
+      97.39
+    ],
+    [
+      79.61,
+      97.39
+    ]
+  ],
+  "mounting_hole_diameter_mm": 2.8,
+  "Nucleo_reference": "MB1549-C05 user confirmed; UM2861 Rev4 Fig6 and Rev10 connector tables; C05 CAD unavailable for independent mechanical parity",
+  "assembly_note": "V1.4 authorized2x3 female underneath; existing staggered male66/67/68/69. Only69PG4=RTU_DE, all five other contacts NC. LowerClick retainer anchor94.5/112.5; other mounts preserved.",
+  "protected": {
+    "firmware": true,
+    "CN0_GI0_OBE": true,
+    "FRAM_SD": true
+  },
+  "sensor_ground_user_evidence": "PCB top view, JP2 on right, GND at bottom-right end; global JP2-13, not literal global12",
+  "sensor_row_pitch_user_measured_mm": 15.2,
+  "v1_source_commit": "1d2aa6683e972a3751f69229db4022283f55b3fb",
+  "retainer_mount_holes": [
+    {
+      "owner": "J8",
+      "xy": [
+        39,
+        20
+      ],
+      "diameter": 2.8,
+      "fastener": "M2.5"
+    },
+    {
+      "owner": "J8",
+      "xy": [
+        71,
+        54.5
+      ],
+      "diameter": 3.2,
+      "fastener": "M3"
+    },
+    {
+      "owner": "J9",
+      "xy": [
+        91,
+        75
+      ],
+      "diameter": 2.8,
+      "fastener": "M2.5"
+    },
+    {
+      "owner": "J9",
+      "xy": [
+        94.5,
+        112.5
+      ],
+      "diameter": 3.2,
+      "fastener": "M3"
+    }
+  ],
+  "nucleo_stack": {
+    "operator_confirmed_tip_from_PCB_mm": 8.22,
+    "operator_confirmed_plastic_from_PCB_mm": 2.4,
+    "exposed_male_mm": 5.82,
+    "J5_female": "SSW-103-01-F-D",
+    "Hfemale_mm": 8.51,
+    "G_Zio_actual_mm": null,
+    "G_example_not_measured_mm": 11,
+    "insertion_example_mm": 5.73,
+    "body_gap_example_mm": 0.09,
+    "G_nominal_acceptable_interval_mm": [
+      10.91,
+      13.05
+    ],
+    "status": "NOMINAL_NOT_PHYSICALLY_QUALIFIED; user caliper uncertainty unknown",
+    "Nucleo_modification": "NONE"
+  },
+  "format_authorization": "User20261104: approved2x3 covering65..70 and lowerClick anchor94.5/112.5; no Nucleo modification"
+}

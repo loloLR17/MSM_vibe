@@ -1,0 +1,37 @@
+[
+  {
+    "relative_to_external_report": "ST-design/MB1549C/MB1549.PcbDoc",
+    "bytes": 17400832,
+    "sha256": "acb801385195543d1471c6bf34cd278865449e0fc15c5546173782455c1749bf"
+  },
+  {
+    "relative_to_external_report": "ST-design/MB1549C/MB1549.PrjPcb",
+    "bytes": 60212,
+    "sha256": "13ad0d19b332d1e85e10a6157238480c74d323399564005cf400f3fe97dce716"
+  },
+  {
+    "relative_to_external_report": "ST-design/readme.txt",
+    "bytes": 2394,
+    "sha256": "73238af36e9d74a4205ad2c0fe04dc917ebda71ddc92d8570fa852406e9bea54"
+  },
+  {
+    "relative_to_external_report": "ST-manufacturing/readme.txt",
+    "bytes": 2473,
+    "sha256": "1ae72529c3dd31b18ac03ff8cde4d89a6f2c0658a8efeda94525e64a984255d0"
+  },
+  {
+    "relative_to_external_report": "ST-manufacturing/MB1549C/Mechanical/MB1549-U575ZIQ-C05.step",
+    "bytes": 20325178,
+    "sha256": "55f465f8de566561905f97e4b10533a4de33dd13842a5bd9f25bc9d7f06a9900"
+  },
+  {
+    "relative_to_external_report": "ST-manufacturing/MB1549C/Netlist/MB1549-C05_PCAD.NET",
+    "bytes": 392191,
+    "sha256": "1dc0c13ea1bb8a5990475d35ed4161c44713d45369ca23369533671b835951d3"
+  },
+  {
+    "relative_to_external_report": "ST-manufacturing/MB1549C/ODB++/MB1549C.tgz",
+    "bytes": 2473793,
+    "sha256": "eab66c83035c82eb00f9cc0076780990e499db15f106ce8cca111f3fc26d3cd3"
+  }
+]

@@ -1,0 +1,150 @@
+[
+  {
+    "name": "MB1549C/",
+    "bytes": 0
+  },
+  {
+    "name": "MB1549C/Assembly/",
+    "bytes": 0
+  },
+  {
+    "name": "MB1549C/Assembly/MB1549C-macro.APR_LIB",
+    "bytes": 531
+  },
+  {
+    "name": "MB1549C/Assembly/MB1549C.apr",
+    "bytes": 4200
+  },
+  {
+    "name": "MB1549C/Assembly/MB1549C.GBP",
+    "bytes": 49718
+  },
+  {
+    "name": "MB1549C/Assembly/MB1549C.GTP",
+    "bytes": 48134
+  },
+  {
+    "name": "MB1549C/Assembly/MB1549C_Assembly.PDF",
+    "bytes": 5533983
+  },
+  {
+    "name": "MB1549C/Assembly/MB1549C_PickandPlace.txt",
+    "bytes": 102836
+  },
+  {
+    "name": "MB1549C/Gerber/",
+    "bytes": 0
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C-macro.APR_LIB",
+    "bytes": 1066
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C-RoundHoles-NonPlated.TXT",
+    "bytes": 331
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C-RoundHoles-Plated.TXT",
+    "bytes": 17202
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C-SlotHoles-Plated.TXT",
+    "bytes": 391
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.apr",
+    "bytes": 11475
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.DRR",
+    "bytes": 2448
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.G1",
+    "bytes": 379719
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.G2",
+    "bytes": 452089
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.G3",
+    "bytes": 510079
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.G4",
+    "bytes": 378338
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.GBL",
+    "bytes": 400728
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.GBO",
+    "bytes": 2450725
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.GBS",
+    "bytes": 75499
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.GD1",
+    "bytes": 4565437
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.GG1",
+    "bytes": 72383
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.GTL",
+    "bytes": 448335
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.GTO",
+    "bytes": 2540260
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.GTS",
+    "bytes": 63239
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C.LDP",
+    "bytes": 513
+  },
+  {
+    "name": "MB1549C/Gerber/MB1549C_Gerber.PDF",
+    "bytes": 14340440
+  },
+  {
+    "name": "MB1549C/Mechanical/",
+    "bytes": 0
+  },
+  {
+    "name": "MB1549C/Mechanical/MB1549-U575ZIQ-C05.step",
+    "bytes": 20325178
+  },
+  {
+    "name": "MB1549C/Mechanical/MB1549-U575ZIQ-C05_3D.PDF",
+    "bytes": 19676642
+  },
+  {
+    "name": "MB1549C/Netlist/",
+    "bytes": 0
+  },
+  {
+    "name": "MB1549C/Netlist/MB1549-C05_PCAD.NET",
+    "bytes": 392191
+  },
+  {
+    "name": "MB1549C/ODB++/",
+    "bytes": 0
+  },
+  {
+    "name": "MB1549C/ODB++/MB1549C.tgz",
+    "bytes": 2473793
+  },
+  {
+    "name": "readme.txt",
+    "bytes": 2473
+  }
+]

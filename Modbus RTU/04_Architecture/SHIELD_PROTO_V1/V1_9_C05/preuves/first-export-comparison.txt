@@ -1,0 +1,1 @@
+Initial verifier compared Excellon mm output at four decimals, but writer outputs three decimals: native hole(32.616,21.192131) -> Excellon(32.616,-21.192). Initial assertion FAILED; comparator now uses actual1um export resolution. Native C05 comparison remains2nm and source CAD not rounded to the CAM grid.

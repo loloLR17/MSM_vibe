@@ -1,0 +1,6 @@
+['ALTIUM_CIRCUIT_MAKER', 'ALTIUM_CIRCUIT_STUDIO', 'ALTIUM_DESIGNER', 'Load']
+Traceback (most recent call last):
+  File "\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-shield-v19-20261105\import-st.py", line 5, in <module>
+    b=plugin.LoadBoard(str(p/'ST-design/MB1549C/MB1549.PcbDoc'))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PCB_IO.LoadBoard() missing 1 required positional argument: 'aAppendToMe'

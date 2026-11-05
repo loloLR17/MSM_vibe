@@ -1,0 +1,199 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-05T12:44:56",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "TR2_Shield_Proto_V1.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1843 mm)",
+            "items": [
+                {
+                    "description": "Piste [RTU_DE] sur F.Cu, long. 2,9000 mm",
+                    "pos": {
+                        "x": 91.5,
+                        "y": 110.0
+                    },
+                    "uuid": "ca325985-67c5-4e1a-9a52-4bc42f88b91e"
+                },
+                {
+                    "description": "Pad métallisé 4 [unconnected-(J5-NC-Pad4)] de J5",
+                    "pos": {
+                        "x": 88.5,
+                        "y": 108.845001
+                    },
+                    "uuid": "fd5d251a-23d5-4f4f-8aae-3de09be3b837"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1157 mm)",
+            "items": [
+                {
+                    "description": "Via [FRAM_MISO] sur F.Cu - B.Cu",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 46.7
+                    },
+                    "uuid": "71552bd8-7a88-4269-8263-6cc1bc8cab96"
+                },
+                {
+                    "description": "Piste [FRAM_SCK] sur B.Cu, long. 10,7480 mm",
+                    "pos": {
+                        "x": 69.5,
+                        "y": 46.4
+                    },
+                    "uuid": "c97cbb4d-1f4b-4ff7-a0c1-4505eb7e3f4c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,0500 mm)",
+            "items": [
+                {
+                    "description": "Piste [FRAM_SCK] sur B.Cu, long. 0,3000 mm",
+                    "pos": {
+                        "x": 69.5,
+                        "y": 46.7
+                    },
+                    "uuid": "4a5b063d-5db0-4de5-9614-407901430037"
+                },
+                {
+                    "description": "Via [FRAM_MISO] sur F.Cu - B.Cu",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 46.7
+                    },
+                    "uuid": "71552bd8-7a88-4269-8263-6cc1bc8cab96"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1843 mm)",
+            "items": [
+                {
+                    "description": "Piste [RTU_DE] sur F.Cu, long. 0,1414 mm",
+                    "pos": {
+                        "x": 88.6,
+                        "y": 110.0
+                    },
+                    "uuid": "dec6fb81-a270-4b8d-b708-9ecc03e74b59"
+                },
+                {
+                    "description": "Pad métallisé 4 [unconnected-(J5-NC-Pad4)] de J5",
+                    "pos": {
+                        "x": 88.5,
+                        "y": 108.845001
+                    },
+                    "uuid": "fd5d251a-23d5-4f4f-8aae-3de09be3b837"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation des trous (configuration des contraintes des trous isolation 0,2500 mm; réel 0,2250 mm)",
+            "items": [
+                {
+                    "description": "Piste [FRAM_SCK] sur B.Cu, long. 0,3000 mm",
+                    "pos": {
+                        "x": 69.5,
+                        "y": 46.7
+                    },
+                    "uuid": "4a5b063d-5db0-4de5-9614-407901430037"
+                },
+                {
+                    "description": "Via [FRAM_MISO] sur F.Cu - B.Cu",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 46.7
+                    },
+                    "uuid": "71552bd8-7a88-4269-8263-6cc1bc8cab96"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,0500 mm)",
+            "items": [
+                {
+                    "description": "Piste [FRAM_SCK] sur B.Cu, long. 2,8284 mm",
+                    "pos": {
+                        "x": 67.5,
+                        "y": 48.7
+                    },
+                    "uuid": "31a24500-7974-4b56-bde7-91d91e4d52e8"
+                },
+                {
+                    "description": "Via [FRAM_MISO] sur F.Cu - B.Cu",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 46.7
+                    },
+                    "uuid": "71552bd8-7a88-4269-8263-6cc1bc8cab96"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation des trous (configuration des contraintes des trous isolation 0,2500 mm; réel 0,2250 mm)",
+            "items": [
+                {
+                    "description": "Piste [FRAM_SCK] sur B.Cu, long. 2,8284 mm",
+                    "pos": {
+                        "x": 67.5,
+                        "y": 48.7
+                    },
+                    "uuid": "31a24500-7974-4b56-bde7-91d91e4d52e8"
+                },
+                {
+                    "description": "Via [FRAM_MISO] sur F.Cu - B.Cu",
+                    "pos": {
+                        "x": 70.0,
+                        "y": 46.7
+                    },
+                    "uuid": "71552bd8-7a88-4269-8263-6cc1bc8cab96"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        }
+    ]
+}

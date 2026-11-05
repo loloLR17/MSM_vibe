@@ -1,0 +1,54 @@
+[
+  {
+    "name": "MB1549C/",
+    "bytes": 0
+  },
+  {
+    "name": "MB1549C/ARDUINO_extension_connectors.SchDoc",
+    "bytes": 438784
+  },
+  {
+    "name": "MB1549C/MB1549.OutJob",
+    "bytes": 72717
+  },
+  {
+    "name": "MB1549C/MB1549.PcbDoc",
+    "bytes": 17400832
+  },
+  {
+    "name": "MB1549C/MB1549.PrjPcb",
+    "bytes": 60212
+  },
+  {
+    "name": "MB1549C/POWER_BOARD.SchDoc",
+    "bytes": 227328
+  },
+  {
+    "name": "MB1549C/Project_overview.SchDoc",
+    "bytes": 39936
+  },
+  {
+    "name": "MB1549C/STM32_microcontroller_IOs.SchDoc",
+    "bytes": 1020416
+  },
+  {
+    "name": "MB1549C/STM32_microcontroller_power.SchDoc",
+    "bytes": 325120
+  },
+  {
+    "name": "MB1549C/ST_LINK_V3E.SchDoc",
+    "bytes": 680960
+  },
+  {
+    "name": "MB1549C/Top.SchDoc",
+    "bytes": 60416
+  },
+  {
+    "name": "MB1549C/USB_Type_C.SchDoc",
+    "bytes": 203264
+  },
+  {
+    "name": "readme.txt",
+    "bytes": 2394
+  }
+]

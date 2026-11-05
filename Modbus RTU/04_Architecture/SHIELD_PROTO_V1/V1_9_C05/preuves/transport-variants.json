@@ -1,0 +1,29 @@
+[
+  {
+    "url": "https://st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+    "file": "variant-0",
+    "bytes": 11019805,
+    "sha256": "ba9ce5359d9b5f81ca61423b11d6432d76e438e28af98259a64ab1eba5447f4c",
+    "http": 200,
+    "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+    "type": "application/zip"
+  },
+  {
+    "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip?download=true",
+    "file": "variant-1",
+    "bytes": 11019805,
+    "sha256": "ba9ce5359d9b5f81ca61423b11d6432d76e438e28af98259a64ab1eba5447f4c",
+    "http": 200,
+    "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+    "type": "application/zip"
+  },
+  {
+    "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip?download=true",
+    "file": "variant-2",
+    "bytes": 30596347,
+    "sha256": "ecd9d543fa90b384ce741696ededc6d388f2d9154e4ef0bc626bece68c59c31f",
+    "http": 200,
+    "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip",
+    "type": "application/zip"
+  }
+]

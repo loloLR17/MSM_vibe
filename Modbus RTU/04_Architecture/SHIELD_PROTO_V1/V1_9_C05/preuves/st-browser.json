@@ -1,0 +1,18 @@
+{
+  "purpose": "bounded anonymous public quote only, no upload/cart/account/order/security changes",
+  "profile_isolated": true,
+  "pages": [
+    {
+      "url": "chrome-error://chromewebdata/",
+      "title": "www.st.com",
+      "text": "Désolé, impossible d’accéder à cette page.\n\nIl semble que la page Web de https://www.st.com/en/evaluation-tools/nucleo-u575zi-q.html rencontre peut-être des problèmes ou qu’elle ait été déplacée définitivement vers une nouvelle adresse web.\n\nERR_HTTP2_PROTOCOL_ERROR",
+      "links": []
+    },
+    {
+      "url": "chrome-error://chromewebdata/",
+      "title": "www.st.com",
+      "text": "Désolé, impossible d’accéder à cette page.\n\nIl semble que la page Web de https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip rencontre peut-être des problèmes ou qu’elle ait été déplacée définitivement vers une nouvelle adresse web.\n\nERR_HTTP2_PROTOCOL_ERROR",
+      "links": []
+    }
+  ]
+}

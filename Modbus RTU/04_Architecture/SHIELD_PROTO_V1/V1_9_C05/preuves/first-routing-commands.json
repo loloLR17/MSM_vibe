@@ -1,0 +1,34 @@
+[
+  {
+    "name": "ERC",
+    "args": [
+      "sch",
+      "erc",
+      "--format",
+      "json",
+      "--severity-all",
+      "--exit-code-violations",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V19-C05-OFFICIAL-CAD/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V1_9_C05/docs/checks/ERC.json",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V19-C05-OFFICIAL-CAD/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V1_9_C05/cad/TR2_Shield_Proto_V1.kicad_sch"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "DRC",
+    "args": [
+      "pcb",
+      "drc",
+      "--schematic-parity",
+      "--all-track-errors",
+      "--format",
+      "json",
+      "--severity-all",
+      "--exit-code-violations",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V19-C05-OFFICIAL-CAD/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V1_9_C05/docs/checks/DRC.json",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V19-C05-OFFICIAL-CAD/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V1_9_C05/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 5
+  }
+]

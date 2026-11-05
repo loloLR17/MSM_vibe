@@ -1,0 +1,277 @@
+{
+  "native_CN12_69_net": "PG4",
+  "Nucleo_outline_shield_frame_mm": [
+    [
+      21.75397398,
+      124.59886861999999
+    ],
+    [
+      21.75397398,
+      124.79585324
+    ],
+    [
+      21.83083184,
+      125.18224819999999
+    ],
+    [
+      21.98159608,
+      125.54622511999999
+    ],
+    [
+      22.20047042,
+      125.87379621999999
+    ],
+    [
+      22.47904746,
+      126.15237325999999
+    ],
+    [
+      22.80661856,
+      126.37124759999999
+    ],
+    [
+      23.17059548,
+      126.52201183999999
+    ],
+    [
+      23.55699044,
+      126.5988697
+    ],
+    [
+      23.74999996,
+      126.6
+    ],
+    [
+      89.75006861999998,
+      126.59482602
+    ],
+    [
+      89.9470507,
+      126.59482602
+    ],
+    [
+      90.33344566,
+      126.51796816
+    ],
+    [
+      90.69742258,
+      126.36720392
+    ],
+    [
+      91.02499368,
+      126.14832958
+    ],
+    [
+      91.30357072000001,
+      125.86975254
+    ],
+    [
+      91.52244506,
+      125.54218144
+    ],
+    [
+      91.6732093,
+      125.17820452
+    ],
+    [
+      91.75006970000001,
+      124.79180955999999
+    ],
+    [
+      91.75006970000001,
+      124.59482494
+    ],
+    [
+      91.75006970000001,
+      -4.739770339999978
+    ],
+    [
+      91.75006715999999,
+      -4.936754960000002
+    ],
+    [
+      91.67320676,
+      -5.323149919999992
+    ],
+    [
+      91.52244252,
+      -5.687126839999991
+    ],
+    [
+      91.30356817999998,
+      -6.014697939999991
+    ],
+    [
+      91.02499114,
+      -6.293274980000007
+    ],
+    [
+      90.69742004,
+      -6.512149319999992
+    ],
+    [
+      90.33344312,
+      -6.662913559999993
+    ],
+    [
+      89.94704816000001,
+      -6.739773960000008
+    ],
+    [
+      89.75006607999998,
+      -6.739776500000005
+    ],
+    [
+      23.75006854,
+      -6.739776500000005
+    ],
+    [
+      23.55308392,
+      -6.739773960000008
+    ],
+    [
+      23.16668896,
+      -6.662913559999993
+    ],
+    [
+      22.80271204,
+      -6.512149319999992
+    ],
+    [
+      22.47514094,
+      -6.293274980000007
+    ],
+    [
+      22.1965639,
+      -6.014697939999991
+    ],
+    [
+      21.977689559999998,
+      -5.687126839999991
+    ],
+    [
+      21.82692532,
+      -5.323149919999992
+    ],
+    [
+      21.75006746,
+      -4.936754960000002
+    ],
+    [
+      21.75006746,
+      -4.739772880000004
+    ],
+    [
+      21.75397398,
+      124.59886861999999
+    ]
+  ],
+  "components": [
+    {
+      "ref": "CN1",
+      "pattern": "CON_USBMICROB_MOLEX_105017-0001_H2P90",
+      "xy_ST_mm": [
+        48.96600062,
+        133.3080011
+      ],
+      "angle": 180.0,
+      "height_mm": 2.89999928,
+      "xy_shield_mm": [
+        70.71599950000001,
+        -6.706870800000019
+      ],
+      "meaning": "manufacturer footprint origin; not a measured light-emission centre or finger/cable envelope"
+    },
+    {
+      "ref": "CN15",
+      "pattern": "CON_USB-TYPEC_COXOC_317JD24BZTF3K3C3",
+      "xy_ST_mm": [
+        45.2700009,
+        -0.01886966
+      ],
+      "angle": 360.0,
+      "height_mm": 2.9599991599999997,
+      "xy_shield_mm": [
+        67.01999978,
+        126.61999995999999
+      ],
+      "meaning": "manufacturer footprint origin; not a measured light-emission centre or finger/cable envelope"
+    },
+    {
+      "ref": "LD3",
+      "pattern": "LED_0603_RED",
+      "xy_ST_mm": [
+        29.97000102,
+        105.68112976
+      ],
+      "angle": 90.0,
+      "height_mm": 0.5999987999999999,
+      "xy_shield_mm": [
+        51.719999900000005,
+        20.92000053999999
+      ],
+      "meaning": "manufacturer footprint origin; not a measured light-emission centre or finger/cable envelope"
+    },
+    {
+      "ref": "B1",
+      "pattern": "SWI_WEALTHMETAL_TD-0341_4P_BLUE",
+      "xy_ST_mm": [
+        7.77120112,
+        6.2749303
+      ],
+      "angle": 270.0,
+      "height_mm": 7.55000014,
+      "xy_shield_mm": [
+        29.5212,
+        120.3262
+      ],
+      "meaning": "manufacturer footprint origin; not a measured light-emission centre or finger/cable envelope"
+    },
+    {
+      "ref": "B2",
+      "pattern": "SWI_WEALTHMETAL_TD-0341_4P_BLACK",
+      "xy_ST_mm": [
+        62.45740112,
+        6.2749303
+      ],
+      "angle": 270.0,
+      "height_mm": 7.55000014,
+      "xy_shield_mm": [
+        84.2074,
+        120.3262
+      ],
+      "meaning": "manufacturer footprint origin; not a measured light-emission centre or finger/cable envelope"
+    },
+    {
+      "ref": "LD2",
+      "pattern": "LED_0603_VISHAY_VLMB1300-GS08_BLUE_1A2K_H0P8",
+      "xy_ST_mm": [
+        33.17000224,
+        105.68112976
+      ],
+      "angle": 90.0,
+      "height_mm": 0.8000009399999999,
+      "xy_shield_mm": [
+        54.92000112,
+        20.92000053999999
+      ],
+      "meaning": "manufacturer footprint origin; not a measured light-emission centre or finger/cable envelope"
+    },
+    {
+      "ref": "LD1",
+      "pattern": "LED_0603_GREEN",
+      "xy_ST_mm": [
+        36.37000092,
+        105.68112976
+      ],
+      "angle": 90.0,
+      "height_mm": 0.5999987999999999,
+      "xy_shield_mm": [
+        58.1199998,
+        20.92000053999999
+      ],
+      "meaning": "manufacturer footprint origin; not a measured light-emission centre or finger/cable envelope"
+    }
+  ],
+  "physical": "no new observation; native planar positions replace prior unknowns, Z/tolerances/photometry/cables still not proven"
+}

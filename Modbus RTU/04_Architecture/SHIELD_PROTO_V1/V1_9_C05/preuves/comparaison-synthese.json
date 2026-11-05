@@ -1,0 +1,159 @@
+{
+  "status": "EXACT_NOMINAL_NATIVE_COORDINATES",
+  "reference": "ST MB1549C / assembly05, BDP4.0 and manufacturing3.4",
+  "frame": "ST top view Xright Yup; shield same Xright/Ydown. x_shield=x_ST+Tx; y_shield=Ty-y_ST; no underside mirror",
+  "transform_translation_mm": [
+    21.74999888,
+    126.6011303
+  ],
+  "anchor": "CN8.1=J2.1 at32.62,35.16; preserved",
+  "relative_distances_first": {
+    "CN7pin1_to_CN8pin1_ST_dY_mm": 9.144000000000005,
+    "old_shield_dY_mm": 10.159999999999997,
+    "dX_ST_mm": 45.72,
+    "old_shield_dX_mm": 45.720000000000006
+  },
+  "corrections": {
+    "J1": {
+      "ref": "J1",
+      "pad": "1",
+      "ST_ref": "CN7",
+      "ST_pin": "1",
+      "old_X": 78.34,
+      "old_Y": 25.0,
+      "ST_X": 56.59000112,
+      "ST_Y": 100.5851303,
+      "target_X": 78.34,
+      "target_Y": 26.016,
+      "delta_X": 0.0,
+      "delta_Y": 1.016,
+      "source": "native Altium Pads6; independently matched ODB++"
+    },
+    "J2": {
+      "ref": "J2",
+      "pad": "1",
+      "ST_ref": "CN8",
+      "ST_pin": "1",
+      "old_X": 32.619999,
+      "old_Y": 35.16,
+      "ST_X": 10.87000112,
+      "ST_Y": 91.4411303,
+      "target_X": 32.62,
+      "target_Y": 35.16,
+      "delta_X": 1e-06,
+      "delta_Y": 0.0,
+      "source": "native Altium Pads6; independently matched ODB++"
+    },
+    "J3": {
+      "ref": "J3",
+      "pad": "1",
+      "ST_ref": "CN9",
+      "ST_pin": "1",
+      "old_X": 32.619999,
+      "old_Y": 58.02,
+      "ST_X": 10.87000112,
+      "ST_Y": 68.5811303,
+      "target_X": 32.62,
+      "target_Y": 58.02,
+      "delta_X": 1e-06,
+      "delta_Y": 0.0,
+      "source": "native Altium Pads6; independently matched ODB++"
+    },
+    "J4": {
+      "ref": "J4",
+      "pad": "1",
+      "ST_ref": "CN10",
+      "ST_pin": "1",
+      "old_X": 78.34,
+      "old_Y": 52.94,
+      "ST_X": 56.59000112,
+      "ST_Y": 73.6611303,
+      "target_X": 78.34,
+      "target_Y": 52.94,
+      "delta_X": 0.0,
+      "delta_Y": 0.0,
+      "source": "native Altium Pads6; independently matched ODB++"
+    },
+    "J5": {
+      "ref": "J5",
+      "pad": "1",
+      "ST_ref": "CN12",
+      "ST_pin": "65",
+      "old_X": 85.96,
+      "old_Y": 106.28,
+      "ST_X": 64.21000112,
+      "ST_Y": 20.29612908,
+      "target_X": 85.96,
+      "target_Y": 106.305001,
+      "delta_X": 0.0,
+      "delta_Y": 0.025001,
+      "source": "native Altium Pads6; independently matched ODB++"
+    }
+  },
+  "mount_holes": [
+    {
+      "old": [
+        32.62,
+        21.19
+      ],
+      "native_target": [
+        32.616,
+        21.192131
+      ],
+      "shift_mm": 0.004532235761737918
+    },
+    {
+      "old": [
+        33.89,
+        97.39
+      ],
+      "native_target": [
+        33.89,
+        97.39
+      ],
+      "shift_mm": 0.0
+    },
+    {
+      "old": [
+        79.61,
+        97.39
+      ],
+      "native_target": [
+        79.61,
+        97.39
+      ],
+      "shift_mm": 0.0
+    }
+  ],
+  "explanation": "CN7 alone displaced1.016mm alongY versus other Zio headers; J5 nominalY+0.025001mm; top-left support tiny0.0045mm; not a global translation/rotation/mirror. Exact attribution of all reported multi-mm paper gaps remains unproven.",
+  "source_archive_hashes": [
+    {
+      "url": "https://st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+      "file": "variant-0",
+      "bytes": 11019805,
+      "sha256": "ba9ce5359d9b5f81ca61423b11d6432d76e438e28af98259a64ab1eba5447f4c",
+      "http": 200,
+      "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+      "type": "application/zip"
+    },
+    {
+      "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip?download=true",
+      "file": "variant-1",
+      "bytes": 11019805,
+      "sha256": "ba9ce5359d9b5f81ca61423b11d6432d76e438e28af98259a64ab1eba5447f4c",
+      "http": 200,
+      "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+      "type": "application/zip"
+    },
+    {
+      "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip?download=true",
+      "file": "variant-2",
+      "bytes": 30596347,
+      "sha256": "ecd9d543fa90b384ce741696ededc6d388f2d9154e4ef0bc626bece68c59c31f",
+      "http": 200,
+      "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip",
+      "type": "application/zip"
+    }
+  ],
+  "physical": "NOT_VERIFIED_CORRECTED_TEMPLATE_REQUIRED"
+}
