@@ -1,0 +1,61 @@
+{
+  "status": "BUDGET_PARTIEL_NON_DEVIS_NON_COMMANDE",
+  "rate_USD_per_EUR": "1.1224",
+  "VAT_assumed": "0.20",
+  "TME_goods_USD_HT": "8.77",
+  "TME_goods_plus_one_shipping_EUR_TTC": "16.46",
+  "DigiKey_goods_EUR_HT": "7.02",
+  "DigiKey_goods_EUR_TTC": "8.42",
+  "two_electronics_suppliers_EUR_TTC": [
+    "49.88",
+    "54.88"
+  ],
+  "same_with_J5_and_9way_spare_each_EUR_TTC": [
+    "52.68",
+    "57.68"
+  ],
+  "two_suppliers_with_existing_Kemet_C1_EUR_TTC": [
+    "50.25",
+    "55.25"
+  ],
+  "unavailable_all_TME_counterfactual_EUR_TTC": "18.81",
+  "all_TME_verdict": "NON_ADMISSIBLE_J5_CONTACT_INCONNU_ET_STOCK_9_ZERO",
+  "TME_plus_exact_Samtec_if_9_restock_EUR_TTC": [
+    "45.50",
+    "50.50"
+  ],
+  "wait_scenario_verdict": "PAS_DE_DELAI_VERIFIE_9_VOIES",
+  "TME_only_if_Samtec_and_9way_already_owned_EUR_TTC": "16.46",
+  "personal_exact_stock": "INCONNU, NE PAS SUPPOSER GRATUIT_DISPONIBLE",
+  "Ajile_goods_EUR_HT": "7.60",
+  "Ajile_goods_EUR_TTC": "9.12",
+  "Ajile_8_screws_16_nuts_untracked_EUR_TTC": "13.80",
+  "Ajile_8_screws_16_nuts_tracked_EUR_TTC": "16.20",
+  "Ajile_verdict": "OFFRES_IDENTIFIEES_TETE_VIS_NON_COTEE_COMPATIBILITE_COMPLETE_NON_DEMONTREE",
+  "five_PCB_legacy_quote_date": "2026-11-04",
+  "five_PCB_legacy_budget_EUR_TTC": {
+    "DHL Express (DDP)": "30.73",
+    "EuroPacket": "22.89",
+    "Global Standard Direct Line": "13.50"
+  },
+  "known_partial_electronics_Ajile_untracked_cheapest_PCB_budget_EUR_TTC": [
+    "77.18",
+    "82.18"
+  ],
+  "same_partial_with_Ajile_tracked_EUR_TTC": [
+    "79.58",
+    "84.58"
+  ],
+  "all_in_delivered_total_EUR_TTC": null,
+  "unknowns": [
+    "date stock9 TME",
+    "tête et tolérances vis Ajile",
+    "TVA réelle port DigiKey",
+    "prix France TME et conversion de facturation",
+    "TTC/import/frais définitifs PCB",
+    "fabrication D126 et retenues modules",
+    "visserie modules",
+    "boîtiers/vitrages",
+    "inventaire réemploi et port de postes inconnus"
+  ]
+}

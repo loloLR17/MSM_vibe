@@ -1,0 +1,14 @@
+repere,MPN,source_id,besoin_2,achat_etude,MOQ,multiple,USD_HT_unitaire,EUR_HT_unitaire,EUR_TTC_unitaire_affiche,stock_affiche_non_reserve,verdict,reserve
+J1..J4,DS1021-2*40SF11,T1,3,3,2,1,0.6,,,53674,ACQUIS,"3 barres2x40 pour100 colonnes utiles;20 en réserve, découpe entre colonnes"
+J5,SSW-103-01-F-D,D1,2,2,1,1,,1.15,1.38,107,CONSERVER,"2 exacts; secours facultatif+1; seule local5=CN12-69/PG4,5NC"
+J8,DS1023-1*12S21,T2,4,10,10,10,0.14,,,8850,ACQUIS,"deux rangées par adaptateur, lot10 imposé"
+J9,DS1023-1*8S21,T3,4,10,10,10,0.1,,,6560,ACQUIS,"deux rangées par Click, lot10 imposé"
+J6/J7,M20-7820946,D2,4,4,1,1,,1.18,1.416,4344,VARIANTE_V18_CONDITIONNELLE,pas coupe; étain et engagement modules à confirmer; secours facultatif+1
+R1..R4,MRS16000C1002FCT00,T7,8,10,1,1,0.16,,,988,ACQUIS,"10 au palier0,16 moins chers que8 au palier0,35"
+C1,SR205C104KAR,T6,2,3,1,1,0.67,,,3006,VARIANTE_V22_CONDITIONNELLE,"1 secours; pas2,54; couper queues longues, écarts Fab/courtyard tracés, voir note technique"
+C2,EEUFR1H100,T8,2,3,1,1,0.32,,,29481,VARIANTE_V18_CONDITIONNELLE,"1 secours;10u50V/P2,0/diam5,H11; conserver polarité"
+J6/J7 option,DS1023-1*9S21,T4,4,10,10,10,0.12,,,0,NO_GO_STOCK_COURT_TERME,"stock affiché0, réapprovisionnement non daté; pas couper12femelle pour9"
+J5 option,DS1023-2*3S21,T5,2,10,10,10,0.1,,,12910,NO_GO_SUBSTITUTION,"zone de contact/profondeur utile non documentée; corps8,5 insuffisant"
+C1 repli,C315C104K5R5TA,D3,2,3,1,1,,0.7,0.84,3937,ACQUIS,"référence active conservée;3x0,70EURHT; option sans nouvelle variante C1"
+MEC-VIS,VCY120,A1,6,8,1,1,,0.25,0.3,En stock,CONDITION_TETE,8 dont2 de réserve;PA6.6; têteØ/hauteur à confirmer avant usage
+MEC-ECROUS,UHX001,A2,12,16,1,1,,0.35,0.42,En stock,GO_NOMINAL_CONDITIONNEL,"16 dont4 de réserve;AF4/hauteur1,6 cotés;tolérances non données"

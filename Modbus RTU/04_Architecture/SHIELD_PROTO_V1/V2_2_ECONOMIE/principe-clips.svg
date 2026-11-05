@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520">
+ <rect width="1000" height="520" fill="#f8fafc"/>
+ <g font-family="sans-serif" fill="#172033">
+  <text x="35" y="38" font-size="23">V2.2 — comparaison de principe, sans échelle, NON FABRICABLE</text>
+  <text x="45" y="82" font-size="19">D126 + vis nylon : appuis comprimés</text>
+  <text x="525" y="82" font-size="19">Double clip rigide : gorge avec jeu</text>
+ </g>
+ <g stroke="#172033" stroke-width="2">
+  <path d="M65 180h350v22H65z M65 350h350v22H65z" fill="#478866"/>
+  <rect x="200" y="202" width="60" height="148" fill="#b3d4ee"/>
+  <rect x="224" y="147" width="12" height="244" fill="#d5d9de"/>
+  <rect x="207" y="153" width="46" height="27" fill="#e7c286"/>
+  <rect x="209" y="372" width="42" height="16" fill="#d5d9de"/>
+  <path d="M540 180h350v22H540z M540 350h350v22H540z" fill="#478866"/>
+  <rect x="698" y="212" width="54" height="128" fill="#b3d4ee"/>
+  <path d="M710 212v-58h-18l12-17h42l12 17h-18v58 M710 340v62h-18l12 17h42l12-17h-18v-62" fill="#b3d4ee"/>
+  <path d="M792 139v73m-6-73h12m-12 73h12 M792 340v78m-6-78h12m-12 78h12" fill="none"/>
+  <path d="M314 202v148m-7-148h14m-14 148h14" fill="none"/>
+ </g>
+ <g font-family="sans-serif" fill="#172033" font-size="16">
+  <text x="330" y="277">G 12,25 ±0,10</text>
+  <text x="55" y="418">Orientation D126 à maintenir ; pas de tenue qualifiée.</text>
+  <text x="810" y="166">Gorge 2,00</text>
+  <text x="810" y="123">PCB 1,44..1,76</text>
+  <text x="530" y="449" fill="#a22828">Sans précharge : jeu 0,56 par bout, 1,12 au total.</text>
+  <text x="530" y="476" fill="#a22828">Rattrapage élastique et débattement restent à concevoir.</text>
+  <text x="35" y="506" font-size="14">Schéma axial simplifié : aucune géométrie d'ergot, collision ou résistance certifiée. Voir CLIPS_VS_D126.md.</text>
+ </g>
+</svg>

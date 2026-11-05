@@ -1,0 +1,489 @@
+{
+  "T1": {
+    "url": "https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 53674,
+      "MOQ": 2,
+      "multiple": 1,
+      "unit_USD_HT_at_selected_quantity": 0.6,
+      "price_tier": 2
+    }
+  },
+  "T2": {
+    "url": "https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 8850,
+      "MOQ": 10,
+      "multiple": 10,
+      "unit_USD_HT_at_selected_quantity": 0.14,
+      "price_tier": 10
+    }
+  },
+  "T3": {
+    "url": "https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 6560,
+      "MOQ": 10,
+      "multiple": 10,
+      "unit_USD_HT_at_selected_quantity": 0.1,
+      "price_tier": 10
+    }
+  },
+  "T4": {
+    "url": "https://www.tme.eu/en/details/zl262-9sg/pin-headers/connfly/ds1023-1-9s21/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 0,
+      "MOQ": 10,
+      "multiple": 10,
+      "unit_USD_HT_at_selected_quantity": 0.12,
+      "price_tier": 10,
+      "restock_date": null,
+      "body_height_mm": 8.5
+    }
+  },
+  "T5": {
+    "url": "https://www.tme.eu/en/details/zl262-6dg/pin-headers/connfly/ds1023-2-3s21/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 12910,
+      "MOQ": 10,
+      "multiple": 10,
+      "unit_USD_HT_at_selected_quantity": 0.1,
+      "price_tier": 10,
+      "body_height_mm": 8.5,
+      "useful_insertion_depth_mm": null
+    }
+  },
+  "T6": {
+    "url": "https://www.tme.eu/en/details/sr205c104kar/mlcc-tht-capacitors/kyocera-avx/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 3006,
+      "MOQ": 1,
+      "multiple": 1,
+      "unit_USD_HT_at_selected_quantity": 0.67,
+      "price_tier": 1,
+      "alternative_unit_USD_HT_at10": 0.36,
+      "capacitance_nF": 100,
+      "voltage_V": 50,
+      "dielectric": "X7R",
+      "tolerance_percent": 10
+    }
+  },
+  "T7": {
+    "url": "https://www.tme.eu/en/details/mrs16000c1002fct00/tht-resistors/vishay/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 988,
+      "MOQ": 1,
+      "multiple": 1,
+      "unit_USD_HT_at_selected_quantity": 0.16,
+      "price_tier": 10,
+      "unit_USD_HT_at1": 0.35,
+      "resistance_ohm": 10000,
+      "tolerance_percent": 1
+    }
+  },
+  "T8": {
+    "url": "https://www.tme.eu/en/details/eeufr1h100/tht-electrolytic-capacitors/panasonic/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 29481,
+      "MOQ": 1,
+      "multiple": 1,
+      "unit_USD_HT_at_selected_quantity": 0.32,
+      "price_tier": 1,
+      "capacitance_uF": 10,
+      "voltage_V": 50,
+      "body_diameter_mm": 5,
+      "height_mm": 11,
+      "pitch_mm": 2
+    }
+  },
+  "T9": {
+    "url": "https://www.tme.eu/en/details/m20-7820946/raster-signal-connectors-2-54mm/harwin/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 0,
+      "multiple": 24,
+      "first_displayed_price_tier": 5016,
+      "unit_USD_HT_at5016": 0.65,
+      "restock_date": null
+    }
+  },
+  "D1": {
+    "url": "https://www.digikey.fr/fr/products/detail/samtec-inc/SSW-103-01-F-D/6678753",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 107,
+      "factory_stock_displayed": 526,
+      "MOQ": 1,
+      "multiple": 1,
+      "unit_EUR_HT": 1.15,
+      "unit_EUR_TTC": 1.38,
+      "manufacturer_replenishment_weeks": 4
+    }
+  },
+  "D2": {
+    "url": "https://www.digikey.fr/fr/products/detail/harwin-inc/M20-7820946/3728253",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 4344,
+      "MOQ": 1,
+      "multiple": 1,
+      "unit_EUR_HT": 1.18,
+      "unit_EUR_TTC": 1.416,
+      "manufacturer_replenishment_weeks": 24
+    }
+  },
+  "D3": {
+    "url": "https://www.digikey.fr/fr/products/detail/kemet/C315C104K5R5TA/12701330",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "stock_displayed_not_reserved": 3937,
+      "MOQ": 1,
+      "multiple": 1,
+      "unit_EUR_HT": 0.7,
+      "unit_EUR_TTC": 0.84,
+      "cache_age_reported": "6 jours"
+    }
+  },
+  "X1": {
+    "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "rate_date": "2026-11-05",
+      "USD_per_EUR": 1.1224,
+      "billing_rate_guaranteed": false
+    }
+  },
+  "F1": {
+    "url": "https://www.tme.eu/fr/how-to-buy/7307/Moyens-et-couts-de-transport/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "France_economy_le15kg_EUR_HT": 5.9,
+      "France_economy_le15kg_EUR_TTC": 7.08,
+      "estimated_business_days": [
+        2,
+        4
+      ],
+      "fixed_arrival_date": null
+    }
+  },
+  "F2": {
+    "url": "https://www.digikey.fr/fr/help-support/delivery-information/delivery-time-and-cost",
+    "consulted": "2026-11-05",
+    "method": "tarif et délai France relus dans les pages produit D1/D2; pas de panier ni devis postal",
+    "facts": {
+      "France_below75EUR_shipping_displayed_EUR": 25,
+      "VAT_treatment_of_shipping_not_resolved": true,
+      "shipping_EUR_TTC_budget": [
+        25,
+        30
+      ],
+      "estimated_business_days": 3,
+      "incoterm_choice": "UPS DDP si proposé; pas CPT supposé tout compris",
+      "fixed_arrival_date": null
+    }
+  },
+  "F3": {
+    "url": "https://ajile.biz/fr/content/1-livraison",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "France_order_HT_range": [
+        4.51,
+        15
+      ],
+      "untracked_EUR_HT": 3.9,
+      "tracked_EUR_HT": 5.9,
+      "dispatch_max_hours_after_payment": 48,
+      "untracked_estimated_business_days": [
+        5,
+        10
+      ],
+      "tracked_estimated_business_days": [
+        3,
+        5
+      ],
+      "fixed_arrival_date": null
+    }
+  },
+  "M1": {
+    "url": "https://www.tme.eu/Document/091d1fadf99a8576d78359e8cef92fb6/DS1023.pdf",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "manufacturer": "Connfly",
+      "series": "DS1023 double rang",
+      "body_height_mm": 8.5,
+      "tail_mm": [
+        3,
+        0.2
+      ],
+      "pitch_mm": [
+        2.54,
+        0.1
+      ],
+      "recommended_hole_mm": 1.02,
+      "six_contact_body_length_mm": 8.12,
+      "body_width_mm": 5,
+      "useful_insertion_depth_mm": null,
+      "local_HTTP_download": "403, non contourné; document lisible par outil Web"
+    }
+  },
+  "M2": {
+    "url": "https://www.tme.eu/Document/efd0203e2d3a140765df98191085ea88/DS1023.pdf",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "manufacturer": "Connfly",
+      "series": "DS1023 simple rang",
+      "body_height_mm": 8.5,
+      "nine_contact_body_length_mm": 23.36,
+      "body_width_mm": 2.5,
+      "tails": "dessin 3,0±0,2; page TME 3,2; à contrôler/recouper avant montage"
+    }
+  },
+  "M3": {
+    "url": "https://www.tme.eu/Document/8bd74184c9c9f1c71ca9a7c545331f20/skycap-sr.pdf",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "manufacturer": "KYOCERA AVX",
+      "SR20_max_height_length_thickness_mm": [
+        5.08,
+        5.08,
+        3.175
+      ],
+      "pitch_mm": 2.54,
+      "lead_diameter_nominal_mm": 0.508,
+      "suffix_R": "queues longues >=25,4mm, à recouper",
+      "local_HTTP_download": "403, non contourné; document lisible par outil Web"
+    }
+  },
+  "M4": {
+    "url": "https://suddendocs.samtec.com/prints/ssw-1xx-xx-xxx-x-xx-xxx-xx-mkt.pdf",
+    "consulted": "2026-11-05",
+    "method": "preuve V2.0 réutilisée; pas nouvelle qualification",
+    "facts": {
+      "manufacturer": "Samtec",
+      "reuse": "V2.0 sources et tolerances.json inchangés",
+      "body_height_mm": 8.51,
+      "tail_mm": 2.64,
+      "insertion_limits_mm": [
+        3.68,
+        6.35
+      ],
+      "insertion_limits_source": "https://suddendocs.samtec.com/catalog_english/ssw_th.pdf"
+    }
+  },
+  "M5": {
+    "url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/7134/mdlsp1-12m-01.pdf",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "manufacturer": "Essentra",
+      "part": "MDLSP1-12M-01",
+      "drawing": "P160344-2 issue2, 14/Mar/2014",
+      "both_holes_mm": [
+        2.5,
+        0.05
+      ],
+      "board_max_mm": 1.65,
+      "height_mm": 12,
+      "outer_diameter_mm": 4.6,
+      "material": "nylon6.6",
+      "redistribution": "pas de copie du PDF dans Git; lien et faits seulement"
+    }
+  },
+  "M6": {
+    "url": "https://ultrasimweb.basf.com/snapfit/blog/introduction/",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "manufacturer": "BASF",
+      "method": "le dimensionnement vérifie la déformation par rapport au matériau, la force de montage/démontage et la géométrie; ne qualifie pas un clip FFF TR2"
+    }
+  },
+  "M7": {
+    "url": "https://www.harwin.com/products/M20-7820946",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "manufacturer": "Harwin",
+      "height_mm": 8.5,
+      "tail_mm": 3,
+      "body_mm": [
+        23.26,
+        2.5
+      ],
+      "mating_pin_mm": 0.64,
+      "cuttable": false,
+      "plating": "étain",
+      "qualification": "variante déjà proposée V1.8, pas encore montée"
+    }
+  },
+  "A1": {
+    "url": "https://ajile.biz/fr/vis-plastique/486-vis-plastique-tete-ronde-fendue.html?group%5B11%5D=423",
+    "consulted": "2026-11-05",
+    "method": "GET lecture seule avec attribut de variante; JSON data-product conservé hors Git; aucun panier",
+    "facts": {
+      "product_family_reference": "VCY000",
+      "selected_variant_reference": "VCY120",
+      "selected_variant_name": "M2 x 20 mm",
+      "EAN": "3701015116850",
+      "product_id": 486,
+      "attribute_id": 2190,
+      "unit_EUR_TTC": 0.3,
+      "unit_EUR_HT": 0.25,
+      "MOQ": 1,
+      "multiple": 1,
+      "buy": 8,
+      "availability_displayed": "En stock",
+      "real_stock_count": null,
+      "quantity999999_is_not_a_stock_audit": true,
+      "material": "PA6.6 selon description vendeur",
+      "selected_JSON_SHA256": "a98762897a17954e1c0edcc8c4650797e48b9b3dcbcf3d4bb6f3b79403cc76e6"
+    }
+  },
+  "A2": {
+    "url": "https://ajile.biz/fr/rondelles-ecrous-plastique/424-ecrou-plastique-hexagonal-pour-vis-m2-a-m12-naturel.html?group%5B17%5D=376",
+    "consulted": "2026-11-05",
+    "method": "GET lecture seule avec attribut de variante; JSON data-product conservé hors Git; aucun panier",
+    "facts": {
+      "product_family_reference": "UHX000",
+      "selected_variant_reference": "UHX001",
+      "selected_variant_name": "M2",
+      "EAN": "3701015107483",
+      "product_id": 424,
+      "attribute_id": 1991,
+      "unit_EUR_TTC": 0.42,
+      "unit_EUR_HT": 0.35,
+      "MOQ": 1,
+      "multiple": 1,
+      "buy": 16,
+      "availability_displayed": "En stock",
+      "real_stock_count": null,
+      "quantity999999_is_not_a_stock_audit": true,
+      "material": "PA6.6 selon description vendeur",
+      "selected_JSON_SHA256": "6c48e25129a2c3e9601b7de84f82acba404c66b34b202104c43b714e16451fba"
+    }
+  },
+  "A3": {
+    "url": "https://ajile.biz/12448-large_default/ecrou-plastique-hexagonal-pour-vis-m2-a-m12-naturel.jpg",
+    "consulted": "2026-11-05",
+    "method": "image cotée réellement ouverte, pas mesure sur photographie",
+    "facts": {
+      "reference": "UHX001, image associée à attribut1991",
+      "AF_mm": 4,
+      "height_mm": 1.6,
+      "corner_diameter_calculated_mm": 4.618802153517007,
+      "tolerances": null,
+      "local_SHA256": "2b88ed5dd51733b0248048513fae5188d09f4f2fe85b6a7ddd472f6dc97b06cd"
+    }
+  },
+  "A4": {
+    "url": "https://ajile.biz/12767-large_default/vis-plastique-tete-ronde-fendue.jpg",
+    "consulted": "2026-11-05",
+    "method": "image cotée réellement ouverte; aucune extrapolation de tête depuis pixels",
+    "facts": {
+      "reference": "VCY120, image associée à attribut2190",
+      "under_head_length_mm": 20,
+      "head_diameter_mm": null,
+      "head_height_mm": null,
+      "tolerances": null,
+      "local_SHA256": "e43ff134a1aa97ac22f83319fd5d2af64e6ad138f4188df509ba7e27a96e0ed5"
+    }
+  },
+  "A5": {
+    "url": "https://ajile.biz/12765-large_default/vis-plastique-tete-ronde-fendue.jpg",
+    "consulted": "2026-11-05",
+    "method": "image de la variante exacte réellement ouverte",
+    "facts": {
+      "reference": "VCY120 imprimée sur image",
+      "diameter_thread": "M2",
+      "length_mm": 20,
+      "local_SHA256": "21f5068f66a98db00a2a72aa1272ab088c0de6c81186e5f632b5234e0fbed657"
+    }
+  },
+  "A6": {
+    "url": "https://www.amazon.fr/dp/B0B18CFB4D",
+    "consulted": "2026-11-05",
+    "method": "piste de recherche bornée; pas achat ni contournement",
+    "facts": {
+      "status": "page directe inaccessible dans outil Web",
+      "exact_M2x20_nylon_with_dimensions_price_stock_shipping": null,
+      "verdict": "NON QUALIFIÉ, aucun kit retenu"
+    }
+  },
+  "A7": {
+    "url": "https://www.screwsandmore.de/25-stueck-zylinderkopfschrauben-din-84-polyamid-m2x20/84pa220-25",
+    "consulted": "2026-11-05",
+    "method": "preuve V2.1, date de consultation2026-11-05; pas de nouveau panier",
+    "facts": {
+      "status": "offre directe identifiée V2.1 réutilisée, non réactualisée",
+      "pack_screws": 25,
+      "pack_nuts": 25,
+      "two_packs_plus_Europe_shipping_budget_FR_TTC": 25.9,
+      "head_nominal_mm": 3.8,
+      "nut_AF_nominal_mm": 4,
+      "verdict": "compatibilité nominale DIN84/DIN934, mais livraison dédiée rejetée comme disproportionnée"
+    }
+  },
+  "ALT1": {
+    "url": "https://uk.farnell.com/samtec/ssw-103-01-f-d/connector-rcpt-6pos-2row-2-54mm/dp/3749506",
+    "consulted": "2026-11-05",
+    "method": "recherche bornée; aucune économie France affirmée",
+    "facts": {
+      "status": "piste exacte Farnell3749506; page France inaccessible; prix UK ancien non transposé",
+      "delivered_price_FR_TTC": null
+    }
+  },
+  "ALT2": {
+    "url": "https://www.samtec.com/products/ssw-103-01-f-d",
+    "consulted": "2026-11-05",
+    "method": "page directe consultée par outil Web le 2026-11-05",
+    "facts": {
+      "status": "référence exacte, prix en ligne absent; variantes de placage proposées non adoptées",
+      "delivered_price_FR_TTC": null
+    }
+  },
+  "ALT3": {
+    "url": "https://fr.rs-online.com/web/p/connecteurs-femelles-pour-ci/1800182",
+    "consulted": "2026-11-05",
+    "method": "piste de recherche fabricant/distributeur; pas commande",
+    "facts": {
+      "status": "paquet1000 indiqué, hors besoin2; pas une offre économique retenue",
+      "delivered_price_FR_TTC": null
+    }
+  },
+  "ALT4": {
+    "url": "https://www.mouser.fr/ProductDetail/Samtec/SSW-103-01-F-D",
+    "consulted": "2026-11-05",
+    "method": "tentatives des pages France J5/Harwin/transport, inaccessibles par outil Web; pas de prix de recherche US transposé",
+    "facts": {
+      "stock_FR": null,
+      "delivered_price_FR_TTC": null,
+      "status": "minimum livré non vérifiable chez Mouser France"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS_ETUDE_ET_PRESERVATION_SEULEMENT",
+  "initial_head": "6542a4a5fdc970f3467658cc151e710677633d6f",
+  "old_shield_files_compared_byte_exact": 486,
+  "source_prices_quantities_MOQ_consistent": true,
+  "currency_and_VAT_separated": true,
+  "BOM_rows": 13,
+  "J5_retained": true,
+  "clips_not_adopted": true,
+  "complete_price_claimed": false,
+  "physical_validation": false,
+  "PCB_CAM_firmware_governance_rules_changed": false,
+  "validation_scope": "calculs budget/contre-exemple, lecture artefacts existants, intégrité documentaire; pas ERC/DRC/build/essai physique répété",
+  "all_in_total_EUR_TTC": null
+}

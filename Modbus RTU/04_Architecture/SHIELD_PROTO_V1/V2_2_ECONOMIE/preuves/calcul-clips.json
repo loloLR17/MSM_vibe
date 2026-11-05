@@ -1,0 +1,42 @@
+{
+  "status": "CONTRE_EXEMPLE_CLIP_RIGIDE_SIMPLE_PAS_UNE_PREUVE_UNIVERSELLE",
+  "assumptions": {
+    "not_a_released_design": true,
+    "G_mm": 12.25,
+    "G_pm_mm": 0.1,
+    "board_mm": 1.6,
+    "board_pm_fraction": 0.1,
+    "hole_shield_mm": 2.8,
+    "hole_nucleo_mm": 3.2,
+    "hole_pm_assumed_mm": 0.13,
+    "barb_OD_assumed_mm": 3.3,
+    "neck_OD_assumed_mm": 2.6,
+    "FFF_nozzle_assumed_mm": 0.4,
+    "arm_thickness_assumed_mm": 0.8,
+    "free_arm_length_assumed_mm": 4,
+    "capture_gap_assumed_mm": 2,
+    "certified_repeated_strain_limit": null,
+    "lower_barb_OD_assumed_mm": 3.8,
+    "lower_neck_OD_assumed_mm": 3.0
+  },
+  "PCB_thickness_range_mm": [
+    1.4400000000000002,
+    1.7600000000000002
+  ],
+  "capture_axial_play_per_end_mm": 0.5599999999999998,
+  "two_ends_axial_play_mm": 1.1199999999999997,
+  "possible_G_mm_if_no_spring_preload": [
+    12.25,
+    13.37
+  ],
+  "shield_barb_radial_collapse_mm": 0.31499999999999995,
+  "nucleo_barb_radial_collapse_mm": 0.36499999999999977,
+  "nucleo_min_diametral_neck_clearance_mm": 0.07000000000000028,
+  "shield_min_diametral_neck_clearance_mm": 0.06999999999999984,
+  "beam_root_strain_classical_fraction": 0.023625,
+  "beam_root_strain_percent": 2.3625,
+  "J5_nominal_insertion_at_max_play_mm": 3.360000000000001,
+  "beam_derivation": "Euler-Bernoulli petit déplacement: delta=F L^3/(3EI); epsilon=F L t/(2EI); epsilon=1.5 t delta/L^2. L/t=5 court: ordre de grandeur seulement, pas une limite admissible FFF.",
+  "fatigue_creep_vibration_and_pullout_capacity": null,
+  "verdict": "NO_GO_ADOPTION_CLIP_SIMPLE_IMPRIME_DANS_CETTE_MISSION; D126 CONSERVE"
+}

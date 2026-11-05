@@ -1,0 +1,85 @@
+{
+  "A1": {
+    "url": "https://ajile.biz/fr/vis-plastique/486-vis-plastique-tete-ronde-fendue.html?group%5B11%5D=423",
+    "consulted": "2026-11-05",
+    "method": "GET lecture seule avec attribut de variante; JSON data-product conservé hors Git; aucun panier",
+    "facts": {
+      "product_family_reference": "VCY000",
+      "selected_variant_reference": "VCY120",
+      "selected_variant_name": "M2 x 20 mm",
+      "EAN": "3701015116850",
+      "product_id": 486,
+      "attribute_id": 2190,
+      "unit_EUR_TTC": 0.3,
+      "unit_EUR_HT": 0.25,
+      "MOQ": 1,
+      "multiple": 1,
+      "buy": 8,
+      "availability_displayed": "En stock",
+      "real_stock_count": null,
+      "quantity999999_is_not_a_stock_audit": true,
+      "material": "PA6.6 selon description vendeur",
+      "selected_JSON_SHA256": "a98762897a17954e1c0edcc8c4650797e48b9b3dcbcf3d4bb6f3b79403cc76e6"
+    }
+  },
+  "A2": {
+    "url": "https://ajile.biz/fr/rondelles-ecrous-plastique/424-ecrou-plastique-hexagonal-pour-vis-m2-a-m12-naturel.html?group%5B17%5D=376",
+    "consulted": "2026-11-05",
+    "method": "GET lecture seule avec attribut de variante; JSON data-product conservé hors Git; aucun panier",
+    "facts": {
+      "product_family_reference": "UHX000",
+      "selected_variant_reference": "UHX001",
+      "selected_variant_name": "M2",
+      "EAN": "3701015107483",
+      "product_id": 424,
+      "attribute_id": 1991,
+      "unit_EUR_TTC": 0.42,
+      "unit_EUR_HT": 0.35,
+      "MOQ": 1,
+      "multiple": 1,
+      "buy": 16,
+      "availability_displayed": "En stock",
+      "real_stock_count": null,
+      "quantity999999_is_not_a_stock_audit": true,
+      "material": "PA6.6 selon description vendeur",
+      "selected_JSON_SHA256": "6c48e25129a2c3e9601b7de84f82acba404c66b34b202104c43b714e16451fba"
+    }
+  },
+  "A3": {
+    "url": "https://ajile.biz/12448-large_default/ecrou-plastique-hexagonal-pour-vis-m2-a-m12-naturel.jpg",
+    "consulted": "2026-11-05",
+    "method": "image cotée réellement ouverte, pas mesure sur photographie",
+    "facts": {
+      "reference": "UHX001, image associée à attribut1991",
+      "AF_mm": 4,
+      "height_mm": 1.6,
+      "corner_diameter_calculated_mm": 4.618802153517007,
+      "tolerances": null,
+      "local_SHA256": "2b88ed5dd51733b0248048513fae5188d09f4f2fe85b6a7ddd472f6dc97b06cd"
+    }
+  },
+  "A4": {
+    "url": "https://ajile.biz/12767-large_default/vis-plastique-tete-ronde-fendue.jpg",
+    "consulted": "2026-11-05",
+    "method": "image cotée réellement ouverte; aucune extrapolation de tête depuis pixels",
+    "facts": {
+      "reference": "VCY120, image associée à attribut2190",
+      "under_head_length_mm": 20,
+      "head_diameter_mm": null,
+      "head_height_mm": null,
+      "tolerances": null,
+      "local_SHA256": "e43ff134a1aa97ac22f83319fd5d2af64e6ad138f4188df509ba7e27a96e0ed5"
+    }
+  },
+  "A5": {
+    "url": "https://ajile.biz/12765-large_default/vis-plastique-tete-ronde-fendue.jpg",
+    "consulted": "2026-11-05",
+    "method": "image de la variante exacte réellement ouverte",
+    "facts": {
+      "reference": "VCY120 imprimée sur image",
+      "diameter_thread": "M2",
+      "length_mm": 20,
+      "local_SHA256": "21f5068f66a98db00a2a72aa1272ab088c0de6c81186e5f632b5234e0fbed657"
+    }
+  }
+}

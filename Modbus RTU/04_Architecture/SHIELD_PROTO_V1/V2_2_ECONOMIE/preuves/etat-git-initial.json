@@ -1,0 +1,16 @@
+{
+  "mission_id": "TR2-20261105-SHIELD-V22-TME-CLIPS",
+  "initial_HEAD": "6542a4a5fdc970f3467658cc151e710677633d6f",
+  "working_branch": "codex/shield-v22-economie",
+  "origin": "https://github.com/loloLR17/MSM_vibe.git",
+  "root_HEAD": "82169af7e76797731358852bec83bfb0ceb54ccf",
+  "root_status": "",
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2 On main: TR2-20261010-DEV-RTU-PRODUCTION-005 preservation before incoming inventory correction",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87 On main: TR2-20261010-DEV-RS485-003 preservation mission 002"
+  ],
+  "worktrees_preserved": 113,
+  "mission_worktree_initial_status": "clean, verified before first edit",
+  "governance_protocol_journal_unchanged_from_V21_before_edit": true,
+  "no_merge_rebase_reset_stash_cleanup": true
+}

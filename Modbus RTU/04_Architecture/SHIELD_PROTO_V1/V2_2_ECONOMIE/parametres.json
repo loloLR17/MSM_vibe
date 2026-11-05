@@ -1,0 +1,36 @@
+{
+  "mission_id": "TR2-20261105-SHIELD-V22-TME-CLIPS",
+  "initial_head": "6542a4a5fdc970f3467658cc151e710677633d6f",
+  "exchange_USD_per_EUR": "1.1224",
+  "VAT": "0.20",
+  "shipping_TME_EUR_TTC": "7.08",
+  "shipping_DigiKey_EUR_TTC": [
+    "25",
+    "30"
+  ],
+  "shipping_Ajile_untracked_EUR_HT": "3.90",
+  "shipping_Ajile_tracked_EUR_HT": "5.90",
+  "clip_hypothesis": {
+    "not_a_released_design": true,
+    "G_mm": 12.25,
+    "G_pm_mm": 0.1,
+    "board_mm": 1.6,
+    "board_pm_fraction": 0.1,
+    "hole_shield_mm": 2.8,
+    "hole_nucleo_mm": 3.2,
+    "hole_pm_assumed_mm": 0.13,
+    "barb_OD_assumed_mm": 3.3,
+    "neck_OD_assumed_mm": 2.6,
+    "FFF_nozzle_assumed_mm": 0.4,
+    "arm_thickness_assumed_mm": 0.8,
+    "free_arm_length_assumed_mm": 4,
+    "capture_gap_assumed_mm": 2,
+    "certified_repeated_strain_limit": null,
+    "lower_barb_OD_assumed_mm": 3.8,
+    "lower_neck_OD_assumed_mm": 3.0
+  },
+  "first_article": "à froid, contrôle unique pièces réelles+G+contacts+orientation D126+absence de contrainte/court-circuit; pas de second papier",
+  "all_in_total_EUR_TTC": null,
+  "manufacturing_release": false,
+  "purchase_authorized": false
+}

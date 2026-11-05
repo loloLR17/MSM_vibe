@@ -1,0 +1,118 @@
+{
+  "C1": {
+    "source": "PCB V1.9/readback conservé + dessin AVX M3",
+    "pads": [
+      {
+        "ref": "C1",
+        "number": "1",
+        "net": "+3V3",
+        "x": 38.0,
+        "y": 52.0,
+        "diameter": 1.7,
+        "drill": 0.8,
+        "npth": false
+      },
+      {
+        "ref": "C1",
+        "number": "2",
+        "net": "GND",
+        "x": 40.54,
+        "y": 52.0,
+        "diameter": 1.7,
+        "drill": 0.8,
+        "npth": false
+      }
+    ],
+    "lead_diameter_nominal_mm": 0.508,
+    "drill_nominal_mm": 0.8,
+    "Fab_reserved_relative_mm": [
+      -1.3,
+      3.8,
+      -2.5,
+      2.5
+    ],
+    "AVX_nominal_max_body_relative_mm": [
+      -1.27,
+      3.81,
+      -1.5875,
+      1.5875
+    ],
+    "body_difference_Fab_right_mm": 0.01,
+    "Crtyd_reserved_y_pm_mm": 1.4,
+    "AVX_body_y_pm_mm": 1.5875,
+    "note": "dépasse Fab de0,01 à droite et courtyard de0,1875 enY; aucun contact voisin dans cette zone. Pas une correction PCB silencieuse, pas un DRC avec variante modifiée.",
+    "tail_trim_max_assembly_mm": 3.5,
+    "physical": "NON_VERIFIE"
+  },
+  "J5": {
+    "active": "SSW-103-01-F-D",
+    "candidate_rejected": "DS1023-2*3S21",
+    "native_pads": [
+      {
+        "ref": "J5",
+        "number": "1",
+        "net": "unconnected-(J5-NC-Pad1)",
+        "x": 85.96,
+        "y": 106.305001,
+        "diameter": 1.7,
+        "drill": 1.04,
+        "npth": false
+      },
+      {
+        "ref": "J5",
+        "number": "2",
+        "net": "unconnected-(J5-NC-Pad2)",
+        "x": 88.5,
+        "y": 106.305001,
+        "diameter": 1.7,
+        "drill": 1.04,
+        "npth": false
+      },
+      {
+        "ref": "J5",
+        "number": "3",
+        "net": "unconnected-(J5-NC-Pad3)",
+        "x": 85.96,
+        "y": 108.845001,
+        "diameter": 1.7,
+        "drill": 1.04,
+        "npth": false
+      },
+      {
+        "ref": "J5",
+        "number": "4",
+        "net": "unconnected-(J5-NC-Pad4)",
+        "x": 88.5,
+        "y": 108.845001,
+        "diameter": 1.7,
+        "drill": 1.04,
+        "npth": false
+      },
+      {
+        "ref": "J5",
+        "number": "5",
+        "net": "RTU_DE",
+        "x": 85.96,
+        "y": 111.385001,
+        "diameter": 1.7,
+        "drill": 1.04,
+        "npth": false
+      },
+      {
+        "ref": "J5",
+        "number": "6",
+        "net": "unconnected-(J5-NC-Pad6)",
+        "x": 88.5,
+        "y": 111.385001,
+        "diameter": 1.7,
+        "drill": 1.04,
+        "npth": false
+      }
+    ],
+    "only_DE_pad": "5 / CN12-69 / PG4",
+    "Connfly_recommended_drill_mm": 1.02,
+    "existing_drill_mm": 1.04,
+    "unknown_contact_depth": true,
+    "silently_replaced": false
+  }
+}
