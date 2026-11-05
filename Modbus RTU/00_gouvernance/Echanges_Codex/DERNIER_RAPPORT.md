@@ -1,11 +1,12 @@
 ---
 mission_id: TR2-20261105-SHIELD-V26-IMPRESSION-COMPLETE-SANS-RECEPTION
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: c2a1cf83da6c85211656721de2731d83f169cbbd
 initial_head: a4738855b1b66e81bbf46233f888f931d10a61fa
 head_after_addenda_fast_forward: 72a28db9c96d35d7d421574f464cc0125c380a20
-result_sha: null
+result_sha: 348e559cef823a57a86a99a98d2ef2376a6c5f7d
+completed_at_utc: 2026-11-05T22:21:45Z
 created_at_utc: 2026-11-05T22:17:39Z
 author: Codex
 target_branch: main
@@ -17,7 +18,7 @@ allow_debug: false
 
 # V2.6 — dossier complet imprimable, avec ajustement à froid
 
-**Le kit numérique complet est préparé et contrôlé :25 STL /142pièces pour deux prototypes, quatre étriers inclus.** Statut provisoire IN_PROGRESS uniquement pour le commit/push et la relecture distante encore à effectuer. L’objectif de cette mission est l’impression de prototypes avec un ajustement prévu au premier montage, **pas leur qualification physique**. Aucune attente de livraison ou nouvelle photo ajoutée comme préalable à la génération.
+**Le kit numérique complet est terminé, publié et relu depuis GitHub :25 STL /142pièces pour deux prototypes, quatre étriers inclus.** DONE porte sur cette livraison numérique complète avec ajustement à froid prévu. L’objectif de cette mission est l’impression de prototypes avec un ajustement prévu au premier montage, **pas leur qualification physique**. Aucune attente de livraison ou nouvelle photo ajoutée comme préalable à la génération.
 
 Le dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_6_IMPRESSION_COMPLETE/` contient les natifs éditables, les STL orientés, un seul ZIP imprimeur, une notice PETG, les quantités, la nomenclature, une fiche d’ajustement et un PDF de cinq pages avec plan et coupes. Les14formes du coffret V2.5 sont reprises octet pour octet. PCB V2.3 commandé, CAM, X/Y officielsST, G12,25, D126, firmware et électronique conservés. **747fichiers antérieurs du shield comparés sans différence.**
 
@@ -94,4 +95,8 @@ Racine historique proprepréservée`/home/lolo/dev/msm/projects/MSM_vibe` à8216
 
 `ETAT_COURANT_TR2.md` actualisé factuellement : kit désormais complet/imprimable avec calage à froid, sources fabricant récupérées, réserves1.01/1.02 etabsence de qualification physique. Pas de changement de gouvernance. `archives/<mission_id>/MISSION_INITIALE.md` conserve le contrat initial et`MISSION.md` sa version avec addenda. Aucun historique écrasé.
 
-**Publication en attente à ce checkpoint** : commit technique, push normal et relecture intégrale des blobs depuisorigin/main, y compris toutes les entréesZIP. Le rapport sera passéDONEetarchivé seulement après ces vérifications. LeSHAdistant de clôture sera fourni dans la réponse finale.
+**Publication technique vérifiée** : commit `348e559cef823a57a86a99a98d2ef2376a6c5f7d` — `Shield V26: complete adjustable print kit for two prototypes`, push normal `HEAD:refs/heads/main` réussi, puis `git fetch origin main`. HEAD etorigin/main identiques. Depuis les objets complets de cette référence GitHub fraîchement récupérée : **845blobs relus et comparés octet pour octet**, dont747historiques conservés et98fichiers modifiés/ajoutés depuis le départ, incluant le contrat révisé. Le ZIP distant a été rouvert et ses32entrées vérifiéesCRC/SHA,25STL/142pièces/quatreétriers. Empreinte du manifeste de relecture : `84c94f7452464c7cae38bbf364ab81227c0c41e13a24b82171ef938c01fb2426`. Preuve `preuves/publication-initiale.json` ; script reproductible `sources/relecture_distante.py` depuis la racine du dépôt aprèsfetch.
+
+État après cette publication : worktree V2.6 propre, racine historique propre à82169af7, deux stashes inchangés (6251b988… etf3b829e6…),117worktrees recensés sans suppression. Le présent commit de clôture ajoute uniquement le rapportDONE, son archive, la preuve et l’outil de relecture, plus une actualisation factuelle du journal/README. Aucun STL/STEP/ZIP n’est retouché après la preuve technique. Son push et sa relecture finale seront vérifiés avant la réponse utilisateur, dont le SHA fera foi pour la dernière référence distante ; `result_sha` reste le codeCAO réellement évalué348e559c.
+
+**À transmettre à ChatGPT** : revue indépendante du ZIP complet, en tenant compte du calageàfroid expressément autorisé et de l’écartClick1.01/1.02 ; décision d’envoi à l’ami imprimeur ensuite. Aucun contrôle supplémentaire ni réception n’est demandé avant la revue du dossier imprimable. Aucune qualification physique revendiquée.
