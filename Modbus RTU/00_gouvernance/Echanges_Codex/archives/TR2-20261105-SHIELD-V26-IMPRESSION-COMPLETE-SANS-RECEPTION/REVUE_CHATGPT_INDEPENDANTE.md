@@ -1,5 +1,16 @@
 # Revue indépendante ChatGPT — V2.6 dossier complet, règle KISS et quantité de pièces
 
+## RECTIFICATIF PRIORITAIRE — accès USER : retrait du GO impression (05/11/2026)
+
+**STATUT COURANT : NO-GO pour transmettre/imprimer le ZIP V2.6 tel quel. Le « GO borné » mentionné plus bas est ANNULE.** Cette annotation prime sur la qualification précédente, conservée pour traçabilité. Signalement utilisateur après ouverture du modèle `02_couvercle_ARNACO` sous FreeCAD : aucune commande USER visible depuis la face supérieure. L'analyse CAO confirme que le USER B1 est accessible par une ouverture de la **cassette sud sous trappe pivotante M3**, sans bouton de commande extérieur. Le modèle de cette trappe n'exige pas le dévissage pour chaque activation, mais cela ne satisfait pas l'accès opérationnel attendu : pas de petit capot à ouvrir ni pièce pouvant se perdre dans les fonds, accès direct sans outil.
+
+**Régression historique vérifiée dans GitHub :** `mechanical/V1_5/parameters.json`, `USER_principle`, proposait déjà un actionneur extérieur captif (tigeØ5, guidageØ5,5, têteØ10, butée captiveØ12, position de repos/limiteur de course et rappel à qualifier). Cette solution était alors un **principe non encore qualifié physiquement**. La mission V2.4 rédigée par ChatGPT a remplacé cette prescription par le critère vague « accès USER simple mais protégé ». Codex a effectivement implémenté la solution de trappe directe dans `V2_4_IMPRESSION_3D/sources/modele.py` (commit `eb322dec649c36645edbbf7d2881e95ee0ea2df8`, lignes 122–125). ChatGPT a accepté ce changement sans relever la perte de l'actionneur extérieur, puis repris sans correction en V2.5/V2.6. **Responsabilité du pilotage et de la libération : ChatGPT.** L'utilisateur n'a pas autorisé cette simplification fonctionnelle.
+
+**Exigence désormais explicite :** commande USER extérieure directement accessible, protégée contre activation accidentelle, **une pression sans outil et sans ouvrir/devisser/retirer une trappe, capot ou pièce quelconque**, ensemble captif avec butée mécanique empêchant précharge/surcourse et pièce perdue, réponse raisonnablement robuste aux vibrations, RESET non actionnable par erreur. Recourir si possible à une solution simple ciblée sur la cassette sud, en préservant les autres pièces validées. Poursuivre l'objectif d'un unique dossier pour deux prototypes cette nuit, sans attendre les livraisons, mais **l'ancien ZIP n'est pas à transmettre à l'imprimeur**. Une nouvelle mission ChatGPT corrigera la CAO, les modèles, tests et le ZIP ; une nouvelle revue indépendante sera nécessaire avant feu vert.
+
+---
+
+
 Date : 2026-11-05. Référence `loloLR17/MSM_vibe/main`, HEAD initial de revue `b863ead63ca55858433e43746a820f3ef030a89a`.
 
 ## Contrat, commits et preuves publiées
