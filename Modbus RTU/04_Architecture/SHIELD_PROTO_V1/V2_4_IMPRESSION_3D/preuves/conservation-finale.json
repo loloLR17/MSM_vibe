@@ -1,0 +1,6 @@
+{
+  "compared_preexisting_shield_files": 602,
+  "mismatches": [],
+  "initial_head": "dad65db35259da6db5e1a202cd4bc835879b258b",
+  "scope": "all pre-existing tracked shield artifacts, including V23/V19 PCB and CAM, preserved byte-for-byte"
+}

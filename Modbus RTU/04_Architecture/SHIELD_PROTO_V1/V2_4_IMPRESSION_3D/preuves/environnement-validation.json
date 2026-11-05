@@ -1,0 +1,19 @@
+{
+  "Python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "packages": {
+    "cadquery": "2.8.0",
+    "shapely": "2.2.0",
+    "trimesh": "5.2.0",
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2"
+  },
+  "physical_operations": false,
+  "final_commands": {
+    "modele.py": 0,
+    "controle.py": 0,
+    "services.py": 0,
+    "vues.py": 0,
+    "paquet.py": 0
+  },
+  "scope": "software geometry validation only"
+}

@@ -1,0 +1,18 @@
+categorie;designation;utiles_deux_kits;reserve;total_cible;acquis_declares;complement_cible;statut_et_limites
+achete;Vis nylon M2x20 Ajile VCY120;14;2;16;8;8;6 utiles D126 plus8 utiles FRAM/SD. Tete Ø/hauteur non attestees. Ne pas racheter les8 deja commandees.
+achete;Ecrou nylon M2 AF4 H1.6 Ajile UHX001;36;4;40;16;24;12 utiles D126 plus24 utiles FRAM/SD. Deux ecrous contrebloques sous chaque module et un dessus.
+a_prevoir;Vis nylon M3x16 tete Ø<=6 H<=3 selon modele;28;4;32;0;32;14par kit sauf bras15. Ne pas acheter avant controle des variantes.
+a_prevoir;Vis nylon M3x12 tete Ø<=6 H<=3 pour bras15;6;2;8;0;8;Trois par kit. M3x16 rejetee car touche le fond.
+a_prevoir;Ecrou nylon M3 AF5.5 H<=2.4 selon poches;34;6;40;0;40;Poches AF5.9 H2.8. Ecrous captifs caisse9par kit et ecrous des accessoires8par kit. Dimensions a reception.
+a_decouper;Vitre polycarbonate transparent50x18x1.5mm;2;0;2;0;2;Rectangles simples non perces. Tolere par montage nominal. Transmission optique non qualifiee.
+a_prevoir;Collier nylon largeur<=2.5mm pour nappe;2;2;4;0;4;Une boucle par bride10. Serrage sans marquer nappe. Aucun contact metallique.
+a_prevoir;Garniture souple isolante pour nappe et cable;4;0;4;0;4;Pieces de protection a adapter au vrai cable. Pas de colle sur composants ou trous de ventilation.
+reemploi;Nucleo MB1549-U575ZIQ-C05;2;0;2;2;0;Cartes existantes sans modification. J5 et G restent a controler a froid.
+commande;Shield PCB V2.3 ARNACO;2;3;5;5;0;Commande utilisateur rapportee par contrat. Reception non verifiee. Aucun nouvel achat.
+reemploi;FRAM Adafruit4718 et microSD Adafruit4682;4;0;4;0;inconnu;Deux de chaque necessaires. Inventaire physique non fait pendant cette mission.
+reemploi;Kit IIS3DWB MKI208V1 et MKIGIBV2;2;0;2;0;inconnu;Revision et zones d appui restent a reception. Ne pas depouiller un banc.
+reemploi;RS485 Isolator2Click MIKROE3863;2;0;2;0;inconnu;Version de PCB reelle a confirmer. Aucun pont conducteur logique vers bus isole.
+commande;Connecteurs et passifs TME de V2.3;1lot;0;1lot;1lot;0;17.60EUR TTC transport selon contrat. Ne pas racheter. Reception non controlee.
+echantillon;Samtec SSW10301FD J5;2;0;2;demande;reception inconnue;Ne pas remplacer par un Connfly non qualifie.
+hors_pack_reserve;Ancrages et vis de contact nylon etriers MKI/Click;8ancrages+6contacts;0;conditionnel;0;non fige;Ancrages M2.5 longueur environ35mm et contacts M2.5 reglables a confirmer. Ecrous et longueurs apres validation des vrais appuis. Aucun achat recommande maintenant.
+reemploi;Cables5V CN15 STLINK RS485 nappe et microSD;2ensembles;0;2ensembles;non inventorie;inconnu;230V uniquement hors boitier. Alimentations et profils materiels existants preserves.

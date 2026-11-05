@@ -1,0 +1,529 @@
+[
+  {
+    "id": "01_base",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 181333.89092816098,
+    "STEP_volume_mm3": 181340.00165321026,
+    "relative_volume_error": 3.369761218467773e-05,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        158.0,
+        166.0,
+        61.0
+      ]
+    ],
+    "triangles": 12932,
+    "density_scenario_1p27_solid_mass_g": 230.30180209957703,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 0.0,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "03_cassette_nord",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 5461.173653254097,
+    "STEP_volume_mm3": 5461.115902102727,
+    "relative_volume_error": 1.0574972662267751e-05,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        67.5999984741211,
+        53.54999923706055,
+        2.4000000953674316
+      ]
+    ],
+    "triangles": 1792,
+    "density_scenario_1p27_solid_mass_g": 6.9356171956704635,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 1.5258789005656581e-06,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "04_cassette_sud",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 7317.857551208374,
+    "STEP_volume_mm3": 7317.842975525607,
+    "relative_volume_error": 1.9918004276089355e-06,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        -1.9975069775329812e-16
+      ],
+      [
+        73.5999984741211,
+        53.54999923706055,
+        2.4000000953674316
+      ]
+    ],
+    "triangles": 476,
+    "density_scenario_1p27_solid_mass_g": 9.293660578917521,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 1.5258789005656581e-06,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "05_cassette_SD",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 1384.3374759319224,
+    "STEP_volume_mm3": 1384.3229755256773,
+    "relative_volume_error": 1.0474727719972403e-05,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        27.549999237060547,
+        39.599998474121094,
+        2.4000000953674316
+      ]
+    ],
+    "triangles": 456,
+    "density_scenario_1p27_solid_mass_g": 1.7580901789176102,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 1.5258789005656581e-06,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "06_cassette_RS485",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 1358.9519710073448,
+    "STEP_volume_mm3": 1358.9519999999868,
+    "relative_volume_error": 2.1334559278736954e-08,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        25.549999237060547,
+        38.599998474121094,
+        2.4000000953674316
+      ]
+    ],
+    "triangles": 32,
+    "density_scenario_1p27_solid_mass_g": 1.7258690399999834,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 1.5258789005656581e-06,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "07_cadre_vitre",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 1143.3092335294466,
+    "STEP_volume_mm3": 1143.284959209475,
+    "relative_volume_error": 2.1232081972366885e-05,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        -1.9948245300681453e-16
+      ],
+      [
+        61.099998474121094,
+        20.0,
+        2.0
+      ]
+    ],
+    "triangles": 880,
+    "density_scenario_1p27_solid_mass_g": 1.4519718981960332,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 1.5258789076710855e-06,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "08_trappe_USER",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 2133.1856368931353,
+    "STEP_volume_mm3": 2133.1709755256848,
+    "relative_volume_error": 6.873039066621704e-06,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        -1.9975069775329812e-16
+      ],
+      [
+        29.0,
+        31.0,
+        2.4000000953674316
+      ]
+    ],
+    "triangles": 436,
+    "density_scenario_1p27_solid_mass_g": 2.7091271389176197,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 9.536742240356944e-08,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "09_trappe_SD",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 2072.225575391004,
+    "STEP_volume_mm3": 2072.2109755256793,
+    "relative_volume_error": 7.0455496554941395e-06,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        27.299999237060547,
+        32.0,
+        2.4000000953674316
+      ]
+    ],
+    "triangles": 436,
+    "density_scenario_1p27_solid_mass_g": 2.631707938917613,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 7.629394502828291e-07,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "10_serre_nappe",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 408.40389060299395,
+    "STEP_volume_mm3": 408.36743881421216,
+    "relative_volume_error": 8.92622313072652e-05,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        -1.9948245300681453e-16
+      ],
+      [
+        28.0,
+        6.0,
+        3.0
+      ]
+    ],
+    "triangles": 900,
+    "density_scenario_1p27_solid_mass_g": 0.5186266472940495,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 8.881784197001252e-16,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "11_serre_cable_RS485",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 365.7372173734553,
+    "STEP_volume_mm3": 365.7504404611397,
+    "relative_volume_error": 3.615330624824823e-05,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0013174904743209481,
+        0.0
+      ],
+      [
+        6.0,
+        24.998682022094727,
+        3.0
+      ]
+    ],
+    "triangles": 1276,
+    "density_scenario_1p27_solid_mass_g": 0.46450305938564745,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 0.0013179779052734375,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "02_couvercle_ARNACO",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 76183.40571279288,
+    "STEP_volume_mm3": 76183.32062784475,
+    "relative_volume_error": 1.116844834729801e-06,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        158.0,
+        166.0,
+        4.0
+      ]
+    ],
+    "triangles": 5696,
+    "density_scenario_1p27_solid_mass_g": 96.75281719736283,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 0.0,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "12_trappe_outil_RS485",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 2026.829313898598,
+    "STEP_volume_mm3": 2026.8049592094744,
+    "relative_volume_error": 1.2016296394440898e-05,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        28.399999618530273,
+        36.400001525878906,
+        2.0
+      ]
+    ],
+    "triangles": 860,
+    "density_scenario_1p27_solid_mass_g": 2.5740422981960327,
+    "quantity": 2,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 1.5258789005656581e-06,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "13_D126",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 145.3862760258487,
+    "STEP_volume_mm3": 145.47144782448174,
+    "relative_volume_error": 0.0005854880796663631,
+    "mesh_bounds_mm": [
+      [
+        0.0,
+        0.0013174904743209481,
+        0.0
+      ],
+      [
+        6.0,
+        3.0,
+        12.25
+      ]
+    ],
+    "triangles": 428,
+    "density_scenario_1p27_solid_mass_g": 0.18474873873709183,
+    "quantity": 8,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 0.0013174904743209481,
+    "export_chord_tolerance_mm": 0.025,
+    "passed": true
+  },
+  {
+    "id": "14_appui_module_reglable_M2",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 21.142861203814928,
+    "STEP_volume_mm3": 21.155484929274138,
+    "relative_volume_error": 0.0005967117039109944,
+    "mesh_bounds_mm": [
+      [
+        0.0011189193464815617,
+        0.0002797454653773457,
+        0.0
+      ],
+      [
+        5.0,
+        4.999720096588135,
+        1.399999976158142
+      ]
+    ],
+    "triangles": 840,
+    "density_scenario_1p27_solid_mass_g": 0.026867465860178158,
+    "quantity": 12,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 0.0011189193464815617,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "15_retenue_Nucleo",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 208.87126234433993,
+    "STEP_volume_mm3": 208.91522121043474,
+    "relative_volume_error": 0.00021041485555776338,
+    "mesh_bounds_mm": [
+      [
+        0.0014931558398529887,
+        0.0,
+        0.0
+      ],
+      [
+        17.299341201782227,
+        6.800000190734863,
+        3.5999999046325684
+      ]
+    ],
+    "triangles": 1444,
+    "density_scenario_1p27_solid_mass_g": 0.26532233093725216,
+    "quantity": 8,
+    "status": "PRET_A_IMPRIMER",
+    "bounds_error_mm": 0.0014931558398525446,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "16_etrier_MKI",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 2012.0914636783625,
+    "STEP_volume_mm3": 2012.5041568248614,
+    "relative_volume_error": 0.0002050644939536442,
+    "mesh_bounds_mm": [
+      [
+        0.0007768191862851381,
+        7.100566290318966e-05,
+        -3.673853472180614e-16
+      ],
+      [
+        38.0,
+        40.49992752075195,
+        26.0
+      ]
+    ],
+    "triangles": 2570,
+    "density_scenario_1p27_solid_mass_g": 2.555880279167574,
+    "quantity": 2,
+    "status": "A_VALIDER_SUR_MATERIEL",
+    "bounds_error_mm": 0.0007768191862851381,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  },
+  {
+    "id": "17_etrier_Click",
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "watertight": true,
+    "winding_consistent": true,
+    "positive_mesh_volume": true,
+    "mesh_components": 1,
+    "mesh_volume_mm3": 1997.8919531071635,
+    "STEP_volume_mm3": 1998.3450610315604,
+    "relative_volume_error": 0.0002267415839399229,
+    "mesh_bounds_mm": [
+      [
+        0.0013174904743209481,
+        2.584279172879178e-05,
+        -3.6739087940199815e-16
+      ],
+      [
+        16.399999618530273,
+        43.49997329711914,
+        26.0
+      ]
+    ],
+    "triangles": 2352,
+    "density_scenario_1p27_solid_mass_g": 2.5378982275100817,
+    "quantity": 2,
+    "status": "A_VALIDER_SUR_MATERIEL",
+    "bounds_error_mm": 0.0013174904743209481,
+    "export_chord_tolerance_mm": 0.06,
+    "passed": true
+  }
+]

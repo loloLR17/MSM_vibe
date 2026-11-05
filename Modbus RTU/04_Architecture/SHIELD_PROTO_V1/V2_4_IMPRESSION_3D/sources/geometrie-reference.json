@@ -1,0 +1,2654 @@
+{
+  "PCB_V23_SHA256": "b79f2d6b1a0b44f2269087dcbdc6ba7c4ec9f5f41c704e4ebf77089f2d1729ab",
+  "pads": [
+    {
+      "ref": "R4",
+      "number": "1",
+      "net": "RTU_DE",
+      "x": 94.19,
+      "y": 108.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "R4",
+      "number": "2",
+      "net": "GND",
+      "x": 101.81,
+      "y": 108.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "",
+      "net": "",
+      "x": 45.0,
+      "y": 71.7,
+      "diameter": 2.7,
+      "drill": 2.7,
+      "npth": true
+    },
+    {
+      "ref": "J6",
+      "number": "",
+      "net": "",
+      "x": 65.32,
+      "y": 71.7,
+      "diameter": 2.7,
+      "drill": 2.7,
+      "npth": true
+    },
+    {
+      "ref": "J6",
+      "number": "1",
+      "net": "unconnected-(J6-NC-Pad1)",
+      "x": 45.0,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "2",
+      "net": "unconnected-(J6-NC-Pad2)",
+      "x": 47.54,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "3",
+      "net": "FRAM_CS",
+      "x": 50.08,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "4",
+      "net": "FRAM_MOSI",
+      "x": 52.62,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "5",
+      "net": "FRAM_MISO",
+      "x": 55.16,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "6",
+      "net": "FRAM_SCK",
+      "x": 57.7,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "7",
+      "net": "GND",
+      "x": 60.24,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "8",
+      "net": "unconnected-(J6-NC-Pad8)",
+      "x": 62.78,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J6",
+      "number": "9",
+      "net": "+3V3",
+      "x": 65.32,
+      "y": 59.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "TP2",
+      "number": "1",
+      "net": "GND",
+      "x": 57.0,
+      "y": 79.0,
+      "diameter": 1.7,
+      "drill": 1.0,
+      "npth": false
+    },
+    {
+      "ref": "TP1",
+      "number": "1",
+      "net": "+3V3",
+      "x": 52.0,
+      "y": 79.0,
+      "diameter": 1.7,
+      "drill": 1.0,
+      "npth": false
+    },
+    {
+      "ref": "R3",
+      "number": "1",
+      "net": "+3V3",
+      "x": 51.19,
+      "y": 107.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "R3",
+      "number": "2",
+      "net": "SD_CS",
+      "x": 58.81,
+      "y": 107.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "",
+      "net": "",
+      "x": 39.0,
+      "y": 20.0,
+      "diameter": 2.8,
+      "drill": 2.8,
+      "npth": true
+    },
+    {
+      "ref": "J8",
+      "number": "",
+      "net": "",
+      "x": 71.0,
+      "y": 54.5,
+      "diameter": 3.2,
+      "drill": 3.2,
+      "npth": true
+    },
+    {
+      "ref": "J8",
+      "number": "1",
+      "net": "+3V3",
+      "x": 45.0,
+      "y": 24.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "2",
+      "net": "+3V3",
+      "x": 45.0,
+      "y": 26.54,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "3",
+      "net": "unconnected-(J8-NC-Pad3)",
+      "x": 45.0,
+      "y": 29.08,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "4",
+      "net": "unconnected-(J8-NC-Pad4)",
+      "x": 45.0,
+      "y": 31.62,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "5",
+      "net": "unconnected-(J8-NC-Pad5)",
+      "x": 45.0,
+      "y": 34.16,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "6",
+      "net": "unconnected-(J8-NC-Pad6)",
+      "x": 45.0,
+      "y": 36.7,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "7",
+      "net": "unconnected-(J8-NC-Pad7)",
+      "x": 45.0,
+      "y": 39.24,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "8",
+      "net": "unconnected-(J8-NC-Pad8)",
+      "x": 45.0,
+      "y": 41.78,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "9",
+      "net": "unconnected-(J8-NC-Pad9)",
+      "x": 45.0,
+      "y": 44.32,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "10",
+      "net": "unconnected-(J8-NC-Pad10)",
+      "x": 45.0,
+      "y": 46.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "11",
+      "net": "unconnected-(J8-NC-Pad11)",
+      "x": 45.0,
+      "y": 49.4,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "12",
+      "net": "unconnected-(J8-NC-Pad12)",
+      "x": 45.0,
+      "y": 51.94,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "13",
+      "net": "GND",
+      "x": 60.24,
+      "y": 51.94,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "14",
+      "net": "unconnected-(J8-NC-Pad14)",
+      "x": 60.24,
+      "y": 49.4,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "15",
+      "net": "unconnected-(J8-NC-Pad15)",
+      "x": 60.24,
+      "y": 46.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "16",
+      "net": "unconnected-(J8-NC-Pad16)",
+      "x": 60.24,
+      "y": 44.32,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "17",
+      "net": "unconnected-(J8-NC-Pad17)",
+      "x": 60.24,
+      "y": 41.78,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "18",
+      "net": "unconnected-(J8-NC-Pad18)",
+      "x": 60.24,
+      "y": 39.24,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "19",
+      "net": "unconnected-(J8-NC-Pad19)",
+      "x": 60.24,
+      "y": 36.7,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "20",
+      "net": "unconnected-(J8-NC-Pad20)",
+      "x": 60.24,
+      "y": 34.16,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "21",
+      "net": "ACC_CS",
+      "x": 60.24,
+      "y": 31.62,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "22",
+      "net": "ACC_SCK",
+      "x": 60.24,
+      "y": 29.08,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "23",
+      "net": "ACC_MOSI",
+      "x": 60.24,
+      "y": 26.54,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J8",
+      "number": "24",
+      "net": "ACC_MISO",
+      "x": 60.24,
+      "y": 24.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "C2",
+      "number": "1",
+      "net": "+3V3",
+      "x": 38.0,
+      "y": 78.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "C2",
+      "number": "2",
+      "net": "GND",
+      "x": 40.0,
+      "y": 78.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "C1",
+      "number": "1",
+      "net": "+3V3",
+      "x": 38.0,
+      "y": 52.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "C1",
+      "number": "2",
+      "net": "GND",
+      "x": 40.54,
+      "y": 52.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "",
+      "net": "",
+      "x": 22.72,
+      "y": 85.68,
+      "diameter": 2.7,
+      "drill": 2.7,
+      "npth": true
+    },
+    {
+      "ref": "J7",
+      "number": "",
+      "net": "",
+      "x": 22.72,
+      "y": 106.0,
+      "diameter": 2.7,
+      "drill": 2.7,
+      "npth": true
+    },
+    {
+      "ref": "J7",
+      "number": "1",
+      "net": "+3V3",
+      "x": 40.5,
+      "y": 106.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "2",
+      "net": "GND",
+      "x": 40.5,
+      "y": 103.46,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "3",
+      "net": "SD_SCK",
+      "x": 40.5,
+      "y": 100.92,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "4",
+      "net": "SD_MISO",
+      "x": 40.5,
+      "y": 98.38,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "5",
+      "net": "SD_MOSI",
+      "x": 40.5,
+      "y": 95.84,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "6",
+      "net": "SD_CS",
+      "x": 40.5,
+      "y": 93.3,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "7",
+      "net": "unconnected-(J7-NC-Pad7)",
+      "x": 40.5,
+      "y": 90.76,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "8",
+      "net": "unconnected-(J7-NC-Pad8)",
+      "x": 40.5,
+      "y": 88.22,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J7",
+      "number": "9",
+      "net": "unconnected-(J7-NC-Pad9)",
+      "x": 40.5,
+      "y": 85.68,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "TP3",
+      "number": "1",
+      "net": "ACC_SCK",
+      "x": 67.0,
+      "y": 30.0,
+      "diameter": 1.7,
+      "drill": 1.0,
+      "npth": false
+    },
+    {
+      "ref": "R1",
+      "number": "1",
+      "net": "+3V3",
+      "x": 33.19,
+      "y": 31.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "R1",
+      "number": "2",
+      "net": "ACC_CS",
+      "x": 40.81,
+      "y": 31.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "",
+      "net": "",
+      "x": 91.0,
+      "y": 75.0,
+      "diameter": 2.8,
+      "drill": 2.8,
+      "npth": true
+    },
+    {
+      "ref": "J9",
+      "number": "",
+      "net": "",
+      "x": 94.5,
+      "y": 112.5,
+      "diameter": 3.2,
+      "drill": 3.2,
+      "npth": true
+    },
+    {
+      "ref": "J9",
+      "number": "1",
+      "net": "unconnected-(J9-NC-Pad1)",
+      "x": 105.0,
+      "y": 80.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "2",
+      "net": "unconnected-(J9-NC-Pad2)",
+      "x": 102.46,
+      "y": 80.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "3",
+      "net": "RTU_DE",
+      "x": 99.92,
+      "y": 80.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "4",
+      "net": "unconnected-(J9-NC-Pad4)",
+      "x": 97.38,
+      "y": 80.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "5",
+      "net": "unconnected-(J9-NC-Pad5)",
+      "x": 94.84,
+      "y": 80.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "6",
+      "net": "unconnected-(J9-NC-Pad6)",
+      "x": 92.3,
+      "y": 80.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "7",
+      "net": "+3V3",
+      "x": 89.76,
+      "y": 80.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "8",
+      "net": "GND",
+      "x": 87.22,
+      "y": 80.0,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "9",
+      "net": "GND",
+      "x": 87.22,
+      "y": 102.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "10",
+      "net": "unconnected-(J9-NC-Pad10)",
+      "x": 89.76,
+      "y": 102.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "11",
+      "net": "unconnected-(J9-NC-Pad11)",
+      "x": 92.3,
+      "y": 102.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "12",
+      "net": "unconnected-(J9-NC-Pad12)",
+      "x": 94.84,
+      "y": 102.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "13",
+      "net": "RTU_TX",
+      "x": 97.38,
+      "y": 102.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "14",
+      "net": "RTU_RX",
+      "x": 99.92,
+      "y": 102.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "15",
+      "net": "unconnected-(J9-NC-Pad15)",
+      "x": 102.46,
+      "y": 102.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J9",
+      "number": "16",
+      "net": "unconnected-(J9-NC-Pad16)",
+      "x": 105.0,
+      "y": 102.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "R2",
+      "number": "1",
+      "net": "+3V3",
+      "x": 67.19,
+      "y": 76.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "R2",
+      "number": "2",
+      "net": "FRAM_CS",
+      "x": 74.81,
+      "y": 76.0,
+      "diameter": 1.7,
+      "drill": 0.8,
+      "npth": false
+    },
+    {
+      "ref": "TP4",
+      "number": "1",
+      "net": "SD_CS",
+      "x": 57.0,
+      "y": 99.0,
+      "diameter": 1.7,
+      "drill": 1.0,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "1",
+      "net": "unconnected-(J5-NC-Pad1)",
+      "x": 85.96,
+      "y": 106.305001,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "2",
+      "net": "unconnected-(J5-NC-Pad2)",
+      "x": 88.5,
+      "y": 106.305001,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "3",
+      "net": "unconnected-(J5-NC-Pad3)",
+      "x": 85.96,
+      "y": 108.845001,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "4",
+      "net": "unconnected-(J5-NC-Pad4)",
+      "x": 88.5,
+      "y": 108.845001,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "5",
+      "net": "RTU_DE",
+      "x": 85.96,
+      "y": 111.385001,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "6",
+      "net": "unconnected-(J5-NC-Pad6)",
+      "x": 88.5,
+      "y": 111.385001,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "1",
+      "net": "unconnected-(J4-NC-Pad1)",
+      "x": 78.34,
+      "y": 52.94,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "2",
+      "net": "unconnected-(J4-NC-Pad2)",
+      "x": 80.88,
+      "y": 52.94,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "3",
+      "net": "unconnected-(J4-NC-Pad3)",
+      "x": 78.34,
+      "y": 55.48,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "4",
+      "net": "unconnected-(J4-NC-Pad4)",
+      "x": 80.88,
+      "y": 55.48,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "5",
+      "net": "unconnected-(J4-NC-Pad5)",
+      "x": 78.34,
+      "y": 58.02,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "6",
+      "net": "unconnected-(J4-NC-Pad6)",
+      "x": 80.88,
+      "y": 58.02,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "7",
+      "net": "unconnected-(J4-NC-Pad7)",
+      "x": 78.34,
+      "y": 60.56,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "8",
+      "net": "unconnected-(J4-NC-Pad8)",
+      "x": 80.88,
+      "y": 60.56,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "9",
+      "net": "unconnected-(J4-NC-Pad9)",
+      "x": 78.34,
+      "y": 63.1,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "10",
+      "net": "unconnected-(J4-NC-Pad10)",
+      "x": 80.88,
+      "y": 63.1,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "11",
+      "net": "unconnected-(J4-NC-Pad11)",
+      "x": 78.34,
+      "y": 65.64,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "12",
+      "net": "unconnected-(J4-NC-Pad12)",
+      "x": 80.88,
+      "y": 65.64,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "13",
+      "net": "unconnected-(J4-NC-Pad13)",
+      "x": 78.34,
+      "y": 68.18,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "14",
+      "net": "RTU_TX",
+      "x": 80.88,
+      "y": 68.18,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "15",
+      "net": "unconnected-(J4-NC-Pad15)",
+      "x": 78.34,
+      "y": 70.72,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "16",
+      "net": "RTU_RX",
+      "x": 80.88,
+      "y": 70.72,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "17",
+      "net": "unconnected-(J4-NC-Pad17)",
+      "x": 78.34,
+      "y": 73.26,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "18",
+      "net": "unconnected-(J4-NC-Pad18)",
+      "x": 80.88,
+      "y": 73.26,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "19",
+      "net": "unconnected-(J4-NC-Pad19)",
+      "x": 78.34,
+      "y": 75.8,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "20",
+      "net": "unconnected-(J4-NC-Pad20)",
+      "x": 80.88,
+      "y": 75.8,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "21",
+      "net": "unconnected-(J4-NC-Pad21)",
+      "x": 78.34,
+      "y": 78.34,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "22",
+      "net": "unconnected-(J4-NC-Pad22)",
+      "x": 80.88,
+      "y": 78.34,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "23",
+      "net": "unconnected-(J4-NC-Pad23)",
+      "x": 78.34,
+      "y": 80.88,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "24",
+      "net": "unconnected-(J4-NC-Pad24)",
+      "x": 80.88,
+      "y": 80.88,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "25",
+      "net": "unconnected-(J4-NC-Pad25)",
+      "x": 78.34,
+      "y": 83.42,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "26",
+      "net": "unconnected-(J4-NC-Pad26)",
+      "x": 80.88,
+      "y": 83.42,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "27",
+      "net": "unconnected-(J4-NC-Pad27)",
+      "x": 78.34,
+      "y": 85.96,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "28",
+      "net": "unconnected-(J4-NC-Pad28)",
+      "x": 80.88,
+      "y": 85.96,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "29",
+      "net": "unconnected-(J4-NC-Pad29)",
+      "x": 78.34,
+      "y": 88.5,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "30",
+      "net": "unconnected-(J4-NC-Pad30)",
+      "x": 80.88,
+      "y": 88.5,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "31",
+      "net": "unconnected-(J4-NC-Pad31)",
+      "x": 78.34,
+      "y": 91.04,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "32",
+      "net": "unconnected-(J4-NC-Pad32)",
+      "x": 80.88,
+      "y": 91.04,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "33",
+      "net": "unconnected-(J4-NC-Pad33)",
+      "x": 78.34,
+      "y": 93.58,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J4",
+      "number": "34",
+      "net": "unconnected-(J4-NC-Pad34)",
+      "x": 80.88,
+      "y": 93.58,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "1",
+      "net": "unconnected-(J2-NC-Pad1)",
+      "x": 32.619999,
+      "y": 35.16,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "2",
+      "net": "unconnected-(J2-NC-Pad2)",
+      "x": 35.159999,
+      "y": 35.16,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "3",
+      "net": "unconnected-(J2-NC-Pad3)",
+      "x": 32.619999,
+      "y": 37.7,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "4",
+      "net": "ACC_CS",
+      "x": 35.159999,
+      "y": 37.7,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "5",
+      "net": "unconnected-(J2-NC-Pad5)",
+      "x": 32.619999,
+      "y": 40.24,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "6",
+      "net": "ACC_SCK",
+      "x": 35.159999,
+      "y": 40.24,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "7",
+      "net": "+3V3",
+      "x": 32.619999,
+      "y": 42.78,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "8",
+      "net": "ACC_MISO",
+      "x": 35.159999,
+      "y": 42.78,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "9",
+      "net": "unconnected-(J2-NC-Pad9)",
+      "x": 32.619999,
+      "y": 45.32,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "10",
+      "net": "ACC_MOSI",
+      "x": 35.159999,
+      "y": 45.32,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "11",
+      "net": "GND",
+      "x": 32.619999,
+      "y": 47.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "12",
+      "net": "unconnected-(J2-NC-Pad12)",
+      "x": 35.159999,
+      "y": 47.86,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "13",
+      "net": "GND",
+      "x": 32.619999,
+      "y": 50.4,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "14",
+      "net": "unconnected-(J2-NC-Pad14)",
+      "x": 35.159999,
+      "y": 50.4,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "15",
+      "net": "unconnected-(J2-NC-Pad15)",
+      "x": 32.619999,
+      "y": 52.94,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J2",
+      "number": "16",
+      "net": "unconnected-(J2-NC-Pad16)",
+      "x": 35.159999,
+      "y": 52.94,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "",
+      "net": "",
+      "x": 32.616,
+      "y": 21.192131,
+      "diameter": 2.8,
+      "drill": 2.8,
+      "npth": true
+    },
+    {
+      "ref": "J1",
+      "number": "",
+      "net": "",
+      "x": 33.89,
+      "y": 97.39,
+      "diameter": 2.8,
+      "drill": 2.8,
+      "npth": true
+    },
+    {
+      "ref": "J1",
+      "number": "",
+      "net": "",
+      "x": 79.61,
+      "y": 97.39,
+      "diameter": 2.8,
+      "drill": 2.8,
+      "npth": true
+    },
+    {
+      "ref": "J1",
+      "number": "1",
+      "net": "unconnected-(J1-NC-Pad1)",
+      "x": 78.34,
+      "y": 26.016,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "2",
+      "net": "unconnected-(J1-NC-Pad2)",
+      "x": 80.88,
+      "y": 26.016,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "3",
+      "net": "unconnected-(J1-NC-Pad3)",
+      "x": 78.34,
+      "y": 28.556,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "4",
+      "net": "unconnected-(J1-NC-Pad4)",
+      "x": 80.88,
+      "y": 28.556,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "5",
+      "net": "SD_SCK",
+      "x": 78.34,
+      "y": 31.096,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "6",
+      "net": "unconnected-(J1-NC-Pad6)",
+      "x": 80.88,
+      "y": 31.096,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "7",
+      "net": "unconnected-(J1-NC-Pad7)",
+      "x": 78.34,
+      "y": 33.636,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "8",
+      "net": "unconnected-(J1-NC-Pad8)",
+      "x": 80.88,
+      "y": 33.636,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "9",
+      "net": "unconnected-(J1-NC-Pad9)",
+      "x": 78.34,
+      "y": 36.176,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "10",
+      "net": "FRAM_SCK",
+      "x": 80.88,
+      "y": 36.176,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "11",
+      "net": "unconnected-(J1-NC-Pad11)",
+      "x": 78.34,
+      "y": 38.716,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "12",
+      "net": "FRAM_MISO",
+      "x": 80.88,
+      "y": 38.716,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "13",
+      "net": "unconnected-(J1-NC-Pad13)",
+      "x": 78.34,
+      "y": 41.256,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "14",
+      "net": "FRAM_MOSI",
+      "x": 80.88,
+      "y": 41.256,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "15",
+      "net": "unconnected-(J1-NC-Pad15)",
+      "x": 78.34,
+      "y": 43.796,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "16",
+      "net": "FRAM_CS",
+      "x": 80.88,
+      "y": 43.796,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "17",
+      "net": "unconnected-(J1-NC-Pad17)",
+      "x": 78.34,
+      "y": 46.336,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "18",
+      "net": "unconnected-(J1-NC-Pad18)",
+      "x": 80.88,
+      "y": 46.336,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "19",
+      "net": "unconnected-(J1-NC-Pad19)",
+      "x": 78.34,
+      "y": 48.876,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J1",
+      "number": "20",
+      "net": "SD_CS",
+      "x": 80.88,
+      "y": 48.876,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "1",
+      "net": "unconnected-(J3-NC-Pad1)",
+      "x": 32.619999,
+      "y": 58.02,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "2",
+      "net": "unconnected-(J3-NC-Pad2)",
+      "x": 35.159999,
+      "y": 58.02,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "3",
+      "net": "unconnected-(J3-NC-Pad3)",
+      "x": 32.619999,
+      "y": 60.56,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "4",
+      "net": "unconnected-(J3-NC-Pad4)",
+      "x": 35.159999,
+      "y": 60.56,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "5",
+      "net": "unconnected-(J3-NC-Pad5)",
+      "x": 32.619999,
+      "y": 63.1,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "6",
+      "net": "unconnected-(J3-NC-Pad6)",
+      "x": 35.159999,
+      "y": 63.1,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "7",
+      "net": "unconnected-(J3-NC-Pad7)",
+      "x": 32.619999,
+      "y": 65.64,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "8",
+      "net": "SD_MOSI",
+      "x": 35.159999,
+      "y": 65.64,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "9",
+      "net": "unconnected-(J3-NC-Pad9)",
+      "x": 32.619999,
+      "y": 68.18,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "10",
+      "net": "SD_MISO",
+      "x": 35.159999,
+      "y": 68.18,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "11",
+      "net": "unconnected-(J3-NC-Pad11)",
+      "x": 32.619999,
+      "y": 70.72,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "12",
+      "net": "unconnected-(J3-NC-Pad12)",
+      "x": 35.159999,
+      "y": 70.72,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "13",
+      "net": "unconnected-(J3-NC-Pad13)",
+      "x": 32.619999,
+      "y": 73.26,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "14",
+      "net": "unconnected-(J3-NC-Pad14)",
+      "x": 35.159999,
+      "y": 73.26,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "15",
+      "net": "unconnected-(J3-NC-Pad15)",
+      "x": 32.619999,
+      "y": 75.8,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "16",
+      "net": "unconnected-(J3-NC-Pad16)",
+      "x": 35.159999,
+      "y": 75.8,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "17",
+      "net": "unconnected-(J3-NC-Pad17)",
+      "x": 32.619999,
+      "y": 78.34,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "18",
+      "net": "unconnected-(J3-NC-Pad18)",
+      "x": 35.159999,
+      "y": 78.34,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "19",
+      "net": "unconnected-(J3-NC-Pad19)",
+      "x": 32.619999,
+      "y": 80.88,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "20",
+      "net": "unconnected-(J3-NC-Pad20)",
+      "x": 35.159999,
+      "y": 80.88,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "21",
+      "net": "unconnected-(J3-NC-Pad21)",
+      "x": 32.619999,
+      "y": 83.42,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "22",
+      "net": "unconnected-(J3-NC-Pad22)",
+      "x": 35.159999,
+      "y": 83.42,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "23",
+      "net": "unconnected-(J3-NC-Pad23)",
+      "x": 32.619999,
+      "y": 85.96,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "24",
+      "net": "unconnected-(J3-NC-Pad24)",
+      "x": 35.159999,
+      "y": 85.96,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "25",
+      "net": "unconnected-(J3-NC-Pad25)",
+      "x": 32.619999,
+      "y": 88.5,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "26",
+      "net": "unconnected-(J3-NC-Pad26)",
+      "x": 35.159999,
+      "y": 88.5,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "27",
+      "net": "unconnected-(J3-NC-Pad27)",
+      "x": 32.619999,
+      "y": 91.04,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "28",
+      "net": "unconnected-(J3-NC-Pad28)",
+      "x": 35.159999,
+      "y": 91.04,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "29",
+      "net": "unconnected-(J3-NC-Pad29)",
+      "x": 32.619999,
+      "y": 93.58,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    },
+    {
+      "ref": "J3",
+      "number": "30",
+      "net": "unconnected-(J3-NC-Pad30)",
+      "x": 35.159999,
+      "y": 93.58,
+      "diameter": 1.7,
+      "drill": 1.02,
+      "npth": false
+    }
+  ],
+  "Nucleo_outline": [
+    [
+      21.75397398,
+      124.59886861999999
+    ],
+    [
+      21.75397398,
+      124.79585324
+    ],
+    [
+      21.83083184,
+      125.18224819999999
+    ],
+    [
+      21.98159608,
+      125.54622511999999
+    ],
+    [
+      22.20047042,
+      125.87379621999999
+    ],
+    [
+      22.47904746,
+      126.15237325999999
+    ],
+    [
+      22.80661856,
+      126.37124759999999
+    ],
+    [
+      23.17059548,
+      126.52201183999999
+    ],
+    [
+      23.55699044,
+      126.5988697
+    ],
+    [
+      23.74999996,
+      126.6
+    ],
+    [
+      89.75006861999998,
+      126.59482602
+    ],
+    [
+      89.9470507,
+      126.59482602
+    ],
+    [
+      90.33344566,
+      126.51796816
+    ],
+    [
+      90.69742258,
+      126.36720392
+    ],
+    [
+      91.02499368,
+      126.14832958
+    ],
+    [
+      91.30357072000001,
+      125.86975254
+    ],
+    [
+      91.52244506,
+      125.54218144
+    ],
+    [
+      91.6732093,
+      125.17820452
+    ],
+    [
+      91.75006970000001,
+      124.79180955999999
+    ],
+    [
+      91.75006970000001,
+      124.59482494
+    ],
+    [
+      91.75006970000001,
+      -4.739770339999978
+    ],
+    [
+      91.75006715999999,
+      -4.936754960000002
+    ],
+    [
+      91.67320676,
+      -5.323149919999992
+    ],
+    [
+      91.52244252,
+      -5.687126839999991
+    ],
+    [
+      91.30356817999998,
+      -6.014697939999991
+    ],
+    [
+      91.02499114,
+      -6.293274980000007
+    ],
+    [
+      90.69742004,
+      -6.512149319999992
+    ],
+    [
+      90.33344312,
+      -6.662913559999993
+    ],
+    [
+      89.94704816000001,
+      -6.739773960000008
+    ],
+    [
+      89.75006607999998,
+      -6.739776500000005
+    ],
+    [
+      23.75006854,
+      -6.739776500000005
+    ],
+    [
+      23.55308392,
+      -6.739773960000008
+    ],
+    [
+      23.16668896,
+      -6.662913559999993
+    ],
+    [
+      22.80271204,
+      -6.512149319999992
+    ],
+    [
+      22.47514094,
+      -6.293274980000007
+    ],
+    [
+      22.1965639,
+      -6.014697939999991
+    ],
+    [
+      21.977689559999998,
+      -5.687126839999991
+    ],
+    [
+      21.82692532,
+      -5.323149919999992
+    ],
+    [
+      21.75006746,
+      -4.936754960000002
+    ],
+    [
+      21.75006746,
+      -4.739772880000004
+    ],
+    [
+      21.75397398,
+      124.59886861999999
+    ]
+  ],
+  "shield_outline": [
+    [
+      20,
+      17
+    ],
+    [
+      110,
+      17
+    ],
+    [
+      110,
+      117
+    ],
+    [
+      20,
+      117
+    ]
+  ],
+  "components": [
+    {
+      "ref": "J1",
+      "value": "NUCLEO_CN7",
+      "kind": "dual",
+      "n": 10,
+      "xy_mm": [
+        78.34,
+        26.016
+      ],
+      "schematic_xy": [
+        55.88,
+        45.72
+      ],
+      "nets": {
+        "5": "SD_SCK",
+        "10": "FRAM_SCK",
+        "12": "FRAM_MISO",
+        "14": "FRAM_MOSI",
+        "16": "FRAM_CS",
+        "20": "SD_CS"
+      },
+      "pin_types": {
+        "5": "output",
+        "10": "output",
+        "12": "input",
+        "14": "output",
+        "16": "output",
+        "20": "output"
+      },
+      "uuid": "9b14ca82-d539-540a-9776-b6dbb139a5ee",
+      "footprint": "TR2:J1_NUCLEO_CN7",
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x10",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
+    },
+    {
+      "ref": "J2",
+      "value": "NUCLEO_CN8",
+      "kind": "dual",
+      "n": 8,
+      "xy_mm": [
+        32.62,
+        35.16
+      ],
+      "schematic_xy": [
+        55.88,
+        96.52
+      ],
+      "nets": {
+        "4": "ACC_CS",
+        "6": "ACC_SCK",
+        "8": "ACC_MISO",
+        "10": "ACC_MOSI",
+        "7": "+3V3",
+        "11": "GND",
+        "13": "GND"
+      },
+      "pin_types": {
+        "4": "output",
+        "6": "output",
+        "8": "input",
+        "10": "output",
+        "7": "power_out",
+        "11": "power_out"
+      },
+      "uuid": "fcdb1be0-3004-550a-96e0-09c3aee7d3ba",
+      "footprint": "TR2:J2_NUCLEO_CN8",
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x8",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
+    },
+    {
+      "ref": "J3",
+      "value": "NUCLEO_CN9",
+      "kind": "dual",
+      "n": 15,
+      "xy_mm": [
+        32.62,
+        58.02
+      ],
+      "schematic_xy": [
+        55.88,
+        154.94
+      ],
+      "nets": {
+        "8": "SD_MOSI",
+        "10": "SD_MISO"
+      },
+      "pin_types": {
+        "8": "output",
+        "10": "input"
+      },
+      "uuid": "732b3b0b-58f2-58e9-831d-36e1be7d845f",
+      "footprint": "TR2:J3_NUCLEO_CN9",
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x15",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
+    },
+    {
+      "ref": "J4",
+      "value": "NUCLEO_CN10",
+      "kind": "dual",
+      "n": 17,
+      "xy_mm": [
+        78.34,
+        52.94
+      ],
+      "schematic_xy": [
+        55.88,
+        228.6
+      ],
+      "nets": {
+        "14": "RTU_TX",
+        "16": "RTU_RX"
+      },
+      "pin_types": {
+        "14": "output",
+        "16": "input"
+      },
+      "uuid": "c83fa3f9-f86f-5747-8d28-c4e826b71b67",
+      "footprint": "TR2:J4_NUCLEO_CN10",
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x17",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
+    },
+    {
+      "ref": "J5",
+      "value": "CN12_65_70_2X3_FEMALE",
+      "kind": "dual",
+      "n": 3,
+      "xy_mm": [
+        85.96,
+        106.305001
+      ],
+      "schematic_xy": [
+        162.56,
+        48.26
+      ],
+      "nets": {
+        "5": "RTU_DE"
+      },
+      "pin_types": {
+        "5": "output"
+      },
+      "uuid": "0349d0d4-8512-5aa0-8312-66858bb4e6e1",
+      "footprint": "TR2:J5_CN12_65_70_2X3_FEMALE",
+      "physical_pin_numbers": {
+        "1": "CN12-65/PD10 NC empty",
+        "2": "CN12-66/PG8 NC male",
+        "3": "CN12-67/PG7 NC male",
+        "4": "CN12-68/PG5 NC male",
+        "5": "CN12-69/PG4 RTU_DE male",
+        "6": "CN12-70/PG6 NC empty"
+      },
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "SSW-103-01-F-D",
+      "connector_gender": "FEMALE",
+      "body_height_nominal_mm": 8.51,
+      "tail_length_mm": 2.64,
+      "mating_face": "DOWN_TO_EXISTING_NUCLEO_MALE",
+      "mechanical_note": "Samtec SSW10301FD underneath,0.025inch square matingpost, existing males staggered66..69; measured tip8.22/body2.40; actual Zio stack still unverified",
+      "operator_populated_pins": [
+        66,
+        67,
+        68,
+        69
+      ],
+      "body_size_nominal_mm": [
+        4.95,
+        8.13
+      ],
+      "mating_insertion_min_mm": 3.68,
+      "mating_insertion_max_mm": 6.35,
+      "male_section_nominal_mm": 0.635
+    },
+    {
+      "ref": "J6",
+      "value": "ADAFRUIT_4718",
+      "kind": "fram",
+      "n": 9,
+      "xy_mm": [
+        45,
+        59
+      ],
+      "schematic_xy": [
+        162.56,
+        101.6
+      ],
+      "nets": {
+        "3": "FRAM_CS",
+        "4": "FRAM_MOSI",
+        "5": "FRAM_MISO",
+        "6": "FRAM_SCK",
+        "7": "GND",
+        "9": "+3V3"
+      },
+      "pin_types": {
+        "3": "input",
+        "4": "input",
+        "5": "output",
+        "6": "input",
+        "7": "power_in",
+        "8": "power_out",
+        "9": "power_in"
+      },
+      "uuid": "6a242382-d935-5772-83f0-77bf04061899",
+      "footprint": "TR2:J6_ADAFRUIT_4718",
+      "assembly_side": "TOP",
+      "power_note": "VIN/JP1-9 fed from Nucleo3V3 per manufacturer; regulator output JP1-8 NC",
+      "candidate_mpn": "2212S-09G-85",
+      "connector_gender": "FEMALE"
+    },
+    {
+      "ref": "J7",
+      "value": "ADAFRUIT_4682",
+      "kind": "sd",
+      "n": 9,
+      "xy_mm": [
+        40.5,
+        106
+      ],
+      "schematic_xy": [
+        162.56,
+        160.02
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "GND",
+        "3": "SD_SCK",
+        "4": "SD_MISO",
+        "5": "SD_MOSI",
+        "6": "SD_CS"
+      },
+      "pin_types": {
+        "1": "power_in",
+        "2": "power_in",
+        "3": "input",
+        "4": "output",
+        "5": "input",
+        "6": "input"
+      },
+      "uuid": "c596d58a-1f93-5084-8de7-3914057baa72",
+      "footprint": "TR2:J7_ADAFRUIT_4682",
+      "assembly_side": "TOP",
+      "mechanical_note": "Socket push-push opening towards -X per 4UCON15882/Eagle R180; leftward shift3.5mm, actual throat/height gate remains",
+      "candidate_mpn": "2212S-09G-85",
+      "connector_gender": "FEMALE"
+    },
+    {
+      "ref": "J8",
+      "value": "ST_MKIGIBV2",
+      "kind": "dil",
+      "n": 12,
+      "xy_mm": [
+        45,
+        24
+      ],
+      "schematic_xy": [
+        287.02,
+        66.04
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "+3V3",
+        "13": "GND",
+        "21": "ACC_CS",
+        "22": "ACC_SCK",
+        "23": "ACC_MOSI",
+        "24": "ACC_MISO"
+      },
+      "pin_types": {
+        "1": "power_in",
+        "2": "power_in",
+        "13": "power_in",
+        "21": "input",
+        "22": "input",
+        "23": "input",
+        "24": "output"
+      },
+      "uuid": "2d6cb883-1cf0-5b3d-b297-864900a98bbc",
+      "footprint": "TR2:J8_ST_MKIGIBV2",
+      "assembly_side": "TOP",
+      "row_pitch_mm": 15.24,
+      "physical_entrance_measured_mm": 15.2,
+      "release_gate": "Ground physically identified by user bottom-right JP2; nominal15.24mm from measured15.2mm, body envelope still requires assembly inspection",
+      "candidate_mpn": "2 x DS1023-1*12S21",
+      "connector_gender": "FEMALE"
+    },
+    {
+      "ref": "J9",
+      "value": "MIKROE_3863",
+      "kind": "click",
+      "n": 8,
+      "xy_mm": [
+        105,
+        80
+      ],
+      "schematic_xy": [
+        287.02,
+        132.08
+      ],
+      "nets": {
+        "3": "RTU_DE",
+        "7": "+3V3",
+        "8": "GND",
+        "9": "GND",
+        "13": "RTU_TX",
+        "14": "RTU_RX"
+      },
+      "pin_types": {
+        "3": "input",
+        "7": "power_in",
+        "8": "power_in",
+        "9": "power_in",
+        "13": "input",
+        "14": "output"
+      },
+      "uuid": "de265aaa-28e0-5a72-89e1-9fac3d23e5c6",
+      "footprint": "TR2:J9_MIKROE_3863",
+      "assembly_side": "TOP",
+      "notes": "RE pin2 NC, existing module J2 common DE-/RE preserved; VCCSEL3V3. Secondary bus remains on overhanging module, no GND2 net on shield",
+      "candidate_mpn": "2 x DS1023-1*8S21",
+      "connector_gender": "FEMALE"
+    },
+    {
+      "ref": "R1",
+      "value": "10k",
+      "kind": "resistor",
+      "n": 2,
+      "xy_mm": [
+        37,
+        31
+      ],
+      "schematic_xy": [
+        264.16,
+        205.74
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "ACC_CS"
+      },
+      "pin_types": {},
+      "uuid": "66c4b8d6-4e88-55d6-acbd-7c7894683f3e",
+      "footprint": "TR2:R1_10k",
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
+    },
+    {
+      "ref": "R2",
+      "value": "10k",
+      "kind": "resistor",
+      "n": 2,
+      "xy_mm": [
+        71,
+        76
+      ],
+      "schematic_xy": [
+        264.16,
+        223.52
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "FRAM_CS"
+      },
+      "pin_types": {},
+      "uuid": "1db46d95-bbda-5074-b8ae-ebf5f384b0a4",
+      "footprint": "TR2:R2_10k",
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
+    },
+    {
+      "ref": "R3",
+      "value": "10k",
+      "kind": "resistor",
+      "n": 2,
+      "xy_mm": [
+        55,
+        107
+      ],
+      "schematic_xy": [
+        264.16,
+        241.3
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "SD_CS"
+      },
+      "pin_types": {},
+      "uuid": "f23fa699-c673-5f4c-ae15-64a7b482ed60",
+      "footprint": "TR2:R3_10k",
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
+    },
+    {
+      "ref": "R4",
+      "value": "10k",
+      "kind": "resistor",
+      "n": 2,
+      "xy_mm": [
+        98,
+        108
+      ],
+      "schematic_xy": [
+        337.82,
+        205.74
+      ],
+      "nets": {
+        "1": "RTU_DE",
+        "2": "GND"
+      },
+      "pin_types": {},
+      "uuid": "cec83182-8317-5fe4-bcfb-e68c76960341",
+      "footprint": "TR2:R4_10k",
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
+    },
+    {
+      "ref": "C1",
+      "value": "100n",
+      "kind": "capacitor",
+      "n": 2,
+      "xy_mm": [
+        38,
+        52
+      ],
+      "schematic_xy": [
+        337.82,
+        223.52
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "pin_types": {},
+      "uuid": "464cee31-439c-535a-9350-a594a3190294",
+      "footprint": "TR2:C1_100n",
+      "assembly_side": "TOP",
+      "candidate_mpn": "C315C104K5R5TA",
+      "lead_pitch_mm": 2.54
+    },
+    {
+      "ref": "C2",
+      "value": "10u_10V",
+      "kind": "capacitor",
+      "n": 2,
+      "xy_mm": [
+        38,
+        78
+      ],
+      "schematic_xy": [
+        337.82,
+        241.3
+      ],
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "pin_types": {},
+      "uuid": "2454dcf0-e4b4-5874-88ca-f883ddbdf9d7",
+      "footprint": "TR2:C2_10u_10V",
+      "assembly_side": "TOP",
+      "candidate_mpn": "ECA1HM100",
+      "lead_pitch_mm": 2.0,
+      "body_diameter_max_mm": 5.5
+    },
+    {
+      "ref": "TP1",
+      "value": "TP_3V3",
+      "kind": "testpoint",
+      "n": 1,
+      "xy_mm": [
+        52,
+        79
+      ],
+      "schematic_xy": [
+        370.84,
+        68.58
+      ],
+      "nets": {
+        "1": "+3V3"
+      },
+      "pin_types": {},
+      "uuid": "5d57dd2f-216f-5d43-95cf-0f16007ebd48",
+      "footprint": "TR2:TP1_TP_3V3",
+      "assembly_side": "TOP"
+    },
+    {
+      "ref": "TP2",
+      "value": "TP_GND",
+      "kind": "testpoint",
+      "n": 1,
+      "xy_mm": [
+        57,
+        79
+      ],
+      "schematic_xy": [
+        370.84,
+        86.36
+      ],
+      "nets": {
+        "1": "GND"
+      },
+      "pin_types": {},
+      "uuid": "1da2c27e-3b89-566f-8fba-5eb8c5c1f20d",
+      "footprint": "TR2:TP2_TP_GND",
+      "assembly_side": "TOP"
+    },
+    {
+      "ref": "TP3",
+      "value": "TP_ACC_SCK",
+      "kind": "testpoint",
+      "n": 1,
+      "xy_mm": [
+        67,
+        30
+      ],
+      "schematic_xy": [
+        370.84,
+        104.14
+      ],
+      "nets": {
+        "1": "ACC_SCK"
+      },
+      "pin_types": {},
+      "uuid": "158999c0-3af0-5ee8-acd3-499cbacfd69b",
+      "footprint": "TR2:TP3_TP_ACC_SCK",
+      "assembly_side": "TOP"
+    },
+    {
+      "ref": "TP4",
+      "value": "TP_SD_CS",
+      "kind": "testpoint",
+      "n": 1,
+      "xy_mm": [
+        57,
+        99
+      ],
+      "schematic_xy": [
+        370.84,
+        121.92
+      ],
+      "nets": {
+        "1": "SD_CS"
+      },
+      "pin_types": {},
+      "uuid": "cf6a0e49-b240-5793-ba2c-005d0d148c7d",
+      "footprint": "TR2:TP4_TP_SD_CS",
+      "assembly_side": "TOP"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+Base coverage proved 0.0
+C05 check 01_base
+C05 check 03_cassette_nord
+C05 check 04_cassette_sud
+C05 check 05_cassette_SD
+C05 check 06_cassette_RS485
+C05 check 07_cadre_vitre
+C05 check 08_trappe_USER
+C05 check 09_trappe_SD
+C05 check 10_serre_nappe
+C05 check 11_serre_cable_RS485
+C05 check 02_couvercle_ARNACO
+C05 check 12_trappe_outil_RS485
+C05 check D126_0
+C05 check D126_1
+C05 check D126_2
+C05 check appui_45_71.7
+C05 check appui_65.32_71.7
+C05 check appui_22.72_85.68
+C05 check appui_22.72_106
+C05 check retenue_0
+C05 check retenue_1
+C05 check retenue_2
+C05 check 16_etrier_MKI
+C05 check 17_etrier_Click
+{
+  "mesh_passed": 17,
+  "meshes_total": 17,
+  "logo_passed": true,
+  "own_hits": [],
+  "reference_hits": [],
+  "C05_population_hits": [],
+  "optical_clear_observers": 66,
+  "D126_identity": true
+}

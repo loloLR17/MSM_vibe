@@ -1,0 +1,16 @@
+{
+  "scope": "15 authorized types for two prototypes, printed spares included, excluded bridges absent",
+  "printed_parts": 52,
+  "solid_CAD_volume_mm3": 565479.2509368873,
+  "density_scenario_g_cm3": 1.27,
+  "solid_CAD_mass_g": 718.1586486898469,
+  "filament_diameter_scenario_mm": 1.75,
+  "solid_filament_length_m": 235.09895314940843,
+  "budget_allowance_fraction_not_measured": 0.2,
+  "solid_mass_plus_allowance_g": 861.7903784278163,
+  "time": "non estimé",
+  "energy": "non estimée",
+  "actual_sliced_mass": null,
+  "density_source": "https://prusament.com/wp-content/uploads/2022/10/PETG_Prusament_TDS_2021_10_EN.pdf",
+  "limits": "Dense CAD scenario, no slicer run, no mechanical rating. Allowance is budget only, not a guarantee against failed prints."
+}

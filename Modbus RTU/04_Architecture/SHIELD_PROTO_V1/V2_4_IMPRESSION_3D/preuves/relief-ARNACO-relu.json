@@ -1,0 +1,16 @@
+{
+  "glyph_count": 6,
+  "emboss_area_mm2": 193.82327061166427,
+  "plain_lid_volume": 75989.49735723318,
+  "lid_volume": 76183.32062784473,
+  "expected_added_relief_volume": 193.82327061166427,
+  "relief_height": 1,
+  "no_copyright_or_motto": true,
+  "reopened_STEP_valid": true,
+  "reopened_lid_solids": 1,
+  "raised_glyphs_above_Z50": 6,
+  "raised_volume_mm3": 193.82327061163923,
+  "measured_top_Z": 51.0,
+  "measured_added_volume": 193.82327061156684,
+  "passed": true
+}

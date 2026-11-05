@@ -1,0 +1,16 @@
+STL;quantite_deux_kits;utiles;reserves;dimensions_X_Y_Z_mm;orientation_deja_appliquee;note
+01_base.stl;2;2;0;158.000 x 166.000 x 61.002;flat;"Fond -14, plancher -11; baies en U ouvertes en haut; poches écrous M3, pas de filets imprimés"
+03_cassette_nord.stl;2;2;0;67.600 x 53.550 x 2.402;north;
+04_cassette_sud.stl;2;2;0;73.600 x 53.550 x 2.402;south;
+05_cassette_SD.stl;2;2;0;27.550 x 39.600 x 2.402;west;
+06_cassette_RS485.stl;2;2;0;25.550 x 38.600 x 2.400;east;
+07_cadre_vitre.stl;2;2;0;61.100 x 20.000 x 2.002;north;
+08_trappe_USER.stl;2;2;0;29.000 x 31.000 x 2.402;south;
+09_trappe_SD.stl;2;2;0;27.300 x 32.000 x 2.402;west;
+10_serre_nappe.stl;2;2;0;28.000 x 6.000 x 3.002;north;
+11_serre_cable_RS485.stl;2;2;0;6.003 x 25.000 x 3.003;flat;
+02_couvercle_ARNACO.stl;2;2;0;158.000 x 166.000 x 4.001;flat;"Relief ARNACO intégré1mm, six glyphes, aucune devise; face intérieure à plat"
+12_trappe_outil_RS485.stl;2;2;0;28.400 x 36.400 x 2.002;flat;
+13_D126.stl;8;6;2;6.003 x 3.001 x 12.253;flat;"12,25±0,10 à accepter après impression; couches0,10 et100%; ouvrir vers CN15 en haut, STLINK en bas"
+14_appui_module_reglable_M2.stl;12;8;4;5.001 x 5.002 x 1.402;flat;"8appuis+4réserves; M2x20 avec2écrous inférieurs contrebloqués et1supérieur; aucune hauteur11mm imposée"
+15_retenue_Nucleo.stl;8;6;2;17.300 x 6.803 x 3.602;upside_down;"6utiles+2réserves, lumièreM3; jeu antilevée0,8 nominal sans serrer le PCB"

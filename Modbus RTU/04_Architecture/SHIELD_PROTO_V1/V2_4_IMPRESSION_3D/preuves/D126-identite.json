@@ -1,0 +1,21 @@
+{
+  "symmetric_difference_mm3": 0.0,
+  "old_bounds": [
+    -3.0,
+    3.0,
+    -3.0,
+    3.6739403974420594e-16,
+    0.0,
+    12.25
+  ],
+  "new_bounds": [
+    -3.0,
+    3.0,
+    -3.0,
+    3.6739403974420594e-16,
+    0.0,
+    12.25
+  ],
+  "same_profile": true,
+  "prior_nine_cases": "V2_1_FIXATIONS/preuves/validation-finale.json; not repeated"
+}

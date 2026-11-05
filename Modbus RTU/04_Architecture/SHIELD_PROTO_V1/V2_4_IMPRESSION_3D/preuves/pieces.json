@@ -1,0 +1,291 @@
+[
+  {
+    "id": "01_base",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/01_base.stl",
+    "STEP": "cad/01_base.step",
+    "dimensions_print_mm": [
+      158.00000020000013,
+      166.00000020000013,
+      61.0022384791397
+    ],
+    "volume_mm3": 181340.00165298398,
+    "orientation": "flat",
+    "note": "Fond -14, plancher -11; baies en U ouvertes en haut; poches écrous M3, pas de filets imprimés"
+  },
+  {
+    "id": "03_cassette_nord",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/03_cassette_nord.stl",
+    "STEP": "cad/03_cassette_nord.step",
+    "dimensions_print_mm": [
+      67.60000020000001,
+      53.55000020000003,
+      2.401611443779399
+    ],
+    "volume_mm3": 5461.11590210274,
+    "orientation": "north",
+    "note": ""
+  },
+  {
+    "id": "04_cassette_sud",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/04_cassette_sud.stl",
+    "STEP": "cad/04_cassette_sud.step",
+    "dimensions_print_mm": [
+      73.60000020000001,
+      53.550000200000014,
+      2.401611443779376
+    ],
+    "volume_mm3": 7317.842975525616,
+    "orientation": "south",
+    "note": ""
+  },
+  {
+    "id": "05_cassette_SD",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/05_cassette_SD.stl",
+    "STEP": "cad/05_cassette_SD.step",
+    "dimensions_print_mm": [
+      27.55000020000001,
+      39.60000020000001,
+      2.4016114437793936
+    ],
+    "volume_mm3": 1384.3229755256846,
+    "orientation": "west",
+    "note": ""
+  },
+  {
+    "id": "06_cassette_RS485",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/06_cassette_RS485.stl",
+    "STEP": "cad/06_cassette_RS485.step",
+    "dimensions_print_mm": [
+      25.55000020000001,
+      38.6000002,
+      2.400000199999984
+    ],
+    "volume_mm3": 1358.951999999987,
+    "orientation": "east",
+    "note": ""
+  },
+  {
+    "id": "07_cadre_vitre",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/07_cadre_vitre.stl",
+    "STEP": "cad/07_cadre_vitre.step",
+    "dimensions_print_mm": [
+      61.10000020000003,
+      20.00000020000003,
+      2.0016114437793995
+    ],
+    "volume_mm3": 1143.2849592094763,
+    "orientation": "north",
+    "note": ""
+  },
+  {
+    "id": "08_trappe_USER",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/08_trappe_USER.stl",
+    "STEP": "cad/08_trappe_USER.step",
+    "dimensions_print_mm": [
+      29.000000200000017,
+      31.000000200000017,
+      2.4016114437794007
+    ],
+    "volume_mm3": 2133.170975525691,
+    "orientation": "south",
+    "note": ""
+  },
+  {
+    "id": "09_trappe_SD",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/09_trappe_SD.stl",
+    "STEP": "cad/09_trappe_SD.step",
+    "dimensions_print_mm": [
+      27.300000200000007,
+      32.0000002,
+      2.401611443779396
+    ],
+    "volume_mm3": 2072.2109755256847,
+    "orientation": "west",
+    "note": ""
+  },
+  {
+    "id": "10_serre_nappe",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/10_serre_nappe.stl",
+    "STEP": "cad/10_serre_nappe.step",
+    "dimensions_print_mm": [
+      28.000000200000002,
+      6.000000200000002,
+      3.001611443779396
+    ],
+    "volume_mm3": 408.36743881421444,
+    "orientation": "north",
+    "note": ""
+  },
+  {
+    "id": "11_serre_cable_RS485",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/11_serre_cable_RS485.stl",
+    "STEP": "cad/11_serre_cable_RS485.step",
+    "dimensions_print_mm": [
+      6.002635180947243,
+      25.000000200000006,
+      3.002635180947242
+    ],
+    "volume_mm3": 365.75044046113896,
+    "orientation": "flat",
+    "note": ""
+  },
+  {
+    "id": "02_couvercle_ARNACO",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/02_couvercle_ARNACO.stl",
+    "STEP": "cad/02_couvercle_ARNACO.step",
+    "dimensions_print_mm": [
+      158.0000002000001,
+      166.0000002000001,
+      4.0008058218897435
+    ],
+    "volume_mm3": 76183.32062784473,
+    "orientation": "flat",
+    "note": "Relief ARNACO intégré1mm, six glyphes, aucune devise; face intérieure à plat"
+  },
+  {
+    "id": "12_trappe_outil_RS485",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/PRET_A_IMPRIMER/12_trappe_outil_RS485.stl",
+    "STEP": "cad/12_trappe_outil_RS485.step",
+    "dimensions_print_mm": [
+      28.400000200000008,
+      36.40000020000002,
+      2.001611443779395
+    ],
+    "volume_mm3": 2026.8049592094758,
+    "orientation": "flat",
+    "note": ""
+  },
+  {
+    "id": "13_D126",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 8,
+    "useful_two_kits": 6,
+    "spares": 2,
+    "STL": "stl/PRET_A_IMPRIMER/13_D126.stl",
+    "STEP": "cad/13_D126.step",
+    "dimensions_print_mm": [
+      6.002635180947236,
+      3.001317690473619,
+      12.252635180947237
+    ],
+    "volume_mm3": 145.47144782447538,
+    "orientation": "flat",
+    "note": "12,25±0,10 à accepter après impression; couches0,10 et100%; ouvrir vers CN15 en haut, STLINK en bas"
+  },
+  {
+    "id": "14_appui_module_reglable_M2",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 12,
+    "useful_two_kits": 8,
+    "spares": 4,
+    "STL": "stl/PRET_A_IMPRIMER/14_appui_module_reglable_M2.stl",
+    "STEP": "cad/14_appui_module_reglable_M2.step",
+    "dimensions_print_mm": [
+      5.001119119291244,
+      5.001678547633853,
+      1.4022380385824853
+    ],
+    "volume_mm3": 21.155484929273666,
+    "orientation": "flat",
+    "note": "8appuis+4réserves; M2x20 avec2écrous inférieurs contrebloqués et1supérieur; aucune hauteur11mm imposée"
+  },
+  {
+    "id": "15_retenue_Nucleo",
+    "status": "PRET_A_IMPRIMER",
+    "quantity_to_print_two_kits": 8,
+    "useful_two_kits": 6,
+    "spares": 2,
+    "STL": "stl/PRET_A_IMPRIMER/15_retenue_Nucleo.stl",
+    "STEP": "cad/15_retenue_Nucleo.step",
+    "dimensions_print_mm": [
+      17.300000200000003,
+      6.802986511740201,
+      3.6020304371298986
+    ],
+    "volume_mm3": 208.91522121043377,
+    "orientation": "upside_down",
+    "note": "6utiles+2réserves, lumièreM3; jeu antilevée0,8 nominal sans serrer le PCB"
+  },
+  {
+    "id": "16_etrier_MKI",
+    "status": "A_VALIDER_SUR_MATERIEL",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/A_VALIDER_SUR_MATERIEL/16_etrier_MKI.stl",
+    "STEP": "cad/16_etrier_MKI.step",
+    "dimensions_print_mm": [
+      38.001916713367805,
+      40.502551521222614,
+      26.002701458802694
+    ],
+    "volume_mm3": 2012.5041568265103,
+    "orientation": "upside_down",
+    "note": "Corps vérifiable; zones nues/contact et composants réels non démontrés. Vis de contact réglables, aucun patin fixe inventé."
+  },
+  {
+    "id": "17_etrier_Click",
+    "status": "A_VALIDER_SUR_MATERIEL",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/A_VALIDER_SUR_MATERIEL/17_etrier_Click.stl",
+    "STEP": "cad/17_etrier_Click.step",
+    "dimensions_print_mm": [
+      16.4013429031495,
+      43.50278627061667,
+      26.002990306098035
+    ],
+    "volume_mm3": 1998.3450610312898,
+    "orientation": "upside_down",
+    "note": "Corps vérifiable; zones nues/contact et composants réels non démontrés. Vis de contact réglables, aucun patin fixe inventé."
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "gauges": [
+    {
+      "gauge": "CN1_cable_acceptance_20x12",
+      "positive_intersections": [],
+      "passed": true
+    },
+    {
+      "gauge": "CN15_cable_acceptance_20x12",
+      "positive_intersections": [],
+      "passed": true
+    },
+    {
+      "gauge": "SD_card_release_corridor",
+      "positive_intersections": [],
+      "passed": true
+    },
+    {
+      "gauge": "USER_finger_10x10_acceptance",
+      "positive_intersections": [],
+      "passed": true
+    },
+    {
+      "gauge": "RS485_external_passage",
+      "positive_intersections": [],
+      "passed": true
+    },
+    {
+      "gauge": "RS485_tool_vertical_acceptance",
+      "positive_intersections": [],
+      "passed": true
+    },
+    {
+      "gauge": "ribbon_port_8x2_acceptance",
+      "positive_intersections": [],
+      "passed": true
+    }
+  ],
+  "M3_shaft_head_design_limits": {
+    "shafts": 17,
+    "diameter": 3,
+    "M3x12_count": 3,
+    "M3x16_count": 14,
+    "head_max_diameter": 6,
+    "head_max_height": 3,
+    "positive_intersections_with_global_parts": []
+  },
+  "SD_added_M2_hardware_intersections": [],
+  "top_SD_nut_to_card_corridor_minimum_analytical_mm": 0.31059892324148564,
+  "scope": "Own shell/panels only; real plugs/eye/IDC/cable/finger still not measured. USER probe stops before actual button; no force/course claim. Tool cap and service doors removed. Nominal M2 module hardware only.",
+  "passed": true
+}

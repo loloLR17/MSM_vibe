@@ -1,0 +1,117 @@
+{
+  "source_sha256_from_V20": "55f465f8de566561905f97e4b10533a4de33dd13842a5bd9f25bc9d7f06a9900",
+  "cache_sha256": "4b9034a187f5c53ec37975c60bb3435c50000de53baafcb3731e60f0a6cf4c37",
+  "source_solids": 1060,
+  "base_occupancy_uncovered_volume": 0.0,
+  "Boolean_pairs_checked": 4,
+  "excluded_full_Morpho_indices": [
+    93,
+    965
+  ],
+  "full_source_positive_intersections": [
+    {
+      "part": "01_base",
+      "ST_index": 437,
+      "mm3": 0.34497162707813944,
+      "intersection_bounds": [
+        32.2985601627265,
+        32.933560209289034,
+        -25.31976468238618,
+        -24.684764674813827,
+        -2.54000001387837,
+        -1.5999999999999996
+      ],
+      "full_Morpho_model_excluded_in_population_scenario": false
+    },
+    {
+      "part": "01_base",
+      "ST_index": 894,
+      "mm3": 5.290026910479309,
+      "intersection_bounds": [
+        32.41672519144771,
+        35.363125582271415,
+        -93.973613668771,
+        -93.18621353997939,
+        -10.007600064395637,
+        -1.5999999999999979
+      ],
+      "full_Morpho_model_excluded_in_population_scenario": false
+    },
+    {
+      "part": "01_base",
+      "ST_index": 900,
+      "mm3": 5.290026910479285,
+      "intersection_bounds": [
+        78.13675704075663,
+        81.08315743158036,
+        -93.9735746062706,
+        -93.18617447747934,
+        -10.007600064395637,
+        -1.5999999999999979
+      ],
+      "full_Morpho_model_excluded_in_population_scenario": false
+    }
+  ],
+  "population_scenario_positive_intersections": [
+    {
+      "part": "01_base",
+      "ST_index": 437,
+      "mm3": 0.34497162707813944,
+      "intersection_bounds": [
+        32.2985601627265,
+        32.933560209289034,
+        -25.31976468238618,
+        -24.684764674813827,
+        -2.54000001387837,
+        -1.5999999999999996
+      ],
+      "full_Morpho_model_excluded_in_population_scenario": false
+    },
+    {
+      "part": "01_base",
+      "ST_index": 894,
+      "mm3": 5.290026910479309,
+      "intersection_bounds": [
+        32.41672519144771,
+        35.363125582271415,
+        -93.973613668771,
+        -93.18621353997939,
+        -10.007600064395637,
+        -1.5999999999999979
+      ],
+      "full_Morpho_model_excluded_in_population_scenario": false
+    },
+    {
+      "part": "01_base",
+      "ST_index": 900,
+      "mm3": 5.290026910479285,
+      "intersection_bounds": [
+        78.13675704075663,
+        81.08315743158036,
+        -93.9735746062706,
+        -93.18617447747934,
+        -10.007600064395637,
+        -1.5999999999999979
+      ],
+      "full_Morpho_model_excluded_in_population_scenario": false
+    }
+  ],
+  "intentional_bearing_numeric_contact": [
+    {
+      "part": "01_base",
+      "ST_index": 0,
+      "mm3": 0.0005945916485675671,
+      "intersection_bounds": [
+        27.616,
+        84.61,
+        -102.39,
+        -16.192131,
+        -1.6000044200000003,
+        -1.5999999999999996
+      ],
+      "full_Morpho_model_excluded_in_population_scenario": false
+    }
+  ],
+  "floor_clearance_mm": 0.9923999000000006,
+  "scope": "full-source and documented populated-header scenario distinguished; not actual hardware qualification"
+}

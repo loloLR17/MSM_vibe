@@ -1,0 +1,85 @@
+{
+  "PCB_V23_SHA256": "b79f2d6b1a0b44f2269087dcbdc6ba7c4ec9f5f41c704e4ebf77089f2d1729ab",
+  "anchors_matched": [
+    {
+      "group": "anchors",
+      "x": 32.616,
+      "y": 21.192131,
+      "drill": 2.8,
+      "V23_ref": "J1"
+    },
+    {
+      "group": "anchors",
+      "x": 33.89,
+      "y": 97.39,
+      "drill": 2.8,
+      "V23_ref": "J1"
+    },
+    {
+      "group": "anchors",
+      "x": 79.61,
+      "y": 97.39,
+      "drill": 2.8,
+      "V23_ref": "J1"
+    },
+    {
+      "group": "module_supports_FRAM",
+      "x": 45,
+      "y": 71.7,
+      "drill": 2.7,
+      "V23_ref": "J6"
+    },
+    {
+      "group": "module_supports_FRAM",
+      "x": 65.32,
+      "y": 71.7,
+      "drill": 2.7,
+      "V23_ref": "J6"
+    },
+    {
+      "group": "module_supports_SD",
+      "x": 22.72,
+      "y": 85.68,
+      "drill": 2.7,
+      "V23_ref": "J7"
+    },
+    {
+      "group": "module_supports_SD",
+      "x": 22.72,
+      "y": 106,
+      "drill": 2.7,
+      "V23_ref": "J7"
+    },
+    {
+      "group": "MKI_retainer_anchors",
+      "x": 39,
+      "y": 20,
+      "drill": 2.8,
+      "V23_ref": "J8"
+    },
+    {
+      "group": "MKI_retainer_anchors",
+      "x": 71,
+      "y": 54.5,
+      "drill": 3.2,
+      "V23_ref": "J8"
+    },
+    {
+      "group": "Click_retainer_anchors",
+      "x": 91,
+      "y": 75,
+      "drill": 2.8,
+      "V23_ref": "J9"
+    },
+    {
+      "group": "Click_retainer_anchors",
+      "x": 94.5,
+      "y": 112.5,
+      "drill": 3.2,
+      "V23_ref": "J9"
+    }
+  ],
+  "G": 12.25,
+  "shield_top": 13.85,
+  "same_electrical_files": true
+}

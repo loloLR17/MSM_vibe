@@ -1,0 +1,8 @@
+{
+  "own_instances": 24,
+  "reference_envelopes": 17,
+  "own_positive_intersections": [],
+  "envelope_positive_intersections": [],
+  "module_bottom_scenario": 24.85,
+  "scope": "nominal boxes are not exact module/plug hardware; no mechanical qualification"
+}

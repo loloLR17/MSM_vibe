@@ -1,0 +1,47 @@
+{
+  "zip": "pack_imprimeur/TR2_V24_2_PROTOTYPES_PARTIEL.zip",
+  "sha256": "2ff65c5660e9828853678e1f7e011ebd22d3528e6b8aa741a67081136095600a",
+  "bytes": 2120518,
+  "entries": 23,
+  "readback_all_bytes_identical": true,
+  "mission_id": "TR2-20261105-SHIELD-V24-IMPRESSION-3D",
+  "status": "PARTIEL_CONTROLE_NUMERIQUE_PAS_QUALIFICATION_PHYSIQUE",
+  "types_included": 15,
+  "pieces_to_print": 52,
+  "excluded": [
+    {
+      "id": "16_etrier_MKI",
+      "quantity_missing": 2,
+      "reason": "Corps vérifiable; zones nues/contact et composants réels non démontrés. Vis de contact réglables, aucun patin fixe inventé."
+    },
+    {
+      "id": "17_etrier_Click",
+      "quantity_missing": 2,
+      "reason": "Corps vérifiable; zones nues/contact et composants réels non démontrés. Vis de contact réglables, aucun patin fixe inventé."
+    }
+  ],
+  "files": {
+    "ASSEMBLAGE.md": "42662f3a055572822559c93b0e94f2656ca998c2a00fdc725eefd3aa698587f5",
+    "ASSEMBLAGE_ET_COUPES.pdf": "80d1612013d02401ccf8c3fcdd9077e850c04a3834a8745e7a09d7c1070b1ba7",
+    "BOM_NON_IMPRIMEE.csv": "434fd0ed5778d5ee2d5695c0304276818ade44f8e8da5c867035ab93d9d81b07",
+    "MASSE.json": "64bb561828c04ad6e068d1a00aa01c9c38280b037ae81fd2518913c91a18cee5",
+    "QUANTITES.csv": "a2c0288d03108d1401cacb8bd767c1ae61d9b4b74ab449582401d3dd6fdc6469",
+    "README_IMPRIMEUR.md": "b2b9b6db2a1a4c8894d52ddcb7e5a2b5b025b2bd74cc5ab3a6eb9ade9a546a72",
+    "RESERVES.md": "f0a865c2ed3d4b24032a6f5e6447cc719b3268c8f1aeb2ee44791d56610c2df3",
+    "STL/01_base.stl": "f39d03af03d97f981b31a06f205be8dd1db1a720195170142b77454c54c2b094",
+    "STL/02_couvercle_ARNACO.stl": "0afab14685b7ce1e29b6c45198a793b0a08bd9727cffca1cc00893a2d512faed",
+    "STL/03_cassette_nord.stl": "13f39c65d99d9bf6a3e139fcefed77d67fa2678fbb613f0ab25b5fff26f40102",
+    "STL/04_cassette_sud.stl": "7ea4cc8d66f1349177e8d545136d45b5e2a051dce7a77c023a537c81f57ebf58",
+    "STL/05_cassette_SD.stl": "baeb3b5c05273264b95c4628ba083e7ebd0c6e81bcedd69bb00f47fafc264bd6",
+    "STL/06_cassette_RS485.stl": "8a75661848b70e9d23f495894c1f8e147079f68f518dc541676aeff666abb7fe",
+    "STL/07_cadre_vitre.stl": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+    "STL/08_trappe_USER.stl": "1325cf9d6967f87cafa62f03fb41c7f3390c845915f2335781b9e78251618a61",
+    "STL/09_trappe_SD.stl": "68360a8588b81cfd06dfff89241302aa23e132fbc91a4d4d6f82fc3d2ab8706d",
+    "STL/10_serre_nappe.stl": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+    "STL/11_serre_cable_RS485.stl": "8387f16bd2659225e859b38b732ceaac66d6f297a3a34967dd4348f520684e9e",
+    "STL/12_trappe_outil_RS485.stl": "53e10fffaace10440a46423937a8a6c33a76fd0f1fd22e35f050d73f528b87bb",
+    "STL/13_D126.stl": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+    "STL/14_appui_module_reglable_M2.stl": "9ac0fc5d3eeb618f45cfb1ac28f7711820ed9a7fe7a750b598b6275190302049",
+    "STL/15_retenue_Nucleo.stl": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505"
+  }
+}

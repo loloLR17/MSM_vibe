@@ -1,0 +1,23 @@
+{
+  "revision": "initial candidate before local correction",
+  "interference": {
+    "own_instances": 24,
+    "reference_envelopes": 17,
+    "own_positive_intersections": [
+      {
+        "a": "01_base",
+        "b": "07_cadre_vitre",
+        "mm3": 19.999999999999996
+      }
+    ],
+    "envelope_positive_intersections": [],
+    "module_bottom_scenario": 24.85,
+    "scope": "nominal boxes are not exact module/plug hardware; no mechanical qualification"
+  },
+  "mesh_bounds_check_issue": "Initial zero-minimum threshold 0.0001mm wrongly rejected valid circular chord approximations up to0.0015mm. Replaced by comparison against normalized STEP within the actual documented chord tolerance0.025/0.06mm. Volume/topology tests unchanged.",
+  "C05_first_pass": "Stopped before conclusion: broad chamber bbox causes many unnecessary booleans; replaced by proved superset material occupancy, not weaker geometry checks.",
+  "correction": "Frame xmin26.5->27.4; left screw30->30.5; frame clears rail. Ribbon bar receives tie slots, no fictitious cassette anvil.",
+  "final_USB_bays": "Bay bottoms -7; USB apertures -5..10 accommodate stated20x12 acceptance envelope, not universal cable fit",
+  "native_C05_failed_then_corrected": "ST437,894,900 hit full under-PCB cups. Half-cups opened in same direction as D126. M3x16 keeper bolts hit floor; changed only these3bolts/kit to M3x12. Detailed rejected results preserved.",
+  "computation": "Incomplete preliminary C05 passes stopped; cached source bounding boxes and proved occupancy superset avoid redundant geometric work. Full final check required after corrections."
+}
