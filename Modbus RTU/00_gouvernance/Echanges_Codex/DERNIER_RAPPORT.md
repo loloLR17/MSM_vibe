@@ -1,10 +1,10 @@
 ---
 mission_id: TR2-20261105-SHIELD-V25-KISS-FIXATIONS
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: f59de5d9a279e62ab04a640729cf56ede87e1607
 initial_head: 72b47ee78c03b09d4a3d6d9b8f69eeb8258d7c35
-result_sha: null
+result_sha: ff97bb313dc3b9cb191f08a84c479f5015b01962
 created_at_utc: 2026-11-05T20:59:34Z
 author: Codex
 target_branch: main
@@ -16,7 +16,7 @@ allow_debug: false
 
 # V2.5 — nylon D126 réservé, M3 métal standard, appuis conditionnels
 
-**Simplification numérique exécutée ; publication/relecture distante à terminer.** Le coffret utilise une seule longueur de vis métallique standard M3×12. Les 8 vis nylon Ajile et 16 écrous achetés restent exclusivement affectés aux D126 (6/12 utiles +2/4 de réserve). **Aucun achat de nylon supplémentaire prescrit, aucun achat effectué.** L’ensemble mécanique reste partiel : appuis FRAM/SD et quatre étriers non libérés, réserves explicitement permises par la mission. Ne pas transmettre ce candidat comme dossier complet sans nouvelle décision humaine, conformément à la revue indépendante V2.4.
+**Reprise numérique terminée, publiée et relue depuis GitHub.** DONE porte sur cette mission ciblée avec réserves contractuelles, pas sur un dossier complet ou une qualification physique. Le coffret utilise une seule longueur de vis métallique standard M3×12. Les 8 vis nylon Ajile et 16 écrous achetés restent exclusivement affectés aux D126 (6/12 utiles +2/4 de réserve). **Aucun achat de nylon supplémentaire prescrit, aucun achat effectué.** L’ensemble mécanique reste partiel : appuis FRAM/SD et quatre étriers non libérés, réserves explicitement permises par la mission. Ne pas transmettre ce candidat comme dossier complet sans nouvelle décision humaine, conformément à la revue indépendante V2.4.
 
 ## Livrables et décisions
 
@@ -70,4 +70,6 @@ Worktree isolé `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V25-KISS`, branche 
 
 Journal `ETAT_COURANT_TR2.md` actualisé : distinction définitive nylon D126/métal coffret, M3×12 unique, retouches locales, réserve de compression FRAM/SD et étriers. Son contenu antérieur était identique à la référence V2.4 déjà lue, identité Git vérifiée ; il n’a pas été remplacé par une copie historique. Prochaine étape ChatGPT : contrôler le présent lot, garder l’envoi complet en attente, puis lever H et les vrais contacts dans un cadre physique autorisé. Aucune manipulation demandée dans cette mission numérique.
 
-Publication distante : **à effectuer** ; ce statut IN_PROGRESS porte uniquement sur le push/relecture restant, pas sur un obstacle extérieur pour la tranche livrée. Le SHA effectivement évalué sera fixé au commit publié à la clôture documentaire. Les réserves FRAM/SD et étriers sont des arrêts locaux expressément permis, pas une qualification complète masquée.
+Publication distante **vérifiée** : push normal `72b47ee7..ff97bb31`, commit de code/artefacts effectivement évalué `ff97bb313dc3b9cb191f08a84c479f5015b01962` — `feat(shield): simplify V25 case to standard metal M3x12 and gate module supports`. Après `git fetch origin main`, HEAD local=origin/main, worktree propre avant cette clôture. **749 fichiers relus intégralement et comparés octet pour octet**, dont683originaux et66fichiers de cette mission ; ZIP distant réouvert et21entrées vérifiées. Aucune différence ; preuve `V2_5_KISS_FIXATIONS/preuves/relecture-distante-premiere.json`, empreinte du manifeste de relecture `a460be88a6f7733ed8b791a6a1995b056a86894c5d8d80049778c2ccc898d53e`.
+
+Le présent rapport est archivé à l’identique dans `archives/TR2-20261105-SHIELD-V25-KISS-FIXATIONS/RAPPORT.md`, sans écrasement. Le commit de clôture documentaire, son push et sa relecture seront contrôlés à leur tour ; son SHA final sera donné dans la réponse finale. Aucun STL, STEP, ZIP ou résultat géométrique modifié après la relecture technique. Les réserves FRAM/SD et étriers sont des arrêts locaux expressément permis, pas une qualification complète masquée.
