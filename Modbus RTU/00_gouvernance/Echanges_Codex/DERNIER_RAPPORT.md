@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261105-SHIELD-V21-FIXATIONS-FINALES
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: c23f5e0109d53a0aaad984fcff16399985b6ab24
 initial_head: e8f240ba766ed5ce506b0c467772490ee0d589ad
@@ -48,4 +48,4 @@ Code évalué : **ea1ce5507d9386d7dfa4014d1c26162bb539c280**, «Dimension V21 D1
 
 Journal `ETAT_COURANT_TR2.md` actualisé avec le candidat, les marges, les essais, les réserves physiques et le devis incomplet. Dépôt principal propre82169af7, deux stashes historiques et autres worktrees préservés. Permissions exercées : CAO, calculs, documentation, journal, commits et push normaux ; aucun flash/debug/COM/média, achat, impression ou changement de sécurité.
 
-Publication et relecture distante : en cours. DONE concernera l’étude publiée avec ses réserves ; ni fixation physiquement qualifiée ni READY_TO_ORDER.
+Publication normale sur main **dc17c9ea9f1fada0233b41e41c89405d5ebd38b5** réussie, confirmée par fetch et ls-remote. **493 fichiers relus intégralement depuis origin/main et comparés octet pour octet**, couvrant livrables, preuves, historique du shield, journal, contrat et gouvernance. Preuve `REMOTE_READBACK.json` dans l’archive V2.1. Worktree propre après ce push. Cette clôture et son archive sont publiées par un dernier commit/push normal puis relues ; SHA final communiqué après contrôle. **DONE signifie étude livrée avec réserves, pas fixation physiquement qualifiée ni READY_TO_ORDER.**
