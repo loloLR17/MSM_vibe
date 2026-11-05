@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261105-SHIELD-V20-EMBOITEMENT-3D
-status: DONE
+mission_id: TR2-20261105-SHIELD-V21-FIXATIONS-FINALES
+status: IN_PROGRESS
 base_ref: main
-base_sha: 0ba0df1653bf8f7cac33f8b30ec0dba06517643a
-initial_head: ce531d1e106affd3546a425947d0fb55cb185213
-result_sha: 0854d7c71ee3946ae7d1b2ced962cd87a9a7722e
-created_at_utc: 2026-11-05T12:24:21.743129+00:00
+base_sha: c23f5e0109d53a0aaad984fcff16399985b6ab24
+initial_head: e8f240ba766ed5ce506b0c467772490ee0d589ad
+result_sha: ea1ce5507d9386d7dfa4014d1c26162bb539c280
+created_at_utc: 2026-11-05T12:52:44.429738+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,43 +14,48 @@ allow_flash: false
 allow_debug: false
 ---
 
-# V2.0 — emboîtement possible sous bornes, NO-GO de libération
+# V2.1 — D126 retenu pour prototype ; fixation réelle non qualifiée
 
-**GO numériqueXY conservé ; faisabilité Z conditionnelle autour deG12,25mm ; gatephysiqueBLOCKED et fabricationNO-GO. Aucune nouvelle impression demandée.** Le papier ne lèverait pas l’engagementZ, les tolérances et les efforts. Étude terminée, publiée et relue depuisGitHub ; aucune commande, interventionmatérielle ou modificationPCB.
+**Candidatprioritaire dimensionné : trois supports isolantsD126 en demi-couronne, G12,25±0,10, visnylonM2×20 et deuxécrousnyloncontre-bloqués au-dessus du shield. GO géométrique sousbornes ; tenue/fabrication/approvisionnement dusupport BLOCKED, libérationPCB NO-GO.** L’étude est terminée, publication/relecture en cours. **La fixation n’est pas définitivement qualifiée physiquement.**
 
-[Décision courte et argumentée](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/DECISION.md), [sources exactes](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/SOURCES.md), [coupes dimensionnées et plan](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/cad/assemblage-et-coupes.pdf). Dossier : `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/`.
+[Décision et comparaison](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/DECISION.md), [fiche de montage](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/ASSEMBLAGE.md), [approvisionnement](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/APPROVISIONNEMENT.md), [plan/coupe](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/cad/plan-et-coupe.pdf). STEP/SCADéditables et STLderevue, scripts etpreuves dans `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/`.
 
-## Résultats et limites
+## Choix et dimensionnement
 
-STEP officielC05 réellement importé,1060solides, PCBZ−1,6..0 et socketsZio8,51. ZIPSTBDP4.0/Manufacturing3.4 **rehachés**, conformes aux empreintesV1.9 ba9ce535…/ecd9d543… ; révisionC/assembly05 et coordonnéessources reprises sans contestation. Le nouveau dessinSamtec révisionCM a été téléchargé et consulté, empreinte conservée : hauteur.335in8,51±.005in≈0,13mm ; jeu d’insertion catalogue3,68..6,35. Dessin exactConnflylegacy type1 : corps2,5±0,38, post6,10±0,25, queue3,00, section0,64. Pas d’assimilation au DS1021-01 différent.
+Troissolutions comparées : tube isolantmince standard+calage (jeuvis/longueur/diamètre nonmaîtrisés), profilouvertD126, repriseparchâssis (plusdepiècesetnouvellescotescoffret). **D126retenu sans nouvelle électronique** : enveloppeØ6, alésage2,4, hauteur12,25 ; demi-couronneouverteàl’axe sansminceparoi avant, ligamentradial1,8, section11,875mm². OuvertureversCN15àl’ancragehaut, versSTLINKauxdeuxbas, rotationmaxacceptée±5°. Sixpiècespourdeuxprototypes+deuxréserves. FabricationPETGdense deprototype proposée ; mêmesSTEPpourusinagePA66/SLS-PA12siaccessible, aucune substitutionmatière déclaréevalidée.
 
-G=dessusNucleo→dessousshield, épaisseurshield1,6 déclarée, repèreX/Y constructeur converti rigidement commeV1.9. **Aucun changementXY/PCB/empreinte/schéma/routage/Gerber**,442fichiers historiques du shield identiques. Pas de nouvelERC/DRC ni testfirmware sur codeinchangé ; résultatsV1.9 réutilisés.
+Unpremier profilØ6/méplat1mm orientépareilpartout croise deuxsolides duheaderST près del’ancragehaut : essai **rejeté**, preuvesconservées. Le profilfinalretourneau pointhaut et dégagelespartiesporteuses. Une pièceouverte ne doitpas être confondue avecun troufiletéamputé : vistraversanteetécrousassurentleserrage, le support ne reçoitpas defiletage.
 
-Calculsreproductibles : `I5=tipCN12+H5−G`, `C5=G−H5−bodyCN12`, `Iz=Hz+b+p−G`, `Cz=G−b−Hz`. Réserveplastique0,30 ; budgetG±0,10 et incertitudesCN12±0,10 explicitement **hypothétiques**. Intervalle admissible duGnominal **11,92..12,57mm sous ces bornes**, proposition12,25±0,10, aucune référence d’entretoise figée. À12,25 : **I5=4,15..4,81 / C5min1,01 ; Iz=4,00..5,72 / Czmin0,63mm**. À11,00 : jeuxnominalC5=0,09 etCz=−0,01, donc non robuste. L’intervalle ne vaut pas garantie de tous les montages réels ; mesuresCN12, assises/planéité, contacts et contreparties restent à qualifier.
+## Tolérances réconciliées et contrôles
 
-**Entretoises** : bord du corpsZioSTEP et axe donnent0,285mm nominal pourØ4, plus que l’ancien0,04 facecourtyard. Mais pirecasbudgété−0,040 ; Ø3,5 donne0,535nominal/0,235 sous mêmes budgets. Le dessinSamtec autorise une bavuremax0,38 : le pirecasØ3,5 descend alorsà−0,145. **Pas deGO toutes tolérances**. Réductiondiamètre/formenonconductrice et contrôle des contreparties sont des pistes à qualifier, pas une substitutionBOM adoptée. Têtes≤4,5 horsfacesPCB, longueurvis/écrous/filetage/parois minces non libérés. Aucun trou déplacé.
+L’écart nominalaxe→bordZioST est2,285mm. Le déplacementdusupport n’estpas réduit au budget0,15mmV20 : il dépenddesdeuxtrous, du diamètredetige etdujeu danslesupport. Budgetexplicite : `min((3,33−1,90)/2 ; (2,93−1,90)/2+0,15)+(2,60−1,90)/2 =1,015mm`. TroumaxNucleo3,33/shield2,93 et écartcentres0,15 sontdesbornesd’acceptation, nonmesurées ici. Inclureseparément positionancrage→Zio0,075, demi-tolérancelongueurcorps0,125 etbavure0,38 ; nepas soustrairedeuxfoislamêmeforme.
 
-## Assemblage et preuves réellement exécutées
+AvecprofilRmax3,10, faceenavantmax0,10, rotation5°, projectionavantmax0,369662 ; **margeplane2,285−0,125−0,380−0,075−1,015−0,369662=0,320338mm**, supérieureàlagarde0,20 souscesbornes. **Pas de garantie touslots** : la fabrication/pose doivent respecterlesbornes ; résistanceetmaintienangulaire nonqualifiés. LesinégalitésG/J5V20 restent réutilisées, I5=4,15..4,81 etIz=4,00..5,72 soushypothèses. Aucune modification des106centresXY niGparajoutdecalescachées.
 
-`tools/build_assembly.py`, calculs `tolerances.py`, `sd_check.py`, `optical_probe.py`, `views.py`, `validate_study.py`, CadQuery2.8/OCCT/PyMuPDF. Deuxscénarios G12 puis12,25 étudiés, aucuncontactcaché déclaré acceptable par un testgéométrique.
+Essais réellementexécutés avec CadQuery/OCCT : **9cas supports** (3ancres×nominal/rotation±5°/translation1,015versleheader, profilauxbornes) contre1060solidesSTC05, aucuneinterférence. Ce n’estpasunbalayagecontinu exhaustif detouteslestranslations. CacheBREP/sourceSTV20 etcoordonnéesV1.9 réutilisés, sansrépéterERC/DRC/firmware.
 
-- Aucune intersection volumique indésirable entre pièces sousshield testées et **sourceST complète**, àG12 et12,25, après filtrage spatial puis booléensOCCT. Post/socket sont des emboîtements intentionnels ; les corps/cavités sont des enveloppes, pas des ressorts de contact. DeuxvolumesMorpho du modèle ne correspondent pas à la population rapportée : affichage filtré et quatre mâles66/67/68/69 reconstitués selon mesures, **mais résultat d’intersection sourcecomplète conservé aussi**.
-- Retenues analytiquesV1.5 inchangéesXY contre sockets/enveloppesPCBmodules : aucune intersectionpositive. **SD4682 réelle fabricant** placée avec transformationV1.5 contre deuxretenues : aucune. FRAM/MKI/Click et leurs composants partiellementprovisoires, révisionClick réelle inconnue ; pas de preuveglobale d’absencecollisions ni de résistancevibratoire/isolationGND2.
-- STEPpropres éditables réouverts : **129solides et6solides**, valides ; PDF2pages rouvert/textes vérifiés, vueZ inspectée. Ces coupes sont des **enveloppes dimensionnées**, pas une section exacte de contacts internes. JSON et sourcesPython parsés. Normalisation whitespace des nouveauxSTEP sans changement de tokens.
-- Troisrayons horizontaux candidatsversLED, au-dessus du modèleémissif et1mm au nord des origines, sont **obstrués par des objetsST**. Cela ne démontre pas l’invisibilité latérale oblique observée par l’utilisateur ni l’impossibilité d’un vitrage. Le cônecommun d’observation et la photométrie ne sont pas qualifiés. Aucun perçagePCB justifié par ces seulsrayons.
+Visserie nominale modélisée : DIN84PA6.6M2×20 têteØ3,8/haut1,3 **sousNucleo**, deuxécrousDIN934PA M2 au-dessusshield ; clé4, coinsØ4,619, pasdesécrousprésumésØ4,5. PasderondelleØ5standard ajoutée, pasdemétalconducteuraucontactcuivre. Stack18,65 laisse1,35mm de vis ; têteZ−2,9, sommetécrous17,05, vis18,4, bottommodules24,85. Cotesréellesdu lotàconfronterauxspécificationsd’acceptation, pas àdesdessinsdevignette.
 
-Fichiers et résultatsdétaillés dans `preuves/validation-finale.json`, `C05-collisions-G12p25.json`, `SD4682-contre-retenues.json`, `rayons-LED.json`, `tolerances.json`. Incidentdocumentairecorrigé : variable de liste des géométriesST écrasée par une liste de sockets dans le générateur ; métadonnées1060solides rétablies depuis la première inspection de la même source, scriptcorrigé, **résultatsbooléens inchangés**. Aucune règle ni test ancien affaibli.
+**Aucunecollisionimprévue de visserie nominale**. Troisrecouvrementsmesurés tête/PCB0 ont chacunvolume1,458e-5mm³ et profondeur4,42nm surlafacedeportéeZ−1,6 : contactsintentionnelsdetolérancenumérique, conservésetclassésparleurprofondeur/localisation, sansaugmenter globalementleseuildecollision. TroisSTEProuvertsvalides ; STLfermé/volume positif ; PDF1page rouvert ettextecontrôlé ; JSON/Pythonparsés. Commandes/scripts effectifs `final_model.py`, `fasteners.py`, `views.py`, `validate.py`, preuves `geometrie-et-limites.json`, `visserie-ST.json`, `validation-finale.json`.
 
-AssemblagecompletST éditable conservé horsGit : `/home/lolo/dev/msm/reports/TR2-shield-v20-20261105/full-C05-G12p25-review.step`, hash dans `sources-locales.json`. Il comprend des enveloppes de modules, non de faux modèlesconstructeur complets. La SDexacte placée est fournie séparément. STEPtiers/propriétairesST et dessinSamtec ne sont pas redistribués intégralement ; scripts/STEPpropres/provenances versionnés. LecacheBREP local permet de reproduire sans répéter l’importSTEP original ; instruction de reconstruction dansSOURCES.
+## Tenue et disponibilité — limites réelles
 
-## Décision opérationnelle
+Àl’effortcible5N/vis, moyenne0,421MPasursection/≈1,47MPasurlademi-portéesouslatête ; **pasunechargeadmissible prouvée, pasuncoupleprescrit**. Excentricité, flexion, impression/couches, friction/rotation, température, fluageetvibrations restentàqualifier. Contre-bloquerlesécrous sanscintrerla carte ni augmenter la précharge. Rotation±5° n’estpasgarantie paruneclavette ; elle devraêtrecontrôlée aprèsmontage etessaidetenue. Ne pas appelerunPETGfineparoi «robuste» parprincipe.
 
-**Pas de deuxième papier par automatisme.** Si les contreparties exactes sont déjà disponibles, un seul montageàblanc hors tension vérifierait ensemble emboîtement sans force, G/parallelisme, jeux auxplastiques/entretoises/soudures, accès et troisLED depuis une zonecommune. Aucune nouvelle mesure des8,22/2,40/15,2/10,2/0,4 demandée. Sans ces pièces, **aucune intervention demandée maintenant** ; ne pas acheter uniquement pour créer une pseudo-preuve.
+Approvisionnementvérifié surpagespubliques le05/11 : **SAM/ScrewsAndMore**, fabricant-distributeurallemand livrantFrance, deuxpacks25vis`84PA220_25`/25écrous`934PA2_9451`, chacun5,39EUR TTCaffichés, disponible sansquantitéentrepôtgarantie. Besoin8vis/16écrous avecréserve, lots25. PortEurope14,90TTC19% ; **25,68EURaffichés /25,90EURbudgétéTVA20%**, pasundevischeckoutFrance. Délaiannoncé1–3joursnonconfirmépourlaFrance ; nereprendpas lefrancoAllemagne. TouteslesURLs dansAPPROVISIONNEMENT.json. Aucunpanier, contactcommercialouachat.
 
-Un premierarticle àrisque peut être examiné **après décisionhumaine distincte**, puis un seulshield assemblé/contrôlé àfroid avant alimentation. Ce serait une dépense avec risquedereprisePCB, **pas une qualification acquise ni commandeautorisée ici**. USER reste accèsdirectprotégé, RESETprotégé, vitragePC latéral ; CN15/STLINK/SD/RS485/nappe nécessitent encore les vraisfiches/efforts/rayons. Pas de défautdémontré imposant un changementPCB ; réservescoffret et gatephysique explicités, aucune classeIP ou robustesse industrielle revendiquée.
+**Supportsspéciaux : prestataire, stockmatière, prixetdélaiFranceNONVÉRIFIÉS.** Environ1,48gPETGpour8pièces, coûtbrut≈0,044EURà30EUR/kg : pasleprixd’unserviceimpression. Totalrenducomplet`null`, pasun lotcompletpromisà25,90EUR. L’exigenced’unesolutionlivrableetphysiquementrobuste n’est doncpas déclaréesatisfaite sansréserve. La piècese réaliseavecdesfichierssimplesfournis, maisaucunemachine/prestataire disponible n’est supposé acquis.
 
-## Traçabilité
+## Montage et décision
 
-Sourceévaluée **0854d7c71ee3946ae7d1b2ced962cd87a9a7722e — Study V20 C05 3D mating, tolerance interval and unresolved physical gates**. Worktreeisolé`MSM_vibe-SHIELD-V20-EMBOITEMENT`, branchelocale`codex/shield-v20-emboitement`, ciblemain. HEADinitialce531d1e, basecontrat0ba0df16 danshistorique. Dépôtprincipalpropre82169af7, deuxstashes6251b988…/f3b829e6… et autresworktrees préservés. Journal `ETAT_COURANT_TR2.md` actualisé : XYconservé, Zconditionnel, tolérances/fixations/optique et suite. À transmettre àChatGPT : revue des bornes et de la décisionderisque, pas une libérationautomatique. Permissions exercées : étudeCAO/calculs/documentation/journal/commit/pushnormal seulement, aucunSTM32/COM/FRAM/SD/impression/achat.
+Pasdenouvelleimpressionpapier, pasdenouvellemesuredetouteslesbroches. Le contrôlefroiduniquedupremierexemplaire porteraitsurlesbornesduprofil, sonorientation, l’appui libre/G/parallelisme, l’engagementJ1–5, lesjeux/supports/têtes/soudures etlesaccès. Ilne lèvepasautomatiquementJ5/G, LED/vitrage,USER, isolationGND2oueffortsdecâbles. La ficheconserveUSERdirectsimple, RESETprotégé etlesinterfacesV1.9/V20.
 
-Publicationnormale sur main **29c3d304c933e9d8ee76bb4297d431273bf82d1a** réussie, confirmée parfetch/ls-remote. **471fichiers relus intégralement depuisorigin/main et comparés octetpour octet**, livrables, preuves, historique du shield, contrat et gouvernance inclus ; preuve `REMOTE_READBACK.json` dansarchiveV20. Worktreepropre après ce premierpush. La présenteclôture et sonarchive sont publiées par derniercommit/pushnormal puis relues ; SHAfinal communiqué après vérification. **DONE signifie étude livrée, gatephysiqueBLOCKED et fabricationNO-GO maintenus, pas READY_TO_ORDER.**
+**Lot5PCBnusenvisageable commeprototypes àrisquecirconscrit**, après revueindépendanteChatGPT et décisionfinancièredistincteutilisateur : fixationhorscuivreajustable mais fabrication/tenueetemboîtement peuventéchouer. **Aucunecommandeni libération parCodex.** Aucun gestephysique demandé maintenant, aucunflash/debug/COM/média/sécuritéWindows concerné. Unevérificationmatérielleultérieure demeureindispensable ; aucun coupleou montage forcé autorisé.
+
+## Git et journal
+
+Codeévalué **ea1ce5507d9386d7dfa4014d1c26162bb539c280 — Dimension V21 D126 isolation supports and verify mounting clearance cases**. HEADinitiale8f240ba, basecontratc23f5e01 ; worktree`MSM_vibe-SHIELD-V21-FIXATIONS`, branchelocale`codex/shield-v21-fixations`, ciblemain. **464fichiers historiques shield inchangés**, électronique/GerberV1.9préservés, ancienrapportV20/archivesintacts. Dépôtprincipalpropre82169af7/deuxstashes6251b988…/f3b829e6… etautresworktreespréservés, pasdeopérationGitdestructive.
+
+Journal `ETAT_COURANT_TR2.md` actualisé : candidat, marges/essais, limitesphysiquesetdevis, prochaineétape. ÀtransmettreàChatGPT : reviewerlesbornesetlecompromismécanique ; aucunGO définitifdedisponibilité/tenue. Permissions exercées : étudeCAO/docs/calculs/commits/pushnormal ; aucunmatériel/achat/impression.
+
+Publication et relecture distante : en cours. DONE visera l’étude livrée et ses réserves, pas une fixation physiquement qualifiée ou READY_TO_ORDER.
