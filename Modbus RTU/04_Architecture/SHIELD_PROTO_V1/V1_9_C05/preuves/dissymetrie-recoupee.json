@@ -1,0 +1,9 @@
+{
+  "CN8_last_to_CN9_first_center_gap_mm": 5.08,
+  "CN7_last_to_CN10_first_center_gap_mm": 4.064,
+  "definition": "same column, centre to centre adjacent extreme pins, not space between plastic bodies",
+  "source": "native ST Altium Pads6, crosschecked with ODB",
+  "remote_addenda_reviewed_at": "7c184bc871c867533785ce3a4e7e77f9776e6182",
+  "photos": "not available locally, no pixel measurement claimed",
+  "CN9_rows_from_native": 15
+}

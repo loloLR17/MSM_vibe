@@ -71,3 +71,9 @@ Code évalué **7557cce168219ad42b17b744cb38ffa330882346 — Correct shield V19 
 Journal `ETAT_COURANT_TR2.md` actualisé : constat papier, sourcesC05 effectives, correctionCN7/J5/ancrage, résultats et distinctionXYnumérique/XYphysique/Z/accès. À transmettre àChatGPT : contrôler indépendamment sourceetrepère, nouvellescomparaisons, gabarits et résultats physiques futurs, puis statuer sur libération. Archives de mission et rapport prévues sans toucher aux anciennes.
 
 Publication et relecture distante : en cours. Le statutIN_PROGRESS concerne cette étape finale, pas un blocage technique des corrections.
+
+## Mise à jour avant publication — main concurrent préservé
+
+Pendant la préparation du push, origin/main a avancé de ad4b698f vers **7c184bc871c867533785ce3a4e7e77f9776e6182**, par trois compléments humains (rectification des accèsST, observation des espaces et descriptions de photos). Le push n’a pas été tenté. Les trois documents ont été lus, sans les modifier. La source métrique désormais obtenue établit **5,080mm côtéCN8/CN9 contre4,064mm côtéCN7/CN10 entre centres extrêmes**, corroborant l’hypothèse terrain d’environ1mm ; aucune mesure photographique prétendue. Un comptage8+17 dans la description photo est signalé : CN9natif est2×15, la photo n’est pas utilisée comme cote. Source et preuves dans `dissymetrie-recoupee.json`.
+
+AGENTS.md§7 impose l’escalade de divergence ; commits locaux et worktree intégralement préservés, pas de merge/rebase/reset/pushforcé. Réapplication isolée de cette tranche soumise à autorisation explicite avant pushnormal. StatutIN_PROGRESS en attente de cette autorisation, aucune clôture/publication distante prétendue.
