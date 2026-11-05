@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261104-SHIELD-V18-REVUE-PRECOMMANDE
-status: DONE
+mission_id: TR2-20261105-SHIELD-V19-C05-OFFICIAL-CAD
+status: IN_PROGRESS
 base_ref: main
-base_sha: 6c4b6b7de20cdd5d4def23db4891f532a7e65c6d
-initial_head: 6d6417a86d7bdb2a725bd5557bbd4dcac413b7f8
-result_sha: 7a09a88050aebe8be262247657057679222b3f5e
-created_at_utc: 2026-11-04T17:29:19.132016+00:00
+base_sha: 63451b2b4f87a1be0547406d76877b60114bdb20
+initial_head: ad4b698f42a7b174e92227a88ce68d8c9c8935b1
+result_sha: 7557cce168219ad42b17b744cb38ffa330882346
+created_at_utc: 2026-11-05T11:56:37.709851+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,46 +14,60 @@ allow_flash: false
 allow_debug: false
 ---
 
-# V1.8 — audit terminé, NO-GO provisoire pour la commande
+# V1.9 — coordonnées ST C05 obtenues, CN7 corrigé, fabrication toujours NO-GO
 
-**L’audit autonome est terminé et publié avec NO-GO physique précis, autorisé par le contrat.** L’utilisateur reporte les impressions et vérifications à demain. Aucun résultat physique n’est prétendu acquis. Il n’est pas nécessaire de recommencer les campagnes firmware ou de reconcevoir le shield pour préparer ce contrôle. La relecture distante décrite ci-dessous est réussie.
+**L’erreur relative démontrée concerne CN7/J1 : correctionY+1,016mm.** CN8/CN9/CN10 sont cohérents avecST dans un même repère. J5 est recaléY+0,025001mm et un centre de fixation de moins de0,005mm. Ce n’est pas une translation globale ni un changement d’échelle ; nous ne prétendons pas attribuer entièrement le constat qualitatif utilisateur de «plusieursmm» à cette seule erreur. Le candidatV1.9 et ses gabarits sont prêts ; publication/relecture en cours. **Fabrication NO-GO : l’ancien papier ne valide pas le nouveau PCB.**
 
-## Résultats et décision
+Dossier : [V1_9_C05/README.md](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/README.md). [Décision technique et portes séparées](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/DECISION_V19.md), [provenance](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/PROVENANCE.md), [comparaison106contacts](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/comparaison-C05.csv), [comparaison des trous](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/comparaison-trous-C05.csv).
 
-Document unique de décision : [DECISION_PRECOMMANDE.md](../../04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/DECISION_PRECOMMANDE.md). Dossier complet : `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/`.
+## Sources exactes réellement reçues
 
-- **ERC0, DRC0, non-connectés0, parité schéma/PCB0**, sur KiCad natif10.0.6, toutes sévérités des contrôles activés. Les listes de contrôles ignorés par défaut sont conservées dans les preuves ; aucune règle projet désactivée pour obtenir le résultat.
-- 19empreintes,191pads dont59connectés/121NC/11NPTH,4vias, contour90×100mm,2couches,1,6mm ; J5 local5=CN12-69/PG4→DE, cinqNC indépendants. Les quatre vias ont une arrivée au centre sur chacune des deux couches, vérifiée séparément. Tous les courtyards sont présents.
-- Nouveau jeu CAM **NON LIBÉRÉ** :7Gerber,2Excellon PTH/NPTH et job. Netlist/pads/cuivre déclaré X2/perçages/contour réconciliés, ZIP réouvert et empreintes de chaque membre comparées. Ce contrôle ne remplace pas un DFM fournisseur ni une qualification d’assemblage.
-- **Aucun PCB, schéma, empreinte ou fichier historique modifié** :271fichiers antérieurs du shield comparés octet pour octet au HEADinitial. Aucun défaut prouvé ne nécessite de correction PCB.
-- **USER simplifié** : accès direct protégé au B1 d’origine, RESET séparément protégé. Pas de cage/ressort multi-pièces imposé. Vitrage latéral PC conservé ; ajustements de coffret différables après compatibilité réelle.
+Archives officielles ST téléchargées et ZIP/CRC contrôlés : **BDP4.0**,11 019 805octets, SHA256`ba9ce5359d9b5f81ca61423b11d6432d76e438e28af98259a64ab1eba5447f4c` ; **Manufacturing3.4**,30 596 347octets, SHA256`ecd9d543fa90b384ce741696ededc6d388f2d9154e4ef0bc626bece68c59c31f`. [ST annonce ces ressources](https://www.st.com/en/evaluation-tools/nucleo-u575zi-q.html). Inventaires et manifestes des membres conservés, sources complètes horsGit sous `/home/lolo/dev/msm/reports/TR2-shield-v19-20261105/`.
 
-**Seule preuve physique regroupée avant libération** : alignement sur les deuxC05, empilageG naturel si témoins exacts déjà disponibles, engagementJ5 et jeux/queues/fixations/modules, couloirUSER, accèsUSB/SD/RS485/nappe et visibilité commune des troisLD1/2/3. G11reste hypothétique : insertion5,73mm mais seulement0,09mm entre plastiques ; entretoiseØ4 prèsZio, jeu nominal0,04mm. Les calculs nominaux et l’observation sur carte nue ne prouvent pas cet empilage.
+Le projetAltium déclare **Board_PCB_Revision=C / Board_Assembly_Revision=05**, date12July2023 ; manufacturing comprend `MB1549-U575ZIQ-C05.step` et `MB1549-C05_PCAD.NET`. Les dates2020 d’ODB/placement et2021 du PcbDoc sont signalées : pas une identificationC05 par leur seul nom. Le readmeBDP garde un ancien en-tête3.1, son historique annonce4.0/C05 ; celuimanufacturing3.4 corrige le nom de variante duMechanical. Aucune assimilation aveugleC02/C03/C05.
 
-[CONTROLE_UNIQUE_C05.pdf](../../04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/CONTROLE_UNIQUE_C05.pdf) :3pagesA4, consignes compactes et deux gabarits historiques réutilisés sans changement d’échelle, impression100%, barres100mm à contrôler. **Utilisateur disponible demain ; résultats null dans `preuves/controle-physique.json`.** Sans témoins exacts, noterGnonmesurable ; ne pas forcer ni commander des composants pour fabriquer une pseudo-preuve. Pas de nouvelle mesure des cotes déjà acquises demandée.
+**Extraction métrique nativeCFB/Pads6** en1e-4mil, origineBoard6, ordre de broches et noms de nets natifs ; **240positions** deCN7/8/9/10/11/12 recoupées individuellement àl’ODB++ST (conversionpouces25,4), concordance à la précision des fichiers. PG4 deCN12-69 vérifié directementPads6→Nets6. Le STEP spécifiqueC05 a été réellement ouvert :**1060solides valides**, preuve `STEP-officiel-controle.json`, aucune preuve d’emboîtement déduite. Les originaux ne sont pas republiés massivement : readmeOPLA identifié, endpointlicence intégrale non relu avec succès, limite explicitée sans réattribuer les fichiersST.
 
-## Approvisionnement : coûts obtenus et limites
+Les premiers téléchargementsLinux/Windows expirent, Edge échoueHTTP2 ; miroirSTjaponais inspecté, liensJS renvoyant àST, chemins/download404. Nouveaux accès publics hôte/query réussis, HTTP200ZIP et mêmehashBDP par deux chemins. Ni protectionWindows, ni compte ou politique modifié. Un import natifKiCadAltium expire après correction de sa signature d’appel : aucune sortie partielle utilisée. FormatPads6 recoupé au code officielKiCad10 ; extraction directe et contrôleODB évitent de déduire des coordonnées d’une image.
 
-[BOM deux jeux + marges](../../04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/BOM_2_PROTOTYPES.csv), [sources datées et limites](../../04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/SOURCES_ET_COUTS.md), `approvisionnement.json` et `budget-TTC.json` distinguent quantités/MOQ, stocks affichés non réservés, port et montants inconnus. Budget incrémental sur modules/Nucleo existants, pas coût d’achat de deuxTR2 complets.
+## Identification et correction minimale
 
-Scénario privilégié TME+DigiKey : **53,04..58,04EUR TTC indicatifs pour composants et leurs ports**, conversion BCE1EUR=1,1267USD/TVA20%, sous réserve prixFrance et traitement de portDigiKey. Références économiques standard conservées ; variantes **HarwinM20-7820946 et PanasonicEEUFR1H100 proposées**, compatibilité nominale d’empreinte vérifiée, **pas de substitution silencieuse de la BOM active**. J5Samtec exact inchangé. Le scénarioTayda baisse les articles mais ajoute un troisième port/import inconnu, donc économie rendue non démontrée.
+En vue dessus STXdroite/Yhaut, shieldXdroite/Ybas : `Xshield=XST+21,74999888 ; Yshield=126,60113030−YST`, ancreCN8-1/J2-1(32,62;35,16). **Distances relatives avant alignement** : CN7-1/CN8-1, ΔX45,72mm identique, ΔY9,144mmST contre10,16mmshield. La correction est donc relative àCN7, pas un recalage de toute la carte. Face inférieure des connecteurs ne signifie pas miroirXY du gabarit dessus.
 
-Calculateur public JLCPCB, **destinationFrance effectivement sélectionnée**,90×100/5PCB/2couches/1,6mm/1oz/vert-blanc/HASLsansplomb : **5,30USD fabrication**, production2jours annoncés. Transports affichés :7,33USD/10–12jours ouvrables,16,11/6–9,23,44/2–4 (optionDHL-DDP disponible). Preuve structurée `preuves/devis-public-France.json`. Configuration saisie dans un profil Edge temporaire isolé ; **aucun Gerber envoyé, panier, compte ou commande créé**. Les montants ne sont pas une facture finale TVA/droits incluse ; pas de date garantie de réception.
+|Élément|Correction nominale|
+|---|---|
+|CN7/J1 broche1|(78,34;25)→(78,34;26,016), soit+1,016mmY|
+|CN8/J2,CN9/J3,CN10/J4|Positions conservées ; écart numérique éventuel1nm de conversionKiCad, pas déplacement mécanique|
+|J5local1/global65|(85,96;106,28)→(85,96;106,305001),+0,025001Y|
+|Premier ancrage|(32,62;21,19)→(32,616;21,192131), déplacement0,004532mm|
+|Deux ancrages bas|Inchangés (33,89/79,61;97,39)|
 
-Repère partiel composants+PCB rapide viaDHL : **83,65..88,65EUR** avec TVA budgétaire appliquée à l’estimationPCB, **hors quincaillerie/coffrets et ajustements fiscaux**. Le **total TTC livré complet reste NON VÉRIFIÉ/null**, sans inconnus mis à zéro. Longueurs/références des fixations dépendent deG. Taxes et régimeDDP à réconcilier au devis final, sans double comptage ni ancienne hypothèse d’exonération systématique sous150EUR.
+**106centres de contact du PCB final comparés àST : écartmax1nm calculé**, seuil de vérification2nm. C’est une concordance numérique de données, pas une tolérance de fabrication ni preuve physique. Trois centres de fixation recoupés ; trousshield2,8 face trousNucleoST3,2, deux autres trousST non ajoutés au shield.
 
-## Contrôles réellement exécutés
+CAO éditable dans `V1_9_C05/cad/`, ancien candidat conservé. Schéma et projet/règles inchangés octetpour octet, modules/contour90×100/retenuesMKI/Click inchangés. J5femelle2×3 dessous inchangé électriquement : local5=69/PG4/DE, cinqNCindépendants, quatre mâles66/67/68/69 et65/70vides. Six fins de pistesCN7 adaptées en préservant les préfixes ; finDE ajustée25µm pour conserver l’espacement auNC. **25/32routes exactes**, dont toutes celles du capteur. Les sources/CAM/analyses antérieurs restent conservés :**324fichiers historiques identiques**, READMEparent seul complété par lienV1.9, contenu historique conservé.
 
-KiCad `sch erc --format json --severity-all --exit-code-violations`, `pcb drc --schematic-parity --all-track-errors --format json --severity-all --exit-code-violations` réussis ; commandes exactes et sorties dans `preuves/commands.json`, `ERC.json`, `DRC.json`. Nouveaux exports dans une copie isolée d’audit, scripts existants `read_board.py`, `verify_preorder.py`, `verify_exports.py` réussis ; `CAM-commands.json` et logs conservés. `verifier_dossier.py` réussi : conservation271fichiers, intégrité10CAM/ZIP, calculs/BOM, pinout et dimensions. JSON/CSV/Python parsés, PDF3pages rouvert et page de consignes rendue/inspectée. Diff indexé vérifié avant commit.
+## Résultats observés et portée
 
-Incidents tracés : première mesure flottante20,319999999999993 corrigée par tolérance d’une unité de grille1nm ; appel natifVIA.GetWidth sans couche ayant provoqué une assertion, seul processus d’audit arrêté puis appel corrigé avec couche explicite. Une sonde trop stricte échoue sur un **sommet intermédiaire**ACC_SCK à0,1mm du via ; la route continue jusqu’au centre. Échec/logs conservés, contrôle approprié des entrées centrées sur chaque couche **PASS pour4vias**. Aucun résultat attendu ni réglageKiCad affaibli, aucun PCB corrigé pour masquer ces incidents.
+**KiCad10.0.6 : ERC0, DRC0, non-connectés0, parité0**,19empreintes/191pads/4vias. Toutes sévérités des contrôles activés, listes de contrôles ignorés héritées conservées ; aucun réglage assoupli. Commandes effectives `sch erc --severity-all --exit-code-violations`, `pcb drc --schematic-parity --all-track-errors --severity-all --exit-code-violations`, exportPDF/netlist/Gerber/Excellon/STEP/rendu, `read_board.py`, `verify_exports.py`, `verify_v19.py`, `generate_templates.py` ; arguments/sorties dans `docs/checks/commands.json` et logs.
 
-Validation proportionnée : audit CAO/documentaire uniquement ; aucun nouveau test hôte/build/flash/debug/GDB/COM/FRAM/microSD. CampagnesV1.5–V1.7 conservées sans répétition sur code inchangé. Aucun achat, impression ou geste physique effectué, aucune protectionWindows modifiée.
+Netlist/PCB/X2cuivre et tous les perçages/contour comparés ; Excellon apparié un-à-un à la résolution1µm, erreurcentremax0,000131mm ; aucun arrondi du modèle natifST. ZIP10fichiers neuf **NON LIBÉRÉ** réouvert et chaque membre comparé, SHA256**ddc0d5c45569dd48a3d06bd6a8ea0604a629c0ebb40b639d449320fa60acdbdd**. Gabarits2pagesA4 avec barres vectoriellesX/Y100mm rouverts, dimensions et longueurs vérifiées, premièrepage rendue et inspectée visuellement. JSON/Python parsés ; STEP du shield nu normalisé sans changement de tokens et rouvert valide.
 
-## Traçabilité et suite
+**Échecs analysés et conservés** : retrait de zonesSWIG non exposé, corrigé par retrait des seuls noeudscuivre du candidat ; première adaptation de pistes remontant7violationsDRC, corrigée par contrainte de couche au raccord des préfixes et déplacement cohérentDE ; première comparaisonExcellon demandant4décimales à un format3décimales, lecteur corrigé et contrôlequantification ajouté. Aucune suppression de test ni modification des contrôles historiques. Validation proportionnée à la CAO ; pas de build/testsfirmware, flash/debug, COM ou média.
 
-Commit évalué **7a09a88050aebe8be262247657057679222b3f5e — Audit shield V18 release gates, candidate CAM and France procurement**. ZIP candidat `TR2_SHIELD_V14_NON_LIBERE_V18.zip`, SHA256 **9a094784ce8553649b8074dbff70ee0df75b3f4a953b3f5982524949ea0322ed**. Worktree isolé `MSM_vibe-SHIELD-V18-REVUE-PRECOMMANDE`, branche locale `codex/shield-v18-revue-precommande`, cible autorisée main. Dépôt principal propre82169af7, deux stashes historiques6251b988…/f3b829e6… et autresworktrees préservés. Pas de résolution automatique de divergence.
+## Contrôles physiques restant nécessaires
 
-Journal `ETAT_COURANT_TR2.md` actualisé : résultats électriques/CAM, NO-GO physique et report à demain, USERsimple, budget estimatif et suites. À transmettre à ChatGPT : revoir les gates et les résultats demain, figerG/fixations avant décision humaine de commande ; total rendu et stocks finaux à confirmer. **DONE signifie audit complet avec NO-GO, jamais READY_TO_ORDER.** Permissions exercées : lecture, documentation/outillage d’audit/CAM candidat, journal, commits/push normaux seulement. Mission inchangée et archivée ; aucune permission matérielle exercée.
+[Nouveaux gabarits 100%](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/exports/GABARITS_C05_V19_100POURCENT.pdf) : deuxpages, uneparC05, **vue dessus sans miroir**, barresX/Y100mm. Contrôle unique hors tension, sans déplacement de fils : cinqinterfaces, troisancrages et contour, sans force. Retour compact, sans relevé de toutes les broches ; si écart, localisation par une photo orthogonale du papier. Aucune nouvelle impression ni vérification réelle effectuée parCodex.
 
-Publication normale sur main réussie : **67ab4f06a8563c247c968a907140c694bf074160**, confirmée par fetch et ls-remote. **331fichiers relus intégralement depuis origin/main et comparés octet pour octet**, couvrant les livrables, le journal, les sources historiques du shield, le contrat et la gouvernance ; preuve `archives/TR2-20261104-SHIELD-V18-REVUE-PRECOMMANDE/REMOTE_READBACK.json`. Worktree propre après ce premier push. La présente clôture documentaire et son archive sont publiées par un dernier commit/push normal puis relues ; SHA final fourni après vérification dans la réponse utilisateur. Aucun résultat physique ajouté.
+**Z/J5/G naturel reste séparément NON VÉRIFIÉ** : pointe8,22/corps2,40, MKI15,2 etUSER10,2/course0,4 restent acquis ; ne pas remplacer ces mesures par une hauteurCAO. Si témoins exacts déjà disponibles, contrôlerG/engagement et jeux, sinon noter nonmesurable. **USER simple accès protégé/RESET protégé**, vitragePC latéral conservés.
+
+Les originesempreintes C05 sont désormais connues : LD3/LD2/LD1X51,72/54,92/58,12,Y20,92 ; B1(29,5212;120,3262), B2(84,2074;120,3262) hors contourshieldY117. Ces origines ne prouvent ni émission lumineuse ni effort bouton. Les calculsV1.7 fondés sur un domainehypothétique ne qualifient pas ces troispositions. CN1/CN15 sont localisés aux extrémités ; accèsUSB-C/STLINK, extractionSD,RS485,nappe,fixations/modules/isolement et visibilité dans le vraiempilage restent à confronter. Aucun conflit incontournable justifiant une autre découpePCB démontré ; ajustements du coffret après compatibilité, sans réouvrir une conception générale.
+
+**NO-GO fabrication et aucun envoiGerber/achat** jusqu’au nouveau contrôle physique approprié et revue indépendanteChatGPT/décisionhumaine.
+
+## Git, journal et publication
+
+Code évalué **7557cce168219ad42b17b744cb38ffa330882346 — Correct shield V19 CN7 alignment using official ST C05 CAD**. Worktree `MSM_vibe-SHIELD-V19-C05-OFFICIAL-CAD`, branche locale`codex/shield-v19-c05-official-cad`, ciblemain. DépartHEADdistantad4b698f ; basecontractuelle63451b2b dans l’historique. Dépôtprincipal propre82169af7, deuxstashes6251b988…/f3b829e6… et autresworktrees préservés, pas de reset/merge/rebase/forcepush. Permissions exercées : logicielsCAO, documentation, journal, commits et pushnormaux ; aucune permission matérielle.
+
+Journal `ETAT_COURANT_TR2.md` actualisé : constat papier, sourcesC05 effectives, correctionCN7/J5/ancrage, résultats et distinctionXYnumérique/XYphysique/Z/accès. À transmettre àChatGPT : contrôler indépendamment sourceetrepère, nouvellescomparaisons, gabarits et résultats physiques futurs, puis statuer sur libération. Archives de mission et rapport prévues sans toucher aux anciennes.
+
+Publication et relecture distante : en cours. Le statutIN_PROGRESS concerne cette étape finale, pas un blocage technique des corrections.
