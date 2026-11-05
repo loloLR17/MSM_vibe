@@ -1,0 +1,117 @@
+{
+  "manufacturer_mounts": [
+    {
+      "file": "Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB__Adafruit SDIO microSD.brd",
+      "source_sha256": "0ec91e989f1004c85c203bc4539bb2652b8c33614cc18f624bd3bdac7cbf8c57",
+      "element": "U$1",
+      "package": "MOUNTINGHOLE_2.5_PLATED",
+      "drill_mm": 2.5,
+      "copper_diameter_mm": 3.2,
+      "connected_signals": [],
+      "restrict": [
+        {
+          "x": "0",
+          "y": "0",
+          "radius": "1",
+          "width": "2.032",
+          "layer": "41"
+        },
+        {
+          "x": "0",
+          "y": "0",
+          "radius": "1",
+          "width": "2.032",
+          "layer": "42"
+        }
+      ]
+    },
+    {
+      "file": "Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB__Adafruit SDIO microSD.brd",
+      "source_sha256": "0ec91e989f1004c85c203bc4539bb2652b8c33614cc18f624bd3bdac7cbf8c57",
+      "element": "U$2",
+      "package": "MOUNTINGHOLE_2.5_PLATED",
+      "drill_mm": 2.5,
+      "copper_diameter_mm": 3.2,
+      "connected_signals": [],
+      "restrict": [
+        {
+          "x": "0",
+          "y": "0",
+          "radius": "1",
+          "width": "2.032",
+          "layer": "41"
+        },
+        {
+          "x": "0",
+          "y": "0",
+          "radius": "1",
+          "width": "2.032",
+          "layer": "42"
+        }
+      ]
+    },
+    {
+      "file": "Adafruit-FRAM-Breakout-PCB__SPI FRAM 2 and 4 Mbit.brd",
+      "source_sha256": "861a05b686fcd5ad03a8f586ccf199ddb5163454c9b6663071ac254c937ece2f",
+      "element": "U$16",
+      "package": "MOUNTINGHOLE_2.5_PLATED",
+      "drill_mm": 2.5,
+      "copper_diameter_mm": 3.2,
+      "connected_signals": [],
+      "restrict": [
+        {
+          "x": "0",
+          "y": "0",
+          "radius": "1",
+          "width": "2.032",
+          "layer": "41"
+        },
+        {
+          "x": "0",
+          "y": "0",
+          "radius": "1",
+          "width": "2.032",
+          "layer": "42"
+        }
+      ]
+    },
+    {
+      "file": "Adafruit-FRAM-Breakout-PCB__SPI FRAM 2 and 4 Mbit.brd",
+      "source_sha256": "861a05b686fcd5ad03a8f586ccf199ddb5163454c9b6663071ac254c937ece2f",
+      "element": "U$17",
+      "package": "MOUNTINGHOLE_2.5_PLATED",
+      "drill_mm": 2.5,
+      "copper_diameter_mm": 3.2,
+      "connected_signals": [],
+      "restrict": [
+        {
+          "x": "0",
+          "y": "0",
+          "radius": "1",
+          "width": "2.032",
+          "layer": "41"
+        },
+        {
+          "x": "0",
+          "y": "0",
+          "radius": "1",
+          "width": "2.032",
+          "layer": "42"
+        }
+      ]
+    }
+  ],
+  "module_drills_are_plated_floating": true,
+  "shield_holes": "V23 NPTH2.7 at FRAM/SD anchors",
+  "physical_revision_not_confirmed": true,
+  "actual_unforced_height_mm": null,
+  "simple_candidate": "One ordinary metal M2 bolt +one M2 nut +insulating bearing/washer +PETG spacer of actual H; length selected after H",
+  "release": false,
+  "V24_compression_path_issue": {
+    "lowest_suspended_nut_Z": 20.25,
+    "shield_top_Z": 13.85,
+    "free_gap_mm": 6.4,
+    "observation": "V24 static geometry has no compression-bearing spacer or nut locked against shield. A downward translation moves the lower bolt head away from underside of shield. Anti-lift geometry alone does not demonstrate compression support independent of the connector."
+  },
+  "remaining": "Actual H, bolt length, filled copper/component/washer envelopes and final contact required; neither 8 new nylon screws nor24 new nylon nuts prescribed"
+}

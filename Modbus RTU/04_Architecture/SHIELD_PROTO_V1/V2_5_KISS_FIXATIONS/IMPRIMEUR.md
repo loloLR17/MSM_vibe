@@ -1,0 +1,12 @@
+# V2.5 KISS — candidat PARTIEL à revoir avant transmission
+
+**Ce ZIP n’est pas encore le lot complet unique pour deux prototypes robustes.** Appuis FRAM/microSD et quatre étriers sont non libérés ; ils ne sont pas cachés dans le paquet. Ne pas remplacer l’absence de ces fixations par un effort sur les connecteurs. La décision de transmettre ce lot partiel doit être explicite ; aucun envoi n’a été fait.
+
+Si la revue autorise ce lot partiel : imprimer les **14 STL**, selon `QUANTITES.csv` : **40 pièces**, dont deux caisses, deux couvercles ARNACO monobloc et les réserves D126/bras. Les treize STL hors base sont exactement ceux de V2.4 : **ne pas les réimprimer s’ils ont déjà été produits**, après inventaire du propriétaire. La base a des dégagements locaux d’écrous nouveaux. La bride de nappe conserve sa forme imprimée ; elle se monte2,5mm plus près de la cassette.
+
+- Millimètres,100%, orientations appliquées. PETG une couleur, buse0,4 ; plateau utile≥180×180mm et hauteur≥70mm,200×200 conseillé. ARNACO déjà intégré, sans devise, police, pièce rapportée ni deuxième filament.
+- Couches0,20mm pour le coffret ; quatre périmètres, cinq couches dessus/dessous, remplissage20–30% dans les volumes épais, selon profil machine. D126 :0,10mm,100%, cinq périmètres ; mesurer12,15..12,35mm de haut après ébavurage, alésage2,2..2,6mm. Bras Nucleo :0,10/0,15mm,100%. Aucun filet imprimé.
+- Couvercle face intérieure au plateau, logo vers le haut ; panneaux à plat, baies de caisse ouvertes vers le haut. Vérifier les petits ponts et poches dans le trancheur ; supports locaux seulement s’ils sont nécessaires et retirables. Ne pas modifier la géométrie pour masquer un mauvais tranchage. Aucun G-code ni temps/énergie estimé.
+- Quincaillerie du coffret : **M3×12 métal standard +écrous M3**, utiles34de chaque pour deux coffrets, cible40avec réserves. Les vis nylon M2 Ajile restent exclusivement affectées aux D126 ; aucun achat de nylon supplémentaire demandé. Vitres de récupération, petits Colson et garniture usuels.
+
+Le PDF joint indique les points de fixation et le principe de montage. Charger les **neuf écrous captifs par caisse avant l’électronique** ; les ouvertures d’accès ne donnent aucune IP. Serrer sans écraser le PETG, contrôler qu’aucun écrou n’est libre et qu’aucune tige ne touche une carte. Le premier montage se fait hors tension ; aucune tenue industrielle ou vibratoire revendiquée.

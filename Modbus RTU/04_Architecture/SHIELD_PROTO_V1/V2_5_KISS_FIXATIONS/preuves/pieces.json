@@ -1,0 +1,282 @@
+[
+  {
+    "id": "01_base",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/01_base.stl",
+    "STEP": "cad/01_base.step",
+    "dimensions_print_mm": [
+      158.00000020000013,
+      166.00000020000013,
+      61.0022384791397
+    ],
+    "volume_mm3": 181176.80079682334,
+    "orientation": "flat",
+    "note": "Fond -14, plancher -11; baies en U ouvertes en haut; poches écrous M3, pas de filets imprimés",
+    "STL_identical_to_V24": false,
+    "STL_sha256": "affa55096643155494d9e86f5a7e1e66bd348df98045f50e59fd098968494017",
+    "STEP_identical_to_V24": false
+  },
+  {
+    "id": "03_cassette_nord",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/03_cassette_nord.stl",
+    "STEP": "cad/03_cassette_nord.step",
+    "dimensions_print_mm": [
+      67.60000020000001,
+      53.55000020000003,
+      2.401611443779399
+    ],
+    "volume_mm3": 5461.11590210274,
+    "orientation": "north",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "13f39c65d99d9bf6a3e139fcefed77d67fa2678fbb613f0ab25b5fff26f40102",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "04_cassette_sud",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/04_cassette_sud.stl",
+    "STEP": "cad/04_cassette_sud.step",
+    "dimensions_print_mm": [
+      73.60000020000001,
+      53.550000200000014,
+      2.401611443779376
+    ],
+    "volume_mm3": 7317.842975525616,
+    "orientation": "south",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "7ea4cc8d66f1349177e8d545136d45b5e2a051dce7a77c023a537c81f57ebf58",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "05_cassette_SD",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/05_cassette_SD.stl",
+    "STEP": "cad/05_cassette_SD.step",
+    "dimensions_print_mm": [
+      27.55000020000001,
+      39.60000020000001,
+      2.4016114437793936
+    ],
+    "volume_mm3": 1384.3229755256846,
+    "orientation": "west",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "baeb3b5c05273264b95c4628ba083e7ebd0c6e81bcedd69bb00f47fafc264bd6",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "06_cassette_RS485",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/06_cassette_RS485.stl",
+    "STEP": "cad/06_cassette_RS485.step",
+    "dimensions_print_mm": [
+      25.55000020000001,
+      38.6000002,
+      2.400000199999984
+    ],
+    "volume_mm3": 1358.951999999987,
+    "orientation": "east",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "8a75661848b70e9d23f495894c1f8e147079f68f518dc541676aeff666abb7fe",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "07_cadre_vitre",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/07_cadre_vitre.stl",
+    "STEP": "cad/07_cadre_vitre.step",
+    "dimensions_print_mm": [
+      61.10000020000003,
+      20.00000020000003,
+      2.0016114437793995
+    ],
+    "volume_mm3": 1143.2849592094763,
+    "orientation": "north",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "08_trappe_USER",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/08_trappe_USER.stl",
+    "STEP": "cad/08_trappe_USER.step",
+    "dimensions_print_mm": [
+      29.000000200000017,
+      31.000000200000017,
+      2.4016114437794007
+    ],
+    "volume_mm3": 2133.170975525691,
+    "orientation": "south",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "1325cf9d6967f87cafa62f03fb41c7f3390c845915f2335781b9e78251618a61",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "09_trappe_SD",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/09_trappe_SD.stl",
+    "STEP": "cad/09_trappe_SD.step",
+    "dimensions_print_mm": [
+      27.300000200000007,
+      32.0000002,
+      2.401611443779396
+    ],
+    "volume_mm3": 2072.2109755256847,
+    "orientation": "west",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "68360a8588b81cfd06dfff89241302aa23e132fbc91a4d4d6f82fc3d2ab8706d",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "10_serre_nappe",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/10_serre_nappe.stl",
+    "STEP": "cad/10_serre_nappe.step",
+    "dimensions_print_mm": [
+      28.000000200000002,
+      6.000000200000002,
+      3.001611443779396
+    ],
+    "volume_mm3": 408.36743881421444,
+    "orientation": "north",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+    "STEP_identical_to_V24": false
+  },
+  {
+    "id": "11_serre_cable_RS485",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/11_serre_cable_RS485.stl",
+    "STEP": "cad/11_serre_cable_RS485.step",
+    "dimensions_print_mm": [
+      6.002635180947243,
+      25.000000200000006,
+      3.002635180947242
+    ],
+    "volume_mm3": 365.75044046113896,
+    "orientation": "flat",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "8387f16bd2659225e859b38b732ceaac66d6f297a3a34967dd4348f520684e9e",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "02_couvercle_ARNACO",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/02_couvercle_ARNACO.stl",
+    "STEP": "cad/02_couvercle_ARNACO.step",
+    "dimensions_print_mm": [
+      158.0000002000001,
+      166.0000002000001,
+      4.0008058218897435
+    ],
+    "volume_mm3": 76183.32062784473,
+    "orientation": "flat",
+    "note": "Relief ARNACO intégré1mm, six glyphes, aucune devise; face intérieure à plat",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "0afab14685b7ce1e29b6c45198a793b0a08bd9727cffca1cc00893a2d512faed",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "12_trappe_outil_RS485",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/12_trappe_outil_RS485.stl",
+    "STEP": "cad/12_trappe_outil_RS485.step",
+    "dimensions_print_mm": [
+      28.400000200000008,
+      36.40000020000002,
+      2.001611443779395
+    ],
+    "volume_mm3": 2026.8049592094758,
+    "orientation": "flat",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "53e10fffaace10440a46423937a8a6c33a76fd0f1fd22e35f050d73f528b87bb",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "13_D126",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 8,
+    "useful_two_kits": 6,
+    "spares": 2,
+    "STL": "stl/13_D126.stl",
+    "STEP": "cad/13_D126.step",
+    "dimensions_print_mm": [
+      6.002635180947236,
+      3.001317690473619,
+      12.252635180947237
+    ],
+    "volume_mm3": 145.47144782447538,
+    "orientation": "flat",
+    "note": "12,25±0,10 à accepter après impression; couches0,10 et100%; ouvrir vers CN15 en haut, STLINK en bas",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+    "STEP_identical_to_V24": true
+  },
+  {
+    "id": "15_retenue_Nucleo",
+    "status": "CANDIDAT_IMPRESSION_PARTIELLE",
+    "quantity_to_print_two_kits": 8,
+    "useful_two_kits": 6,
+    "spares": 2,
+    "STL": "stl/15_retenue_Nucleo.stl",
+    "STEP": "cad/15_retenue_Nucleo.step",
+    "dimensions_print_mm": [
+      17.300000200000003,
+      6.802986511740201,
+      3.6020304371298986
+    ],
+    "volume_mm3": 208.91522121043377,
+    "orientation": "upside_down",
+    "note": "6utiles+2réserves, lumièreM3; jeu antilevée0,8 nominal sans serrer le PCB",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505",
+    "STEP_identical_to_V24": true
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "ZIP": "pack_imprimeur/TR2_V25_KISS_PARTIEL_REVUE.zip",
+  "sha256": "bd1b6bee3cc7566d5464921eaef156adff31121b734342e0339d995c3cc42479",
+  "bytes": 331995,
+  "entries": 21,
+  "all_remote_independent_verification_pending": true,
+  "readback_all_members_identical": true,
+  "mission_id": "TR2-20261105-SHIELD-V25-KISS-FIXATIONS",
+  "release": "PARTIEL_POUR_REVUE_PAS_LOT_COMPLET",
+  "printed_types": 14,
+  "parts": 40,
+  "missing": [
+    "FRAM/SD compression supports at actual H",
+    "2MKI and2Click retainers"
+  ],
+  "structural_hardware": "M3x12 metal +DIN934 M3; 34each useful,40with reserves",
+  "D126": "Ajile nylon reserved exclusively;6bolts12nuts useful,8/16purchased",
+  "files": {
+    "BOM_QUINCAILLERIE.csv": "a0abe36ec5acb294d4315c2a6b2ebb5710d8ba9cb1a369846563822d4c399ca6",
+    "MASSE.json": "24c0f6ea6c86f5847ed6a82f10a7af548209f1a8de5e10eeeb9d0cd1c5c9c542",
+    "QUANTITES.csv": "5a4d2204274a38f6db198a283e805b4fa2958f485abef27bacfe493d590d14d6",
+    "README_IMPRIMEUR.md": "f2cb3163ae58d7d72ae11f914724c95650cfcf080c65b0676a66bccc60ed722e",
+    "RESERVES.md": "d9f354d1b4df1a7fb4eb63a7322629d0066345ed0b6e39a9955e6e538d61a85a",
+    "SCHEMAS_MONTAGE_V25.pdf": "8a5fef9cbab84c94780a9f51294b04c565b1c2baf593bf171836ddbae47efeb5",
+    "STL/01_base.stl": "affa55096643155494d9e86f5a7e1e66bd348df98045f50e59fd098968494017",
+    "STL/02_couvercle_ARNACO.stl": "0afab14685b7ce1e29b6c45198a793b0a08bd9727cffca1cc00893a2d512faed",
+    "STL/03_cassette_nord.stl": "13f39c65d99d9bf6a3e139fcefed77d67fa2678fbb613f0ab25b5fff26f40102",
+    "STL/04_cassette_sud.stl": "7ea4cc8d66f1349177e8d545136d45b5e2a051dce7a77c023a537c81f57ebf58",
+    "STL/05_cassette_SD.stl": "baeb3b5c05273264b95c4628ba083e7ebd0c6e81bcedd69bb00f47fafc264bd6",
+    "STL/06_cassette_RS485.stl": "8a75661848b70e9d23f495894c1f8e147079f68f518dc541676aeff666abb7fe",
+    "STL/07_cadre_vitre.stl": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+    "STL/08_trappe_USER.stl": "1325cf9d6967f87cafa62f03fb41c7f3390c845915f2335781b9e78251618a61",
+    "STL/09_trappe_SD.stl": "68360a8588b81cfd06dfff89241302aa23e132fbc91a4d4d6f82fc3d2ab8706d",
+    "STL/10_serre_nappe.stl": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+    "STL/11_serre_cable_RS485.stl": "8387f16bd2659225e859b38b732ceaac66d6f297a3a34967dd4348f520684e9e",
+    "STL/12_trappe_outil_RS485.stl": "53e10fffaace10440a46423937a8a6c33a76fd0f1fd22e35f050d73f528b87bb",
+    "STL/13_D126.stl": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+    "STL/15_retenue_Nucleo.stl": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505"
+  }
+}

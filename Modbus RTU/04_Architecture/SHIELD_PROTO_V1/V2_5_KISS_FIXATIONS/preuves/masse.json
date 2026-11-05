@@ -1,0 +1,10 @@
+{
+  "printed_parts": 40,
+  "solid_volume_mm3": 564898.9834054149,
+  "PETG_density_scenario_g_cm3": 1.27,
+  "solid_mass_g": 717.421708924877,
+  "slicer_mass": null,
+  "time": "non estimé",
+  "energy": "non estimée",
+  "basis": "V24 density scenario reused, not measured filament. No support/brim/purge included. No guarantee against failed prints."
+}

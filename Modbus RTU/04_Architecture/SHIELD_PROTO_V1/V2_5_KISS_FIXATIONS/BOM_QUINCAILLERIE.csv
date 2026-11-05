@@ -1,0 +1,15 @@
+famille;piece;utiles_deux_prototypes;reserve;total;provenance_statut;instruction
+A_D126;Vis nylon Ajile VCY120 M2x20;6;2;8;DEJA_COMMANDE selon mission;Exclusivement Nucleo shield D126. Aucun re-achat.
+A_D126;Ecrou nylon Ajile UHX001 M2;12;4;16;DEJA_COMMANDE selon mission;Deux par ancrage D126. Ne pas affecter aux modules ou a la caisse.
+B_FRAM_SD;Appui PETG de hauteur naturelle H;8;non figee;NON_LIBERE;Mesure H et contacts manquants;Un appui plein porteur par point. Aucun STL a hauteur11mm imposee.
+B_FRAM_SD;Vis metallique M2 ordinaire longueur selon H;8;non figee;NON_FIGE;PROPOSITION_CONDITIONNELLE;Pas de nouvelle vis nylon. Attendre hauteur et verification des volumes avant approvisionnement.
+B_FRAM_SD;Ecrou metallique M2 ordinaire;8;non figee;NON_FIGE;PROPOSITION_CONDITIONNELLE;Un par point avec appui de compression et portees isolantes. Freinage et tenue a qualifier.
+B_FRAM_SD;Rondelles et portees isolantes;selon montage;non figee;NON_LIBERE;Contacts a confirmer;Ne pas remplacer un appui porteur par des ecrous suspendus ni forcer les sockets.
+C_COFFRET;Vis metallique M3x12 DIN912 ISO4762;34;6;40;STANDARD stock ou assortiment courant;Une longueur sous tete12mm. Sans rondelle supplementaire non prise en compte. Tete courante5.5x3.
+C_COFFRET;Ecrou metallique M3 DIN934 AF5.5 H<=2.4;34;6;40;STANDARD stock ou assortiment courant;Poches AF5.9 H2.8. Pas de Nylstop plus haut sans verification.
+C_COFFRET;Vitre transparente recuperation50x18x1.5mm;2;0;2;RECUPERATION;Sans percage. Dimensions et clarte a verifier au premier montage.
+C_COFFRET;Collier Colson nylon largeur<=2.5mm;2;2;4;CONSOMMABLE_COURANT;Une boucle par bride de nappe avec garniture souple.
+C_COFFRET;Garniture isolante souple;4;0;4;RECUPERATION_ADAPTEE;Protection nappe et cable. Ne pas pincer conducteurs ou IDC.
+D_ETRIERS;Deux MKI et deux Click;4;0;NON_LIBERE;Modeles V24 conserves;Zones nues revision Click et contacts a confirmer. Aucune nouvelle visserie nylon specialisee imposee.
+REEMPLOI;Deux Nucleo C05 modules lecteurs et alimentations existants;2ensembles;0;2ensembles;INVENTAIRE_PHYSIQUE_NON_REALISE;Aucun banc modifie. Etat physique non presume de cette nomenclature.
+ACQUIS;Cinq PCB V23 et lot TME;1lot;0;1lot;COMMANDES_UTILISATEUR selon mission;Pas de re-achat. Reception non controlee. Samtec echantillons toujours reception inconnue.

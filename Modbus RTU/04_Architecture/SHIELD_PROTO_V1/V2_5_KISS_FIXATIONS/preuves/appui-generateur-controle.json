@@ -1,0 +1,8 @@
+{
+  "missing_height_command_return_code": 2,
+  "no_output_generated_without_height": true,
+  "H11_hypothetical_geometry_only_solid_valid": true,
+  "zero_height_rejected": true,
+  "release": false,
+  "physical_height_measured": false
+}

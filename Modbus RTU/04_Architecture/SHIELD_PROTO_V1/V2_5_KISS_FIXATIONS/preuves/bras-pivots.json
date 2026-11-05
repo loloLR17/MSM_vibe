@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "pivot": [
+        16,
+        21.192131
+      ],
+      "L": 11.5,
+      "intersection_mm3": 0.0
+    },
+    {
+      "pivot": [
+        16,
+        21.192131
+      ],
+      "L": 12,
+      "intersection_mm3": 0.0
+    },
+    {
+      "pivot": [
+        16,
+        21.192131
+      ],
+      "L": 12.5,
+      "intersection_mm3": 0.0
+    },
+    {
+      "pivot": [
+        16,
+        97.39
+      ],
+      "L": 11.5,
+      "intersection_mm3": 0.0
+    },
+    {
+      "pivot": [
+        16,
+        97.39
+      ],
+      "L": 12,
+      "intersection_mm3": 0.0
+    },
+    {
+      "pivot": [
+        16,
+        97.39
+      ],
+      "L": 12.5,
+      "intersection_mm3": 0.0
+    },
+    {
+      "pivot": [
+        98,
+        97.39
+      ],
+      "L": 11.5,
+      "intersection_mm3": 0.0
+    },
+    {
+      "pivot": [
+        98,
+        97.39
+      ],
+      "L": 12,
+      "intersection_mm3": 0.0
+    },
+    {
+      "pivot": [
+        98,
+        97.39
+      ],
+      "L": 12.5,
+      "intersection_mm3": 0.0
+    }
+  ],
+  "unchanged_PETG_arms": true,
+  "passed": true,
+  "scope": "Metal through-slot clearance, no screw head preload on PCB; strength not tested"
+}

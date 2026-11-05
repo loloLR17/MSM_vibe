@@ -1,0 +1,49 @@
+{
+  "mounts_per_kit": 17,
+  "lengths_design_acceptance_mm": [
+    11.5,
+    12,
+    12.5
+  ],
+  "standard_nominal": "M3x12 DIN912 / ISO4762; head typical5.5x3",
+  "head_test_envelope_d_h_mm": [
+    6,
+    3.2
+  ],
+  "nut_standard": "M3 DIN934 similar ISO4032, AF5.5 Hmax2.4",
+  "existing_pocket_AF_height_mm": [
+    5.9,
+    2.8
+  ],
+  "pocket_clearance_per_flat_mm": 0.2,
+  "pocket_height_clearance_mm": 0.4,
+  "all_nuts_fully_engaged": true,
+  "minimum_thread_emergence_mm": 1.4,
+  "positive_intersections": [
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 11.5,
+      "part": "01_base",
+      "mm3": 0.1279269866545803
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12,
+      "part": "01_base",
+      "mm3": 0.1279269866545803
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12.5,
+      "part": "01_base",
+      "mm3": 0.1279269866545803
+    }
+  ],
+  "minimum_electrical_box_clearance_mm": 2.5600000000000023,
+  "PCB_copper_contact": "UNRESOLVED",
+  "isolation_scope": "No structural metal contacts even full PCB/component bounding boxes, hence no conductive bridge through this hardware; not an insulation standard/voltage qualification",
+  "passed": false
+}

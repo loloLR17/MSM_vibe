@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "module": "MKI",
+      "contact_centre": [
+        43.1,
+        24.3
+      ],
+      "candidate_tip_radius": 1.25,
+      "full_disc_margin_to_provisional_PCB_box_mm": -0.6099999999999994,
+      "full_bearing_disc_inside_box": false
+    },
+    {
+      "module": "MKI",
+      "contact_centre": [
+        62.1,
+        44.9
+      ],
+      "candidate_tip_radius": 1.25,
+      "full_disc_margin_to_provisional_PCB_box_mm": -0.5700000000000003,
+      "full_bearing_disc_inside_box": false
+    },
+    {
+      "module": "Click",
+      "contact_centre": [
+        84.1,
+        91.43
+      ],
+      "candidate_tip_radius": 1.25,
+      "full_disc_margin_to_provisional_PCB_box_mm": -0.5600000000000023,
+      "full_bearing_disc_inside_box": false
+    }
+  ],
+  "release": false,
+  "conclusion": "Bounding envelopes do not prove full bearing even before checking actual components/copper. No guessed relocation, no general module redesign, V24 bridge models preserved outside printer ZIP. Confirm actual bare contact areas and Click revision before release."
+}

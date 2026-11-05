@@ -1,0 +1,22 @@
+{
+  "unchanged_STL_exact_V24": 13,
+  "unchanged_individual_STEP_exact_V24": 12,
+  "changed_STEP": [
+    "01_base",
+    "10_serre_nappe"
+  ],
+  "translation_saddle_CAD_mm": [
+    0,
+    2.5,
+    0
+  ],
+  "saddle_symmetric_difference_to_expected_mm3": 0.0,
+  "base_symmetric_difference_to_expected_mm3": 0.0,
+  "base_added_volume_mm3": 0.0,
+  "base_removed_volume_mm3": 163.2008563869167,
+  "modified_meshes_valid": true,
+  "base_mesh_relative_volume_error": 3.372790115173695e-05,
+  "C05_reuse_proof": "Base only loses material (verified subset); cannot introduce collision relative to V24; unchanged D126/anchors/G",
+  "old_validation_reused": "V2_4_IMPRESSION_3D/preuves/relecture-STEP-STL.json; byte equality checked; no redundant mesh tests",
+  "source_V24_code_commit": "eb322dec649c36645edbbf7d2881e95ee0ea2df8"
+}

@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "url": "https://www.sfs.ch/CH/de/dl/vlp/P_S010101_0185",
+      "scope": "Manufacturer FERRONORM ISO4762 listing M3x12 with head5.5 height3 and2.5mm hex drive, full thread; reference dimensions, not purchase/price offer for France"
+    },
+    {
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_934_Stahl_8_gv___en.pdf",
+      "scope": "Bollhoff DIN934 M3: AF5.32..5.5, height2.15..2.4, pitch0.5"
+    }
+  ],
+  "reference_head_d_h_mm": [
+    5.5,
+    3
+  ],
+  "design_envelope_d_h_mm": [
+    6,
+    3.2
+  ],
+  "nut_AF_height_mm": [
+    5.5,
+    2.4
+  ],
+  "failed_fetches": [
+    "TME PDF inaccessible through web tool",
+    "Bollhoff screw PDF server403 via urllib; curl/pdftotext absent. No protection changed. Alternate primary SFS dimensions read successfully."
+  ],
+  "no_prices_or_availability_claimed": true
+}

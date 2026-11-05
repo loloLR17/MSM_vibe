@@ -1,0 +1,4393 @@
+{
+  "bounds": [
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 38.27038672394101
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 74.37812648890802
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 95.61036554683807
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 42.813849394792804
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 113.08719909874858
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 32.30781202652694
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 40.9134740960204
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 75.23300741762053
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 96.25034394262046
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 43.373556518917646
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 113.3602923264724
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 35.783272513544176
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 37.95026350369652
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 74.29875974738745
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 95.56721195054295
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 42.774124187410315
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 113.07256342720811
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 31.84501082366508
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 40.9134740960204
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 75.23300741762053
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 96.25034394262046
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 43.373556518917646
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 113.3602923264724
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 35.783272513544176
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 37.63406037089275
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 74.22267645403257
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 95.52665596575649
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 42.74021174491301
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 113.06013709526448
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 31.38335085323576
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 40.9134740960204
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 75.23300741762053
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 96.25034394262046
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 43.373556518917646
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 113.3602923264724
+    },
+    {
+      "mount": "lid_13_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 35.783272513544176
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 61.25865245008251
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 113.82966968238115
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 149.46461521042366
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 100.99377456061337
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 92.45950519011012
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 75.7621239202307
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 62.82097446170308
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 114.29239296006446
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 149.74508478759373
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 101.11309289847419
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 92.88774676354647
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 77.17070558789734
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 61.059172120165535
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 113.77782604708177
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 149.43701415646663
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 100.97694043691361
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 92.44160372905698
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 75.56592762166254
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 62.82097446170308
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 114.29239296006446
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 149.74508478759373
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 101.11309289847419
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 92.88774676354647
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 77.17070558789734
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 60.863145663036505
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 113.72815702366763
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 149.4110812490158
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 100.96257970159043
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 92.42640369504811
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 75.37253753019259
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 62.82097446170308
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 114.29239296006446
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 149.74508478759373
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 101.11309289847419
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 92.88774676354647
+    },
+    {
+      "mount": "lid_161_-15",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 77.17070558789734
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 32.628553446329796
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 70.07618497035924
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 30.945338905883702
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 87.68719689897723
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 75.52455627145386
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 37.16315859761346
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 35.63582975890603
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 70.96633994436901
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 32.366042530293015
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 88.10399653307303
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 75.74542808871884
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 40.34634567287062
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 32.25248052475964
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 69.99194025028882
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 30.811751005095434
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 87.66780766050901
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 75.50263968895392
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 36.74779386696098
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 35.63582975890603
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 70.96633994436901
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 32.366042530293015
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 88.10399653307303
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 75.74542808871884
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 40.34634567287062
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 31.87981336206346
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 69.9111700660202
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 30.68572958233191
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 87.65126639130779
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 75.4840287743043
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 36.334561387554125
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 35.63582975890603
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 70.96633994436901
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 32.366042530293015
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 88.10399653307303
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 75.74542808871884
+    },
+    {
+      "mount": "lid_13_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 40.34634567287062
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 57.90183503137012
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 111.06646523591178
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 118.97875104404147
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 126.71133059044088
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 38.26230651698876
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 77.46786222413739
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 59.51869313348497
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 111.5301174057384
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 119.19321464766206
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 126.90510768087893
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 38.92232648247966
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 79.26164821534519
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 57.690748825093266
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 111.01333118143965
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 118.9440759348695
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 126.69791355819558
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 38.219027983453486
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 77.22059102064638
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 59.51869313348497
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 111.5301174057384
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 119.19321464766206
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 126.90510768087893
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 38.92232648247966
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 79.26164821534519
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 57.483236686881156
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 110.96242472116407
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 118.91149313670232
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 126.68646849604737
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 38.18224849324618
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 76.97577331588123
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 59.51869313348497
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 111.5301174057384
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 119.19321464766206
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 126.90510768087893
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 38.92232648247966
+    },
+    {
+      "mount": "lid_161_141",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 79.26164821534519
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 4.756311596184589
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 43.46434711118023
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 61.43131253392817
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.119308027492686
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 86.1428450601741
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.7499988799994775
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 13.275632621046343
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 47.62148326421766
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 64.60355533635247
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 34.79071519792315
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.29503680721638
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.5745723994565353
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 4.756311596184589
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 43.46434711118023
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 61.43131253392817
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.119308027492686
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 86.1428450601741
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.7499988799994775
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 13.275632621046343
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 47.62148326421766
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 64.60355533635247
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 34.79071519792315
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.29503680721638
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.5745723994565353
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 4.756311596184589
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 43.46434711118023
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 61.43131253392817
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.119308027492686
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 86.1428450601741
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.7499988799994775
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 13.275632621046343
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 47.62148326421766
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 64.60355533635247
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 34.79071519792315
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.29503680721638
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.5745723994565353
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 4.756311596184589
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 35.41124962494264
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 17.290312316438936
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 49.4038682696001
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 66.67991151763775
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.7499988799994775
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 13.275632621046343
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 40.33055744696571
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 25.869512325438112
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 53.13397654968995
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 69.24090507226587
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.5745723994565353
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 4.756311596184589
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 35.41124962494264
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 17.290312316438936
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 49.4038682696001
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 66.67991151763775
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.7499988799994775
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 13.275632621046343
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 40.33055744696571
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 25.869512325438112
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 53.13397654968995
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 69.24090507226587
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.5745723994565353
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 4.756311596184589
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 35.41124962494264
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 17.290312316438936
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 49.4038682696001
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 66.67991151763775
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.7499988799994775
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 13.275632621046343
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 40.33055744696571
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 25.869512325438112
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 53.13397654968995
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 69.24090507226587
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 2.5745723994565353
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 4.6499999999999995
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 37.949500655476356
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 54.74855340554671
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 54.11560773011794
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 17.25
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 3.250001119999098
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 13.25
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 42.5613759773601
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 57.87801443201083
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 57.51437030902702
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 25.85
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 3.0745746394561593
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 4.6499999999999995
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 37.949500655476356
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 54.74855340554671
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 54.11560773011794
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 17.25
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 3.250001119999098
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 13.25
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 42.5613759773601
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 57.87801443201083
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 57.51437030902702
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 25.85
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 3.0745746394561593
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 4.6499999999999995
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 37.949500655476356
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 54.74855340554671
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 54.11560773011794
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 17.25
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 3.250001119999098
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 13.25
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 42.5613759773601
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 57.87801443201083
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 57.51437030902702
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 25.85
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 3.0745746394561593
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 28.59847023880823
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 59.884553100110885
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 81.90226858884924
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 71.05688777310753
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 3.5600000000000023
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 49.83846209392946
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 33.92279331827393
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 61.304409814744744
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 82.58536124665207
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 71.60146597446071
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 9.660000000000004
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 53.69319604913133
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 28.168643914821317
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 59.78594901814306
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 81.8518881883613
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 71.0329592513222
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 3.0600000000000023
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 49.5397042806106
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 33.92279331827393
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 61.304409814744744
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 82.58536124665207
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 71.60146597446071
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 9.660000000000004
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 53.69319604913133
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 27.741169766251744
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 59.69137039807346
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 81.80453288174196
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 71.01254325821601
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 2.5600000000000023
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 49.24421079205812
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 33.92279331827393
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 61.304409814744744
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 82.58536124665207
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 71.60146597446071
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 9.660000000000004
+    },
+    {
+      "mount": "tool_127.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 53.69319604913133
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 44.043983698117046
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 81.00814588669463
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 103.80858153351292
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 90.82269154787255
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 6.925113717477857
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 66.93140236570501
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 47.59240634145787
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 82.01629044031606
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 104.31137582783637
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.20707847830651
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 11.249262547439512
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 70.16883825897405
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 43.76611131914737
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 80.93528093483089
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 103.76883732604891
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 90.80397182943047
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 6.68185602957741
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 66.64504949836787
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 47.59240634145787
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 82.01629044031606
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 104.31137582783637
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.20707847830651
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 11.249262547439512
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 70.16883825897405
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 43.492211946508306
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 80.86544193906319
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 103.73148798701386
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 90.78800196061151
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 6.468168210552349
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 66.36122830870374
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 47.59240634145787
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 82.01629044031606
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 104.31137582783637
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.20707847830651
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 11.249262547439512
+    },
+    {
+      "mount": "tool_149.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 70.16883825897405
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 41.26284648445863
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 83.27615024723465
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 107.96000000000001
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.56417858529612
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.439999999999998
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 62.07102893234407
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 41.31547292535271
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 83.14615480745572
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 107.80805530558112
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.49023076931806
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.508280998162283
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 62.43272674513483
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 41.209495265047835
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 83.27615024723465
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 107.96000000000001
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.56417858529612
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.439999999999998
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 61.92384542904207
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 41.31547292535271
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 83.14615480745572
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 107.80805530558112
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.49023076931806
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.508280998162283
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 62.43272674513483
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 41.162148874906904
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 83.27615024723465
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 107.96000000000001
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.56417858529612
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.439999999999998
+    },
+    {
+      "mount": "RS_82",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 61.78035798471788
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 41.31547292535271
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 83.14615480745572
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 107.80805530558112
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 91.49023076931806
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.508280998162283
+    },
+    {
+      "mount": "RS_82",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 62.43272674513483
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 41.26284648445863
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 86.4684751802644
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 107.96000000000001
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 98.37051794109858
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.439999999999998
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 62.07102893234407
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 41.31547292535271
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 86.398281575882
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 107.80805530558112
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 98.34999911653826
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.508280998162283
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 62.43272674513483
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 41.209495265047835
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 86.4684751802644
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 107.96000000000001
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 98.37051794109858
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.439999999999998
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 61.92384542904207
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 41.31547292535271
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 86.398281575882
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 107.80805530558112
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 98.34999911653826
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.508280998162283
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 62.43272674513483
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 41.162148874906904
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 86.4684751802644
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 107.96000000000001
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 98.37051794109858
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.439999999999998
+    },
+    {
+      "mount": "RS_101",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 61.78035798471788
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 41.31547292535271
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 86.398281575882
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 107.80805530558112
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 98.34999911653826
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 10.508280998162283
+    },
+    {
+      "mount": "RS_101",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 62.43272674513483
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 23.908419019249266
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 63.81919538822156
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 89.85904573274746
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.608946283175968
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 98.95815024544467
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 9.299614346542942
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 27.11401851441427
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 66.9718473085426
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 93.06369646645247
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 32.63477182268548
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 101.65242103935488
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 11.024825030693044
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 23.412870392158244
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 63.324400510387775
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 89.35915230126123
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.133823985189448
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 98.52682629619204
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 9.133188158247183
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 27.11401851441427
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 66.9718473085426
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 93.06369646645247
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 32.63477182268548
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 101.65242103935488
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 11.024825030693044
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 22.917515135808245
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 62.82968804633682
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 88.85926006894273
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 28.65954814717078
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 98.09615435887382
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 8.991519608690504
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 27.11401851441427
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 66.9718473085426
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 93.06369646645247
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 32.63477182268548
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 101.65242103935488
+    },
+    {
+      "mount": "window_30.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 11.024825030693044
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 23.908419019249266
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 64.74988571418486
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 97.9414605772244
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 34.14405511944942
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 85.45002867173305
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 9.068816950865175
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 27.11401851441427
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 67.84592039010394
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 100.82209451844456
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 36.74990313644384
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.65487521845597
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 10.862623503089637
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 23.412870392158244
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 64.26225719658468
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 97.48302262445497
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 33.732869726722036
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 84.9501465566717
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 8.898075063058233
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 27.11401851441427
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 67.84592039010394
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 100.82209451844456
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 36.74990313644384
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.65487521845597
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 10.862623503089637
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 22.917515135808245
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 63.774820266308865
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 97.02499523318721
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 33.32411289141843
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 84.45026583735542
+    },
+    {
+      "mount": "window_85",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 8.752601828447245
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 27.11401851441427
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 67.84592039010394
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 100.82209451844456
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 36.74990313644384
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.65487521845597
+    },
+    {
+      "mount": "window_85",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 10.862623503089637
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 31.76495710684968
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 63.736081617871676
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 89.9790286677957
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 28.1603995000071
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 93.46366459753224
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.08564924856334
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 32.9843902475095
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.15699195021207
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 91.39091913313925
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.56270623606709
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 94.67546165028881
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.397646839288967
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 31.393669744074202
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 63.240636461060376
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 89.47980554292684
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 27.66040672152165
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 93.00686318761643
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.068243128282628
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 32.9843902475095
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.15699195021207
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 91.39091913313925
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.56270623606709
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 94.67546165028881
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.397646839288967
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 31.02599716366905
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 62.745263566264505
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 88.98059114211368
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 27.160414208918098
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 92.55050837245574
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.060066091704943
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 32.9843902475095
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.15699195021207
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 91.39091913313925
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.56270623606709
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 94.67546165028881
+    },
+    {
+      "mount": "ribbon_42.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.397646839288967
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 31.76495710684968
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 63.736081617871676
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 91.85312841705503
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 28.1603995000071
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 86.89888721957261
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.310454457272204
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 32.9843902475095
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.15699195021207
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 93.20206933748
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.56270623606709
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.24467011575939
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.612747457076804
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 31.393669744074202
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 63.240636461060376
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 91.36414614059501
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 27.66040672152165
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 86.40738741566025
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.29319170596138
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 32.9843902475095
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.15699195021207
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 93.20206933748
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.56270623606709
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.24467011575939
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.612747457076804
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 31.02599716366905
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 62.745263566264505
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 90.8752837684703
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 27.160414208918098
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 85.91598570696841
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.285082084061596
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 32.9843902475095
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.15699195021207
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 93.20206933748
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 29.56270623606709
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 88.24467011575939
+    },
+    {
+      "mount": "ribbon_64.5",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 27.612747457076804
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 20.926358976181223
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 61.06000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 26.760000000000005
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 80.82000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 47.17453762359522
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 18.50346843631654
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 24.696558464693016
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.16000000000001
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 30.86
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 84.92000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 49.8542683337949
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 21.175450611457183
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 20.490546600810834
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 60.56000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 26.260000000000005
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 80.32000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 46.845672158695734
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 18.240311685968045
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 24.696558464693016
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.16000000000001
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 30.86
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 84.92000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 49.8542683337949
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 21.175450611457183
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 20.057729183534224
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 60.06000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 25.760000000000005
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 79.82000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 46.5198559757014
+    },
+    {
+      "mount": "USER",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 17.987206470954913
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 24.696558464693016
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 65.16000000000001
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 30.86
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 84.92000000000002
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 49.8542683337949
+    },
+    {
+      "mount": "USER",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 21.175450611457183
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 26.18229363520316
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 33.16741925444306
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 10.108926748176584
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 45.550526890476256
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 64.90753192041737
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 33.9601376231571
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "shield",
+      "lower_bound_mm": 26.529954193659655
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 36.2827633571006
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "SD",
+      "lower_bound_mm": 11.298612518323512
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 48.00040501600464
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 68.98315126512402
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 11.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 35.54358248722609
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 26.16223423180826
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 32.81109111261008
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 10.047905254330377
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 45.29172661756229
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 64.4090653557401
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 33.77611523474542
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12,
+      "reference": "shield",
+      "lower_bound_mm": 26.529954193659655
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12,
+      "reference": "FRAM",
+      "lower_bound_mm": 36.2827633571006
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12,
+      "reference": "SD",
+      "lower_bound_mm": 11.298612518323512
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 48.00040501600464
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 68.98315126512402
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 35.54358248722609
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 26.1517207846826
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 32.458553572209595
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 10.011513372113129
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 45.0369903523759
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 63.910622747709155
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "bolt",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 33.59852635634236
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "shield",
+      "lower_bound_mm": 26.529954193659655
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "FRAM",
+      "lower_bound_mm": 36.2827633571006
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "SD",
+      "lower_bound_mm": 11.298612518323512
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "MKI_PROVISIONAL",
+      "lower_bound_mm": 48.00040501600464
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "Click_PROVISIONAL",
+      "lower_bound_mm": 68.98315126512402
+    },
+    {
+      "mount": "SDdoor",
+      "kind": "nut",
+      "L": 12.5,
+      "reference": "1060_ST_boxes",
+      "lower_bound_mm": 35.54358248722609
+    }
+  ],
+  "nut_engagement": [
+    {
+      "mount": "lid_13_-15",
+      "nut_entry_from_head": 5.4,
+      "nut_exit": 7.800000000000001,
+      "minimum_thread_emergence_at_L11p5": 3.6999999999999997
+    },
+    {
+      "mount": "lid_161_-15",
+      "nut_entry_from_head": 5.4,
+      "nut_exit": 7.800000000000001,
+      "minimum_thread_emergence_at_L11p5": 3.6999999999999997
+    },
+    {
+      "mount": "lid_13_141",
+      "nut_entry_from_head": 5.4,
+      "nut_exit": 7.800000000000001,
+      "minimum_thread_emergence_at_L11p5": 3.6999999999999997
+    },
+    {
+      "mount": "lid_161_141",
+      "nut_entry_from_head": 5.4,
+      "nut_exit": 7.800000000000001,
+      "minimum_thread_emergence_at_L11p5": 3.6999999999999997
+    },
+    {
+      "mount": "keeper_16_21.192131",
+      "nut_entry_from_head": 5.4,
+      "nut_exit": 7.800000000000001,
+      "minimum_thread_emergence_at_L11p5": 3.6999999999999997
+    },
+    {
+      "mount": "keeper_16_97.39",
+      "nut_entry_from_head": 5.4,
+      "nut_exit": 7.800000000000001,
+      "minimum_thread_emergence_at_L11p5": 3.6999999999999997
+    },
+    {
+      "mount": "keeper_98_97.39",
+      "nut_entry_from_head": 5.4,
+      "nut_exit": 7.800000000000001,
+      "minimum_thread_emergence_at_L11p5": 3.6999999999999997
+    },
+    {
+      "mount": "tool_127.5",
+      "nut_entry_from_head": 3,
+      "nut_exit": 5.4,
+      "minimum_thread_emergence_at_L11p5": 6.1
+    },
+    {
+      "mount": "tool_149.5",
+      "nut_entry_from_head": 3,
+      "nut_exit": 5.4,
+      "minimum_thread_emergence_at_L11p5": 6.1
+    },
+    {
+      "mount": "RS_82",
+      "nut_entry_from_head": 7.4,
+      "nut_exit": 9.8,
+      "minimum_thread_emergence_at_L11p5": 1.6999999999999997
+    },
+    {
+      "mount": "RS_101",
+      "nut_entry_from_head": 7.4,
+      "nut_exit": 9.8,
+      "minimum_thread_emergence_at_L11p5": 1.6999999999999997
+    },
+    {
+      "mount": "window_30.5",
+      "nut_entry_from_head": 5.9,
+      "nut_exit": 8.3,
+      "minimum_thread_emergence_at_L11p5": 3.1999999999999997
+    },
+    {
+      "mount": "window_85",
+      "nut_entry_from_head": 5.9,
+      "nut_exit": 8.3,
+      "minimum_thread_emergence_at_L11p5": 3.1999999999999997
+    },
+    {
+      "mount": "ribbon_42.5",
+      "nut_entry_from_head": 7.7,
+      "nut_exit": 10.1,
+      "minimum_thread_emergence_at_L11p5": 1.4
+    },
+    {
+      "mount": "ribbon_64.5",
+      "nut_entry_from_head": 7.7,
+      "nut_exit": 10.1,
+      "minimum_thread_emergence_at_L11p5": 1.4
+    },
+    {
+      "mount": "USER",
+      "nut_entry_from_head": 5,
+      "nut_exit": 7.4,
+      "minimum_thread_emergence_at_L11p5": 4.1
+    },
+    {
+      "mount": "SDdoor",
+      "nut_entry_from_head": 5,
+      "nut_exit": 7.4,
+      "minimum_thread_emergence_at_L11p5": 4.1
+    }
+  ],
+  "nut_loading_bare_case_before_boards": []
+}

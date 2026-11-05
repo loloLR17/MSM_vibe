@@ -1,0 +1,12 @@
+/home/lolo/dev/msm/cache/shield-v15-cad-venv/lib/python3.13/site-packages/cadquery/utils.py:82: FutureWarning: save will be removed in the next release.
+  warn(f"{f.__name__} will be removed in the next release.", FutureWarning)
+{
+  "printable_types": 14,
+  "parts_two_kits": 40,
+  "own_instances": 18,
+  "changed_individual_STEP": [
+    "01_base",
+    "10_serre_nappe"
+  ],
+  "unchanged_STL_V24": 13
+}
