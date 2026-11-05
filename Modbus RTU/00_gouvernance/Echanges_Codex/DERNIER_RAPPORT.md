@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261105-SHIELD-V19-C05-OFFICIAL-CAD
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 63451b2b4f87a1be0547406d76877b60114bdb20
 initial_head: ad4b698f42a7b174e92227a88ce68d8c9c8935b1
@@ -16,7 +16,7 @@ allow_debug: false
 
 # V1.9 — coordonnées ST C05 obtenues, CN7 corrigé, fabrication toujours NO-GO
 
-**L’erreur relative démontrée concerne CN7/J1 : correctionY+1,016mm.** CN8/CN9/CN10 sont cohérents avecST dans un même repère. J5 est recaléY+0,025001mm et un centre de fixation de moins de0,005mm. Ce n’est pas une translation globale ni un changement d’échelle ; nous ne prétendons pas attribuer entièrement le constat qualitatif utilisateur de «plusieursmm» à cette seule erreur. Le candidatV1.9 et ses gabarits sont prêts ; publication/relecture en cours. **Fabrication NO-GO : l’ancien papier ne valide pas le nouveau PCB.**
+**L’erreur relative démontrée concerne CN7/J1 : correctionY+1,016mm.** CN8/CN9/CN10 sont cohérents avecST dans un même repère. J5 est recaléY+0,025001mm et un centre de fixation de moins de0,005mm. Ce n’est pas une translation globale ni un changement d’échelle ; nous ne prétendons pas attribuer entièrement le constat qualitatif utilisateur de «plusieursmm» à cette seule erreur. Le candidatV1.9, ses gabarits et les preuves sont publiés et relus depuisGitHub. **Fabrication NO-GO : l’ancien papier ne valide pas le nouveau PCB.**
 
 Dossier : [V1_9_C05/README.md](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/README.md). [Décision technique et portes séparées](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/DECISION_V19.md), [provenance](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/PROVENANCE.md), [comparaison106contacts](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/comparaison-C05.csv), [comparaison des trous](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/comparaison-trous-C05.csv).
 
@@ -70,10 +70,10 @@ Code évalué **ca1a2484d735cfe8a4443e54bb80148fb8105152 — Correct shield V19 
 
 Journal `ETAT_COURANT_TR2.md` actualisé : constat papier, sourcesC05 effectives, correctionCN7/J5/ancrage, résultats et distinctionXYnumérique/XYphysique/Z/accès. À transmettre àChatGPT : contrôler indépendamment sourceetrepère, nouvellescomparaisons, gabarits et résultats physiques futurs, puis statuer sur libération. Archives de mission et rapport prévues sans toucher aux anciennes.
 
-Publication et relecture distante : en cours. Le statutIN_PROGRESS concerne cette étape finale, pas un blocage technique des corrections.
+**Publication normale réussie sur main a820d1852af54dd16c5cebde3babe0cd1d3595c5**, confirmée par fetch/ls-remote ; **453fichiers relus intégralement depuis origin/main et comparés octetpour octet**, dont les livrables, preuves, historique du shield, trois ajouts humains, contrat et gouvernance. Preuve `REMOTE_READBACK.json` dans l’archiveV1.9. La présente clôture et son archive sont publiées par un dernier commit/push normal puis relues ; SHA final fourni à l’utilisateur après vérification. **DONE concerne analyse/correction/exports publiés, jamais libération de fabrication ni contrôle physique.**
 
 ## Mise à jour avant publication — main concurrent préservé
 
 Pendant la préparation du push, origin/main a avancé de ad4b698f vers **7c184bc871c867533785ce3a4e7e77f9776e6182**, par trois compléments humains (rectification des accèsST, observation des espaces et descriptions de photos). Le push n’a pas été tenté. Les trois documents ont été lus, sans les modifier. La source métrique désormais obtenue établit **5,080mm côtéCN8/CN9 contre4,064mm côtéCN7/CN10 entre centres extrêmes**, corroborant l’hypothèse terrain d’environ1mm ; aucune mesure photographique prétendue. Un comptage8+17 dans la description photo est signalé : CN9natif est2×15, la photo n’est pas utilisée comme cote. Source et preuves dans `dissymetrie-recoupee.json`.
 
-AGENTS.md§7 impose l’escalade de divergence ; commits locaux et worktree intégralement préservés, pas de merge/rebase/reset/pushforcé. **Autorisation utilisateur explicite reçue** pour intégration isolée et publication. Les trois commits sont réappliqués dans `MSM_vibe-SHIELD-V19-C05-PUBLICATION` basé sur7c184bc871c867533785ce3a4e7e77f9776e6182, branche `codex/shield-v19-c05-publication`. Le code corrigé correspond àca1a2484d735cfe8a4443e54bb80148fb8105152, identique octetpour octet au code testé7557cce1 ; tout le dossier et les preuves au checkpointac61190a sont identiques (442fichiers). Les trois ajouts humains restent intacts, les worktrees/commits originaux aussi. Preuve `INTEGRATION_AUTORISEE.json`. Aucun nouveau test électrique répété. StatutIN_PROGRESS uniquement pour publication/relecture finale.
+AGENTS.md§7 impose l’escalade de divergence ; commits locaux et worktree intégralement préservés, pas de merge/rebase/reset/pushforcé. **Autorisation utilisateur explicite reçue** pour intégration isolée et publication. Les trois commits sont réappliqués dans `MSM_vibe-SHIELD-V19-C05-PUBLICATION` basé sur7c184bc871c867533785ce3a4e7e77f9776e6182, branche `codex/shield-v19-c05-publication`. Le code corrigé correspond àca1a2484d735cfe8a4443e54bb80148fb8105152, identique octetpour octet au code testé7557cce1 ; tout le dossier et les preuves au checkpointac61190a sont identiques (442fichiers). Les trois ajouts humains restent intacts, les worktrees/commits originaux aussi. Preuve `INTEGRATION_AUTORISEE.json`. Aucun nouveau test électrique répété. Intégration et relecture terminées ; statutDONE de livraison logicielle, NO-GO physique inchangé.
