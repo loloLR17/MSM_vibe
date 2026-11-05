@@ -1,7 +1,9 @@
-# Montage futur du premier exemplaire — aucune opération effectuée
+# Montage futur du premier exemplaire
 
-1. Banc complètementhors tension. Préserver Nucleo, câbles, microSD etJP2 ; aucune modificationdemandée maintenant. Piècesfinies : G12,25±0,10 surfacesplanes, Øenveloppe≤6,20, alésage2,4±0,2, faceouverte≤+0,10 de l’axe ; pas de bavure ou fissure. Têtes/écrous et dimensionsréelles conformesàDECISION.
-2. TroisvisnylonM2×20 du basvershaut, tête sousNucleo ; poserlessupports. OuvertureversCN15 au pointhaut, versSTLINK auxdeuxautres. Orientation±5°, aucune autrepièce entrelessurfacesPCBetsupport. Nepas retirer dedispositif ni forcer uncomposant.
-3. PrésentershieldJ1–5 librement, emboîter sansflexion, contactsJ5conformes. Vérifier que touslessupports reposent, G etparallelisme, jeu≥0,20 auxcorpsbavures, absencedecontact tête/queue/écrou avecautrespièces. Lesécrous vontaudessus dushield ; maintenirlesupportpendantl’approche.
-4. Approcherunécroujusqu’aucontactsansfléchir ; maintenir puiscontre-bloqueravecsecondécrou sansaccroîtrel’effortsurlacarte. Aucun couple/capacité decharge n’estvalidé. Vérifierque l’orientationdes supportsn’apas tourné etqu’ilsnesortentpasdel’appui. Si instable ou trop dur, arrêt, pasdeserragecompensatoire.
-5. Avant alimentation : inspecter froidcontinuité/isolation/soudures, accèsUSER/RESET,LED/ports, nappes etRS485GND2. Cecontrôleunique ne vaut pas qualificationvibratoire. Premieressai contrôlé de tenue aprèsautorisationmatérielle adaptée, puis recontrôlejeux/orientation/fluage ; aucune tellecampagne exécutée ici.
+Aucune manipulation n’est demandée maintenant. Le montage nécessite un banc hors tension et les pièces conformes aux bornes de DECISION.md.
+
+1. Vérifier les trois supports : hauteur 12,25±0,10, surfaces planes, rayon≤3,10, alésage 2,4±0,2, face ouverte≤+0,10 de l’axe. Refuser fissures et bavures gênantes.
+2. Placer les vis nylon M2×20 du bas vers le haut, tête sous la Nucleo. Orienter les supports : ouverture vers CN15 au point haut, vers ST-LINK aux deux autres, à ±5°. Aucune cale supplémentaire.
+3. Présenter le shield sans forcer. Vérifier l’engagement libre J1–5, G et le parallélisme, l’appui des trois supports, le jeu≥0,20 aux plastiques et l’absence de contact avec les soudures.
+4. Approcher le premier écrou au-dessus du shield sans fléchir la carte. Le maintenir pendant le contreblocage du second, sans augmenter la charge sur le PCB. Aucun couple n’est qualifié. Vérifier que les supports n’ont pas tourné ni quitté leur appui.
+5. Inspecter à froid isolation, soudures, accès et interfaces. La tenue aux vibrations et au fluage exige ensuite une qualification distincte. Arrêter si l’ensemble est instable ou demande un serrage compensatoire.

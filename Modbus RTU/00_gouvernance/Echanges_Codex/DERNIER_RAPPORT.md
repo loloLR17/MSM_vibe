@@ -14,48 +14,38 @@ allow_flash: false
 allow_debug: false
 ---
 
-# V2.1 — D126 retenu pour prototype ; fixation réelle non qualifiée
+# V2.1 — candidat D126 dimensionné, qualification et approvisionnement incomplets
 
-**Candidatprioritaire dimensionné : trois supports isolantsD126 en demi-couronne, G12,25±0,10, visnylonM2×20 et deuxécrousnyloncontre-bloqués au-dessus du shield. GO géométrique sousbornes ; tenue/fabrication/approvisionnement dusupport BLOCKED, libérationPCB NO-GO.** L’étude est terminée, publication/relecture en cours. **La fixation n’est pas définitivement qualifiée physiquement.**
+**Solution retenue pour un premier prototype : trois supports isolants en demi-couronne D126, G=12,25±0,10 mm, vis nylon M2×20 et deux écrous nylon contrebloqués au-dessus du shield.** Le résultat est un GO géométrique sous bornes. La résistance, la fabrication et l’approvisionnement des supports restent bloqués ; la fixation n’est pas définitivement qualifiée et les PCB restent non libérés.
 
-[Décision et comparaison](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/DECISION.md), [fiche de montage](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/ASSEMBLAGE.md), [approvisionnement](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/APPROVISIONNEMENT.md), [plan/coupe](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/cad/plan-et-coupe.pdf). STEP/SCADéditables et STLderevue, scripts etpreuves dans `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/`.
+[Décision](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/DECISION.md), [montage futur](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/ASSEMBLAGE.md), [approvisionnement](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/APPROVISIONNEMENT.md), [plan et coupe](../../04_Architecture/SHIELD_PROTO_V1/V2_1_FIXATIONS/cad/plan-et-coupe.pdf). STEP, SCAD, STL de revue, scripts et preuves sont dans `V2_1_FIXATIONS/`.
 
-## Choix et dimensionnement
+## Choix et résultats
 
-Troissolutions comparées : tube isolantmince standard+calage (jeuvis/longueur/diamètre nonmaîtrisés), profilouvertD126, repriseparchâssis (plusdepiècesetnouvellescotescoffret). **D126retenu sans nouvelle électronique** : enveloppeØ6, alésage2,4, hauteur12,25 ; demi-couronneouverteàl’axe sansminceparoi avant, ligamentradial1,8, section11,875mm². OuvertureversCN15àl’ancragehaut, versSTLINKauxdeuxbas, rotationmaxacceptée±5°. Sixpiècespourdeuxprototypes+deuxréserves. FabricationPETGdense deprototype proposée ; mêmesSTEPpourusinagePA66/SLS-PA12siaccessible, aucune substitutionmatière déclaréevalidée.
+Trois options ont été comparées : tube mince standard et cale, profil ouvert, reprise sur châssis. D126 conserve davantage de matière tout en dégageant le côté Zio : enveloppe Ø6, alésage Ø2,4, ligament radial1,8, section11,875 mm². Il s’ouvre vers CN15 au point haut et vers ST-LINK aux deux points bas, avec orientation à maintenir dans±5°.
 
-Unpremier profilØ6/méplat1mm orientépareilpartout croise deuxsolides duheaderST près del’ancragehaut : essai **rejeté**, preuvesconservées. Le profilfinalretourneau pointhaut et dégagelespartiesporteuses. Une pièceouverte ne doitpas être confondue avecun troufiletéamputé : vistraversanteetécrousassurentleserrage, le support ne reçoitpas defiletage.
+Le calcul inclut désormais le déplacement libre réel du support sur la vis, borné à1,015 mm, et non une simple position imposée à0,15. Après budgets distincts de longueur du socket, bavure0,38, position ancrage/socket, forme et rotation, la marge calculée vaut **0,320338 mm**, au-dessus de la garde0,20. Toutes les bornes et leurs limites sont explicites dans `geometrie-et-limites.json` ; elles ne sont pas des mesures certifiées des pièces réelles.
 
-## Tolérances réconciliées et contrôles
+**Neuf cas de supports contre les1 060 solides ST : aucune collision.** Un premier profil à méplat1 mm croisait deux solides près du point haut : rejet conservé. La visserie nominale ne montre aucune collision imprévue. Trois faibles recouvrements aux portées tête/PCB —4,42 nm d’étendue,1,458e-5 mm³— sont conservés et classés comme contacts numériques intentionnels par leur emplacement/profondeur ; aucun seuil global n’a été relevé.
 
-L’écart nominalaxe→bordZioST est2,285mm. Le déplacementdusupport n’estpas réduit au budget0,15mmV20 : il dépenddesdeuxtrous, du diamètredetige etdujeu danslesupport. Budgetexplicite : `min((3,33−1,90)/2 ; (2,93−1,90)/2+0,15)+(2,60−1,90)/2 =1,015mm`. TroumaxNucleo3,33/shield2,93 et écartcentres0,15 sontdesbornesd’acceptation, nonmesurées ici. Inclureseparément positionancrage→Zio0,075, demi-tolérancelongueurcorps0,125 etbavure0,38 ; nepas soustrairedeuxfoislamêmeforme.
+Les têtesØ3,8 sont sous la Nucleo ; les écrous de clé4 ont des coinsØ4,619 et sont au-dessus du shield. Aucune rondelle large ni vis métallique au contact du cuivre. Le stack nominal18,65 mm laisse1,35 mm de vis après les écrous. La décision contient les cotes et bornes d’acceptation, sans les présenter comme mesures d’un lot.
 
-AvecprofilRmax3,10, faceenavantmax0,10, rotation5°, projectionavantmax0,369662 ; **margeplane2,285−0,125−0,380−0,075−1,015−0,369662=0,320338mm**, supérieureàlagarde0,20 souscesbornes. **Pas de garantie touslots** : la fabrication/pose doivent respecterlesbornes ; résistanceetmaintienangulaire nonqualifiés. LesinégalitésG/J5V20 restent réutilisées, I5=4,15..4,81 etIz=4,00..5,72 soushypothèses. Aucune modification des106centresXY niGparajoutdecalescachées.
+À5 N, la contrainte moyenne serait0,421 MPa sur la section et≈1,47 MPa sur la demi-portée. **Ce n’est pas une capacité admissible ni un couple de serrage.** Excentricité, impression, fluage, température, maintien angulaire et vibrations exigent une qualification. Aucun serrage compensatoire ou montage forcé n’est recommandé.
 
-Essais réellementexécutés avec CadQuery/OCCT : **9cas supports** (3ancres×nominal/rotation±5°/translation1,015versleheader, profilauxbornes) contre1060solidesSTC05, aucuneinterférence. Ce n’estpasunbalayagecontinu exhaustif detouteslestranslations. CacheBREP/sourceSTV20 etcoordonnéesV1.9 réutilisés, sansrépéterERC/DRC/firmware.
+## Approvisionnement et réserves
 
-Visserie nominale modélisée : DIN84PA6.6M2×20 têteØ3,8/haut1,3 **sousNucleo**, deuxécrousDIN934PA M2 au-dessusshield ; clé4, coinsØ4,619, pasdesécrousprésumésØ4,5. PasderondelleØ5standard ajoutée, pasdemétalconducteuraucontactcuivre. Stack18,65 laisse1,35mm de vis ; têteZ−2,9, sommetécrous17,05, vis18,4, bottommodules24,85. Cotesréellesdu lotàconfronterauxspécificationsd’acceptation, pas àdesdessinsdevignette.
+Les packs de25 vis DIN84 PA M2×20 `84PA220_25` et25 écrous DIN934 PA M2 `934PA2_9451` sont affichés disponibles chez SAM/ScrewsAndMore, à5,39 € chacun. Besoin avec réserve :8 vis et16 écrous. Port européen14,90 € TTC19% ; **25,68 € affichés, environ25,90 € budgétés à TVA20%**. Les pages annoncent1–3 jours, sans confirmation spécifique France ni quantité réservée. Les liens sont publiés, aucun achat effectué.
 
-**Aucunecollisionimprévue de visserie nominale**. Troisrecouvrementsmesurés tête/PCB0 ont chacunvolume1,458e-5mm³ et profondeur4,42nm surlafacedeportéeZ−1,6 : contactsintentionnelsdetolérancenumérique, conservésetclassésparleurprofondeur/localisation, sansaugmenter globalementleseuildecollision. TroisSTEProuvertsvalides ; STLfermé/volume positif ; PDF1page rouvert ettextecontrôlé ; JSON/Pythonparsés. Commandes/scripts effectifs `final_model.py`, `fasteners.py`, `views.py`, `validate.py`, preuves `geometrie-et-limites.json`, `visserie-ST.json`, `validation-finale.json`.
+**Le prix livré et le délai des huit supports spéciaux ne sont pas obtenus.** PETG dense local est proposé pour un prototype, PA66 usiné/PA12 SLS comme alternatives non qualifiées. Le coût de matière brute n’est pas confondu avec un devis d’impression : le total rendu complet reste `null`. L’exigence d’une fixation immédiatement approvisionnable et définitivement robuste n’est donc pas déclarée satisfaite sans réserve.
 
-## Tenue et disponibilité — limites réelles
+G/J5, LED, USER, câbles et isolation restent des portes séparées. Un seul contrôle froid du premier exemplaire est décrit, suivi d’une qualification de tenue sous autorisations adaptées. Aucun geste physique n’est demandé maintenant, aucun nouveau papier. Cinq PCB nus peuvent seulement être envisagés comme prototypes à risque après revue indépendante et décision financière humaine distincte ; aucune commande ni libération ici.
 
-Àl’effortcible5N/vis, moyenne0,421MPasursection/≈1,47MPasurlademi-portéesouslatête ; **pasunechargeadmissible prouvée, pasuncoupleprescrit**. Excentricité, flexion, impression/couches, friction/rotation, température, fluageetvibrations restentàqualifier. Contre-bloquerlesécrous sanscintrerla carte ni augmenter la précharge. Rotation±5° n’estpasgarantie paruneclavette ; elle devraêtrecontrôlée aprèsmontage etessaidetenue. Ne pas appelerunPETGfineparoi «robuste» parprincipe.
+## Validation et traçabilité
 
-Approvisionnementvérifié surpagespubliques le05/11 : **SAM/ScrewsAndMore**, fabricant-distributeurallemand livrantFrance, deuxpacks25vis`84PA220_25`/25écrous`934PA2_9451`, chacun5,39EUR TTCaffichés, disponible sansquantitéentrepôtgarantie. Besoin8vis/16écrous avecréserve, lots25. PortEurope14,90TTC19% ; **25,68EURaffichés /25,90EURbudgétéTVA20%**, pasundevischeckoutFrance. Délaiannoncé1–3joursnonconfirmépourlaFrance ; nereprendpas lefrancoAllemagne. TouteslesURLs dansAPPROVISIONNEMENT.json. Aucunpanier, contactcommercialouachat.
+CadQuery/OCCT : `final_model.py`, `fasteners.py`, `views.py`, `validate.py`. Trois STEP rouverts valides, STL fermé à volume positif, PDF rouvert et texte contrôlé, JSON/Python parsés. Résultats et échec initial conservés dans `preuves/validation-finale.json` et les preuves associées. Aucun test historique affaibli.
 
-**Supportsspéciaux : prestataire, stockmatière, prixetdélaiFranceNONVÉRIFIÉS.** Environ1,48gPETGpour8pièces, coûtbrut≈0,044EURà30EUR/kg : pasleprixd’unserviceimpression. Totalrenducomplet`null`, pasun lotcompletpromisà25,90EUR. L’exigenced’unesolutionlivrableetphysiquementrobuste n’est doncpas déclaréesatisfaite sansréserve. La piècese réaliseavecdesfichierssimplesfournis, maisaucunemachine/prestataire disponible n’est supposé acquis.
+Code évalué : **ea1ce5507d9386d7dfa4014d1c26162bb539c280**, «Dimension V21 D126 isolation supports and verify mounting clearance cases». HEAD initiale8f240ba766ed5ce506b0c467772490ee0d589ad, base contractuellec23f5e01. Worktree isolé `MSM_vibe-SHIELD-V21-FIXATIONS`, branche `codex/shield-v21-fixations`, ciblemain. **464 fichiers historiques du shield identiques**, aucun PCB, schéma, routage ou Gerber modifié ; V1.9 et campagnes antérieures préservés sans répétition d’ERC/DRC ou firmware.
 
-## Montage et décision
+Journal `ETAT_COURANT_TR2.md` actualisé avec le candidat, les marges, les essais, les réserves physiques et le devis incomplet. Dépôt principal propre82169af7, deux stashes historiques et autres worktrees préservés. Permissions exercées : CAO, calculs, documentation, journal, commits et push normaux ; aucun flash/debug/COM/média, achat, impression ou changement de sécurité.
 
-Pasdenouvelleimpressionpapier, pasdenouvellemesuredetouteslesbroches. Le contrôlefroiduniquedupremierexemplaire porteraitsurlesbornesduprofil, sonorientation, l’appui libre/G/parallelisme, l’engagementJ1–5, lesjeux/supports/têtes/soudures etlesaccès. Ilne lèvepasautomatiquementJ5/G, LED/vitrage,USER, isolationGND2oueffortsdecâbles. La ficheconserveUSERdirectsimple, RESETprotégé etlesinterfacesV1.9/V20.
-
-**Lot5PCBnusenvisageable commeprototypes àrisquecirconscrit**, après revueindépendanteChatGPT et décisionfinancièredistincteutilisateur : fixationhorscuivreajustable mais fabrication/tenueetemboîtement peuventéchouer. **Aucunecommandeni libération parCodex.** Aucun gestephysique demandé maintenant, aucunflash/debug/COM/média/sécuritéWindows concerné. Unevérificationmatérielleultérieure demeureindispensable ; aucun coupleou montage forcé autorisé.
-
-## Git et journal
-
-Codeévalué **ea1ce5507d9386d7dfa4014d1c26162bb539c280 — Dimension V21 D126 isolation supports and verify mounting clearance cases**. HEADinitiale8f240ba, basecontratc23f5e01 ; worktree`MSM_vibe-SHIELD-V21-FIXATIONS`, branchelocale`codex/shield-v21-fixations`, ciblemain. **464fichiers historiques shield inchangés**, électronique/GerberV1.9préservés, ancienrapportV20/archivesintacts. Dépôtprincipalpropre82169af7/deuxstashes6251b988…/f3b829e6… etautresworktreespréservés, pasdeopérationGitdestructive.
-
-Journal `ETAT_COURANT_TR2.md` actualisé : candidat, marges/essais, limitesphysiquesetdevis, prochaineétape. ÀtransmettreàChatGPT : reviewerlesbornesetlecompromismécanique ; aucunGO définitifdedisponibilité/tenue. Permissions exercées : étudeCAO/docs/calculs/commits/pushnormal ; aucunmatériel/achat/impression.
-
-Publication et relecture distante : en cours. DONE visera l’étude livrée et ses réserves, pas une fixation physiquement qualifiée ou READY_TO_ORDER.
+Publication et relecture distante : en cours. DONE concernera l’étude publiée avec ses réserves ; ni fixation physiquement qualifiée ni READY_TO_ORDER.
