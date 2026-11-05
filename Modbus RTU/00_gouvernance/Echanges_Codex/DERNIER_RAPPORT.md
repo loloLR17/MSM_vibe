@@ -1,11 +1,12 @@
 ---
-mission_id: TR2-20261105-SHIELD-V25-KISS-FIXATIONS
-status: DONE
+mission_id: TR2-20261105-SHIELD-V26-IMPRESSION-COMPLETE-SANS-RECEPTION
+status: IN_PROGRESS
 base_ref: main
-base_sha: f59de5d9a279e62ab04a640729cf56ede87e1607
-initial_head: 72b47ee78c03b09d4a3d6d9b8f69eeb8258d7c35
-result_sha: ff97bb313dc3b9cb191f08a84c479f5015b01962
-created_at_utc: 2026-11-05T20:59:34Z
+base_sha: c2a1cf83da6c85211656721de2731d83f169cbbd
+initial_head: a4738855b1b66e81bbf46233f888f931d10a61fa
+head_after_addenda_fast_forward: 72a28db9c96d35d7d421574f464cc0125c380a20
+result_sha: null
+created_at_utc: 2026-11-05T22:17:39Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,62 +15,83 @@ allow_flash: false
 allow_debug: false
 ---
 
-# V2.5 — nylon D126 réservé, M3 métal standard, appuis conditionnels
+# V2.6 — dossier complet imprimable, avec ajustement à froid
 
-**Reprise numérique terminée, publiée et relue depuis GitHub.** DONE porte sur cette mission ciblée avec réserves contractuelles, pas sur un dossier complet ou une qualification physique. Le coffret utilise une seule longueur de vis métallique standard M3×12. Les 8 vis nylon Ajile et 16 écrous achetés restent exclusivement affectés aux D126 (6/12 utiles +2/4 de réserve). **Aucun achat de nylon supplémentaire prescrit, aucun achat effectué.** L’ensemble mécanique reste partiel : appuis FRAM/SD et quatre étriers non libérés, réserves explicitement permises par la mission. Ne pas transmettre ce candidat comme dossier complet sans nouvelle décision humaine, conformément à la revue indépendante V2.4.
+**Le kit numérique complet est préparé et contrôlé :25 STL /142pièces pour deux prototypes, quatre étriers inclus.** Statut provisoire IN_PROGRESS uniquement pour le commit/push et la relecture distante encore à effectuer. L’objectif de cette mission est l’impression de prototypes avec un ajustement prévu au premier montage, **pas leur qualification physique**. Aucune attente de livraison ou nouvelle photo ajoutée comme préalable à la génération.
 
-## Livrables et décisions
+Le dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_6_IMPRESSION_COMPLETE/` contient les natifs éditables, les STL orientés, un seul ZIP imprimeur, une notice PETG, les quantités, la nomenclature, une fiche d’ajustement et un PDF de cinq pages avec plan et coupes. Les14formes du coffret V2.5 sont reprises octet pour octet. PCB V2.3 commandé, CAM, X/Y officielsST, G12,25, D126, firmware et électronique conservés. **747fichiers antérieurs du shield comparés sans différence.**
 
-Nouveau dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_5_KISS_FIXATIONS/` : sources ciblées, STEP, STL, nomenclature séparée en quatre familles, schémas de montage, preuves et un seul ZIP de revue. Originaux V2.4 et tous PCB/CAM/firmwares conservés.
+## Livraison et quantités
 
-1. **D126 Nucleo/shield** : nylon Ajile déjà acheté seulement, sans changement de profil, coordonnées, G12,25 ou montage. Aucune ponction du stock pour la caisse ou les modules.
-2. **Coffret structurel** : vis M3×12 métal DIN912/ISO4762 et écrous M3 DIN934 AF5,5/H≤2,4, stock ou assortiment courant. 17 points par kit,34 utiles pour deux kits, cible40/40 avec réserves optionnelles. Pas de nouvelle quincaillerie nylon ni de modèle exotique. Les 17 points ont une fonction : 4 couvercle,3 bras Nucleo,2 vitre,2 bride nappe,2 bride câble,2 trappe outil,1 USER,1 SD. Aucun point utile supprimé sans raison ; simplification du nombre de références et du montage, pas une promesse de baisse chiffrée du coût.
-3. **FRAM/microSD, arrêt local de libération** : solution simple préparée = un appui isolant de hauteur naturelle H +une vis M2 ordinaire +un écrou par point, avec portées/rondelles isolantes. Deux points par module,8 au total. **H réel, longueur et contrôle final des volumes électriques manquent** ; aucun appui à11mm arbitraires libéré. Le générateur exige H et référence de mesure, écrit hors ZIP et laisse toujours le statut non libéré. Les12 rondelles seules V2.4 sont retirées du candidat V2.5 : elles ne doivent pas être présentées comme des supports de compression complets.
-4. **Deux MKI et deux Click, arrêt local de libération** : modèles/axes V2.4 conservés, recherche limitée aux contacts existants et aux enveloppes. Les disques candidats de rayon1,25mm débordent de0,56..0,61mm les bordures rectangulaires provisoires. Cela ne prouve pas que tout appui de bord est impossible, mais ne permet pas d’inventer une zone nue, un plein contact ni la révision réelle du Click. Aucun changement arbitraire de ces pièces, aucun nouvel achat spécialisé.
+ZIP unique : `pack_imprimeur/TR2_V26_COMPLET_2_PROTOTYPES.zip`, **32entrées**,25STL,142pièces. Réouverture locale complète, CRC et comparaison de chaque membre réussis. SHA-256 : `2fee5474fc251d96a5d2b01eb2df2c50561965d72085f32319f07780f9a80230` ; 545997octets. Aucun STEP fabricant ni logiciel dans ce ZIP ; aucun envoi à l’ami imprimeur, aucune impression ou commande effectuée. La décision de transmission suit la revue indépendante ChatGPT.
 
-**ZIP** : `pack_imprimeur/TR2_V25_KISS_PARTIEL_REVUE.zip`, **21 entrées,14 STL,40 pièces pour deux coffrets**, avec réserves D126/bras ; aucun appui ou étrier non libéré caché. SHA-256 `bd1b6bee3cc7566d5464921eaef156adff31121b734342e0339d995c3cc42479`, 331995octets. Liste exacte dans `QUANTITES.csv` et manifeste interne ; nomenclature non imprimée dans `BOM_QUINCAILLERIE.csv`. Le ZIP réouvert est contrôlé intégralement, CRC et octets de chaque membre. Aucun envoi à l’imprimeur.
+| Groupe | Quantité pour deux prototypes | Rôle |
+|---|---:|---|
+| Quatorze types V2.5 identiques |40| Coffrets, couvercles ARNACO, cassettes, trappes, brides,8D126 et8bras avec leurs réserves |
+| Supports H8/H10/H12 |24|8de chaque hauteur, **8seulement à choisir** ; les variantes ne se montent pas simultanément |
+| Cales0,5/1/2mm |12/36/12| Les36cales1comportent24rondelles fixes,8calages et4réserves |
+| Étriers MKI/Click |2+2| Les quatre retenues auparavant absentes sont incluses |
+| Patins MKI avant/arrière/Click |4/4/6|8utiles+6réserves |
 
-## Géométrie corrigée au strict nécessaire
+Masse du scénarioPETGdenseCAO :737,72g dans le scénarioPETG1,27g/cm³, **pas une consommation réelle de trancheur** ; supports, bordures et purge non évalués. Aucun temps/prix d’impression promis. Fichiers : `QUANTITES.csv`, `BOM_QUINCAILLERIE.csv`, `IMPRIMEUR.md`, `MONTAGE_A_FROID.md`, `vues/ASSEMBLAGE_AJUSTEMENT_V26.pdf`.
 
-- Bride nappe rapprochée de2,5mm de la cassette : seule sa position d’assemblage change, STL identique. M3×12 conserve au minimum1,4mm d’émergence après l’écrou dans la plage de longueur de conception11,5..12,5mm.
-- Base : poche d’écrou au coin(13;141) réouverte, car un rail ajouté ultérieurement en V2.4 l’obstruait partiellement. Deux petites fenêtres ouest pour charger les écrous des bras, et prolongement des deux canaux intérieurs de chargement des écrous de couvercle à droite. **Neuf écrous captifs à charger dans la caisse nue avant les cartes/panneaux.** Pas d’ajout de clip fragile, de filetage imprimé, d’écrou spécialisé ou d’autre pièce.
-- Retrait de matière seulement :163,200856mm³ par base ; volume ajouté0, différence avec la correction calculée0. G, plancher, supports Nucleo, contours/cotes du PCB et D126 inchangés. Les petites ouvertures ne donnent aucune IP.
-- **13 STL et12 STEP individuels identiques octet pour octet à V2.4**, dont couvercle ARNACO, cassettes et trappes. Seul le STL de base et deux STEP individuels changent (base et position de bride). Relief ARNACO monobloc sans devise repris sans nouveau travail de police/logo ni réexécution inutile de ses tests. Le nouvel assemblage STEP contient18 occurrences de nos pièces imprimables ; le STEP de quincaillerie est notre propre gabarit, pas un modèle fabricant ni des filets exacts.
+## Conception et chemin d’efforts
 
-## Pourquoi les appuis FRAM/SD restent réservés
+**FRAM/microSD** : vrai appui rigide du module jusqu’au shield, remplaçant le principe des écrous suspendus V2.4. Deux portées par module, quatre par TR2. Appuis PETG à section arrondie4,4×4mm, bore2,4 ; hauteurs8/10/12 et cales0,5/1/2. Couverture mécanique8..15,5par pas0,5, avec ponçage de la face supérieure de l’appui≤0,5mm, à plat et hors électronique. La largeur5mm initiale laissait seulement0,04mm de bord sur Adafruit ;4,4mm porte la marge nominale à0,34mm,0,14dans l’enveloppe de décentrage±0,2. Cette dernière est une allocation de conception, pas une précision FDM mesurée.
 
-**Lecture mécanique de la V2.4** : deux écrous suspendus sous le module et un au-dessus assurent une retenue vers le haut, mais ne démontrent pas une butée de compression vers le shield. L’écrou le plus bas est à20,25mm,6,4mm au-dessus du shield ; la tête sous le shield s’en éloigne quand le sous-ensemble descend. En l’absence d’un appui porteur/contre-appui supplémentaire, l’effort descendant peut donc rester sur le connecteur. La validation V2.4 concernait les intersections et maillages, pas ce chemin d’efforts. Aucune qualification physique antérieure n’est effacée ou inventée.
+La fixation comporte M2×30 par-dessous, rondellePETG1mm sous tête, support/cales, PCB module, rondellePETG1mm et deux écrous métalliquesM2 en contre-écrou. La portée rigide reprend la compression ; la fixation retient le soulèvement. Aucune pression de vis utilisée pour emboîter les sockets. La notice impose d’emboîter d’abord à la main, de choisir le calage ensuite, sans fléchir le PCB. Les corps entiers1×10 sont conservés, y compris la position sans queue soudée.
 
-**Faits constructeur** : les quatre perçages Adafruit des fichiers Eagle épinglés sont `MOUNTINGHOLE_2.5_PLATED`, Ø2,5/pastilleØ3,2, sans contactref à un signal, avec restrictions cuivre locales. Leur SHA correspond aux références déjà publiées. Ce ne sont pas des NPTH de modules. Le métal peut donc être étudié sans interdiction générale, mais ces seules données ne démontrent pas les vraies révisions, le cuivre rempli et tous les volumes composants/têtes/rondelles. Le shield conserve ses NPTH2,7. L’appui simple proposé résout le principe de compression ; sa hauteur et ses contacts doivent encore être contrôlés avant libération. Aucun réachat Ajile ni achat de visserie module demandé aujourd’hui.
+**H n’est pas inventé** : femelleConnfly8,5 constructeur ; collier mâle standard2,5 =déduction H≈11, non mesure des mâles Adafruit. Le vraiSTEPClick indique2,54 de collier. La ficheConnfly ne donne pas la fenêtre interne de contact ; **la plage mécanique des appuis n’est pas une course d’engagement électrique qualifiée**. Aucun appui unique11mm imposé et aucun besoin de recevoir les connecteurs avant impression.
 
-## Contrôles exécutés et preuves
+**MKI/Click** : deux étriers porteurs pris sur les axes existants du shield, quatre patinsPETG guidés par TR2. Guides carrés5,4/patins5, jeu nominal0,2par face ; M3×12 et DIN985M3 capturé, coupelle avec1,5mm fermé sous la pointe. Pas de vis contre un module, pas de filet imprimé. Patins0,8×2sur extrémités courtes MKI et bout logique Click ; aucun perçage de module, pastille, borne, composant, cavalier ou connecteur utilisé comme fixation. Pieds d’étriers en appui de compression au shield ; écrous M2 sur épaulementZ34,5. La partie métallique reste hors domaine isoléClick : aucun pont GND1/GND2 par la fixation. Ce n’est pas une qualification normative d’isolement.
 
-Environnement CAD existant Python/CadQuery/Shapely/Trimesh/Matplotlib, lanceur `/home/lolo/dev/msm/cache/shield-v15-cad-venv/bin/python`, `PYTHONPATH=/home/lolo/dev/msm/cache/shield-pylibs`. Depuis le nouveau dossier :
+Plage des dessusPCB retenusZ24,75..29,15. Au réglage : approcher doucement le contact puis reculer≈1/5tour, sans forte précharge. Le jeu de poche DIN9850,4mm et les tolérances s’ajoutent à ce déplacement0,1 ; la notice demande de vérifier réellement le petit soulèvement libre et la retenue. Aucune tenue en vibration déduite de la seule CAO.
 
-| Contrôle | Observation réelle |
+## Sources constructeur et addenda récupérés
+
+Sources et empreintes complètes : `SOURCES.md`, `preuves/sources-fabricants.json`, `sources/adafruit-derives.json`, `preuves/revisions-photos-addendum.json`. Les gros fichiers restent dans `/home/lolo/dev/msm/reports/TR2-shield-v26-20261105/`, pas redistribués inutilement.
+
+- **Mikroe bon produit3863** : archive officielle36,16Mo ; STEP`RS485_Isolator_2_click_v101.step`,163solides. Empreinte STEP `ff4eed56c5ac02656b4a2f14e99e96460be65ddf18da9a824a52051984cf608e`. PCB57,15×25,4, vrais volumes de composants/borniers, patins prèsX84,2. Aucune substitution avec l’ancien RS485IsolatorClick.
+- **ST** : archiveGerber officielleSTEVAL-MKI208V1K,94 528octets, SHA`265d576a827daf8b19fa7dea2c1308d388568538d920775fe7708d2b3510e4a7`. Le GKO MKIGIBV2 révèle≈18,00×30,93mm, plus étroit que l’enveloppe provisoire20,32×33,02. Drills, pâte GTP et assemblage GM15 servent à choisir les extrémités courtes, pas les côtés occupés par les rangées. AxesJP1/JP2 recoupés avec ceux déjà commandés, écart d’arrondi≤0,000254mm ; **aucun PCB déplacé**. Petit défaut de fermeture du tracé≤0,03mm signalé, pas transformé en tolérance fabricant garantie.
+- **Adafruit** : Eagle exacts4718/4682 et STEP SD6solides déjà épinglé. Les trous sont Ø2,5métallisés/pastilles3,2flottantes, pasNPTHdesmodules ; lesNPTHdu shield restent2,7. Enveloppes composantsFRAM tirées des empreintes avec margeXY0,25etH4deconception ; ceHn’est pas une mesure fabricant. SDsourcePCB1,57corrigé dans l’assemblage nominal de rondelle supérieure.
+- **Connfly/Samtec** : fiches primaires récupérées ; corps8,5, queue3±0,2, longueur1×10=25,9±0,3 ;SHF-SM5,46 de haut,5,85 de large,13,97de long. Enveloppe de calculIDCconnecté plus largeX46,5..58,8/Y25,8..41/Z0..8,5au-dessusPCB, avec départ de nappe ; pas de cote photo utilisée.
+
+**Addenda distants396bda2e puis72a28db9 lus intégralement avant premier commit**. Ils ne modifiaient queMISSION_EN_COURS.md. LeHEADlocal sans commit V2.6 était ancêtre de leurHEAD ; avance rapide sûre effectuée, nouveaux fichiers locaux préservés, aucune divergence résolue par merge/rebase. Mission initiale et révisée archivées séparément.
+
+ChatGPT rapporte des photos du Click réel **HWREV1.02/ADM2867E** ; images non jointes au dépôt et non vues directement par Codex. L’archive officielle ne contient aucun membrev102 ; **aucune équivalence intégrale1.01/1.02 inventée**. Les deux ouvertures photographiées ne sont pas qualifiées comme trous de fixation ; elles ne sont pas utilisées. Le modèle STEP simplifie aussi les perçages. Fonction précise de ces ouvertures non démontrée dans cette mission, sans incidence sur la retenue extérieure retenue. La comparaison de révision/portées sera faite à froid. L’estimation photoMKI21–22mm ne remplace pas le contourGKO et les15,24mm entre rangées. Aucun report en attente de photo ou matériel.
+
+## Validation proportionnée réellement exécutée
+
+Environnement existant CadQuery2.8/Trimesh/Shapely/Matplotlib ; Python`/home/lolo/dev/msm/cache/shield-v15-cad-venv/bin/python`, `PYTHONPATH=/home/lolo/dev/msm/cache/shield-pylibs`. Scripts et sorties dans le dossierV2.6 ; aucun outil matériel utilisé.
+
+| Contrôle | Résultat observé |
 |---|---|
-| `sources/revision.py` | code0, génération ciblée et copies identiques,14 types/40 pièces. Aucun ancien livrable écrasé. |
-| `sources/controle.py` | code0 après corrections. Base et bride valides/monoblocs ; maillage base étanche, connexe, orientation cohérente, volume positif, écart relatif volume0,003373%. Translation attendue et différence de correction0. |
-| Métal coffret |17 fixations testées à trois longueurs11,5/12/12,5, tête gabaritØ6/H3,2, écrous AF5,5/H2,4. Aucun contact imprévu avec pièces globales ni volumes PCB/composants ; distance inférieure conservative minimale2,56mm.1060 boîtes ST C05 reprises de la preuve versionnée, toutes séparées du métal ; pas de booléens ST répétés sans nécessité. Cela exclut un pont par ces fixations dans le modèle, **pas une qualification électrique physique**. |
-| Écrous | Poches AF5,9/H2,8 : jeu0,2par face et0,4axial ; chemin continu de chargement en X des neuf écrous dans la caisse nue vérifié par volume balayé, aucune intersection finale. Pas seulement un test à quelques positions. |
-| `sources/controle_bras.py` | code0,9 cas de passage métal dans les bras PETG inchangés, aucune intersection ; le métal ne porte pas sur le PCB. |
-| Appui conditionnel | Sans hauteur, refus argparse code2 attendu et aucun fichier créé. Géométrie hypothétique H11 vérifiée comme un seul solide, sans export ni libération ; H0 refusé. **Aucune hauteur réelle mesurée.** |
-| Validations reprises | Identité des13 STL et12 STEP avec V2.4 prouvée. La base modifiée est un sous-ensemble de l’ancienne, donc n’introduit pas une nouvelle collision C05 ; D126/G/ARNACO et services inchangés réutilisés. Aucun test acquis rejoué pour prétendre un nouveau résultat. |
-| `sources/vues.py` | code0, PDF deux pages et PNG inspectés : axes de fixation, coupe bride, principe d’appui H variable. Schémas, pas nouvel essai ni photo réelle. |
-| `python3 sources/paquet.py` | code0,21 entrées ZIP comparées intégralement, quantités vérifiées et **683 fichiers historiques du shield identiques**, PCB V2.3 commandé/CAM/V2.4 compris. |
+| `sources/modele.py` |25STL/25STEP individuels ;14repris exacts V2.5,11nouveaux ; assemblage propre nominal |
+| `sources/controle.py --native-dir …` |**1 097contrôles BREP,0intersection positive indésirable** ; modules natifsClick163/SD6, contour/composantsST, enveloppesEagleFRAM, caisse et métalV2.5 |
+| Nouveaux maillages |11STL réouverts : fermés, orientés,volume positif,un composant,STEP valide1solide ; écart relatif volume<1% |
+| Pièces V2.5 |14STL/STEP comparés octet pour octet ; validations de leurs formes/D126/logo/visserie/accès réutilisées, pas relancées |
+| Assemblages |STEP propres réimportés :44solides imprimés et32gabarits métal nouveaux, valides |
+| FRAM/SD |Supports H8/11/15,5, tigesM2×30, rondelles/écrous et extractionSD sans collision dans les cas contrôlés |
+| Patins |Trois dessusPCB×deux jeux, bornes analytiques des guides/filetages/têtes entre extrêmes ; marge minimale couvercleM3 **1,05mm**, recouvrement guide≥3,75 |
+| Métal/Nucleo |Nouvelles têtesM2≥Z9,05nominal ; par enveloppeG/rondelle,≥Z8,85vsSTEPSTmax8,559996, marge≥**0,29mm** ;B1physique10,2hors axes concernés |
+| Nappe |Trois routesBezier, chacune101points et100dallesAABB conservatives ; largeur8/épaisseur1, sortieX55,5,0collision avec étriers/caisse ; courbure échantillonnée min≈64,67mm, pas une limite fabricant qualifiée |
+| Bords de contact |Marge nominale minimale0,489mmMKI /0,39Click ; allocation±0,2 laisse≥0,19mm aux contacts les plus proches du bord ; contrôle réel requis |
+| ZIP et conservation |32entrées intégralement comparées,CRCOK ;25STL/142pièces ;747fichiers antérieurs inchangés |
 
-Dimensions usuelles vérifiées sur les sources primaires : [SFS/FERRONORM ISO4762 M3×12](https://www.sfs.ch/CH/de/dl/vlp/P_S010101_0185), tête nominale5,5×3 et clé2,5 ; [Böllhoff DIN934](https://eshop.boellhoff.de/out/media/pdf/DIN_934_Stahl_8_gv___en.pdf), M3 AF≤5,5/H≤2,4. Les plages11,5..12,5 et têteØ6/H3,2 sont nos enveloppes de conception, **pas des tolérances normatives déclarées**. Aucune exigence de grade12.9, offre ou prix France déduite de ces pages. Stocks personnels et prix globaux non inventoriés, pas de commande recommandée par défaut.
+**Échecs et corrections traçables** : le premier contrôle a refusé48intersections dues au gabarit de visM3 du test, dessiné à l’envers (tête sous la pointe alors que ces réglages se vissent vers le bas). L’orientation a été corrigée pour correspondre au chemin d’efforts prévu ; aucun contrôle affaibli. Preuve`controle-initial-refuse.json`. Les guides/coupelles sont découpés après union, pour ne pas reboucher leurs passages par une traverse. La section d’appui a été réduite seulement enXpour rétablir de la marge de bord. Un candidatM2×25 a passé les intersections, puis lesM2×30 ont été retenues partout : une seule longueurM2, réserve accrue de filetage sur toute la plage, dépassements recontrôlés. Dernier élargissement conservateur de l’enveloppeIDC : les1 097contrôles passent. Journaux finaux conservés, pas de matériel ou test firmware répété.
 
-Échecs conservés : `rejet-logements-M3.json` (0,127927mm³ au coin gauche bas), `rejet-chargement-ecrous.json` (deux bras gauches et deux poches droites). Les corrections restent locales. Les tableaux `M3-controle.json`, `M3-distances.json`, `reprise-geometrique.json`, `appuis-et-limites.json`, `bras-pivots.json`, `etriers-reserve-localisee.json` et les logs sont sous `preuves/`. Un téléchargement de PDF vis a rencontré403, les outils curl/pdftotext sont absents ; aucune installation ou protection modifiée, dimensions obtenues via les autres sources constructeur accessibles. Aucun ERC/DRC/build/flash/debug, accès microSD/FRAM/COM ou essai physique effectué.
+Aucune compilation/testhôte/cross-build/flash/debug : périmètre exclusivement mécanique, ces opérations n’ajoutent aucune preuve pertinente. Pas de nouvelleERC/DRC électronique sur PCB inchangé. Pas de prix/stock/délai revisité hors mission ; quincaillerie standard, pas d’achat.
 
-## État et suite
+## Quincaillerie et réserves de premier montage
 
-717,42g de PETG dense calculés pour le candidat partiel, densité de scénario1,27g/cm³ héritée de V2.4 ; masse tranchée, temps et énergie non estimés. **Ce chiffre ne constitue pas une économie sur un kit complet** : les appuis modules et étriers restent à ajouter une fois définis. Aucune tenue vibratoire, thermique, IP, précharge ou résistance industrielle qualifiée. Premier article hors tension avant usage ; les réserves physiques V2.3/V2.4 (J5/Zio/G, têtes Ajile, câbles/IDC, fenêtres/USER) demeurent.
+**Ajile D126 exclusivement** :8visM2×20nylon+16écrous,6/12utiles. **Métal courant** :42M3×12utiles (34coffret+8patins),cible50 ;34DIN934M3,cible40 ;8DIN985M3,cible10 ;16M2×30,cible20 ;32écrousM2,cible40. LesM2n’utilisent aucun Ajile ; pas de nouvelle vis nylon spécialisée. Têtes d’enveloppeM3≤D6/H3,2 etM2≤D4,2/H2,2 ; ne pas substituer des pièces plus grosses sans contrôle.
 
-Worktree isolé `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V25-KISS`, branche `codex/shield-v25-kiss`, HEAD initial `72b47ee78c03b09d4a3d6d9b8f69eeb8258d7c35`, propre au départ. Le worktree V2.4 reste propre à `58d5fdd2…`, le dépôt principal historique propre à `82169af7…` et les deux stashes historiques sont préservés. Pas de reset/clean/merge/rebase ni résolution de divergence. Permissions exercées : développement CAO/documentation/tests et publication autorisée sur `main` ; flash/debug refusés et non utilisés. Mission active archivée sans modification ; le rapport V2.4 avait déjà son archive exacte.
+À vérifier à froid, sans empêcher l’impression : vraies hauteurs de connecteurs etFDM ; zones nuesMKI/Click1.02 ; portées/rondelles/têtes et cuivre réel ; engagement/soulèvement retenu sans forçage ; microSD libre ; IDC/nappe et serre-câbles ; accèsCN15/ST-LINK/RS485/USER, visibilité réelleLD1/2/3 ; état desD126/G/J5 et fixations. Les nouveaux supports sont ajustables pour ce contrôle. Toute interférence reste un arrêt local de montage, jamais une permission de mettre sous tension une fixation douteuse. Tenue en vibration/fluage/température/isolement/IP **non qualifiée**.
 
-Journal `ETAT_COURANT_TR2.md` actualisé : distinction définitive nylon D126/métal coffret, M3×12 unique, retouches locales, réserve de compression FRAM/SD et étriers. Son contenu antérieur était identique à la référence V2.4 déjà lue, identité Git vérifiée ; il n’a pas été remplacé par une copie historique. Prochaine étape ChatGPT : contrôler le présent lot, garder l’envoi complet en attente, puis lever H et les vrais contacts dans un cadre physique autorisé. Aucune manipulation demandée dans cette mission numérique.
+## Git, journal et publication
 
-Publication distante **vérifiée** : push normal `72b47ee7..ff97bb31`, commit de code/artefacts effectivement évalué `ff97bb313dc3b9cb191f08a84c479f5015b01962` — `feat(shield): simplify V25 case to standard metal M3x12 and gate module supports`. Après `git fetch origin main`, HEAD local=origin/main, worktree propre avant cette clôture. **749 fichiers relus intégralement et comparés octet pour octet**, dont683originaux et66fichiers de cette mission ; ZIP distant réouvert et21entrées vérifiées. Aucune différence ; preuve `V2_5_KISS_FIXATIONS/preuves/relecture-distante-premiere.json`, empreinte du manifeste de relecture `a460be88a6f7733ed8b791a6a1995b056a86894c5d8d80049778c2ccc898d53e`.
+Racine historique proprepréservée`/home/lolo/dev/msm/projects/MSM_vibe` à82169af7 ;stashes`6251b988…`et`f3b829e6…`inchangés. Worktree neuf`/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V26-COMPLET`,branche locale`codex/shield-v26-complet`,destination explicite`refs/heads/main`. Départa4738855 ;avant première publication avance rapide72a28db9 uniquement pour addenda, sans réécriture d’histoire. Les autres worktrees ne sont pas modifiés.
 
-Le présent rapport est archivé à l’identique dans `archives/TR2-20261105-SHIELD-V25-KISS-FIXATIONS/RAPPORT.md`, sans écrasement. Le commit de clôture documentaire, son push et sa relecture seront contrôlés à leur tour ; son SHA final sera donné dans la réponse finale. Aucun STL, STEP, ZIP ou résultat géométrique modifié après la relecture technique. Les réserves FRAM/SD et étriers sont des arrêts locaux expressément permis, pas une qualification complète masquée.
+`ETAT_COURANT_TR2.md` actualisé factuellement : kit désormais complet/imprimable avec calage à froid, sources fabricant récupérées, réserves1.01/1.02 etabsence de qualification physique. Pas de changement de gouvernance. `archives/<mission_id>/MISSION_INITIALE.md` conserve le contrat initial et`MISSION.md` sa version avec addenda. Aucun historique écrasé.
+
+**Publication en attente à ce checkpoint** : commit technique, push normal et relecture intégrale des blobs depuisorigin/main, y compris toutes les entréesZIP. Le rapport sera passéDONEetarchivé seulement après ces vérifications. LeSHAdistant de clôture sera fourni dans la réponse finale.

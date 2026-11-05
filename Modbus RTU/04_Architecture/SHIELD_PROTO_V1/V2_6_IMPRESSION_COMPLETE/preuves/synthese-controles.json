@@ -1,0 +1,13 @@
+{
+  "new_STL_reopened": 11,
+  "V25_STL_STEP_identity_reused": 14,
+  "types": 25,
+  "pieces_for_two_kits": 142,
+  "exact_BREP_intersection_checks": 1097,
+  "positive_intersections": [],
+  "Click_native_solids": 163,
+  "SD_native_solids": 6,
+  "ST_adapter_outline_from_official_Gerber": true,
+  "physical_qualification": false,
+  "passed": true
+}

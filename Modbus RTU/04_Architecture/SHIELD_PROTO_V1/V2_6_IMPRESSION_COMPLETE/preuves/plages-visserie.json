@@ -1,0 +1,456 @@
+{
+  "retainers": [
+    {
+      "which": "MKI",
+      "i": 0,
+      "PCB_top": 24.75,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 41.45,
+      "lid_margin": 5.55,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 1,
+      "PCB_top": 24.75,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 41.45,
+      "lid_margin": 5.55,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 0,
+      "PCB_top": 24.75,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 41.45,
+      "lid_margin": 5.55,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 1,
+      "PCB_top": 24.75,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 41.45,
+      "lid_margin": 5.55,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 0,
+      "PCB_top": 24.75,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 41.550000000000004,
+      "lid_margin": 5.449999999999998,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 1,
+      "PCB_top": 24.75,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 41.550000000000004,
+      "lid_margin": 5.449999999999998,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 0,
+      "PCB_top": 24.75,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 41.550000000000004,
+      "lid_margin": 5.449999999999998,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 1,
+      "PCB_top": 24.75,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 41.550000000000004,
+      "lid_margin": 5.449999999999998,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 0,
+      "PCB_top": 26.45,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 43.150000000000006,
+      "lid_margin": 3.849999999999997,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 1,
+      "PCB_top": 26.45,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 43.150000000000006,
+      "lid_margin": 3.849999999999997,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 0,
+      "PCB_top": 26.45,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 43.150000000000006,
+      "lid_margin": 3.849999999999997,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 1,
+      "PCB_top": 26.45,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 43.150000000000006,
+      "lid_margin": 3.849999999999997,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 0,
+      "PCB_top": 26.45,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 43.25,
+      "lid_margin": 3.7500000000000027,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 1,
+      "PCB_top": 26.45,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 43.25,
+      "lid_margin": 3.7500000000000027,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 0,
+      "PCB_top": 26.45,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 43.25,
+      "lid_margin": 3.7500000000000027,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 1,
+      "PCB_top": 26.45,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 43.25,
+      "lid_margin": 3.7500000000000027,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 0,
+      "PCB_top": 29.15,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 45.85,
+      "lid_margin": 1.1500000000000012,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 1,
+      "PCB_top": 29.15,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 45.85,
+      "lid_margin": 1.1500000000000012,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 0,
+      "PCB_top": 29.15,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 45.85,
+      "lid_margin": 1.1500000000000012,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 1,
+      "PCB_top": 29.15,
+      "lift_gap": 0,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 45.85,
+      "lid_margin": 1.1500000000000012,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 0,
+      "PCB_top": 29.15,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 45.95,
+      "lid_margin": 1.0499999999999998,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "MKI",
+      "i": 1,
+      "PCB_top": 29.15,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 45.95,
+      "lid_margin": 1.0499999999999998,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 0,
+      "PCB_top": 29.15,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 45.95,
+      "lid_margin": 1.0499999999999998,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    },
+    {
+      "which": "Click",
+      "i": 1,
+      "PCB_top": 29.15,
+      "lift_gap": 0.1,
+      "cup_overlap_in_guide": 2.5,
+      "head_top": 45.95,
+      "lid_margin": 1.0499999999999998,
+      "full_nyloc_engagement": true,
+      "closed_PETG_floor": 1.5
+    }
+  ],
+  "M2_modules": [
+    {
+      "module": 0,
+      "H": 8,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 27.650000000000002,
+      "thread_emergence_min": 13.099999999999998
+    },
+    {
+      "module": 1,
+      "H": 8,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 27.650000000000002,
+      "thread_emergence_min": 13.099999999999998
+    },
+    {
+      "module": 2,
+      "H": 8,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 27.62,
+      "thread_emergence_min": 13.129999999999999
+    },
+    {
+      "module": 3,
+      "H": 8,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 27.62,
+      "thread_emergence_min": 13.129999999999999
+    },
+    {
+      "module": 0,
+      "H": 11,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 30.650000000000002,
+      "thread_emergence_min": 10.099999999999998
+    },
+    {
+      "module": 1,
+      "H": 11,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 30.650000000000002,
+      "thread_emergence_min": 10.099999999999998
+    },
+    {
+      "module": 2,
+      "H": 11,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 30.62,
+      "thread_emergence_min": 10.129999999999999
+    },
+    {
+      "module": 3,
+      "H": 11,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 30.62,
+      "thread_emergence_min": 10.129999999999999
+    },
+    {
+      "module": 0,
+      "H": 15.5,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 35.150000000000006,
+      "thread_emergence_min": 5.599999999999994
+    },
+    {
+      "module": 1,
+      "H": 15.5,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 35.150000000000006,
+      "thread_emergence_min": 5.599999999999994
+    },
+    {
+      "module": 2,
+      "H": 15.5,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 35.120000000000005,
+      "thread_emergence_min": 5.6299999999999955
+    },
+    {
+      "module": 3,
+      "H": 15.5,
+      "shaft_bottom": 11.25,
+      "head_bottom": 9.05,
+      "M2x30_min_tip": 40.75,
+      "nut_top": 35.120000000000005,
+      "thread_emergence_min": 5.6299999999999955
+    }
+  ],
+  "analytic": {
+    "mechanical_support_height_range": [
+      8,
+      15.5
+    ],
+    "step": 0.5,
+    "maximum_off_board_sanding": 0.5,
+    "electrical_engagement_window": "UNKNOWN; fully seat sockets manually before choosing support, never force using bolts",
+    "socket_female_height": 8.5,
+    "module_male_collar_nominal_hypothesis": 2.5,
+    "Click_native_male_collar": 2.54,
+    "nominal_H_hypothesis": 11,
+    "C05_max_Z_official_STEP": 8.559996,
+    "new_M2_head_min_Z_nominal": 9.05,
+    "C05_global_clearance_nominal": 0.4900040000000008,
+    "G_min_12p15_and_washer_max_1p1_head_clearance": 0.2900039999999997,
+    "B1_USER_physical_height": 10.2,
+    "B1_xy": [
+      29.52,
+      120.33
+    ],
+    "B1_new_bolt_axes_separated": true,
+    "new_bolt_xy": [
+      [
+        45,
+        71.7
+      ],
+      [
+        65.32,
+        71.7
+      ],
+      [
+        22.72,
+        85.68
+      ],
+      [
+        22.72,
+        106
+      ],
+      [
+        39,
+        20
+      ],
+      [
+        71,
+        54.5
+      ],
+      [
+        91,
+        75
+      ],
+      [
+        94.5,
+        112.5
+      ]
+    ],
+    "M3_thread_fully_crosses_nyloc_over_continuous_B_gap_range": true,
+    "M3_closed_floor": 1.5,
+    "sliding_clearance_per_face": 0.2,
+    "M3_screw_max_head_top": 45.95,
+    "lid_minimum_margin": 1.05,
+    "guide_min_overlap": 3.75,
+    "minimum_cup_to_roof_cavity_clearance": 0.25,
+    "M2_M3_pitch": [
+      0.4,
+      0.5
+    ],
+    "PCB_NPTH_diameter": 2.7,
+    "M2_shaft_radial_clearance": 0.35,
+    "Adafruit_module_hole_drill": 2.5,
+    "Adafruit_holes_plated_floating": true,
+    "bearing_profile_4p4x4_bore_2p4": true,
+    "M2_all_mounts_single_length": 30,
+    "M2_max_tip_Z_L30p5": 41.75,
+    "M2_min_tip_Z_L29p5": 40.75,
+    "M2_min_engagement_H15p5_t1p8_washer1p1_Gmin": 5.2,
+    "sampling_scope": "native geometry at three B and two gap extremes; analytic linear inequalities above cover guide/thread/head clearance between samples"
+  }
+}

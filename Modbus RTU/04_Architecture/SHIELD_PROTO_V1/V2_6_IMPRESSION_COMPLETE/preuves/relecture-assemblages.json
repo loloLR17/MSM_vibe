@@ -1,0 +1,12 @@
+[
+  {
+    "STEP": "assemblage-pieces-propres.step",
+    "valid": true,
+    "solids": 44
+  },
+  {
+    "STEP": "quincaillerie-standard-enveloppes.step",
+    "valid": true,
+    "solids": 32
+  }
+]

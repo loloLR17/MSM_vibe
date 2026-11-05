@@ -1,0 +1,67 @@
+{
+  "contacts": [
+    {
+      "name": "MKI_avant",
+      "centre": [
+        48,
+        23.4
+      ],
+      "footprint": [
+        2,
+        0.8
+      ],
+      "minimum_full_board_edge_margin_nominal": 0.48869399999999885,
+      "margin_after_design_XY_offset_0p2": 0.28869399999999884
+    },
+    {
+      "name": "MKI_arriere",
+      "centre": [
+        48,
+        52.5
+      ],
+      "footprint": [
+        2,
+        0.8
+      ],
+      "minimum_full_board_edge_margin_nominal": 0.5383460000000028,
+      "margin_after_design_XY_offset_0p2": 0.33834600000000276
+    },
+    {
+      "name": "Click0",
+      "centre": [
+        84.2,
+        86.75
+      ],
+      "footprint": [
+        0.8,
+        2
+      ],
+      "minimum_full_board_edge_margin_nominal": 0.39000000000000057,
+      "margin_after_design_XY_offset_0p2": 0.19000000000000056
+    },
+    {
+      "name": "Click1",
+      "centre": [
+        84.2,
+        96.75
+      ],
+      "footprint": [
+        0.8,
+        2
+      ],
+      "minimum_full_board_edge_margin_nominal": 0.39000000000000057,
+      "margin_after_design_XY_offset_0p2": 0.19000000000000056
+    }
+  ],
+  "Adafruit_post_full_edge_margin_X_4p4": 0.33999999999999986,
+  "margin_after_offset_0p2": 0.13999999999999985,
+  "support_bore_d": 2.4,
+  "ST_Gerber_header_pitch": 2.54,
+  "ST_Gerber_row_spacing": 15.239746,
+  "ST_gerber_to_ordered_pad_max_rounding_error": 0.000254,
+  "Click_first_component_X_beyond_left_toe": 86.59494,
+  "Click_toe_maxX_with_0p2_offset": 84.8,
+  "Click_min_component_margin_X": 1.7949399999999969,
+  "physical_qualification": false,
+  "tolerance_scope": "XY0.2 is a design allowance, not demonstrated FDM accuracy; physical clearances still checked at cold fit"
+}

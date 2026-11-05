@@ -1,0 +1,226 @@
+[
+  {
+    "id": "01_base",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "03_cassette_nord",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "04_cassette_sud",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "05_cassette_SD",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "06_cassette_RS485",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "07_cadre_vitre",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "08_trappe_USER",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "09_trappe_SD",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "10_serre_nappe",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "11_serre_cable_RS485",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "02_couvercle_ARNACO",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "12_trappe_outil_RS485",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "13_D126",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "15_retenue_Nucleo",
+    "method": "byte identity, evaluated V25 meshes/STEP and associated proof reused",
+    "passed": true
+  },
+  {
+    "id": "20_appui_H08",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relative_mesh_volume_error": 0.00018674080789060242,
+    "passed": true
+  },
+  {
+    "id": "21_appui_H10",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relative_mesh_volume_error": 0.00018674080789032782,
+    "passed": true
+  },
+  {
+    "id": "22_appui_H12",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relative_mesh_volume_error": 0.00018674080789051086,
+    "passed": true
+  },
+  {
+    "id": "23_cale_0p5",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relative_mesh_volume_error": 0.00018674080789060242,
+    "passed": true
+  },
+  {
+    "id": "24_cale_1",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relative_mesh_volume_error": 0.00018674080789060242,
+    "passed": true
+  },
+  {
+    "id": "25_cale_2",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relative_mesh_volume_error": 0.00018674080789060242,
+    "passed": true
+  },
+  {
+    "id": "30_etrier_MKI",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      -3.305202763618473e-16
+    ],
+    "relative_mesh_volume_error": 0.00012183957430114686,
+    "passed": true
+  },
+  {
+    "id": "31_etrier_Click",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.00022746736067347229,
+      -2.44514986117369e-16
+    ],
+    "relative_mesh_volume_error": 0.0001246766415494484,
+    "passed": true
+  },
+  {
+    "id": "32_patin_MKI_avant",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      -1.2246047656356012e-16
+    ],
+    "relative_mesh_volume_error": 5.22240951327851e-05,
+    "passed": true
+  },
+  {
+    "id": "33_patin_MKI_arriere",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relative_mesh_volume_error": 4.097794526604848e-05,
+    "passed": true
+  },
+  {
+    "id": "34_patin_Click",
+    "watertight": true,
+    "components": 1,
+    "STEP_solids": 1,
+    "STEP_valid": true,
+    "minimum_print_XYZ": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "relative_mesh_volume_error": 8.158079001938373e-05,
+    "passed": true
+  }
+]

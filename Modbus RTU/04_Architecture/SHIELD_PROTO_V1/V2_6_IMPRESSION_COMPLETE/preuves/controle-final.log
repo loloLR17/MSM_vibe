@@ -1,0 +1,17 @@
+Meshes: 11 reopened, 14 inherited exact
+Nominal frames/native modules checked 62 checks
+/home/lolo/dev/msm/cache/shield-v15-cad-venv/lib/python3.13/site-packages/cadquery/utils.py:82: FutureWarning: save will be removed in the next release.
+  warn(f"{f.__name__} will be removed in the next release.", FutureWarning)
+{
+  "new_STL_reopened": 11,
+  "V25_STL_STEP_identity_reused": 14,
+  "types": 25,
+  "pieces_for_two_kits": 142,
+  "exact_BREP_intersection_checks": 1097,
+  "positive_intersections": [],
+  "Click_native_solids": 163,
+  "SD_native_solids": 6,
+  "ST_adapter_outline_from_official_Gerber": true,
+  "physical_qualification": false,
+  "passed": true
+}

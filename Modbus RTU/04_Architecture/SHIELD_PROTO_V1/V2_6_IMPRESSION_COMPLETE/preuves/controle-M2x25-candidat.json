@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "exact_BREP_checks": 1097,
+  "superseded_only_module_M2_length": 25,
+  "final_choice": 30,
+  "reason": "One ordinary M2 length for all16module/framepoints across two kits; larger height tolerance and counter-nut thread margin. Extra shaft clearance explicitly rechecked."
+}

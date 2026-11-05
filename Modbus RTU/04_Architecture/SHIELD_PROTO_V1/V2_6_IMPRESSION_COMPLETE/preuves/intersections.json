@@ -1,0 +1,4394 @@
+{
+  "checks": [
+    {
+      "check": "FRAM_PCB / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "SD_native / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "MKI_PCB / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "MKI_components / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "Click_native / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / V25 metal",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / FRAM_PCB",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "30_etrier_MKI / MKI_PCB",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / MKI_components",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_0 / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "MKI_shoe_0 / V25 metal",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "MKI_shoe_0 / FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_0 / SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_0 / MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_0 / MKI_components",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "MKI_shoe_0 / Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_1 / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "MKI_shoe_1 / V25 metal",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "MKI_shoe_1 / FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_1 / SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_1 / MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_1 / MKI_components",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "MKI_shoe_1 / Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "31_etrier_Click / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click / V25 metal",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click / FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "31_etrier_Click / SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "31_etrier_Click / MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "31_etrier_Click / MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "31_etrier_Click / Click_native",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "Click_shoe_0 / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "Click_shoe_0 / V25 metal",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "Click_shoe_0 / FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "Click_shoe_0 / SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "Click_shoe_0 / MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "Click_shoe_0 / MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "Click_shoe_0 / Click_native",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "Click_shoe_1 / V25 case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "Click_shoe_1 / V25 metal",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "Click_shoe_1 / FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "Click_shoe_1 / SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "Click_shoe_1 / MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "Click_shoe_1 / MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "Click_shoe_1 / Click_native",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / MKI_shoe_0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / MKI_shoe_1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI / 31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "30_etrier_MKI / Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "30_etrier_MKI / Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_0 / MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_0 / 31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_0 / Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_0 / Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_1 / 31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_1 / Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "MKI_shoe_1 / Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "31_etrier_Click / Click_shoe_0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click / Click_shoe_1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "Click_shoe_0 / Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "30_etrier_MKI B24.75 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B24.75 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B24.75 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B24.75",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B24.75 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B24.75 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B24.75 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B24.75",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B24.75 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click B24.75 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B24.75 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B24.75 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B24.75",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B24.75 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B24.75 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B24.75 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B24.75",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B24.75 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI B24.75 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B24.75 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B24.75",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B24.75 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B24.75 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B24.75",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B24.75 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click B24.75 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B24.75 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B24.75",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B24.75 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B24.75 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B24.75 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B24.75",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B24.75 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI B26.45 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B26.45 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B26.45 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B26.45",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B26.45 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B26.45 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B26.45 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B26.45",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B26.45 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click B26.45 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B26.45 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B26.45 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B26.45",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B26.45 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B26.45 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B26.45 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B26.45",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B26.45 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI B26.45 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B26.45 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B26.45",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B26.45 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B26.45 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B26.45",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B26.45 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click B26.45 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B26.45 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B26.45",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B26.45 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B26.45 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B26.45 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B26.45",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B26.45 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI B29.15 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B29.15 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B29.15 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B29.15",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B29.15 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B29.15 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B29.15 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B29.15",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B29.15 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click B29.15 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B29.15 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B29.15 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B29.15",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B29.15 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B29.15 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B29.15 gap0/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B29.15",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B29.15 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "30_etrier_MKI B29.15 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "32_patin_MKI_avant B29.15 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B29.15",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B29.15 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "33_patin_MKI_arriere B29.15 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 / native MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native MKI B29.15",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B29.15 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "31_etrier_Click B29.15 native module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B29.15 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B29.15",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B29.15 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "34_patin_Click B29.15 gap0.1/module",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 gap0.1/shoe",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / frame 31_etrier_Click",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M3 B29.15 / native Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "DIN985 / native Click B29.15",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M3 B29.15 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "DIN985 / case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H8 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H8 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H8 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H8 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H8 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H8 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H8 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H8 0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H8 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H8 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H8 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H8 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H8 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H8 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H8 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H8 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H8 1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H8 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H8 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H8 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H8 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H8 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H8 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H8 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H8 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H8 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H8 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H8 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H8 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H8 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H8 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H8 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H8 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H8 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H8 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support / card extraction H8 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt / card extraction H8 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / card extraction H8 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 / card extraction H8 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 / card extraction H8 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H8 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H8 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H8 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H8 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H8 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H8 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H8 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H8 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H8 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H8 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H8 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H8 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H8 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H8 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H8 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H8 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H8 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H8 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H8 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H8 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H8 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H8 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support / card extraction H8 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt / card extraction H8 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / card extraction H8 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 / card extraction H8 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 / card extraction H8 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H11 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H11 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H11 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H11 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H11 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H11 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H11 0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H11 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H11 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H11 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H11 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H11 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H11 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H11 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H11 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H11 1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H11 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H11 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H11 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H11 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H11 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H11 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H11 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H11 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H11 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H11 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H11 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H11 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H11 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H11 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H11 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H11 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H11 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H11 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support / card extraction H11 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt / card extraction H11 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / card extraction H11 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 / card extraction H11 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 / card extraction H11 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H11 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H11 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H11 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H11 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H11 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H11 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H11 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H11 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H11 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H11 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H11 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H11 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H11 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H11 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H11 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H11 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H11 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H11 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H11 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H11 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H11 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H11 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support / card extraction H11 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt / card extraction H11 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / card extraction H11 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 / card extraction H11 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 / card extraction H11 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H15.5 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H15.5 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H15.5 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H15.5 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H15.5 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H15.5 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H15.5 0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H15.5 0",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H15.5 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H15.5 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H15.5 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H15.5 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H15.5 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H15.5 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H15.5 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H15.5 1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H15.5 1",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H15.5 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H15.5 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H15.5 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H15.5 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H15.5 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H15.5 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 2/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H15.5 2/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 2/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 2/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 2/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 2/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 2/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H15.5 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H15.5 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H15.5 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H15.5 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H15.5 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H15.5 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H15.5 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H15.5 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H15.5 2",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H15.5 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support / card extraction H15.5 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt / card extraction H15.5 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / card extraction H15.5 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 / card extraction H15.5 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 / card extraction H15.5 2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support H15.5 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support H15.5 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "under_washer H15.5 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "under_washer H15.5 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "upper_washer H15.5 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper_washer H15.5 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 H15.5 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 H15.5 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 H15.5 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 H15.5 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 3/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt H15.5 3/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 3/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 3/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 3/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 3/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt H15.5 3/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "M2 / support H15.5 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / under H15.5 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / upper H15.5 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut0 H15.5 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "M2 / nut1 H15.5 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "support / native FRAM-SD H15.5 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / native FRAM-SD H15.5 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "bolt / native FRAM-SD H15.5 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut0 / native FRAM-SD H15.5 3",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "nut1 / native FRAM-SD H15.5 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "support / card extraction H15.5 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "bolt / card extraction H15.5 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "upper / card extraction H15.5 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut0 / card extraction H15.5 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "nut1 / card extraction H15.5 3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 bolt/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI0 bolt/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI0 bolt/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 bolt/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 bolt/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 bolt/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 bolt/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 washer/frame",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 washer/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI0 washer/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 washer/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 washer/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 washer/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 washer/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI0 nut0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI0 nut0/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut0/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut0/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut0/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut0/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI0 nut1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI0 nut1/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut1/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut1/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut1/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI0 nut1/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 bolt/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI1 bolt/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI1 bolt/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 bolt/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 bolt/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 bolt/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 bolt/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 washer/frame",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 washer/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI1 washer/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 washer/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 washer/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 washer/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 washer/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI1 nut0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI1 nut0/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut0/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut0/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut0/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut0/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI1 nut1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor MKI1 nut1/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut1/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut1/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut1/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor MKI1 nut1/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 bolt/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click0 bolt/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click0 bolt/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 bolt/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 bolt/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 bolt/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 bolt/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 washer/frame",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 washer/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click0 washer/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 washer/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 washer/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 washer/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 washer/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click0 nut0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click0 nut0/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut0/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut0/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut0/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut0/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click0 nut1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click0 nut1/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut1/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut1/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut1/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click0 nut1/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 bolt/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click1 bolt/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click1 bolt/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 bolt/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 bolt/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 bolt/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 bolt/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 washer/frame",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 washer/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click1 washer/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 washer/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 washer/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 washer/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 washer/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut0/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click1 nut0/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click1 nut0/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut0/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut0/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut0/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut0/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut1/frame",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click1 nut1/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "anchor Click1 nut1/FRAM_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut1/SD_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut1/MKI_PCB",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut1/MKI_components",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "anchor Click1 nut1/Click_native",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 0/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 0/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 0/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 0/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 0/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 0/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket0/post0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket0/post1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket0/post2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket0/post3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 1/30_etrier_MKI",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 1/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 1/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 1/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 1/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket 1/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket1/post0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket1/post1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket1/post2",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "full socket1/post3",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B24.75/30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "ribbon B24.75/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B24.75/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B24.75/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B24.75/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B24.75/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B24.75/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "ribbon B26.45/30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "ribbon B26.45/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B26.45/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B26.45/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B26.45/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B26.45/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B26.45/case",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "ribbon B29.15/30_etrier_MKI",
+      "positive_overlap_mm3": 0.0
+    },
+    {
+      "check": "ribbon B29.15/MKI_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B29.15/MKI_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B29.15/31_etrier_Click",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B29.15/Click_shoe_0",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B29.15/Click_shoe_1",
+      "positive_overlap_mm3": 0
+    },
+    {
+      "check": "ribbon B29.15/case",
+      "positive_overlap_mm3": 0.0
+    }
+  ],
+  "positive_intersections": [],
+  "passed": true
+}

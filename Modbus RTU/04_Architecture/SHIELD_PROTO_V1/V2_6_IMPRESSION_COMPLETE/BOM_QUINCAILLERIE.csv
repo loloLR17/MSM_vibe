@@ -1,0 +1,11 @@
+famille;piece;utiles_deux_TR2;reserve;total_cible;instruction
+D126_EXCLUSIF;M2x20 nylon Ajile;6;2;8;Déjà commandé selon contrat. Réservé uniquement D126.
+D126_EXCLUSIF;Ecrou M2 nylon Ajile;12;4;16;Deux par ancrage D126. Aucun achat supplémentaire prescrit.
+COFFRET_PATINS;M3x12 métal DIN912 ISO4762;42;8;50;34 coffrets +8réglages. Tête≤D6/H3.2. Aucun ajout rondelle hors plan.
+COFFRET;Ecrou M3 DIN934 AF5.5 H<=2.4;34;6;40;Poches coffretAF5.9/H2.8. Ne pas substituerDIN985 ici.
+PATINS;Ecrou M3 frein DIN985 AF5.5 H<=4;8;2;10;"Bague nylon vers le haut. Standard courant; pas un écrou plastique."
+MODULES_ET_ETRIERS;M2x30 métal ordinaire DIN912;16;4;20;"8pointsAdafruit +8pointsétriers pour2TR2. Tête≤D4.2/H2.2; rondellePETG1mm sous tête."
+MODULES_ET_ETRIERS;Ecrou M2 DIN934 AF4 H<=1.6;32;8;40;Deux par point en contre-écrou. Aucun prélèvementAjile.
+COFFRET;Vitre PC transparente50x18x1.5mm;2;0;2;Récupération possible. Aucun perçage, vérifier transparence.
+CABLES;Colson nylon largeur<=2.5mm;2;2;4;Nappe, ne pas pincerIDC.
+CABLES;Garniture isolante souple;4;0;4;"Protection nappe/câble; jamais seule butée de compression sous module."

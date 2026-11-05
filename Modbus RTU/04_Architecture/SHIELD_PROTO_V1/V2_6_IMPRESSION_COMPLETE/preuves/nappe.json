@@ -1,0 +1,95 @@
+[
+  {
+    "PCB_top": 24.75,
+    "width_design": 8,
+    "thickness_design": 1,
+    "Bezier_control_points_CAD": [
+      [
+        52.635,
+        -33.385,
+        33.25
+      ],
+      [
+        52.635,
+        -17.0,
+        35.25
+      ],
+      [
+        55.5,
+        0.0,
+        43.0
+      ],
+      [
+        55.5,
+        22.0,
+        43.0
+      ]
+    ],
+    "sampled_curvature_min_radius_mm": 64.66980446329669,
+    "curvature_sample_count": 101,
+    "segmented_AABB_sweep_count": 100,
+    "cable_supplier_min_bend_radius": "not specified here; physical relaxed route mandatory"
+  },
+  {
+    "PCB_top": 26.45,
+    "width_design": 8,
+    "thickness_design": 1,
+    "Bezier_control_points_CAD": [
+      [
+        52.635,
+        -33.385,
+        34.95
+      ],
+      [
+        52.635,
+        -17.0,
+        36.95
+      ],
+      [
+        55.5,
+        0.0,
+        43.0
+      ],
+      [
+        55.5,
+        22.0,
+        43.0
+      ]
+    ],
+    "sampled_curvature_min_radius_mm": 83.81746756016778,
+    "curvature_sample_count": 101,
+    "segmented_AABB_sweep_count": 100,
+    "cable_supplier_min_bend_radius": "not specified here; physical relaxed route mandatory"
+  },
+  {
+    "PCB_top": 29.15,
+    "width_design": 8,
+    "thickness_design": 1,
+    "Bezier_control_points_CAD": [
+      [
+        52.635,
+        -33.385,
+        37.65
+      ],
+      [
+        52.635,
+        -17.0,
+        39.65
+      ],
+      [
+        55.5,
+        0.0,
+        43.0
+      ],
+      [
+        55.5,
+        22.0,
+        43.0
+      ]
+    ],
+    "sampled_curvature_min_radius_mm": 130.48986211602622,
+    "curvature_sample_count": 101,
+    "segmented_AABB_sweep_count": 100,
+    "cable_supplier_min_bend_radius": "not specified here; physical relaxed route mandatory"
+  }
+]

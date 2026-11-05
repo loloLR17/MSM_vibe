@@ -1,0 +1,48 @@
+---
+mission_id: TR2-20261105-SHIELD-V26-IMPRESSION-COMPLETE-SANS-RECEPTION
+status: READY
+base_ref: main
+base_sha: c2a1cf83da6c85211656721de2731d83f169cbbd
+created_at_utc: 2026-11-05T21:21:56.050Z
+author: ChatGPT
+target_branch: main
+allow_commit: true
+allow_push: true
+allow_flash: false
+allow_debug: false
+---
+
+# MSM TR2 — V2.6 : dossier d'impression 3D COMPLET aujourd'hui, sans attendre les PCB ni une mesure physique
+
+## Instruction utilisateur, délai et changement du critère de libération
+
+**Décision explicite du 05/11/2026 : impératif de finaliser ce soir UN DOSSIER COMPLET D'IMPRESSION pour l'ami imprimeur, pour deux prototypes, afin que toutes les pièces arrivent en fin de semaine prochaine.** Il est exclu d'attendre l'arrivée des PCB JLCPCB, des connecteurs TME ou de leur soudage pour mesurer des hauteurs ou finaliser les étriers. L'utilisateur est prêt à faire plusieurs itérations numériques dans la soirée. Les photos recto-verso des vrais modules MKIGIBV2 et Click seront fournies au prochain message si utiles ; elles sont une entrée complémentaire, **pas une dépendance pour commencer maintenant**.
+
+Distinguer clairement **prêt pour impression avec ajustement à froid prévu** et **montage physique qualifié** : le premier est l'objectif cette mission ; ne pas prétendre au second. Ne pas laisser un ZIP PARTIEL sous l'étiquette « complet ». Chercher une solution réellement montable et réglable, aux réserves quantifiées et opérations d'ajustement simples. KISS, 2 exemplaires, aucune redéfinition des PCB déjà commandés.
+
+## Contexte obligatoire
+
+Sur `main`, consulter `AGENTS.md`, `Modbus RTU/00_gouvernance/GOUVERNANCE_CHATGPT_CODEX.md`, dernière mission V2.5, rapport `DONE`, revue ChatGPT archivée V2.5 et travaux V2.3/V2.4/V2.5. Base numérique V2.5 acceptée : D126 inchangés ; boîtier standard DIN912/ISO4762 **M3×12 métal**, écrous M3 DIN934 (34/34 utiles pour deux boîtiers, 40/40 avec réserve), vis Ajile **8 M2×20 et16 écrous nylon réservés EXCLUSIVEMENT aux D126** ; couvercle ARNACO monobloc ; 14 STL/40 pièces partiels, supports FRAM/SD et étriers manquants. Ne pas refaire la caisse ni le PCB si pas de défaut prouvé.
+
+## Sources fabricant à exploiter en priorité immédiatement
+
+- FRAM Adafruit 4718 : fichiers Eagle PCB réels `adafruit/Adafruit-FRAM-Breakout-PCB`, modèle `SPI FRAM 2 and 4 Mbit.brd`. Source : `https://github.com/adafruit/Adafruit-FRAM-Breakout-PCB`.
+- microSD Adafruit 4682 : Eagle PCB et fichiers 3D `https://github.com/adafruit/Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB` et `https://learn.adafruit.com/adafruit-microsd-spi-sdio/downloads`.
+- MikroElektronika **RS485 Isolator 2 Click MIKROE-3863**, et non RS485 Isolator click plus ancien : **archive constructeur 2D/3D** `https://download.mikroe.com/documents/2d-3d-files/RS485_Isolator_2_click-2d-3d-files.zip` ; page et schéma `https://www.mikroe.com/rs485-isolator-2-click`. Repère fabricant : click L 57,15 ×25,4mm, ADM2867E, zones GND1/GND2 distinctes, vis/étrier sans pont entre les domaines.
+- ST **STEVAL-MKI208V1K (MKI208V1 capteur et MKIGIBV2 adaptateur)** : `https://www.st.com/resource/en/data_brief/steval-mki208v1k.pdf`, `https://www.st.com/resource/en/schematic_pack/steval-mki208v1k_schematic.pdf`. Chercher d'abord des ressources CAO mécaniques officielles ; ces schémas sont électriques, **ne prouvent pas à eux seuls les zones mécaniques nues**. Exploiter photos physiques à venir si disponibles.
+- Connecteurs FRAM/SD **Connfly 1×10** à corps entier, une position sans queue soudée ; examiner leur fiche constructeur/cotes de logement/fenêtre d'engagement et les pins/modules actuels. Ne pas supposer par défaut H=11mm ni une profondeur d'emboîtement non attestée.
+
+Télécharger les sources officielles dans le workspace de Codex si accessible ; archiver en dépôt **les références, cotes et preuves dérivées**, sans répliquer inutilement des licences ou du gros matériel tiers.
+
+## Tâches prioritaires — résoudre le « trop court / trop long » AVANT impression
+
+1. **Supports FRAM et microSD, fixation effective positive** : reprendre les trous/bords exacts depuis PCB Eagle constructeur, vérifier les zones métalliques, volumes composants et service microSD. Déterminer H nominal à partir d'une chaîne de cotes crédible des connecteurs ; séparer mesure constructeur, hypothèse, tolérance. Fabriquer des **entretoises/supports PETG réglables par ponçage à plat** et une petite sélection de **cales PETG imprimées** utiles (épaisseurs réalisables en FDM, par exemple 0,5/1/2 mm ou autres valeurs justifiées), pour couvrir l'incertitude d'H **sans nécessiter la livraison préalable**. Si nécessaire, imprimer plusieurs hauteurs nominales utiles, en séries identifiées et très légères ; pas de fausse cote unique « parfaite ». Prévoir une **vraie butée de compression jusqu'au shield**, indépendante des connecteurs, et une retenue axiale empêchant le soulèvement ; montage sans effort de mise en prise du socket, pas de pression sur composant/soudure et pas de métal entre réseaux. Les joints de chambre à air ne sont pas le seul organe porteur : matière souple acceptable en protection/damping, **cales PETG rigides préférables pour la hauteur durable**. Prévoir instruction de montage « insérer à sec / choisir cales / poncer finement / serrer léger », avec tolérance et zone d'usinage sans danger. Revoir stratégie M2 courantes à partir de l'assortiment, **sans consommer les Ajile D126** ni imposer 8 nouvelles vis nylon spécialisées.
+2. **Étriers MKIGIBV2 et Click** : exploiter la CAO 2D/3D officielle Click, docs ST et photos éventuelles pour positionner seulement des appuis isolants sur bords libres crédibles et non sur composants/borniers/IDC. Les disques V2.4 débordent des enveloppes provisoires de 0,56..0,61mm : **corriger ces dépassements** ou adopter une approche d'appui beaucoup plus simple, avec patins ajustables/conservateurs, découpe/ponçage éventuellement prévus, et maintien réellement positif. Attention à la barrière galvanique Click et à la retenue de la nappe ; la fixation ne doit pas ponter les domaines via métal. Alternative raisonnable : retenues prises sur les perçages/axes shield, avec interfaces isolantes ; ne pas prévoir de fixations complexes ou d'achat spécialisé si évitable. **Inclure les quatre étriers (2+2) dans le pack complet** si conception défendable, avec leur montage et leur plage d'ajustement.
+3. **Conserver le boîtier V2.5** sauf correction locale prouvée ; garde-fous D126, USB, SD, RS485, nappe, fenêtres/trappes, ARNACO relief. Maintenir marge de montage, accès à la microSD et visserie standard. Aucune modification au PCB V2.3 commandé, firmware, alimentation, électronique, gouvernance ou missions historiques.
+4. **Un SEUL ZIP de livraison imprimeur** avec toutes les pièces pour **deux prototypes** (incluant D126, coffrets, appuis FRAM/SD, étriers MKI/Click, cales d'ajustement/réserves utiles). Chaque pièce : STL orienté en mm, quantité exacte, nom non ambigu, consigne PETG, petit plan d'assemblage et fiche d'ajustement utilisateur KISS. Aucun logo/filament additionnel, pas de conception réclamée à l'ami imprimeur. Distinguer dans la notice : *imprimable maintenant* versus *vérification à froid obligatoire avant alimentation*.
+5. **Qualification numérique et preuve** : générer STEP/STL, vérifier étanchéité, orientation, intersections, boîtier C05, D126, volumes et câbles/IDC, chemins d'effort positif, positions/empreintes des vraies pièces constructeur, clearance de la visserie métallique, plages ajustables des supports, accessibilité outil/SD, quantités et ZIP CRC/SHA256 + relecture distante. Si un point est improuvable, choisir une conception conservatrice réglable explicite, **sans inventer une cote**. Si le matériel réel seul peut garantir un point, le conserver en « à vérifier au premier montage » plutôt que bloquer l'impression si une plage de tolérance raisonnable permet de l'absorber. Ne pas qualifier électriquement ou mécaniquement la tenue en vibration sans essai.
+6. **Rapport et livraison GitHub** : déposer la révision V2.6 isolée, publier commits normaux sur `main`, générer `DERNIER_RAPPORT.md` du présent mission_id avec preuve exacte. La décision ChatGPT de libérer le ZIP à l'ami suivra la revue indépendante. Statut `DONE` seulement si le dossier complet est présent et vérifiable ; `BLOCKED` uniquement pour un risque de contact non maîtrisable même avec design ajustable, documenter précisément la cause et l'option de secours ; ne jamais livrer un « dossier complet » qui omet les supports ou les étriers.
+
+## Acceptation, autonomie, limites
+
+Objectif **ce soir** : un ZIP réellement imprimable **complet** pour deux coffrets, tous les étriers/appuis inclus avec options légères de calage, et une BOM standard réaliste ; **aucune attente de livraison ni montage de premier article comme condition de génération**. L'utilisateur prend les photos, poncera/ajustera et vérifiera hors tension à la réception. Toujours protéger domaines isolés, circuit et connecteurs : bricolage raisonnable oui, court-circuit ou sollicitation des sockets non. Travaux CAO/documentation/tests seulement : `allow_commit: true`, `allow_push: true`, `allow_flash: false`, `allow_debug: false`. Aucun achat, envoi ni impression à faire par Codex, et pas de Work.

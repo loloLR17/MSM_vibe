@@ -1,0 +1,11 @@
+{
+  "remote_addendum_sha": "72a28db9c96d35d7d421574f464cc0125c380a20",
+  "input_kind": "Photo observations reported by ChatGPT in mission; images not attached to repository and not seen directly by Codex",
+  "reported_real_Click_revision": "HW REV.1.02 /ADM2867E",
+  "actual_official_CAD_available": "RS485_Isolator_2_click_v101.step;163solids",
+  "archive_v102_members": 0,
+  "comparison": "Product matchesMIKROE3863,57.15x25.4format and terminal end retained. Exactcomponent identity acrossrevisions NOTestablished. Contactwindows chosen at logic shortedge awayfrom component envelopes and fixedmikroBUSrows; no opening or pad used as mountinghole. Coldrevision/clearancecheck remains mandatory.",
+  "dark_openings_function": "Not established forv102. STEP PCB top has one outerwire withnointernalhole details (including drill simplification), so it cannot qualify those openings as mountingholes. No fastener passes through them.",
+  "ST_photo_size_estimate": "21..22x32approximate from report; not used forCAD. OfficialGKO18.00x30.93 and matching15.24headeraxes take precedence.",
+  "impact_on_print_release": "No missing parts or additional photograph prerequisite; controlled firstarticle fitting expressly accepted bymission."
+}

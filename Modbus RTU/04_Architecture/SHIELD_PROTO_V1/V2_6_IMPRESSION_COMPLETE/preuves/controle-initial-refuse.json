@@ -1,0 +1,200 @@
+{
+  "exact_checks": 1092,
+  "rejected_checks": [
+    {
+      "check": "M3 B24.75 gap0/frame",
+      "positive_overlap_mm3": 4.367860775180766
+    },
+    {
+      "check": "M3 B24.75 gap0/shoe",
+      "positive_overlap_mm3": 36.249858650972904
+    },
+    {
+      "check": "M3 B24.75 gap0/frame",
+      "positive_overlap_mm3": 4.375322964699451
+    },
+    {
+      "check": "M3 B24.75 gap0/shoe",
+      "positive_overlap_mm3": 36.989606369191485
+    },
+    {
+      "check": "M3 B24.75 gap0/frame",
+      "positive_overlap_mm3": 4.375322964699236
+    },
+    {
+      "check": "M3 B24.75 gap0/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B24.75 gap0/frame",
+      "positive_overlap_mm3": 4.375322964699892
+    },
+    {
+      "check": "M3 B24.75 gap0/shoe",
+      "positive_overlap_mm3": 36.10264705935818
+    },
+    {
+      "check": "M3 B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 4.526692076096441
+    },
+    {
+      "check": "M3 B24.75 gap0.1/shoe",
+      "positive_overlap_mm3": 36.249858650972904
+    },
+    {
+      "check": "M3 B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 4.534425617961249
+    },
+    {
+      "check": "M3 B24.75 gap0.1/shoe",
+      "positive_overlap_mm3": 36.98960636919148
+    },
+    {
+      "check": "M3 B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 4.534425617961029
+    },
+    {
+      "check": "M3 B24.75 gap0.1/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B24.75 gap0.1/frame",
+      "positive_overlap_mm3": 4.534425617961712
+    },
+    {
+      "check": "M3 B24.75 gap0.1/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B26.45 gap0/frame",
+      "positive_overlap_mm3": 5.082601629301287
+    },
+    {
+      "check": "M3 B26.45 gap0/shoe",
+      "positive_overlap_mm3": 36.249858650972904
+    },
+    {
+      "check": "M3 B26.45 gap0/frame",
+      "positive_overlap_mm3": 5.091284904377731
+    },
+    {
+      "check": "M3 B26.45 gap0/shoe",
+      "positive_overlap_mm3": 36.98960636919148
+    },
+    {
+      "check": "M3 B26.45 gap0/frame",
+      "positive_overlap_mm3": 5.091284904377729
+    },
+    {
+      "check": "M3 B26.45 gap0/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B26.45 gap0/frame",
+      "positive_overlap_mm3": 5.091284904377734
+    },
+    {
+      "check": "M3 B26.45 gap0/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 5.082601629301287
+    },
+    {
+      "check": "M3 B26.45 gap0.1/shoe",
+      "positive_overlap_mm3": 36.249858650972904
+    },
+    {
+      "check": "M3 B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 5.091284904377731
+    },
+    {
+      "check": "M3 B26.45 gap0.1/shoe",
+      "positive_overlap_mm3": 36.98960636919148
+    },
+    {
+      "check": "M3 B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 5.091284904377729
+    },
+    {
+      "check": "M3 B26.45 gap0.1/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B26.45 gap0.1/frame",
+      "positive_overlap_mm3": 5.091284904377734
+    },
+    {
+      "check": "M3 B26.45 gap0.1/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B29.15 gap0/frame",
+      "positive_overlap_mm3": 5.082601629301286
+    },
+    {
+      "check": "M3 B29.15 gap0/shoe",
+      "positive_overlap_mm3": 36.249858650972904
+    },
+    {
+      "check": "M3 B29.15 gap0/frame",
+      "positive_overlap_mm3": 5.0912849043777335
+    },
+    {
+      "check": "M3 B29.15 gap0/shoe",
+      "positive_overlap_mm3": 36.98960636919148
+    },
+    {
+      "check": "M3 B29.15 gap0/frame",
+      "positive_overlap_mm3": 5.091284904377729
+    },
+    {
+      "check": "M3 B29.15 gap0/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B29.15 gap0/frame",
+      "positive_overlap_mm3": 5.091284904377733
+    },
+    {
+      "check": "M3 B29.15 gap0/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 5.082601629301285
+    },
+    {
+      "check": "M3 B29.15 gap0.1/shoe",
+      "positive_overlap_mm3": 36.249858650972904
+    },
+    {
+      "check": "M3 B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 5.0912849043777335
+    },
+    {
+      "check": "M3 B29.15 gap0.1/shoe",
+      "positive_overlap_mm3": 36.989606369191485
+    },
+    {
+      "check": "M3 B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 5.091284904377729
+    },
+    {
+      "check": "M3 B29.15 gap0.1/shoe",
+      "positive_overlap_mm3": 36.10264705935819
+    },
+    {
+      "check": "M3 B29.15 gap0.1/frame",
+      "positive_overlap_mm3": 5.091284904377734
+    },
+    {
+      "check": "M3 B29.15 gap0.1/shoe",
+      "positive_overlap_mm3": 36.10264705935818
+    }
+  ],
+  "cause": "Verification screw proxy error: adjusting M3 points downward, while initial helper placed head below instead of above shaft. M2 screws correctly oriented. Fix only M3 proxy orientation to match specified load path; checks retained unchanged. Initial prototype files not released.",
+  "log_sha256": "9a405025dc0d831b8880d3e1a87b9b92f2795c9abf25733b907075150b8657ec",
+  "support_profile_change": "New supports narrowed X5->4.4mm to increase full PCB edge margin from0.04->0.34mm (Adafruit mounting axes2.54mm from edge); Y4 retained to preserve SD extraction."
+}

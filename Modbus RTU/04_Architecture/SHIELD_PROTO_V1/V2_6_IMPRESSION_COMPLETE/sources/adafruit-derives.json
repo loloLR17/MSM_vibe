@@ -1,0 +1,199 @@
+{
+  "FRAM": {
+    "mount_holes": [
+      {
+        "name": "U$16",
+        "xy": [
+          45.0,
+          71.7
+        ],
+        "drill": 2.5,
+        "copper_diameter": 3.2,
+        "floating": true
+      },
+      {
+        "name": "U$17",
+        "xy": [
+          65.32,
+          71.7
+        ],
+        "drill": 2.5,
+        "copper_diameter": 3.2,
+        "floating": true
+      }
+    ],
+    "component_envelopes": [
+      {
+        "name": "C1",
+        "package": "0603-NO",
+        "bbox_XY": [
+          56.0625,
+          61.171,
+          59.337500000000006,
+          62.671
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "C3",
+        "package": "0805-NO",
+        "bbox_XY": [
+          44.069,
+          67.144,
+          47.709,
+          69.144
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "C4",
+        "package": "0805-NO",
+        "bbox_XY": [
+          44.196,
+          61.81,
+          47.836,
+          63.81
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "U1",
+        "package": "SOIC8_208MIL",
+        "bbox_XY": [
+          53.035,
+          62.446,
+          62.365,
+          67.746
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "U2",
+        "package": "USON8",
+        "bbox_XY": [
+          55.85,
+          67.91,
+          59.55,
+          70.41
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "U3",
+        "package": "TSSOP16",
+        "bbox_XY": [
+          47.6964,
+          61.813900000000004,
+          53.2256,
+          69.1401
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "U4",
+        "package": "SOT23-5",
+        "bbox_XY": [
+          43.4849,
+          63.577,
+          47.7851,
+          67.377
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "R1",
+        "package": "RESPACK_4X0603",
+        "bbox_XY": [
+          63.92400000000001,
+          61.549,
+          67.224,
+          65.849
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      }
+    ],
+    "method": "Eagle exact placements and rotations, union SMD+solder courtyard/silkscreen AABB expanded0.25; Zheight4mm conservative design assumption, not measured manufacturer height"
+  },
+  "SD": {
+    "mount_holes": [
+      {
+        "name": "U$1",
+        "xy": [
+          22.72,
+          106.0
+        ],
+        "drill": 2.5,
+        "copper_diameter": 3.2,
+        "floating": true
+      },
+      {
+        "name": "U$2",
+        "xy": [
+          22.72,
+          85.68
+        ],
+        "drill": 2.5,
+        "copper_diameter": 3.2,
+        "floating": true
+      }
+    ],
+    "component_envelopes": [
+      {
+        "name": "X1",
+        "package": "MICROSD",
+        "bbox_XY": [
+          15.688999999999997,
+          88.305,
+          36.819,
+          103.405
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "C1",
+        "package": "0805-NO",
+        "bbox_XY": [
+          33.912,
+          103.418,
+          35.912,
+          107.058
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "C2",
+        "package": "0603-NO",
+        "bbox_XY": [
+          25.1465,
+          103.47200000000001,
+          28.421499999999998,
+          104.97200000000001
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "R1",
+        "package": "RESPACK_4X0603",
+        "bbox_XY": [
+          29.206,
+          103.58800000000001,
+          33.506,
+          106.888
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      },
+      {
+        "name": "R2",
+        "package": "RESPACK_4X0603",
+        "bbox_XY": [
+          29.206,
+          84.792,
+          33.506,
+          88.09200000000001
+        ],
+        "body_height_design_envelope_not_supplier": 4.0
+      }
+    ],
+    "method": "Eagle exact placements and rotations, union SMD+solder courtyard/silkscreen AABB expanded0.25; Zheight4mm conservative design assumption, not measured manufacturer height"
+  }
+}

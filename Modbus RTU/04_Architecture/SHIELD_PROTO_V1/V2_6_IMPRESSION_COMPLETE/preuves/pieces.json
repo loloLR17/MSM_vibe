@@ -1,0 +1,483 @@
+[
+  {
+    "id": "01_base",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/01_base.stl",
+    "STEP": "cad/01_base.step",
+    "dimensions_print_mm": [
+      158.00000020000013,
+      166.00000020000013,
+      61.0022384791397
+    ],
+    "volume_mm3": 181176.80079682334,
+    "orientation": "flat",
+    "note": "Fond -14, plancher -11; baies en U ouvertes en haut; poches écrous M3, pas de filets imprimés",
+    "STL_identical_to_V24": false,
+    "STL_sha256": "affa55096643155494d9e86f5a7e1e66bd348df98045f50e59fd098968494017",
+    "STEP_identical_to_V24": false,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "03_cassette_nord",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/03_cassette_nord.stl",
+    "STEP": "cad/03_cassette_nord.step",
+    "dimensions_print_mm": [
+      67.60000020000001,
+      53.55000020000003,
+      2.401611443779399
+    ],
+    "volume_mm3": 5461.11590210274,
+    "orientation": "north",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "13f39c65d99d9bf6a3e139fcefed77d67fa2678fbb613f0ab25b5fff26f40102",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "04_cassette_sud",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/04_cassette_sud.stl",
+    "STEP": "cad/04_cassette_sud.step",
+    "dimensions_print_mm": [
+      73.60000020000001,
+      53.550000200000014,
+      2.401611443779376
+    ],
+    "volume_mm3": 7317.842975525616,
+    "orientation": "south",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "7ea4cc8d66f1349177e8d545136d45b5e2a051dce7a77c023a537c81f57ebf58",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "05_cassette_SD",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/05_cassette_SD.stl",
+    "STEP": "cad/05_cassette_SD.step",
+    "dimensions_print_mm": [
+      27.55000020000001,
+      39.60000020000001,
+      2.4016114437793936
+    ],
+    "volume_mm3": 1384.3229755256846,
+    "orientation": "west",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "baeb3b5c05273264b95c4628ba083e7ebd0c6e81bcedd69bb00f47fafc264bd6",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "06_cassette_RS485",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/06_cassette_RS485.stl",
+    "STEP": "cad/06_cassette_RS485.step",
+    "dimensions_print_mm": [
+      25.55000020000001,
+      38.6000002,
+      2.400000199999984
+    ],
+    "volume_mm3": 1358.951999999987,
+    "orientation": "east",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "8a75661848b70e9d23f495894c1f8e147079f68f518dc541676aeff666abb7fe",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "07_cadre_vitre",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/07_cadre_vitre.stl",
+    "STEP": "cad/07_cadre_vitre.step",
+    "dimensions_print_mm": [
+      61.10000020000003,
+      20.00000020000003,
+      2.0016114437793995
+    ],
+    "volume_mm3": 1143.2849592094763,
+    "orientation": "north",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "08_trappe_USER",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/08_trappe_USER.stl",
+    "STEP": "cad/08_trappe_USER.step",
+    "dimensions_print_mm": [
+      29.000000200000017,
+      31.000000200000017,
+      2.4016114437794007
+    ],
+    "volume_mm3": 2133.170975525691,
+    "orientation": "south",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "1325cf9d6967f87cafa62f03fb41c7f3390c845915f2335781b9e78251618a61",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "09_trappe_SD",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/09_trappe_SD.stl",
+    "STEP": "cad/09_trappe_SD.step",
+    "dimensions_print_mm": [
+      27.300000200000007,
+      32.0000002,
+      2.401611443779396
+    ],
+    "volume_mm3": 2072.2109755256847,
+    "orientation": "west",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "68360a8588b81cfd06dfff89241302aa23e132fbc91a4d4d6f82fc3d2ab8706d",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "10_serre_nappe",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/10_serre_nappe.stl",
+    "STEP": "cad/10_serre_nappe.step",
+    "dimensions_print_mm": [
+      28.000000200000002,
+      6.000000200000002,
+      3.001611443779396
+    ],
+    "volume_mm3": 408.36743881421444,
+    "orientation": "north",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+    "STEP_identical_to_V24": false,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "11_serre_cable_RS485",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/11_serre_cable_RS485.stl",
+    "STEP": "cad/11_serre_cable_RS485.step",
+    "dimensions_print_mm": [
+      6.002635180947243,
+      25.000000200000006,
+      3.002635180947242
+    ],
+    "volume_mm3": 365.75044046113896,
+    "orientation": "flat",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "8387f16bd2659225e859b38b732ceaac66d6f297a3a34967dd4348f520684e9e",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "02_couvercle_ARNACO",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/02_couvercle_ARNACO.stl",
+    "STEP": "cad/02_couvercle_ARNACO.step",
+    "dimensions_print_mm": [
+      158.0000002000001,
+      166.0000002000001,
+      4.0008058218897435
+    ],
+    "volume_mm3": 76183.32062784473,
+    "orientation": "flat",
+    "note": "Relief ARNACO intégré1mm, six glyphes, aucune devise; face intérieure à plat",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "0afab14685b7ce1e29b6c45198a793b0a08bd9727cffca1cc00893a2d512faed",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "12_trappe_outil_RS485",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "spares": 0,
+    "STL": "stl/12_trappe_outil_RS485.stl",
+    "STEP": "cad/12_trappe_outil_RS485.step",
+    "dimensions_print_mm": [
+      28.400000200000008,
+      36.40000020000002,
+      2.001611443779395
+    ],
+    "volume_mm3": 2026.8049592094758,
+    "orientation": "flat",
+    "note": "",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "53e10fffaace10440a46423937a8a6c33a76fd0f1fd22e35f050d73f528b87bb",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "13_D126",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 8,
+    "useful_two_kits": 6,
+    "spares": 2,
+    "STL": "stl/13_D126.stl",
+    "STEP": "cad/13_D126.step",
+    "dimensions_print_mm": [
+      6.002635180947236,
+      3.001317690473619,
+      12.252635180947237
+    ],
+    "volume_mm3": 145.47144782447538,
+    "orientation": "flat",
+    "note": "12,25±0,10 à accepter après impression; couches0,10 et100%; ouvrir vers CN15 en haut, STLINK en bas",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "15_retenue_Nucleo",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "quantity_to_print_two_kits": 8,
+    "useful_two_kits": 6,
+    "spares": 2,
+    "STL": "stl/15_retenue_Nucleo.stl",
+    "STEP": "cad/15_retenue_Nucleo.step",
+    "dimensions_print_mm": [
+      17.300000200000003,
+      6.802986511740201,
+      3.6020304371298986
+    ],
+    "volume_mm3": 208.91522121043377,
+    "orientation": "upside_down",
+    "note": "6utiles+2réserves, lumièreM3; jeu antilevée0,8 nominal sans serrer le PCB",
+    "STL_identical_to_V24": true,
+    "STL_sha256": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505",
+    "STEP_identical_to_V24": true,
+    "inherited_exact_V25": true
+  },
+  {
+    "id": "20_appui_H08",
+    "quantity_to_print_two_kits": 8,
+    "STL": "stl/20_appui_H08.stl",
+    "STEP": "cad/20_appui_H08.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "flat",
+    "volume_mm3": 103.51009122724054,
+    "dimensions_print_mm": [
+      4.40033863993424,
+      4.00033863993424,
+      8.001074362519592
+    ],
+    "role": "8 appuis à choisir parmi les trois hauteurs, face supérieure ponçable de0..0.5mm",
+    "inherited_exact_V25": false,
+    "STL_sha256": "76b97adc0434408cbaab2233783ac0b898ef1263c05732da7fc860d8ed0f6820"
+  },
+  {
+    "id": "21_appui_H10",
+    "quantity_to_print_two_kits": 8,
+    "STL": "stl/21_appui_H10.stl",
+    "STEP": "cad/21_appui_H10.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "flat",
+    "volume_mm3": 129.38761403405067,
+    "dimensions_print_mm": [
+      4.40033863993424,
+      4.00033863993424,
+      10.001074362519592
+    ],
+    "role": "8 appuis à choisir parmi les trois hauteurs, face supérieure ponçable de0..0.5mm",
+    "inherited_exact_V25": false,
+    "STL_sha256": "1bd212bbd0e47e9d687a6e7b86426810439b35ab27c05eb5566a27294c92bcf4"
+  },
+  {
+    "id": "22_appui_H12",
+    "quantity_to_print_two_kits": 8,
+    "STL": "stl/22_appui_H12.stl",
+    "STEP": "cad/22_appui_H12.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "flat",
+    "volume_mm3": 155.26513684086078,
+    "dimensions_print_mm": [
+      4.40033863993424,
+      4.00033863993424,
+      12.001074362519592
+    ],
+    "role": "8 appuis à choisir parmi les trois hauteurs, face supérieure ponçable de0..0.5mm",
+    "inherited_exact_V25": false,
+    "STL_sha256": "2303588bc2ab110c5cc343a364ba6d950c435eef877c16191a1ef850fd81e208"
+  },
+  {
+    "id": "23_cale_0p5",
+    "quantity_to_print_two_kits": 12,
+    "STL": "stl/23_cale_0p5.stl",
+    "STEP": "cad/23_cale_0p5.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "flat",
+    "volume_mm3": 6.4693807017025335,
+    "dimensions_print_mm": [
+      4.40033863993424,
+      4.00033863993424,
+      0.5010743625195933
+    ],
+    "role": "Calage rigide; H1 sert aussi de rondelle isolante sous têtes et au-dessus modules",
+    "inherited_exact_V25": false,
+    "STL_sha256": "bbb0e66119e636c37f555dd52b77b02df04338fd67281179d3de02bdd456ab7f"
+  },
+  {
+    "id": "24_cale_1",
+    "quantity_to_print_two_kits": 36,
+    "STL": "stl/24_cale_1.stl",
+    "STEP": "cad/24_cale_1.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "flat",
+    "volume_mm3": 12.938761403405067,
+    "dimensions_print_mm": [
+      4.40033863993424,
+      4.00033863993424,
+      1.0010743625195935
+    ],
+    "role": "Calage rigide; H1 sert aussi de rondelle isolante sous têtes et au-dessus modules",
+    "inherited_exact_V25": false,
+    "STL_sha256": "27a34efee99b49059c276971cb020a284c6a06d9769b52c54b5db4a14820316f"
+  },
+  {
+    "id": "25_cale_2",
+    "quantity_to_print_two_kits": 12,
+    "STL": "stl/25_cale_2.stl",
+    "STEP": "cad/25_cale_2.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "flat",
+    "volume_mm3": 25.877522806810134,
+    "dimensions_print_mm": [
+      4.40033863993424,
+      4.00033863993424,
+      2.001074362519593
+    ],
+    "role": "Calage rigide; H1 sert aussi de rondelle isolante sous têtes et au-dessus modules",
+    "inherited_exact_V25": false,
+    "STL_sha256": "aa6a778ba4dbb49dc97dcbad956528b015736848b07d8c479ffa888f677f99aa"
+  },
+  {
+    "id": "30_etrier_MKI",
+    "quantity_to_print_two_kits": 2,
+    "STL": "stl/30_etrier_MKI.stl",
+    "STEP": "cad/30_etrier_MKI.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "upside_down",
+    "volume_mm3": 2567.9007817549727,
+    "dimensions_print_mm": [
+      39.50123575663629,
+      45.5009224417049,
+      24.15243386786458
+    ],
+    "role": "Un étrier par module; contacts PETG réglables, jamais métal sur PCB",
+    "inherited_exact_V25": false,
+    "STL_sha256": "501beaba2d7154ea5cabef73a3dac7840406e61e5ae3a29f0c5c5b19feb031c7"
+  },
+  {
+    "id": "31_etrier_Click",
+    "quantity_to_print_two_kits": 2,
+    "STL": "stl/31_etrier_Click.stl",
+    "STEP": "cad/31_etrier_Click.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "upside_down",
+    "volume_mm3": 2816.1781031843607,
+    "dimensions_print_mm": [
+      23.201234482608708,
+      43.10201383048354,
+      24.15243259383709
+    ],
+    "role": "Un étrier par module; contacts PETG réglables, jamais métal sur PCB",
+    "inherited_exact_V25": false,
+    "STL_sha256": "b9b898ca42098f4eddcefdfc0452b8baf9cd599d9be146f91310d6ac9a557407"
+  },
+  {
+    "id": "32_patin_MKI_avant",
+    "quantity_to_print_two_kits": 4,
+    "STL": "stl/32_patin_MKI_avant.stl",
+    "STEP": "cad/32_patin_MKI_avant.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "upside_down",
+    "volume_mm3": 82.50593631726197,
+    "dimensions_print_mm": [
+      7.500432396885661,
+      10.900398046158674,
+      2.5007610651180463
+    ],
+    "role": "Patin guidé, plan de contact0.8x2mm, coupelle fermée1.5mm; inclut réserves",
+    "inherited_exact_V25": false,
+    "STL_sha256": "3eb9480ff066e1c08ed5ae8ab5fb3fb5a2442d4e724abb6bb2177effc9cf0e4f"
+  },
+  {
+    "id": "33_patin_MKI_arriere",
+    "quantity_to_print_two_kits": 4,
+    "STL": "stl/33_patin_MKI_arriere.stl",
+    "STEP": "cad/33_patin_MKI_arriere.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "upside_down",
+    "volume_mm3": 132.22079723112552,
+    "dimensions_print_mm": [
+      13.000000200000002,
+      10.000000200000002,
+      2.500761065118047
+    ],
+    "role": "Patin guidé, plan de contact0.8x2mm, coupelle fermée1.5mm; inclut réserves",
+    "inherited_exact_V25": false,
+    "STL_sha256": "ad074e8bff5cec511d20d4a1fd63757c6eec7bcba68e48efc5c5951303f11e79"
+  },
+  {
+    "id": "34_patin_Click",
+    "quantity_to_print_two_kits": 6,
+    "STL": "stl/34_patin_Click.stl",
+    "STEP": "cad/34_patin_Click.step",
+    "status": "IMPRIMABLE_AJUSTEMENT_A_FROID",
+    "orientation": "upside_down",
+    "volume_mm3": 66.42079723112552,
+    "dimensions_print_mm": [
+      8.800000200000003,
+      5.000000200000002,
+      2.5007610651180543
+    ],
+    "role": "Patin guidé, plan de contact0.8x2mm, coupelle fermée1.5mm; inclut réserves",
+    "inherited_exact_V25": false,
+    "STL_sha256": "8729ef2cc6d64b7b3948046f49aaaa15482f70e9a143ed654763973c5f5f2d8c"
+  }
+]

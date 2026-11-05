@@ -1,0 +1,26 @@
+STL;quantite_deux_prototypes;role;dimension_plateau_mm
+01_base.stl;2;"Fond -14, plancher -11; baies en U ouvertes en haut; poches écrous M3, pas de filets imprimés";158.00 × 166.00 × 61.00
+03_cassette_nord.stl;2;;67.60 × 53.55 × 2.40
+04_cassette_sud.stl;2;;73.60 × 53.55 × 2.40
+05_cassette_SD.stl;2;;27.55 × 39.60 × 2.40
+06_cassette_RS485.stl;2;;25.55 × 38.60 × 2.40
+07_cadre_vitre.stl;2;;61.10 × 20.00 × 2.00
+08_trappe_USER.stl;2;;29.00 × 31.00 × 2.40
+09_trappe_SD.stl;2;;27.30 × 32.00 × 2.40
+10_serre_nappe.stl;2;;28.00 × 6.00 × 3.00
+11_serre_cable_RS485.stl;2;;6.00 × 25.00 × 3.00
+02_couvercle_ARNACO.stl;2;"Relief ARNACO intégré1mm, six glyphes, aucune devise; face intérieure à plat";158.00 × 166.00 × 4.00
+12_trappe_outil_RS485.stl;2;;28.40 × 36.40 × 2.00
+13_D126.stl;8;"12,25±0,10 à accepter après impression; couches0,10 et100%; ouvrir vers CN15 en haut, STLINK en bas";6.00 × 3.00 × 12.25
+15_retenue_Nucleo.stl;8;"6utiles+2réserves, lumièreM3; jeu antilevée0,8 nominal sans serrer le PCB";17.30 × 6.80 × 3.60
+20_appui_H08.stl;8;8 appuis à choisir parmi les trois hauteurs, face supérieure ponçable de0..0.5mm;4.40 × 4.00 × 8.00
+21_appui_H10.stl;8;8 appuis à choisir parmi les trois hauteurs, face supérieure ponçable de0..0.5mm;4.40 × 4.00 × 10.00
+22_appui_H12.stl;8;8 appuis à choisir parmi les trois hauteurs, face supérieure ponçable de0..0.5mm;4.40 × 4.00 × 12.00
+23_cale_0p5.stl;12;"Calage rigide; H1 sert aussi de rondelle isolante sous têtes et au-dessus modules";4.40 × 4.00 × 0.50
+24_cale_1.stl;36;"Calage rigide; H1 sert aussi de rondelle isolante sous têtes et au-dessus modules";4.40 × 4.00 × 1.00
+25_cale_2.stl;12;"Calage rigide; H1 sert aussi de rondelle isolante sous têtes et au-dessus modules";4.40 × 4.00 × 2.00
+30_etrier_MKI.stl;2;"Un étrier par module; contacts PETG réglables, jamais métal sur PCB";39.50 × 45.50 × 24.15
+31_etrier_Click.stl;2;"Un étrier par module; contacts PETG réglables, jamais métal sur PCB";23.20 × 43.10 × 24.15
+32_patin_MKI_avant.stl;4;"Patin guidé, plan de contact0.8x2mm, coupelle fermée1.5mm; inclut réserves";7.50 × 10.90 × 2.50
+33_patin_MKI_arriere.stl;4;"Patin guidé, plan de contact0.8x2mm, coupelle fermée1.5mm; inclut réserves";13.00 × 10.00 × 2.50
+34_patin_Click.stl;6;"Patin guidé, plan de contact0.8x2mm, coupelle fermée1.5mm; inclut réserves";8.80 × 5.00 × 2.50

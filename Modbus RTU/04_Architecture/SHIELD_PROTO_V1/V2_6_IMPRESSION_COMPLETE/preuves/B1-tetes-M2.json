@@ -1,0 +1,69 @@
+{
+  "physical_B1_height_reported_by_user": 10.2,
+  "B1_design_XY_box": [
+    23.52,
+    114.33,
+    35.52,
+    126.33
+  ],
+  "heads_radius_envelope": 2.1,
+  "heads_separation": [
+    {
+      "axis": [
+        45,
+        71.7
+      ],
+      "B1_conservative_12x12_XY_lower_bound": 41.571355600668035
+    },
+    {
+      "axis": [
+        65.32,
+        71.7
+      ],
+      "B1_conservative_12x12_XY_lower_bound": 49.913045478994974
+    },
+    {
+      "axis": [
+        22.72,
+        85.68
+      ],
+      "B1_conservative_12x12_XY_lower_bound": 26.56116710812732
+    },
+    {
+      "axis": [
+        22.72,
+        106
+      ],
+      "B1_conservative_12x12_XY_lower_bound": 6.268327192456088
+    },
+    {
+      "axis": [
+        39,
+        20
+      ],
+      "B1_conservative_12x12_XY_lower_bound": 92.29416984115068
+    },
+    {
+      "axis": [
+        71,
+        54.5
+      ],
+      "B1_conservative_12x12_XY_lower_bound": 67.4590346396498
+    },
+    {
+      "axis": [
+        91,
+        75
+      ],
+      "B1_conservative_12x12_XY_lower_bound": 65.90646513383857
+    },
+    {
+      "axis": [
+        94.5,
+        112.5
+      ],
+      "B1_conservative_12x12_XY_lower_bound": 56.908383302713865
+    }
+  ],
+  "source_STEP_lower_B1_not_used_as_physical_height": true
+}

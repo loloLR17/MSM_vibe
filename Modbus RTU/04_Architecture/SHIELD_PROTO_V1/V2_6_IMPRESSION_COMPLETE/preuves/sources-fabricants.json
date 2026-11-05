@@ -1,0 +1,202 @@
+[
+  {
+    "file_local": "Click2-officiel.zip",
+    "url": "https://download.mikroe.com/documents/2d-3d-files/RS485_Isolator_2_click-2d-3d-files.zip",
+    "bytes": 36158978,
+    "sha256": "b6dc14d1efcb375af236b7044dad34a0a219b3e179346be6fb35cff3af6d10f3",
+    "role": "Official archive; v101 STEP actual163solids, schematic v102 distinct",
+    "redistributed": false
+  },
+  {
+    "file_local": "ST-kit-gerber.zip",
+    "url": "https://www.st.com/resource/en/board_manufacturing_specification/steval-mki208v1k_gerber.zip",
+    "bytes": 94528,
+    "sha256": "265d576a827daf8b19fa7dea2c1308d388568538d920775fe7708d2b3510e4a7",
+    "role": "Official ST Gerbers adapter+sensor",
+    "redistributed": false
+  },
+  {
+    "file_local": "FRAM-official.brd",
+    "url": "https://raw.githubusercontent.com/adafruit/Adafruit-FRAM-Breakout-PCB/master/SPI%20FRAM%202%20and%204%20Mbit.brd",
+    "bytes": 140336,
+    "sha256": "861a05b686fcd5ad03a8f586ccf199ddb5163454c9b6663071ac254c937ece2f",
+    "role": "Eagle FRAM4718 exact drills, component footprint envelopes",
+    "redistributed": false
+  },
+  {
+    "file_local": "SD-official.brd",
+    "url": "https://raw.githubusercontent.com/adafruit/Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB/master/Adafruit%20SDIO%20microSD.brd",
+    "bytes": 145734,
+    "sha256": "0ec91e989f1004c85c203bc4539bb2652b8c33614cc18f624bd3bdac7cbf8c57",
+    "role": "Eagle SD4682 exact drills",
+    "redistributed": false
+  },
+  {
+    "file_local": "Connfly-DS1023.pdf",
+    "url": "https://www.connfly.com/static/upload/file/pdf/DS1023.pdf",
+    "bytes": 293981,
+    "sha256": "3ae996d1a0eb33f5f05a416054090b1fc6b73aff4ad6e9a652f042df14ee3be1",
+    "role": "Manufacturer DS1023 housing8.5, tail3.0±.2, length25.9±.3; NO contact depth provided",
+    "redistributed": false
+  },
+  {
+    "file_local": "Samtec-SHF.pdf",
+    "url": "https://suddendocs.samtec.com/catalog_english/shf.pdf",
+    "bytes": 339465,
+    "sha256": "88a6c5912e62701fd1cf22dc5856c37721de8434c0b408c2289dd7bff7bc2427",
+    "role": "Manufacturer SHF-SM height5.46 width5.85,6perrow length13.97; assembled cable envelope design allowance",
+    "redistributed": false
+  },
+  {
+    "archive_member": "RS485_Isolator_2_click-master/HW/RS485_Isolator_2_click_v101 - 2L/Output Files/CAD/RS485_Isolator_2_click_v101.step",
+    "sha256": "ae005916fda870aa7f8db367d7c827455a2d65d4ebcca6f852c4013d9a1e6017",
+    "solids": 163,
+    "world_transform": "rotate Z -90 then translation(87.22,-80,B PCBtop)",
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2-macro.APR_LIB",
+    "sha256": "33231e40cc79b9db973201524221e1065936be700d14358943f4c84a29997ed5",
+    "bytes": 802,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.DRL",
+    "sha256": "0cfcb94b1e02f0bf6638800aa657061cdd6c351c52c6a4b13348425a7ad71b93",
+    "bytes": 413,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.DRR",
+    "sha256": "dc4240b673d48d1d5772b76a484ca92e7af9b713d8379f354034d3e1d9946f75",
+    "bytes": 1356,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.EXTREP",
+    "sha256": "849302c02271a27640a98af5411b3fc6b5ef2456c3c8484fc26bf6f3b6e43c67",
+    "bytes": 1410,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GBL",
+    "sha256": "05d340a987fdfd3694e590002b493c5e688cd0854bd58eed04d3b99348e14c19",
+    "bytes": 15019,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GBO",
+    "sha256": "f4ce65e8b646134f6ce34010f8b6b1273fa44b5b47f262826c970f63476792b1",
+    "bytes": 171293,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GBS",
+    "sha256": "e6d6743ba6284d9fd3d111fcb6f337813644e981b3562ccdc48b96e97a8ceaa5",
+    "bytes": 928,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GKO",
+    "sha256": "9d97d60dc899871c6377ecfedfb97bf4bff63d6c01dd1500382ad344768a503f",
+    "bytes": 212,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GM13",
+    "sha256": "cab8420c5b0dc4ed41c45cb9d3be3de0c88d059bdfa9516545089d16c907bccc",
+    "bytes": 75,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GM15",
+    "sha256": "b1a8c8298d1e905578ed869c6409fa8ceaffa1f3ba469e85abcdd4557c21396e",
+    "bytes": 260,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GM4",
+    "sha256": "00bd0800ee0808db14611407c59d18229dfd91ac3d4f1f1d1c93f8e3a2e9ffa9",
+    "bytes": 214,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GPB",
+    "sha256": "32c14f9de5091718143430c428586c330dd2d7e1828a80012c880c99db6d99e5",
+    "bytes": 700,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GPT",
+    "sha256": "a815f685ef17950612318eae38ab3d1a11a7897c47c2e02d8be4d99d799dfe0d",
+    "bytes": 1490,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GTL",
+    "sha256": "f5a5d99d08727abfd1054d2edefb721836b0ae1b4f923622556558ae9446ca22",
+    "bytes": 18523,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GTO",
+    "sha256": "d5432e4ed40c4f757b8076fbf896c19e72d0c063934c413df5b43bc28893cc59",
+    "bytes": 35357,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GTP",
+    "sha256": "29624d83e6ce71204ec8fdf0c69d602393ad4ff6000e656be2cc4104318f26bc",
+    "bytes": 864,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.GTS",
+    "sha256": "659fa962a12d865908066529bd2ee4bddafa7e1ba8f1483b8a8132b8c94c8bc4",
+    "bytes": 1717,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.LDP",
+    "sha256": "606a99f6e830b19380dd3f0fffea72f836f1b4285d8ad904f7b31912a023a7d5",
+    "bytes": 207,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.REP",
+    "sha256": "c7dfc661e7ccf33ceef79dad4fd1769ece03e548dd9df66851b0db9acc101206",
+    "bytes": 4215,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.RUL",
+    "sha256": "fd502841a6678740dca4b275d03f3b49894d663410181053387cdfbbe91cf176",
+    "bytes": 394,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.TXT",
+    "sha256": "edfcb1dac413f2f104e99532de16c7fc8eb37a5a12099358647cc912a98b6ce2",
+    "bytes": 515,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/STEVAL-MKIGIBV2.apr",
+    "sha256": "effb19db08ad7f62074796af68fcf13af638dee48f9b699ec89eb8d7c978947e",
+    "bytes": 1800,
+    "redistributed": false
+  },
+  {
+    "archive_member": "adapter/Project Outputs for STEVAL-MKIGIBV2/Status Report.Txt",
+    "sha256": "9bfbeaa0f374229fcb1c99a424ab5068cb699a374f5137084e9640519317fc69",
+    "bytes": 862,
+    "redistributed": false
+  },
+  {
+    "source_existing_repository": "mechanical/V1_5/models/Adafruit_4682.step",
+    "sha256": "e220bfb89865c170a709f1cb273fc33550e6ce20c9ab93238ad8b60c2eb1a924",
+    "role": "Pinned official Adafruit4682 source reused byte-identically, native6solids; not added to printer ZIP",
+    "solids": 6,
+    "redistributed_again": false
+  }
+]
