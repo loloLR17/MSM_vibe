@@ -1,10 +1,10 @@
 ---
 mission_id: TR2-20261105-SHIELD-V22-TME-CLIPS
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 5c29ce62f2026993d24fd53e3ca926131a74d3fb
 initial_head: 6542a4a5fdc970f3467658cc151e710677633d6f
-result_sha: null
+result_sha: 1ea75c43b6650d15ae6edcc1e37d997245d3b5b6
 created_at_utc: 2026-11-05T16:18:02Z
 author: Codex
 target_branch: main
@@ -16,7 +16,7 @@ allow_debug: false
 
 # V2.2 — étude TME/visserie et clips
 
-**Étude réalisée ; publication et relecture distante encore en cours.** Les réserves sont localisées et n'empêchent pas de livrer l'étude. Aucun achat ni libération de PCB. La cible historique d'environ 50 € pour deux montages avec cinq PCB et mécanique n'est pas démontrée par les offres disponibles.
+**Étude publiée et relue depuis la référence distante. DONE signifie étude livrée, sans qualification physique ni libération de fabrication.** Les réserves sont localisées et n'empêchent pas de livrer l'étude. Aucun achat ni libération de PCB. La cible historique d'environ 50 € pour deux montages avec cinq PCB et mécanique n'est pas démontrée par les offres disponibles.
 
 ## Décision proposée à ChatGPT
 
@@ -30,7 +30,7 @@ Le scénario électronique disponible +Ajile sans suivi +PCB lent budgété donn
 
 ## Livrables et preuves
 
-Dossier [V2_2_ECONOMIE sur GitHub](https://github.com/loloLR17/MSM_vibe/tree/main/Modbus%20RTU/04_Architecture/SHIELD_PROTO_V1/V2_2_ECONOMIE/) :
+Dossier [V2_2_ECONOMIE sur GitHub](https://github.com/loloLR17/MSM_vibe/tree/1ea75c43b6650d15ae6edcc1e37d997245d3b5b6/Modbus%20RTU/04_Architecture/SHIELD_PROTO_V1/V2_2_ECONOMIE/) :
 
 - `README.md` : décision à un ou deux fournisseurs, coûts séparés, inconnus et contrôle unique à froid.
 - `BOM_2_PROTOTYPES.csv`, `POSTES_RESTANTS.csv`, `sources.json`, `budget-TTC.json`, `parametres.json` : variantes, quantités/MOQ, prix/devis partiels, transports et sources datées.
@@ -61,4 +61,8 @@ Les stocks sont affichés/non réservés. PrixTME en USD HT convertis au taux[BC
 
 Worktree neuf `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V22-ECONOMIE`, branche locale `codex/shield-v22-economie`, basé sur le HEAD réel `6542a4a5fdc970f3467658cc151e710677633d6f`. Le dépôt principal est conservé propre à `82169af7e76797731358852bec83bfb0ceb54ccf`, sans reset/rebase/merge. Les113 worktrees observés après création et les deux stashes historiques sont préservés ; SHA dans `preuves/etat-git-initial.json`.
 
-Permissions : lecture/développement documentaire et calculs exercés ; commit et push normaux vers `refs/heads/main` à effectuer après contrôles. Aucun flash/debug ni opération physique autorisé ou exécuté. `result_sha` reste provisoirement null avant attribution du commit d'étude ; il sera renseigné après sa relecture distante. Publication initiale puis clôture DONE prévues conformément au protocole V2.
+Permissions exercées : lecture/développement documentaire, calculs, commit et push normal vers `refs/heads/main`. Aucun flash/debug ni opération physique autorisé ou exécuté.
+
+Commit d'étude **`1ea75c43b6650d15ae6edcc1e37d997245d3b5b6`**, message `docs(shield): compare V22 TME sourcing and screwless clip feasibility`, poussé normalement depuis `6542a4a5`. Le 05/11/2026, `git fetch origin main` puis `git ls-remote origin refs/heads/main` ont confirmé ce SHA. **511 fichiers / 51 790 724 octets relus intégralement** avec `git show origin/main:<chemin>`, comparés aux fichiers locaux et aux empreintes protégées : correspondance exacte, dont les 486 fichiers antérieurs du shield. Rapport provisoire du bon identifiant constaté `IN_PROGRESS` à cette relecture. Preuve détaillée : `V2_2_ECONOMIE/preuves/relecture-distante.json`.
+
+Le présent statut `DONE` et son archive consignent cette relecture. Le SHA du commit de clôture est fourni à l'utilisateur après son push et sa dernière vérification distante ; il ne peut pas figurer dans son propre contenu. Le worktree était propre après le commit d'étude, puis seules cette clôture/son archive/la preuve de relecture ont été ajoutées. Les deux stashes et le dépôt principal restent préservés. Publication et qualification technique demeurent distinctes.
