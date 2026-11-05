@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261105-SHIELD-V22-TME-CLIPS
-status: DONE
+mission_id: TR2-20261105-SHIELD-V23-ARNACO-SILKSCREEN
+status: IN_PROGRESS
 base_ref: main
-base_sha: 5c29ce62f2026993d24fd53e3ca926131a74d3fb
-initial_head: 6542a4a5fdc970f3467658cc151e710677633d6f
-result_sha: 1ea75c43b6650d15ae6edcc1e37d997245d3b5b6
-created_at_utc: 2026-11-05T16:18:02Z
+base_sha: b26c2ac0067112b87015abde9cb196ec8572cf45
+initial_head: e5b15d978585c9c83907942528d60fcaaa913265
+result_sha: null
+created_at_utc: 2026-11-05T18:21:07Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,55 +14,50 @@ allow_flash: false
 allow_debug: false
 ---
 
-# V2.2 — étude TME/visserie et clips
+# V2.3 — ARNACO © et cinq PCB prototypes
 
-**Étude publiée et relue depuis la référence distante. DONE signifie étude livrée, sans qualification physique ni libération de fabrication.** Les réserves sont localisées et n'empêchent pas de livrer l'étude. Aucun achat ni libération de PCB. La cible historique d'environ 50 € pour deux montages avec cinq PCB et mécanique n'est pas démontrée par les offres disponibles.
+**Personnalisation et dossier candidat réalisés ; publication/relecture distante en cours.** GO de préparation CAO/exports pour la revue de cinq prototypes à risque mécanique accepté dans la mission. L'envoi au fabricant, le coût livré, la finition et le paiement restent des décisions humaines. Aucune qualification physique nouvelle et aucun achat.
 
-## Décision proposée à ChatGPT
+## Résultat obtenu
 
-- **Conserver J5 Samtec `SSW-103-01-F-D`. NO-GO substitution Connfly** : profondeur de contact utile non documentée, même si le corps mesure aussi8,5mm. Aucun emprunt des limites Samtec pour approuver Connfly.
-- **Tout-TME non réalisable démontré aujourd'hui** : femelle1×9 Connfly affichée sans stock et réapprovisionnement non daté. Le prix théorique18,81€TTC livré ne qualifie pas un panier disponible ou compatible.
-- **Repli à deux fournisseurs** : TME + DigiKey, J5 exact et quatre Harwin1×9 regroupés chez DigiKey. Budget électronique livré49,88–54,88€TTC avec AVX proposé, **50,25–55,25€ en conservant le Kemet C1 actif**. Les variantes Harwin/C2 restent conditionnelles au premier assemblage. L'AVX économise seulement0,37€ ; ses petits écarts Fab/courtyard sont signalés, pas corrigés silencieusement.
-- **Clips simples non adoptés ; D126 conservé**. Une capture rigide2mm laisse jusqu'à1,12mm de jeu axial cumulé sur PCBmin1,44 : G et engagement J5 ne sont plus garantis. Ce n'est pas une impossibilité universelle des clips ; un rattrapage élastique et sa qualification ajouteraient une conception hors de cette étude courte. La référence Essentra examinée ne convient pas aux trous/épaisseurs/G. Pas de modèle arbitraire ni STL de clip produit.
-- **Ajile : offre exacte économique, compatibilité partielle**. VCY120 M2×20 +UHX001 M2, PA6.6, MOQ1 vérifiés dans les variantes sélectionnées. Pour8vis/16écrous :9,12€TTC de pièces, **13,80€ livré sans suivi ou16,20€ suivi**. Écrou AF4/H1,6 coté, tête de visØ/hauteur non cotée : interchangeabilité complète non démontrée. Aucun kit Amazon qualifié.
+Nouveau dossier [V2_3_ARNACO](https://github.com/loloLR17/MSM_vibe/tree/main/Modbus%20RTU/04_Architecture/SHIELD_PROTO_V1/V2_3_ARNACO/), dérivé exclusivement du candidat V1.9 C05. Trois textes ajoutés en F.SilkS : **ARNACO**, un **vrai © natif plus petit et surélevé à droite**, puis la devise exacte **« Votre crédulité est notre force »**. Le glyphe et les accents sont visibles dans le rendu du vrai Gerber, pas seulement dans l'éditeur ; aucune substitution `(C)` ni dépendance de police externe.
 
-Le scénario électronique disponible +Ajile sans suivi +PCB lent budgété donne déjà77,18–82,18€ avant les postes inconnus. Le total complet reste `null` : D126 réellement fabriqués, retenues/visserie modules, coffrets/vitrage, réemploi manquant et facture finale PCB/import ne sont pas chiffrés intégralement. Pas de budget incomplet présenté comme coût de deux TR2 opérationnels.
+Emplacement libre entre SD et Click, sous FRAM. Mot-symbole centre(61,8;88), taille2,4/trait0,25 ; © centre(70,5;86,8), taille1,1/trait0,16 ; devise centre(61,8;92), taille1/trait0,15, en mm. Encre ajoutée X50,154..73,351 / Y85,963..92,530. Aucun pad, via, trou, TP, repère fonctionnel ou avertissement recouvert.
 
-## Livrables et preuves
+Les anciennes annotations V1.9 DRAFT restent en place pour identifier la référence électrique. Aucun changement du schéma, projet, empreintes, cuivre, zones, centres ST, contour, stack, pinout, masques ou contraintes. **Le natif est intégralement identique à V1.9 après retrait des trois nouveaux objets.** Les 505 fichiers antérieurs du shield sont préservés octet pour octet, notamment V1.9/V2.0/D126/V2.2. Les campagnes STM32 sont intactes.
 
-Dossier [V2_2_ECONOMIE sur GitHub](https://github.com/loloLR17/MSM_vibe/tree/1ea75c43b6650d15ae6edcc1e37d997245d3b5b6/Modbus%20RTU/04_Architecture/SHIELD_PROTO_V1/V2_2_ECONOMIE/) :
+## Contrôles et preuves réellement obtenus
 
-- `README.md` : décision à un ou deux fournisseurs, coûts séparés, inconnus et contrôle unique à froid.
-- `BOM_2_PROTOTYPES.csv`, `POSTES_RESTANTS.csv`, `sources.json`, `budget-TTC.json`, `parametres.json` : variantes, quantités/MOQ, prix/devis partiels, transports et sources datées.
-- `TECHNIQUE_J5_PASSIFS.md` : contact J5, NC/pinout, empreintes, queues, C1 AVX/Kemet et limites d'intégration.
-- `CLIPS_VS_D126.md`, `principe-clips.svg` : contre-exemple axial, hypothèses FFF et comparaison au clip fabricant/boîtier. SVG éditable de principe, sans échelle et non fabricable.
-- `VISSERIE_GRAND_PUBLIC.md`, `preuves/ajile-variantes-extraites.json` : variantes exactes, images cotées consultées, coûts de 8/16 et limite de tête.
-- `tools/verify_study.py` et `preuves/` : calculs reproductibles, compatibilité nominale, manifeste des486 fichiers antérieurs, contrôles et étatGit initial.
+- **KiCad10.0.6 : ERC0, DRC0, non-connectés0, parité0**, `--severity-all`, règles et contrôles ignorés inchangés par rapport à V1.9. Logs/JSON dans `docs/checks/`. Les copies schéma/projet/bibliothèques sont vérifiées identiques.
+- **CAM : huit fichiers équivalents à V1.9** — deux cuivres, deux masques, contour, sérigraphie arrière, deux Excellon — après retrait des seules dates de génération et normalisation des fins de ligne. Aucune coordonnée ou instruction de tracé exclue. Les différences brutes initiales de perçage venaient aussi de la ligne `DRILL file ... date`, explicitement prise en compte, pas d'un changement des trous.
+- Netlist/X2 et perçages : **59 broches connectées,19 empreintes,191 pads,4 vias**, centres et diamètres contrôlés à la résolution réelle Excellon, contour90×100. Nominal stack vérifié : deux couches, FR4/1,6mm et deux cuivres35µm. Cela ne qualifie pas la fabrication ou la résistance électrique réelle.
+- **Sérigraphie réelle : 902 traits anciens conservés,319 ajoutés**, aucun supprimé. Tous les ajouts restent dans les boîtes des trois textes. Distance minimale à l'ouverture de masque la plus proche : **4,2166mm**. La garde de toute la sérigraphie avant est0,1654mm, héritée des anciens textes, à distinguer de la marge du nouveau marquage.
+- Enveloppes Fab modules dégagées ; test conservateur d'élargissement FRAM/SD de 2,54 mm en toutes directions : garde marquage/SD≥4,4986mm. Ce n'est ni un emboîtement validé des 1×10, ni une qualification du coffret.
+- **Rendus inspectés** : vrai GTO complet et détail ARNACO/©/devise, implantation et cuivre des deux faces (arrière miroir). `preuves/revue-visuelle.json` identifie les PNG lus ; SVG vectoriels et PDF natifs fournis.
 
-Les HTML/JSON complets Ajile et images restent horsGit dans `/home/lolo/dev/msm/reports/TR2-shield-v22-20261105/`. Le dossier versionné contient références/liens, faits extraits et SHA256 des artefacts locaux, sans redistribuer intégralement les documents constructeurs protégés. Mission copiée sans modification dans `archives/TR2-20261105-SHIELD-V22-TME-CLIPS/MISSION.md`. Rapport V2.1 déjà archivé à l'identique avant remplacement du fichier actif.
+Commandes réellement exécutées : personnalisateur natif `tools/customize.py`, exporteur `tools/export_design.py`, readback natif `tools/read_board.py`, `tools/verify_exports.py`, `tools/verify_variant.py` avec bibliothèques Linux déjà présentes, puis `tools/render_review.py`. Les comparateurs et leurs résultats sont dans le dossier. Le lecteur de GTO est volontairement limité aux traits/cercle-flashes rencontrés et échoue sur commande inconnue ; ce n'est pas un validateur Gerber universel.
 
-## Contrôles réellement exécutés et portée
+Aucun test firmware/cross-build/essai physique acquis répété. ERC/DRC ont été exécutés sur **le nouveau candidat** parce que la mission les exige ; les preuves géométriques ST/V2.0/V2.1 inchangées sont réutilisées. Les vérifications de rendu ne sont ni une mesure photométrique ni une preuve d'impression industrielle.
 
-`python3 'Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_2_ECONOMIE/tools/verify_study.py'` : **PASS pour étude/documentation seulement**. CalculsDecimal de conversion et TVA, contrôle prix/MOQ/quantités, relecture JSON/CSV/Python/SVG et conservation exacte des486 fichiers antérieurs à partir du HEAD initial. Résultats dans `preuves/validation.log` et `preuves/validation-finale.json` ; contre-exemple dans `preuves/calcul-clips.json`.
+## Dossier prêt pour décision humaine
 
-Lecture du natifPCB et du readback V1.9 : J5 local 5 seul relié à RTU_DE, cinq NC ; C1 pas2,54/perçage0,8. PreuvesST/C05, 106 centres, tolérances et collisions V2.0/V2.1 réutilisées **sans refaire les validations acquises**. Aucun ERC/DRC/build/flash/debug/accèsCOM/SD ni essai physique : ces opérations n'apporteraient pas de preuve supplémentaire pour une étude sans modification électrique ou firmware. Aucun ancien fichier du shield/KiCad/Gerber/CAM ou campagne physique modifié.
+- Natifs éditables sous `cad/`, avec les bibliothèques locales inchangées et `design.json` d'origine.
+- ZIP **`exports/TR2_SHIELD_V23_5PCB_CANDIDAT_NON_LIBERE.zip`**, **neuf fichiers : sept Gerber +deux Excellon**, une seule variante/contour. Manifeste `preuves/CAM-manifeste.json`, SHA-256 **`e91d5ce68ee4339b44ada627fd8fc5dc097b4e9b2a128b15611dd996a6e44d17`** ; archive rouverte et contenus comparés aux exports.
+- `FICHE_JLCPCB_5_PROTOTYPES.md` et `configuration-JLCPCB.json` : quantité5, PCB individuels90×100mm, deux couchesFR4/1,6mm, cuivre1oz, masque vert/sérigraphie blanche, **HASL sans plomb à sélectionner**. Prix/délai finaux non actualisés ni acceptés pendant cette mission.
+- Point de métadonnées signalé : le `.gbrjob` natif indique Size90,05×100,05 (enveloppe du trait de contour0,05) et FinishNone. Il reste informatif **horsZIP**, sans retouche de la géométrie ; les vrais axes Gerber donnent90×100 et la future commande doit choisir la finition sans plomb. Les deux plans de perçage PDF sont disponibles séparément.
 
-Consultations marchandes en lecture seule, aucun panier, compte, paiement, envoiGerber ou message commercial. Les refus403 des téléchargements locaux TME ont été conservés ; les documents étaient lisibles via outilWeb. Pas de contournement. Pages France Farnell/Mouser et page Amazon non vérifiables ; aucune économie de livraison inventée à partir d'un listing étranger.
+Les [instructions JLCPCB KiCad](https://jlcpcb.com/help/article/how-to-generate-gerber-and-drill-files-in-kicad-6) et les [capacités](https://jlcpcb.com/capabilities/Capabilities) ont été consultées le05/11/2026 pour format/couches/sérigraphie, sans upload. Les nouveaux textes ont une taille nominale≥1mm, trait≥0,15mm ; aucune amélioration de texte ne vaut garantie de qualité de production. Pas de pâte/stencil/assemblageSMT demandé pour ce lot de PCB nus.
 
-Les stocks sont affichés/non réservés. PrixTME en USD HT convertis au taux[BCE 05/11](https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html)1 EUR = 1,1224 USD puis TVA 20 % ; DigiKey en EUR HT. Port TME7,08€TTC compté une fois ; port DigiKey affiché25€, budget25–30TTC tant que traitement TVA non résolu. Aucun devis de commande accepté. PCB : calculateurV1.8 du 04/11 réutilisé, pas nouvelle consultation ni facture TTC finale.
+## Composants et limites à transmettre
 
-## Journal, limites et prochaine décision
+Le contrat rapporte la confirmation utilisateur d'une commande TME **17,60€TTC transport compris**, références/quantités :10×DS1023-1*12S21,10×DS1023-1*10S21,10×DS1023-1*8S21,3×DS1021-2*40SF11,10×MRS16000C1002FCT00,3×SR205C104KAR,3×EEUFR1H100. **Aucune de ces lignes réachetée.** Expédition/réception non vérifiées par Codex ; Samtec exact demandé en échantillons, réception inconnue. Aucun justificatif, numéro de commande, adresse ou donnée personnelle publié.
 
-`ETAT_COURANT_TR2.md` actualisé par ajout d'une entrée V2.2 : décision J5, stock 1×9, budget, refus local des clips, offres Ajile et tête manquante. Aucune règle de gouvernance changée.
+Les variantes d'assemblage commandées ne sont pas adoptées silencieusement dans les bibliothèques figées. Avant alimentation du premier article : contrôle à froid J5/Zio/G, quatre mâles66/67/68/69 et DE/cinqNC, corps1×10 conservés/patte supplémentaire neutralisée, passifs et enveloppeC1, D126/visserie isolante, modules/étriers, isolementRS485 et accès CN15/ST-LINK/SD/RS485/nappe/USER/LED. Pas de nouvel essai, nouvelle impression ou manipulation demandé maintenant. Risque mécanique prototype accepté distinct de fluage/vibrations/tenue industrielle non qualifiés. L'utilisateur conserve la décision de libération et de dépense.
 
-À transmettre à ChatGPT : accepter l'étude avec ses NO-GO locaux, vérifier le stock personnel exact avant dépense, privilégier les regroupements, puis lever la cote de tête Ajile par source fournisseur ou contrôle du lot à froid. Pas de nouvelle impression papier. Au premier article : G/parallelisme/engagements sans effort, orientation et maintien D126, queues/courts-circuits, isolement et accès. Le risque prototype circonscrit accepté reste distinct d'une qualification de fluage/vibrations. Toute décision financière/fabrication reste humaine et les Gerber **NON LIBÉRÉS**.
+## Journal et Git
 
-## Git et publication
+`ETAT_COURANT_TR2.md` actualisé par ajout de l'entrée V2.3 : marquage, preuves/exports, préparation cinq PCB, commande rapportée et réserves physiques. Aucune règle de gouvernance modifiée. Ancien rapport V2.2 conservé à l'identique dans son archive ; mission V2.3 copiée dans son nouveau dossier d'archive, sans modification du contrat actif.
 
-Worktree neuf `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V22-ECONOMIE`, branche locale `codex/shield-v22-economie`, basé sur le HEAD réel `6542a4a5fdc970f3467658cc151e710677633d6f`. Le dépôt principal est conservé propre à `82169af7e76797731358852bec83bfb0ceb54ccf`, sans reset/rebase/merge. Les113 worktrees observés après création et les deux stashes historiques sont préservés ; SHA dans `preuves/etat-git-initial.json`.
+Travail isolé dans `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V23-ARNACO`, branche `codex/shield-v23-arnaco`, basé sur le vrai HEAD `e5b15d978585c9c83907942528d60fcaaa913265`. Dépôt principal conservé propre à `82169af7e76797731358852bec83bfb0ceb54ccf`, worktrees et deux stashes historiques préservés. Aucun reset, rebase, merge, force push ou nettoyage destructif.
 
-Permissions exercées : lecture/développement documentaire, calculs, commit et push normal vers `refs/heads/main`. Aucun flash/debug ni opération physique autorisé ou exécuté.
-
-Commit d'étude **`1ea75c43b6650d15ae6edcc1e37d997245d3b5b6`**, message `docs(shield): compare V22 TME sourcing and screwless clip feasibility`, poussé normalement depuis `6542a4a5`. Le 05/11/2026, `git fetch origin main` puis `git ls-remote origin refs/heads/main` ont confirmé ce SHA. **511 fichiers / 51 790 724 octets relus intégralement** avec `git show origin/main:<chemin>`, comparés aux fichiers locaux et aux empreintes protégées : correspondance exacte, dont les 486 fichiers antérieurs du shield. Rapport provisoire du bon identifiant constaté `IN_PROGRESS` à cette relecture. Preuve détaillée : `V2_2_ECONOMIE/preuves/relecture-distante.json`.
-
-Le présent statut `DONE` et son archive consignent cette relecture. Le SHA du commit de clôture est fourni à l'utilisateur après son push et sa dernière vérification distante ; il ne peut pas figurer dans son propre contenu. Le worktree était propre après le commit d'étude, puis seules cette clôture/son archive/la preuve de relecture ont été ajoutées. Les deux stashes et le dépôt principal restent préservés. Publication et qualification technique demeurent distinctes.
+Permissions exercées : lecture, création du candidat, validations/outillage et documentation ; commit/push normaux vers `refs/heads/main` à effectuer après revue du diff. Flash/debug false respectés ; aucun accès STM32, périphérique, microSD, geste physique, achat, panier, paiement ou transfert de Gerber. `result_sha` sera renseigné après attribution/relecture distante du commit de réalisation. Statut provisoire IN_PROGRESS limité à la publication en cours ; clôture DONE après relecture, conformément au protocole V2.

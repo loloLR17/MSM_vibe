@@ -1,0 +1,18 @@
+{
+  "files": {
+    "TR2_Shield_Proto_V1-B_Cu.gbl": "b50b1bced99331580ab353bcb26c43478bb03ab97b46c6f7793e68512f0f3ff1",
+    "TR2_Shield_Proto_V1-B_Mask.gbs": "f73f4a5678001523f832745f9e19a27ee81ce9cb60b3adc12b34548e601519be",
+    "TR2_Shield_Proto_V1-B_Silkscreen.gbo": "f6d11905239e04d257bb69475c13eaf087b358b7d17aeff90394ab3cfb91b2d2",
+    "TR2_Shield_Proto_V1-Edge_Cuts.gm1": "75f57b0a62affe32c2dc3b0b9ae30ff8d332a0f67ee0f99e43dc4f1c010f295f",
+    "TR2_Shield_Proto_V1-F_Cu.gtl": "434fd08d4e410284261f4756ff28ee895a73396bb6a490b606da5aba0529bbc7",
+    "TR2_Shield_Proto_V1-F_Mask.gts": "609a46481f87cda44b7d838c6707a049949e0a3cf7224b598b72cb965b9a0445",
+    "TR2_Shield_Proto_V1-F_Silkscreen.gto": "256820ca1d229c2817e71b5d928f144706023e0e6b0889ea30c521c7db0f47c3",
+    "TR2_Shield_Proto_V1-NPTH.drl": "249f8b02a4568ed226e52fe6b80fd37525b735fde5c46742f7c1450a772c120f",
+    "TR2_Shield_Proto_V1-PTH.drl": "be8ea31acedf777e577cfc3fffaa80f8b904e1a1be39e2405d79828c14c3a2d0"
+  },
+  "zip": "TR2_SHIELD_V23_5PCB_CANDIDAT_NON_LIBERE.zip",
+  "zip_SHA256": "e91d5ce68ee4339b44ada627fd8fc5dc097b4e9b2a128b15611dd996a6e44d17",
+  "release": "HUMAN_DECISION_PENDING",
+  "gbrjob_excluded_from_ZIP": "native informational job retained separately; size is stroke envelope90.05x100.05, Finish None is not the order setting",
+  "drill_maps": "two generated PDFs available separately, no second outline added to ZIP"
+}

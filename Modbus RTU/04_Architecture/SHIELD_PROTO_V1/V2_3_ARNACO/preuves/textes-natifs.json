@@ -1,0 +1,53 @@
+[
+  {
+    "text": "ARNACO",
+    "uuid": "ada0a245-859b-5aae-afeb-c4be528612cc",
+    "position_mm": [
+      61.8,
+      88.0
+    ],
+    "size_mm": 2.4,
+    "stroke_mm": 0.25,
+    "layer": "F.Silkscreen",
+    "bbox_mm": [
+      54.693571,
+      86.15725,
+      68.906429,
+      89.84275
+    ]
+  },
+  {
+    "text": "©",
+    "uuid": "0ddf42c8-1f3e-59de-a1f0-8d43c363ba78",
+    "position_mm": [
+      70.5,
+      86.8
+    ],
+    "size_mm": 1.1,
+    "stroke_mm": 0.16,
+    "layer": "F.Silkscreen",
+    "bbox_mm": [
+      69.427143,
+      85.8757,
+      71.572857,
+      87.7243
+    ]
+  },
+  {
+    "text": "Votre crédulité est notre force",
+    "uuid": "8f301169-f628-52fd-a72c-7c79b18fc1c5",
+    "position_mm": [
+      61.8,
+      92.0
+    ],
+    "size_mm": 1.0,
+    "stroke_mm": 0.15,
+    "layer": "F.Silkscreen",
+    "bbox_mm": [
+      50.00833,
+      91.15175,
+      73.59167,
+      92.84825
+    ]
+  }
+]

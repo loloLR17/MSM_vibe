@@ -1,0 +1,61 @@
+{
+  "normalization": "line endings + creation timestamps only, no geometry removed",
+  "files": [
+    {
+      "name": "TR2_Shield_Proto_V1-B_Cu.gbl",
+      "numeric_and_plot_commands_equal": true,
+      "source_SHA256": "8d395fc84436869422cc418817fed4a2464439b566008bbfc860d1cea775faa3",
+      "candidate_SHA256": "b50b1bced99331580ab353bcb26c43478bb03ab97b46c6f7793e68512f0f3ff1",
+      "normalized_SHA256": "7c61a7b6cf182318dc32cbd5db93c6b6dbe35026362d1a925c679ed0414a86da"
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-B_Mask.gbs",
+      "numeric_and_plot_commands_equal": true,
+      "source_SHA256": "75b415cdb80dec36a82b0af223f183d51249e813fd152bbd0beb89ef34dd28af",
+      "candidate_SHA256": "f73f4a5678001523f832745f9e19a27ee81ce9cb60b3adc12b34548e601519be",
+      "normalized_SHA256": "4f0a9dc3b9731c154a2689d4f2268c2acd3e203c0e0da8fa8697e7deb15adfca"
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-B_Silkscreen.gbo",
+      "numeric_and_plot_commands_equal": true,
+      "source_SHA256": "af95b206e90364a467f554172a93862de7cf54efbf6d78aea5f280b6043cfb90",
+      "candidate_SHA256": "f6d11905239e04d257bb69475c13eaf087b358b7d17aeff90394ab3cfb91b2d2",
+      "normalized_SHA256": "a11307e3e804313a5655ef326fbd9cf0a37114c5e8aa9dd28875d0212013590f"
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-Edge_Cuts.gm1",
+      "numeric_and_plot_commands_equal": true,
+      "source_SHA256": "c14014245213f1a99d9cd8c0a11a280ff00bccae7b822c0ba12ae270e1973682",
+      "candidate_SHA256": "75f57b0a62affe32c2dc3b0b9ae30ff8d332a0f67ee0f99e43dc4f1c010f295f",
+      "normalized_SHA256": "a7eff3a542f2b907009959a66a39f5a8a4e30ebe0abbda948aba360e0417bf6a"
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-F_Cu.gtl",
+      "numeric_and_plot_commands_equal": true,
+      "source_SHA256": "2e82edd888732a2798be17643e34c467b9b4e408aa0b096e7de375d12a9210f4",
+      "candidate_SHA256": "434fd08d4e410284261f4756ff28ee895a73396bb6a490b606da5aba0529bbc7",
+      "normalized_SHA256": "232fcf550cc5fbc62bfd8b2a6ce9aa37f4b18336b6ab0c103f0e88c262b5eba7"
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-F_Mask.gts",
+      "numeric_and_plot_commands_equal": true,
+      "source_SHA256": "57fcf7d8e698cd84a766648c83b06b2eb611a6b6f089c4de2f9275a3be1a6f06",
+      "candidate_SHA256": "609a46481f87cda44b7d838c6707a049949e0a3cf7224b598b72cb965b9a0445",
+      "normalized_SHA256": "d522e1fca6e6b933c8295cd885ea76d974264fb6adcbbd97ad6dcddf23ba5800"
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-NPTH.drl",
+      "numeric_and_plot_commands_equal": true,
+      "source_SHA256": "5853bd70ccf670c7e7f29b0e355209954201c24ec145588a9344b54d93fd8ca6",
+      "candidate_SHA256": "249f8b02a4568ed226e52fe6b80fd37525b735fde5c46742f7c1450a772c120f",
+      "normalized_SHA256": "9f27f31de5962c0211ee9bb560db6a645df99d6e35ce2aed7af83bafaa398841"
+    },
+    {
+      "name": "TR2_Shield_Proto_V1-PTH.drl",
+      "numeric_and_plot_commands_equal": true,
+      "source_SHA256": "3db6a82e969cdfbee625bacaff4a8ee52b573fbfd2efe51d0f541661eed8b2ef",
+      "candidate_SHA256": "be8ea31acedf777e577cfc3fffaa80f8b904e1a1be39e2405d79828c14c3a2d0",
+      "normalized_SHA256": "e274a57b49cc90e14ff8a93bf2409480bd1ee8500c75f3fd9277bf33770c06b0"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "SVGs_trimmed": [
+    "serigraphie-depuis-Gerber.svg",
+    "ARNACO-CAM-detail.svg",
+    "cuivre-dessus.svg",
+    "cuivre-dessous-miroir.svg",
+    "implantation.svg"
+  ],
+  "whitespace_tokens_preserved": true,
+  "manufacturing_data_changed": false
+}

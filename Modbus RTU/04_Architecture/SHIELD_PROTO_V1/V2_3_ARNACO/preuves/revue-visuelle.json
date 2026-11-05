@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-05",
+  "reviewer": "Codex",
+  "method": "view_image on the actual generated images; not an optical/physical test",
+  "observed": [
+    "© is an encircled C, visibly superscript and smaller than ARNACO",
+    "exact accented motto readable",
+    "functional labels remain visible, branding in free area",
+    "top and mirrored bottom copper views inspected; geometry equivalence separately proven"
+  ],
+  "files_SHA256": {
+    "exports/ARNACO-CAM-detail.png": "605a342947947d56d5b616f90726cd4aa429ba6c8e8479317ca442369811443e",
+    "exports/serigraphie-depuis-Gerber.png": "b90edeb2299436b2214299af4b9def6cec28c548a8d0b6ad9c350d860cb76a56",
+    "exports/implantation.png": "aba5c4a89746e2fcf7f2f5cfacbb08a5cdf6b92c7d8ae559140e4ae9c9dc6e08",
+    "exports/cuivre-dessus.png": "0f48205918bfe7f0268f879f8c7558cb0a48fe307df7ce34af0539a67941076f",
+    "exports/cuivre-dessous-miroir.png": "8c70248cf9abcbe7475534be1cc9f290133bc5e87ac6fea6d8ba240dfc53675c"
+  },
+  "physical_print_quality": false
+}

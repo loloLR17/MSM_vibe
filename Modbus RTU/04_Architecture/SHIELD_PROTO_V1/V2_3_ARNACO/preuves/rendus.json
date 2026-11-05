@@ -1,0 +1,11 @@
+{
+  "rendered_files": [
+    "exports/ARNACO-CAM-detail.png",
+    "exports/serigraphie-depuis-Gerber.png",
+    "exports/implantation.png",
+    "exports/cuivre-dessus.png",
+    "exports/cuivre-dessous-miroir.png"
+  ],
+  "fabrication_data_changed": false,
+  "method": "MuPDF opens exported SVG; CAM SVG comes from actual GTO strokes, not a font recreation"
+}

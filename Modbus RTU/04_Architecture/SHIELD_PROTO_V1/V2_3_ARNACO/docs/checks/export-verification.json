@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "scope": "connectivity + both copper X2 pad attributes + all Excellon holes + rectangular CAM outline; no independent CAM copper topology/impedance or physical fit qualification",
+  "connected_pins": 59,
+  "footprints": 19,
+  "pads": 191,
+  "vias": 4,
+  "outline_mm": [
+    90,
+    100
+  ],
+  "track_lengths_per_net_mm": {
+    "RTU_DE": 40.08456949065863,
+    "FRAM_CS": 66.52872936887445,
+    "FRAM_MOSI": 37.439811225220495,
+    "FRAM_MISO": 34.1741475202304,
+    "FRAM_SCK": 33.55398987725055,
+    "+3V3": 180.44249734686633,
+    "SD_CS": 87.88186143226957,
+    "ACC_CS": 29.249903014004257,
+    "ACC_SCK": 36.91657442429024,
+    "ACC_MOSI": 32.88850576908853,
+    "ACC_MISO": 32.87193722659361,
+    "SD_SCK": 85.51747216018748,
+    "SD_MISO": 32.46005413455683,
+    "SD_MOSI": 32.49190254439444,
+    "RTU_TX": 43.328849753513175,
+    "RTU_RX": 40.143063315886266
+  },
+  "manufacturing_release": "BLOCKED"
+}
