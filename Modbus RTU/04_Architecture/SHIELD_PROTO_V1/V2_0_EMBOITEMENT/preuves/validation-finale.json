@@ -1,0 +1,33 @@
+{
+  "status": "PASS_BOUNDED_CAD_STUDY",
+  "CAD_readback": [
+    {
+      "file": "cad/own-parts-G12p25.step",
+      "solids": 129,
+      "valid": true,
+      "sha256": "627cbdbdba7b62ed046d85d899d09523bc44a2bcd7857a1a1dcfbe05e356134b",
+      "tokens_preserved": true
+    },
+    {
+      "file": "cad/SD4682-manufacturer-placed.step",
+      "solids": 6,
+      "valid": true,
+      "sha256": "da84c7b616b00a2da30d6b02c9fabb34c46192d35945f9578885d862495e7b23",
+      "tokens_preserved": true
+    }
+  ],
+  "source_ST_solids": 1060,
+  "full_source_unwanted_intersections_under_shield_at_G12p25": 0,
+  "retainer_vs_socket_and_module_envelope_intersections": 0,
+  "SD_manufacturer_vs_retainers_intersections": 0,
+  "horizontal_optical_rays": "3 obstructed, not a full observer cone or proof of invisibility",
+  "PDF": "2 pages reopened text checked; Z envelope view visually inspected",
+  "script_metadata_incident": "source_geometry list shadowed by socket rows, repaired from identical first ST inspection; Boolean results unchanged; final script corrected",
+  "XY_electrical_tests": "reused V19; unchanged CAD/firmware, no repeated ERC/DRC/build/hardware",
+  "printed": false,
+  "purchased": false,
+  "hardware_access": false,
+  "physical_gate": "BLOCKED_NOT_TESTED",
+  "fabrication": "NO_GO",
+  "complete_worst_case_guarantee": false
+}

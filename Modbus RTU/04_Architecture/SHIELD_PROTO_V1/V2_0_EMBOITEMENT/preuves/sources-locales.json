@@ -1,0 +1,17 @@
+[
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-shield-v20-20261105/samtec-series-print.pdf",
+    "bytes": 491233,
+    "sha256": "890f20796637b7947c7655aabf919d055b56988a01c20338b635f2daf35b051f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-shield-v19-20261105/ST-manufacturing/MB1549C/Mechanical/MB1549-U575ZIQ-C05.step",
+    "bytes": 20325178,
+    "sha256": "55f465f8de566561905f97e4b10533a4de33dd13842a5bd9f25bc9d7f06a9900"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-shield-v20-20261105/full-C05-G12p25-review.step",
+    "bytes": 194903998,
+    "sha256": "0b8eda089c9419128119db27b54d35c869d40f791f04cb8cc79ab6954eefa84c"
+  }
+]

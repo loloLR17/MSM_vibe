@@ -1,0 +1,151 @@
+{
+  "status": "FEASIBLE_INTERVAL_UNDER_EXPLICIT_BOUNDS_NOT_HARDWARE_QUALIFIED",
+  "inputs_nominal_pm_and_provenance": {
+    "H_socket": [
+      8.51,
+      0.13,
+      "Samtec series print .335, .XXX ±.005in≈.13mm"
+    ],
+    "H_J5": [
+      8.51,
+      0.13,
+      "same Samtec print"
+    ],
+    "b_male": [
+      2.5,
+      0.38,
+      "Connfly double-row body2.5, general .X±.38"
+    ],
+    "p_male": [
+      6.1,
+      0.25,
+      "Connfly DS1021 type1 D6.10, .XX±.25"
+    ],
+    "tip_CN12": [
+      8.22,
+      0.1,
+      "user value, ±.10 ENGINEERING ASSUMPTION not measured uncertainty"
+    ],
+    "body_CN12": [
+      2.4,
+      0.1,
+      "user value, ±.10 ENGINEERING ASSUMPTION"
+    ],
+    "G": [
+      12.25,
+      0.1,
+      "proposed assembly tolerance including seating/parallelism, NOT guaranteed by a selected spacer"
+    ]
+  },
+  "insertion_limits": [
+    3.68,
+    6.35
+  ],
+  "body_gap_guard": 0.3,
+  "lower_constraints": {
+    "J5_no_bottoming": 10.710000000000003,
+    "J5_body_gap_0p30": 11.540000000000001,
+    "Zio_no_bottoming": 11.62,
+    "Zio_body_gap_0p30": 11.92
+  },
+  "upper_constraints": {
+    "J5_min_engagement": 12.719999999999999,
+    "Zio_min_engagement": 12.57
+  },
+  "G_nominal_candidate_interval": [
+    11.92,
+    12.57
+  ],
+  "recommended_nominal": 12.25,
+  "scenarios": {
+    "11.0": {
+      "J5_insertion_nominal": 5.73,
+      "J5_gap_nominal": 0.0900000000000003,
+      "Zio_insertion_nominal": 6.109999999999999,
+      "Zio_gap_nominal": -0.009999999999999787,
+      "J5_insertion_worst_range": [
+        5.4,
+        6.0600000000000005
+      ],
+      "J5_min_gap": -0.2400000000000002,
+      "Zio_insertion_worst_range": [
+        5.250000000000002,
+        6.969999999999997
+      ],
+      "Zio_min_gap": -0.6200000000000001
+    },
+    "12.0": {
+      "J5_insertion_nominal": 4.73,
+      "J5_gap_nominal": 1.0900000000000003,
+      "Zio_insertion_nominal": 5.109999999999999,
+      "Zio_gap_nominal": 0.9900000000000002,
+      "J5_insertion_worst_range": [
+        4.4,
+        5.0600000000000005
+      ],
+      "J5_min_gap": 0.7599999999999998,
+      "Zio_insertion_worst_range": [
+        4.250000000000002,
+        5.969999999999997
+      ],
+      "Zio_min_gap": 0.3799999999999999
+    },
+    "12.25": {
+      "J5_insertion_nominal": 4.48,
+      "J5_gap_nominal": 1.3400000000000003,
+      "Zio_insertion_nominal": 4.859999999999999,
+      "Zio_gap_nominal": 1.2400000000000002,
+      "J5_insertion_worst_range": [
+        4.15,
+        4.8100000000000005
+      ],
+      "J5_min_gap": 1.0099999999999998,
+      "Zio_insertion_worst_range": [
+        4.000000000000002,
+        5.719999999999997
+      ],
+      "Zio_min_gap": 0.6299999999999999
+    }
+  },
+  "spacers": [
+    {
+      "OD": 4.0,
+      "OD_tolerance_assumed": 0.1,
+      "nominal_edge_gap": 0.2849999999999966,
+      "worst_gap_assuming_half_length_p125_and_relative_position_p150": -0.04000000000000341,
+      "guard_mm": 0.2,
+      "guard_pass_under_bounds_excluding_flash": false,
+      "worst_gap_with_catalogue_flash_0p38": -0.4200000000000034,
+      "guaranteed_all_catalogue_cases": false
+    },
+    {
+      "OD": 3.5,
+      "OD_tolerance_assumed": 0.05,
+      "nominal_edge_gap": 0.5349999999999966,
+      "worst_gap_assuming_half_length_p125_and_relative_position_p150": 0.23499999999999657,
+      "guard_mm": 0.2,
+      "guard_pass_under_bounds_excluding_flash": true,
+      "worst_gap_with_catalogue_flash_0p38": -0.14500000000000343,
+      "guaranteed_all_catalogue_cases": false
+    }
+  ],
+  "unbounded_terms": [
+    "actual CN12 height uncertainties",
+    "actual selected spacer length/OD tolerance and nut/head stack",
+    "seating offsets, board bow and parallelism",
+    "socket sway2deg and local flash0.38mm max from Samtec print require local fit verification",
+    "contact plating interoperability and retention vibration",
+    "exact current module/Click revision and connector tails"
+  ],
+  "all_rows_manufacturer_guaranteed": false,
+  "PCB_thickness": "1.6mm declared, ±10% budget; G defined between PCB surfaces, so thickness is not added to J5/Zio insertion; used for tail clearance",
+  "tail_scenario": {
+    "module_tail_max_assumed": 3.5,
+    "shield_min_thickness": 1.44,
+    "G_min_at12p25": 12.15,
+    "tail_lowest_z": 10.09,
+    "max_ST_socket_height_budget": 8.64,
+    "nominal_budget_gap": 1.4499999999999993
+  },
+  "fabrication": "NO_GO_NO_REAL_MATING_OBSERVED"
+}

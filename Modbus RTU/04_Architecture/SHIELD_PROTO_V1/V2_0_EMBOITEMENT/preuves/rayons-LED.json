@@ -1,0 +1,55 @@
+{
+  "scope": "three straight northward candidate rays, above footprint model, real ST BREP; not emission direction/visibility or full common observer cone",
+  "rows": [
+    {
+      "LED": "LD3",
+      "candidate_z": 0.8,
+      "hits": [
+        {
+          "solid": 569,
+          "intersection_mm3": 0.003532299729926648
+        },
+        {
+          "solid": 1037,
+          "intersection_mm3": 0.0037404587531803353
+        },
+        {
+          "solid": 1038,
+          "intersection_mm3": 0.0012468195843933964
+        },
+        {
+          "solid": 1039,
+          "intersection_mm3": 0.005103092915128856
+        }
+      ],
+      "clear_in_source_model": false
+    },
+    {
+      "LED": "LD2",
+      "candidate_z": 1.0,
+      "hits": [
+        {
+          "solid": 1037,
+          "intersection_mm3": 0.004987278337573724
+        },
+        {
+          "solid": 1039,
+          "intersection_mm3": 0.0051030929151288556
+        }
+      ],
+      "clear_in_source_model": false
+    },
+    {
+      "LED": "LD1",
+      "candidate_z": 0.8,
+      "hits": [
+        {
+          "solid": 579,
+          "intersection_mm3": 0.0019614965701677755
+        }
+      ],
+      "clear_in_source_model": false
+    }
+  ],
+  "window": "common lateral window can span X51..59 and Z0.5..2 but size and clarity NOT_QUALIFIED"
+}

@@ -1,0 +1,45 @@
+# V2.0 — GO numérique XY, faisabilité Z conditionnelle, fabrication NO-GO
+
+**Aucune deuxième impression demandée.** Les106contacts et trois ancrages V1.9 recoupés avecST constituent une preuve numérique suffisante pour cette étudeXY. L’ancien contrôle terrain confirme qualitativement la dissymétrie corrigée ; les deux cartes particulières ne sont pas déclarées contrôléesV1.9. L’impression n’apporterait aucune preuve de profondeur d’insertion, toléranceZ ou force de contact.
+
+**Recommandation : étudier G=12,25mm plutôt que11mm**, sans modifier les coordonnées ni la Nucleo. Les quatre mâles actuels CN12 en quinconce sont conservés, seules les cavités correspondantes de J5 sont occupées. Aucune modification PCB, empreinte, routage, schéma ou Gerber effectuée. Les CAM restent NON LIBÉRÉS.
+
+|Porte|Décision étayée|
+|---|---|
+|XY|**GO numérique** V1.9 réutilisé sans nouveaux ERC/DRC ni papier.|
+|Z géométrique|**GO nominal conditionnel** à12,25 ; intervalle11,92..12,57 sous bornes déclarées. Les bornes utilisateur/assemblage ne sont pas des garanties fournisseur.|
+|Z physique/tolérances complètes|**BLOCKED** : incertitudes des valeursCN12, pose/planéité/engagement réels, bavures et fixation non qualifiées. Pas de montage robuste garanti par catalogue seul.|
+|Entretoises|Ø4 non robuste au pirecas. Ø3,5 améliore la marge mais ne couvre pas la bavure maximaleSamtec ; référence/longueur/diamètre et appuis à figer après vérification ciblée. Pas de déplacement des trous sans défaut contraire démontré.|
+|Modules/retenues|Pas d’intersection dans les sous-ensembles bornés testés. MKI/FRAM/Click partiellement modélisés, composants réels et révisionClick inconnus : pas de verdict global sanscollision.|
+|LED/vitrage|Trois rayons horizontaux candidats sont obstrués parST. Cela ne prouve pas l’impossibilité d’une visée oblique commune ; observation utilisateur conservée. Pas de découpePCB justifiée. Vitrage latéral à finaliser, visibilité réelle NON QUALIFIÉE.|
+|USER/RESET|B1hors contourshieldY117, origine(29,5212;120,3262) ; accès direct protégé conservé, RESET protégé. Capuchon10,2/clic0,4 acquis, pas de nouveau mécanisme.|
+|Accès/coffret|CN1STLINK etCN15 hors contourshield ; SD/RS485/nappe conservent les sorties V1.5. Fiches/flexibilité/extraction/doigts/efforts réels non modélisés. Ajustements de coffret possibles, pas d’interférence nécessitant une correctionPCB démontrée ici.|
+|Commande|**NO-GO de libération**, aucune commande ni acceptation implicite de risque de première fabrication.|
+
+## Repères et modèles réellement assemblés
+
+STEP constructeur MB1549-U575ZIQ-C05,1060solides,PCBZ−1,6..0, socketsZio hauts8,51. CADXdroite/Yvershaut ; `x=STx+21,74999888`, `y=STy−126,60113030`, `z=0` au dessusNucleo. SousshieldZ=G, dessusG+1,6 ; ce changement de référenceZ ne change aucunXY. PCBV1.9 avec ses191perçages/106contacts, corpsJ1–4, leurs100postes, femelleJ5 avec cavités, quatre mâles opérateur/petits corps2,40, trois entretoises, modules et retenues bornés. Pièces éditables [STEP propres](cad/own-parts-G12p25.step), [SD réelle placée](cad/SD4682-manufacturer-placed.step), [coupes et plan](cad/assemblage-et-coupes.pdf), scripts et preuves dans ce dossier.
+
+**Modèle complet incluantST conservé localement**, sans republier la grosse CAO tierce : `/home/lolo/dev/msm/reports/TR2-shield-v20-20261105/full-C05-G12p25-review.step`. Sources exactes et empreintes : SOURCES.md. Le STEPST contient deux volumes de populationMorpho différente de celle de l’utilisateur : ils sont conservés dans les tests source et identifiés/exclus uniquement du scénario d’affichage réaliste, remplacés par les quatre mâles rapportés. Aucun résultat decollision ne dépend de leur exclusion : zéro intersection avec source complète aussi dans le périmètre testé. Les contacts intentionnels pin/socket ne sont pas comptés comme collisions ; les corps/cavités sont des enveloppes, pas des ressorts de contact.
+
+L’assemblage complet local contient les enveloppesPCB des modules et leurs sockets/retenues ; le modèle exactSD est fourni séparément avec la même transformation. La FRAM vient des cotesEagleV1.5 ; MKI et Click sont des enveloppes connues/provisoires, **pas un STEP complet prétendu exact des cartes réellement livrées**. Nappe et câbles restent des passages réservés, aucune géométrie de courbure inventée. Les coupePDF sont des coupes d’enveloppes dimensionnées, pas des sections prétendues exactes des contacts internes.
+
+## Inégalités et pirecas
+
+`I5=8,22+H5−G` ; `C5=G−H5−2,40`. PourZio, `Iz=Hz+b+p−G` et `Cz=G−b−Hz`. CorpsSamtec8,51±0,13 ; Connfly sélectionnéeDS1021-2*40SF11/type1 : corpsb2,5±0,38, sailliep6,10±0,25, queue opposée3,00 (dessin exactlegacy). Insertions constructeur3,68..6,35. Réserve de jeuplastique0,30. BudgetG±0,10 incluant pose/planéité ; valeursCN12±0,10 **hypothèses de sensibilité**, pas incertitudes mesurées. L’insertion n’est pas forcément à butée : entretoises doivent porter sans flexion ni forcer l’emboîtement.
+
+Les bornes dans [tolerances.json](preuves/tolerances.json) donnent `max(bornes basses)=11,92` et `min(bornes hautes)=12,57`. À12,25, pirecascalculé : I5=4,15..4,81, C5min1,01 ; Iz=4,00..5,72, Czmin0,63mm. À11,00, jeux nominauxC5=0,09 etCz=−0,01 : le montage ne peut pas être retenu robuste. **L’intervalle conditionnel n’est pas une spécification de fabrication libérée** : référence d’entretoise/longueur et assises encore non garanties. La tolérancePCB1,6±10% ne se rajoute pas à ces équations puisqueG est défini entre surfaces ; elle intervient dans les queues soudées et fixations. Budgetqueue3,5/PCBmin1,44/Gmin12,15 donneextrémitéZ10,09, marge1,45 sursocketbudget8,64 ; queue3,5 reste une borne d’acceptation à vérifier, pas garantie universelle.
+
+**Fixations** : bord réelSTsocketY95,105, axeentretoiseY97,39. Ø4 : jeu0,285 nominal, pirecas−0,040 sous budgets longueur/position/diamètre ; ancienne réserve0,04 était face au courtyard, pas au plastique. Ø3,5 : jeu0,535nominal et0,235 sous ces budgets. Le dessinSamtec autorise jusqu’à0,38 de bavure et spécifie des écarts angulaires : la soustraction de cette bavure donne encore−0,145 pourØ3,5. **Pas de GO toutes tolérances**. Réduire diamètre/adapter forme non conductrice ou accepter seulement une contrepartie réellement contrôlée est une proposition d’assemblage, pas une modificationBOM silencieuse ; résistance d’une paroi mince/filetage reste à qualifier. Têtes≤4,5 horsfacesPCB, pas de rondelle large cachée ; vis traversantes/écrous ou entretoises filetées doivent être choisis comme ensembles cohérents, pas serrés pour absorber l’erreur. Le risque de jeu latéral des vis dans les trous fait partie du budget de position et n’est pas garanti sans centrage.
+
+## Ce que démontrent les essais CAO
+
+ÀG12 et12,25 : aucune intersection volumique des pièces sousshield testées avec les solidesST, après filtrage géométrique des paires puis booléenOCCT. À12,25 : retenuesMKI/Click contre corps de sockets et enveloppesPCB des modules, aucune intersection positive ; SDAdafruit réelle contre les deux retenues : aucune. **Cela ne couvre pas** tous composants des modules, soudures, têtes/écrous, efforts, isolement électrique réel ou vibrations. La séparationGND2 duClick reste à préserver physiquement, un modèle géométrique ne qualifie pas l’isolation. Deux oreilles/étriers et fixation vissée conservés, aucune revendication de résistance mécanique nouvelle.
+
+Les rayonsLED testés àZ0,8/1,0/0,8 au-dessus des originesempreintes,1mm au nord des LED, rencontrent des composants/volumesST. Ils ne sont pas des rayons d’émission mesurés ; ni «LEDinvisibles» ni «fenêtreimpossible» ne sont conclus. Une visée oblique et un autre emplacement/hauteur du vitrage peuvent être étudiés sur lecoffret sans toucher auPCB, mais ne sont pas qualifiés dans cette revue. USERsimple, ports et bride denappe restent des réservescoffret sous compatibilité finale.
+
+## Une seule vérification réelle, pas une campagne papier
+
+Si les **contreparties exactes sont déjà disponibles**, un seul montage à blanc hors tension, sans modifier les Nucleo ni les faisceaux : vérifier ensemble engagement libreJ1–5, G/parallelisme aux appuis, absence de contactentretoises/plastiques et soudures, accèsUSER/RESET/ports et trois voyants depuis une même zone. Ne pas forcer, serrer pour compenser, mesurer le clic en butée ou acheter uniquement pour créer une preuve. Si les pièces ne sont pas disponibles, **aucune intervention demandée maintenant** : le gate resteBLOCKED et la décision de risque doit être explicitement examinée.
+
+Alternative : après revue indépendante et **décision humaine distincte**, considérer une fabrication de prototypes comme premierarticle à risque (pas un designlibéré), assembler un seul exemplaire, contrôler à froid emboîtement/engagement/isolement avant alimentation puis qualifier fixation/visibilité. Cela engage de l’argent et peut nécessiter une reprisePCB : **non autorisé ni exécuté ici**. Les quatre réserves ne sont pas levées par l’achat lui-même. RevueChatGPT puis utilisateur pour toute décision financière.

@@ -1,0 +1,17 @@
+{
+  "source": "existing pinned Adafruit4682 STEP V15, rigid transform reused; no new vendor model guessed",
+  "G": 12.25,
+  "module_bottom": 24.85,
+  "bbox": [
+    20.18,
+    43.04,
+    -108.54,
+    -83.14,
+    24.85,
+    28.30000000000008
+  ],
+  "source_shape_valid": true,
+  "retainer_solids_checked": 2,
+  "positive_intersections": [],
+  "scope": "actual SD model vs V15 analytical retainers, does not verify actual card extraction/fingers/cable or model revision on user board"
+}
