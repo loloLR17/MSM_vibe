@@ -1,10 +1,10 @@
 ---
 mission_id: TR2-20261105-SHIELD-V23-ARNACO-SILKSCREEN
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: b26c2ac0067112b87015abde9cb196ec8572cf45
 initial_head: e5b15d978585c9c83907942528d60fcaaa913265
-result_sha: null
+result_sha: 497a979322018fc56df906ce4866b426b3802e19
 created_at_utc: 2026-11-05T18:21:07Z
 author: Codex
 target_branch: main
@@ -16,11 +16,11 @@ allow_debug: false
 
 # V2.3 — ARNACO © et cinq PCB prototypes
 
-**Personnalisation et dossier candidat réalisés ; publication/relecture distante en cours.** GO de préparation CAO/exports pour la revue de cinq prototypes à risque mécanique accepté dans la mission. L'envoi au fabricant, le coût livré, la finition et le paiement restent des décisions humaines. Aucune qualification physique nouvelle et aucun achat.
+**Personnalisation et dossier candidat publiés et relus depuis la référence distante. DONE signifie mission CAO/exports livrée, pas qualification physique ni autorisation de commande.** GO de préparation CAO/exports pour la revue de cinq prototypes à risque mécanique accepté dans la mission. L'envoi au fabricant, le coût livré, la finition et le paiement restent des décisions humaines. Aucune qualification physique nouvelle et aucun achat.
 
 ## Résultat obtenu
 
-Nouveau dossier [V2_3_ARNACO](https://github.com/loloLR17/MSM_vibe/tree/main/Modbus%20RTU/04_Architecture/SHIELD_PROTO_V1/V2_3_ARNACO/), dérivé exclusivement du candidat V1.9 C05. Trois textes ajoutés en F.SilkS : **ARNACO**, un **vrai © natif plus petit et surélevé à droite**, puis la devise exacte **« Votre crédulité est notre force »**. Le glyphe et les accents sont visibles dans le rendu du vrai Gerber, pas seulement dans l'éditeur ; aucune substitution `(C)` ni dépendance de police externe.
+Nouveau dossier [V2_3_ARNACO](https://github.com/loloLR17/MSM_vibe/tree/497a979322018fc56df906ce4866b426b3802e19/Modbus%20RTU/04_Architecture/SHIELD_PROTO_V1/V2_3_ARNACO/), dérivé exclusivement du candidat V1.9 C05. Trois textes ajoutés en F.SilkS : **ARNACO**, un **vrai © natif plus petit et surélevé à droite**, puis la devise exacte **« Votre crédulité est notre force »**. Le glyphe et les accents sont visibles dans le rendu du vrai Gerber, pas seulement dans l'éditeur ; aucune substitution `(C)` ni dépendance de police externe.
 
 Emplacement libre entre SD et Click, sous FRAM. Mot-symbole centre(61,8;88), taille2,4/trait0,25 ; © centre(70,5;86,8), taille1,1/trait0,16 ; devise centre(61,8;92), taille1/trait0,15, en mm. Encre ajoutée X50,154..73,351 / Y85,963..92,530. Aucun pad, via, trou, TP, repère fonctionnel ou avertissement recouvert.
 
@@ -60,4 +60,8 @@ Les variantes d'assemblage commandées ne sont pas adoptées silencieusement dan
 
 Travail isolé dans `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V23-ARNACO`, branche `codex/shield-v23-arnaco`, basé sur le vrai HEAD `e5b15d978585c9c83907942528d60fcaaa913265`. Dépôt principal conservé propre à `82169af7e76797731358852bec83bfb0ceb54ccf`, worktrees et deux stashes historiques préservés. Aucun reset, rebase, merge, force push ou nettoyage destructif.
 
-Permissions exercées : lecture, création du candidat, validations/outillage et documentation ; commit/push normaux vers `refs/heads/main` à effectuer après revue du diff. Flash/debug false respectés ; aucun accès STM32, périphérique, microSD, geste physique, achat, panier, paiement ou transfert de Gerber. `result_sha` sera renseigné après attribution/relecture distante du commit de réalisation. Statut provisoire IN_PROGRESS limité à la publication en cours ; clôture DONE après relecture, conformément au protocole V2.
+Permissions exercées : lecture, création du candidat, validations/outillage, documentation, commit et push normal vers `refs/heads/main`. Flash/debug false respectés ; aucun accès STM32, périphérique, microSD, geste physique, achat, panier, paiement ou transfert de Gerber.
+
+Commit de réalisation **`497a979322018fc56df906ce4866b426b3802e19`**, message `feat(shield): add ARNACO superscript copyright and V23 prototype CAM`, poussé normalement depuis `e5b15d97`. Relecture après `git fetch origin main` et contrôle `git ls-remote origin refs/heads/main` : **608 fichiers /55 463 334 octets**, lus intégralement avec `git show origin/main:<chemin>` et comparés aux fichiers locaux/empreintes protégées. Correspondance exacte, dont les 505 fichiers historiques et le ZIP candidat. Rapport provisoire du bon identifiant observé `IN_PROGRESS`. Preuve : `V2_3_ARNACO/preuves/relecture-distante.json`.
+
+La présente clôture et son archive consignent cette relecture. Son SHA est communiqué après le second push et la vérification de la dernière publication ; il ne peut pas figurer dans son propre contenu. Le worktree était propre après le commit de réalisation, puis seules les trois pièces de clôture ont été ajoutées. Les préférences locales KiCad ignorées ne sont pas publiées ; le ZIP candidat, ignoré par la règle générique `*.zip`, a été ajouté explicitement après contrôle de ses neuf contenus et de son empreinte. Le dépôt principal et les deux stashes sont préservés. Aucune libération de fabrication implicite.
