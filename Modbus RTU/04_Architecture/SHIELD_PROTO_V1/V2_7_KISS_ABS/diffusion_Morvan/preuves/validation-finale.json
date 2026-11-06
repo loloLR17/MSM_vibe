@@ -1,0 +1,411 @@
+{
+  "mission_id": "TR2-20261106-SHIELD-V27-PACK-MORVAN-PDF",
+  "frozen_source_sha": "50af554db63ab76664df63565f9203e04f2d963e",
+  "ZIP": "pack_Morvan/TR2_V27_ABS_MORVAN_IMPRESSION_SIMPLE_2_PROTOTYPES.zip",
+  "sha256": "0ce87b103fbc5eaa2602a9687628cc959d092cf5275700c7308e198f59c29c8f",
+  "bytes": 1716575,
+  "entries": 27,
+  "STL": 25,
+  "PDF": 2,
+  "copies_two_prototypes": 61,
+  "counts": {
+    "useful": 46,
+    "alternatives": 12,
+    "D126_spares": 2,
+    "coupon": 1
+  },
+  "members": [
+    {
+      "entry": "STL/01_base_ABS.stl",
+      "bytes": 653684,
+      "sha256": "b6ee0c219e2d266557fd145284d739e363a925856d2b068ee7c43e87835f5296",
+      "crc32": "877ebc8b",
+      "conforme": true
+    },
+    {
+      "entry": "STL/02_couvercle_ARNACO_USER.stl",
+      "bytes": 304284,
+      "sha256": "85c59c11a3460d60f4382fb838f12b055a06de659450e5ee20be53eadf5f8fcc",
+      "crc32": "7ea99e36",
+      "conforme": true
+    },
+    {
+      "entry": "STL/03_facade_STLINK_LED_nappe.stl",
+      "bytes": 89484,
+      "sha256": "adace7ca4cc9c1381868512379abcfc6870942b6c5caa6f647fdb5658edab3cd",
+      "crc32": "f31db800",
+      "conforme": true
+    },
+    {
+      "entry": "STL/06_passe_cable_RS485.stl",
+      "bytes": 11884,
+      "sha256": "3e10d6438afca7844e945c08e80e010840b1ae984afa8dd31e6b0102708d36fd",
+      "crc32": "bf84a3c2",
+      "conforme": true
+    },
+    {
+      "entry": "STL/07_cadre_vitre.stl",
+      "bytes": 44084,
+      "sha256": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+      "crc32": "176e9750",
+      "conforme": true
+    },
+    {
+      "entry": "STL/10_serre_nappe.stl",
+      "bytes": 45084,
+      "sha256": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+      "crc32": "b3b3806e",
+      "conforme": true
+    },
+    {
+      "entry": "STL/11_serre_cable_RS485.stl",
+      "bytes": 65884,
+      "sha256": "e312d4d3969dd0b14e9452801ed5af9c43227f70bd2529f7c0bb0a2ac1887858",
+      "crc32": "d9fb586b",
+      "conforme": true
+    },
+    {
+      "entry": "STL/13_D126.stl",
+      "bytes": 21484,
+      "sha256": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+      "crc32": "ab7ce7e5",
+      "conforme": true
+    },
+    {
+      "entry": "STL/15_retenue_Nucleo.stl",
+      "bytes": 72284,
+      "sha256": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505",
+      "crc32": "82220ec1",
+      "conforme": true
+    },
+    {
+      "entry": "STL/20_selle_FRAM_H10p6.stl",
+      "bytes": 120484,
+      "sha256": "0edcf53c043a39f866043079645236b9e95250e7f69dafcab388a00005807fb4",
+      "crc32": "f8bc4233",
+      "conforme": true
+    },
+    {
+      "entry": "STL/20_selle_FRAM_H11p2.stl",
+      "bytes": 141484,
+      "sha256": "b0b61d5cdd160be1174980d0b04b30f38d50fbefae6057fd5c0cc215f789fb8b",
+      "crc32": "29b4204c",
+      "conforme": true
+    },
+    {
+      "entry": "STL/20_selle_FRAM_H11p8.stl",
+      "bytes": 162484,
+      "sha256": "a939b3fdd3d0594d105007e57b585ef576dad4673723d055d3b3467f7d0cd1f4",
+      "crc32": "aaf5a728",
+      "conforme": true
+    },
+    {
+      "entry": "STL/20_selle_SD_H10p6.stl",
+      "bytes": 120484,
+      "sha256": "06595a34c63beef51e2d7d60decc2a597cdb57ae99018e73210cad5dabb85237",
+      "crc32": "4fb8d91b",
+      "conforme": true
+    },
+    {
+      "entry": "STL/20_selle_SD_H11p2.stl",
+      "bytes": 141484,
+      "sha256": "4c973e439533c8d612a05145bd36826807a86da4bf884b804048087c3f08027c",
+      "crc32": "b9a5ceb1",
+      "conforme": true
+    },
+    {
+      "entry": "STL/20_selle_SD_H11p8.stl",
+      "bytes": 162484,
+      "sha256": "9eb273344ae9d9ece98e77022571c44d26cd6ce81fe8ec8a67079cfea4c60243",
+      "crc32": "30f7f08a",
+      "conforme": true
+    },
+    {
+      "entry": "STL/30_etrier_MKI_ABS.stl",
+      "bytes": 210684,
+      "sha256": "81babfe72735a7db6001757e5fb4d6d407f3647dbfe3ba192fdeb053ca07727a",
+      "crc32": "e9eee014",
+      "conforme": true
+    },
+    {
+      "entry": "STL/31_etrier_Click_ABS.stl",
+      "bytes": 205084,
+      "sha256": "0b2adf3e789e0a4633cf9815ccd8cf3165a2ba57c7a3644772dc2cce605e11db",
+      "crc32": "5a1db6c0",
+      "conforme": true
+    },
+    {
+      "entry": "STL/32_patin_MKI_avant_ABS.stl",
+      "bytes": 34784,
+      "sha256": "2688205a362b24d0cdb11ad29c5fad638779ffc3eafd0da3f1e9ccab4afad328",
+      "crc32": "1b6a2678",
+      "conforme": true
+    },
+    {
+      "entry": "STL/33_patin_MKI_arriere_ABS.stl",
+      "bytes": 24284,
+      "sha256": "306a8271f8f0045821712e35433e24db926a63f58f00bf731f00f581d86c2b49",
+      "crc32": "481f6c9c",
+      "conforme": true
+    },
+    {
+      "entry": "STL/34_patin_Click_ABS.stl",
+      "bytes": 22884,
+      "sha256": "acbb97f56da0952c53e4f1153ad8f5bfb9061f46a2aa419e6addf59f22a39b90",
+      "crc32": "6cc1ab66",
+      "conforme": true
+    },
+    {
+      "entry": "STL/40_cage_USER_captive.stl",
+      "bytes": 358184,
+      "sha256": "b4e30b7cf04ad01ef164694bbd38e53f54c039c597f5767de07d3449440bd448",
+      "crc32": "381b9928",
+      "conforme": true
+    },
+    {
+      "entry": "STL/41_USER_pointe_Z8p8.stl",
+      "bytes": 104884,
+      "sha256": "78ee3544d722c50c693b0d98dcc675bb298d0563b7f538672868015440646c0e",
+      "crc32": "0238b783",
+      "conforme": true
+    },
+    {
+      "entry": "STL/41_USER_pointe_Z9p6.stl",
+      "bytes": 125884,
+      "sha256": "ed637917406bdd24953b5e02baa5f81fa1ba89d5c5426e418e5b3705515100d7",
+      "crc32": "d2748a59",
+      "conforme": true
+    },
+    {
+      "entry": "STL/41_USER_pointe_Z10p4.stl",
+      "bytes": 146884,
+      "sha256": "3ed677bcbd927eeddc9503202a330201ceb8863e14bb117a2a7675acb1f31486",
+      "crc32": "93ea80a4",
+      "conforme": true
+    },
+    {
+      "entry": "STL/50_coupon_ABS.stl",
+      "bytes": 88884,
+      "sha256": "abbeaddcdae196fce2923c3d73dfca214b1f10d71c201b5fde93fa39d1d787a3",
+      "crc32": "83e18c5f",
+      "conforme": true
+    },
+    {
+      "entry": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "bytes": 126156,
+      "sha256": "cd37f80a0d1518f42cc1d7c927a94389ae73c86b5548498b8c85b71aca835eb5",
+      "crc32": "5e9017be",
+      "conforme": true
+    },
+    {
+      "entry": "02_VUES_DES_PIECES.pdf",
+      "bytes": 946778,
+      "sha256": "6150bd9b357a28c7f7e808d3c64b56be413e6617808ccbdc74a281dbabab83a6",
+      "crc32": "6289f9f3",
+      "conforme": true
+    }
+  ],
+  "PDF_checks": {
+    "01_LIRE_EN_PREMIER_MORVAN.pdf": {
+      "pages": 3,
+      "page_checks": [
+        {
+          "page": 1,
+          "text_characters": 1433,
+          "render": "rendus_pdf/01_LIRE_EN_PREMIER_MORVAN-page-1.png",
+          "render_sha256": "ba18084b1c36eefd313319bac2087684341a08213b36168bb012f1d23064dff0"
+        },
+        {
+          "page": 2,
+          "text_characters": 1277,
+          "render": "rendus_pdf/01_LIRE_EN_PREMIER_MORVAN-page-2.png",
+          "render_sha256": "ec9cdb70dbebb35b5a3dceab216fb03f85b58b14ea038f3674b7e7c271490023"
+        },
+        {
+          "page": 3,
+          "text_characters": 1401,
+          "render": "rendus_pdf/01_LIRE_EN_PREMIER_MORVAN-page-3.png",
+          "render_sha256": "d5eac263aaf151e6551aef67092fc4d437e8dd0a91fea10a593f5fc08dc60b50"
+        }
+      ],
+      "sha256": "cd37f80a0d1518f42cc1d7c927a94389ae73c86b5548498b8c85b71aca835eb5"
+    },
+    "02_VUES_DES_PIECES.pdf": {
+      "pages": 2,
+      "page_checks": [
+        {
+          "page": 1,
+          "text_characters": 744,
+          "render": "rendus_pdf/02_VUES_DES_PIECES-page-1.png",
+          "render_sha256": "7205a4e51b9e4ea664ff983e0dcd59e28bd992c0a843d222617b614eb2aeff28"
+        },
+        {
+          "page": 2,
+          "text_characters": 342,
+          "render": "rendus_pdf/02_VUES_DES_PIECES-page-2.png",
+          "render_sha256": "6dd4465f95e81669105294c5d3ad42fb890826a2046b636f8b75d89173d442cc"
+        }
+      ],
+      "sha256": "6150bd9b357a28c7f7e808d3c64b56be413e6617808ccbdc74a281dbabab83a6"
+    }
+  },
+  "actual_PDF_quantity_rows": [
+    {
+      "filename": "01_base_ABS.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "02_couvercle_ARNACO_USER.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "03_facade_STLINK_LED_nappe.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "06_passe_cable_RS485.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "07_cadre_vitre.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "10_serre_nappe.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "13_D126.stl",
+      "copies_for_two_TR2": 8,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "15_retenue_Nucleo.stl",
+      "copies_for_two_TR2": 6,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "11_serre_cable_RS485.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "20_selle_FRAM_H10p6.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "20_selle_FRAM_H11p2.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "20_selle_FRAM_H11p8.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "20_selle_SD_H10p6.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "20_selle_SD_H11p2.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "20_selle_SD_H11p8.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "30_etrier_MKI_ABS.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "31_etrier_Click_ABS.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "32_patin_MKI_avant_ABS.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "33_patin_MKI_arriere_ABS.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "34_patin_Click_ABS.stl",
+      "copies_for_two_TR2": 4,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "40_cage_USER_captive.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 2,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "41_USER_pointe_Z8p8.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "41_USER_pointe_Z9p6.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "41_USER_pointe_Z10p4.stl",
+      "copies_for_two_TR2": 2,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    },
+    {
+      "filename": "50_coupon_ABS.stl",
+      "copies_for_two_TR2": 1,
+      "PDF_page": 3,
+      "actual_PDF_text_and_quantity_match_frozen_Git_CSV": true
+    }
+  ],
+  "obsolete_or_nested_or_technical_entries": [],
+  "CRC_full_readback": true,
+  "independent_frozen_git_comparison": true,
+  "old_technical_ZIP_unchanged": true,
+  "preserved_historical_shield_files": 950,
+  "PDF_visual_inspection": "separate rendered-page review: preuves/revue-visuelle.json",
+  "passed_automatic": true
+}

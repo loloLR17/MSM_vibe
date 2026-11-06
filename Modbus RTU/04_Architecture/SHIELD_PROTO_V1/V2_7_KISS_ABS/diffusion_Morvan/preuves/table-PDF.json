@@ -1,0 +1,177 @@
+[
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "01_base_ABS.stl",
+    "quantity": 2,
+    "y": 207.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "02_couvercle_ARNACO_USER.stl",
+    "quantity": 2,
+    "y": 236.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "03_facade_STLINK_LED_nappe.stl",
+    "quantity": 2,
+    "y": 265.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "06_passe_cable_RS485.stl",
+    "quantity": 2,
+    "y": 294.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "07_cadre_vitre.stl",
+    "quantity": 2,
+    "y": 323.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "10_serre_nappe.stl",
+    "quantity": 2,
+    "y": 352.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "11_serre_cable_RS485.stl",
+    "quantity": 2,
+    "y": 381.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "15_retenue_Nucleo.stl",
+    "quantity": 6,
+    "y": 410.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "30_etrier_MKI_ABS.stl",
+    "quantity": 2,
+    "y": 439.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "31_etrier_Click_ABS.stl",
+    "quantity": 2,
+    "y": 468.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "32_patin_MKI_avant_ABS.stl",
+    "quantity": 2,
+    "y": 497.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "33_patin_MKI_arriere_ABS.stl",
+    "quantity": 2,
+    "y": 526.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "34_patin_Click_ABS.stl",
+    "quantity": 4,
+    "y": 555.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "40_cage_USER_captive.stl",
+    "quantity": 2,
+    "y": 584.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 2,
+    "filename": "13_D126.stl",
+    "quantity": 8,
+    "y": 670.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "20_selle_FRAM_H10p6.stl",
+    "quantity": 2,
+    "y": 200.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "20_selle_FRAM_H11p2.stl",
+    "quantity": 2,
+    "y": 229.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "20_selle_FRAM_H11p8.stl",
+    "quantity": 2,
+    "y": 258.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "20_selle_SD_H10p6.stl",
+    "quantity": 2,
+    "y": 287.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "20_selle_SD_H11p2.stl",
+    "quantity": 2,
+    "y": 316.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "20_selle_SD_H11p8.stl",
+    "quantity": 2,
+    "y": 345.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "41_USER_pointe_Z8p8.stl",
+    "quantity": 2,
+    "y": 427.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "41_USER_pointe_Z9p6.stl",
+    "quantity": 2,
+    "y": 456.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "41_USER_pointe_Z10p4.stl",
+    "quantity": 2,
+    "y": 485.12
+  },
+  {
+    "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+    "page": 3,
+    "filename": "50_coupon_ABS.stl",
+    "quantity": 1,
+    "y": 567.12
+  }
+]

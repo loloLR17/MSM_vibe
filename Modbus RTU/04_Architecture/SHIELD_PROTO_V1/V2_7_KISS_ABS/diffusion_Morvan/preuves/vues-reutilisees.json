@@ -1,0 +1,108 @@
+{
+  "sources": {
+    "VUE_ECLATEE_V27.png": "423d6b98c77e23fa3ed4a30f41c52e58fe3c2f47bc10758555bf96ac2d406e45",
+    "BOITIER_FERME.png": "caa60fd560261fe6f15dd99261c2d447b6fb4c5051856fa2857747e8b4e47450",
+    "IMPLANTATION.png": "783fc0fa378ef5c0346f97ca6fa4e665bb754823b89260019a53b8f199ca9921"
+  },
+  "CAD_regenerated": false,
+  "source_images_modified": false,
+  "exploded_legend": "Existing image clipped only in the PDF viewport; original 12 numbered marks enlarged, plain-language PDF legend",
+  "numbered_marks": [
+    {
+      "number": 12,
+      "source_pixel_y": 351.5,
+      "PDF_centre": [
+        62.25782361308677,
+        201.6689189189189
+      ]
+    },
+    {
+      "number": 11,
+      "source_pixel_y": 567.5,
+      "PDF_centre": [
+        62.12091038406828,
+        260.8154338549075
+      ]
+    },
+    {
+      "number": 10,
+      "source_pixel_y": 713.5,
+      "PDF_centre": [
+        62.12091038406828,
+        300.79409672830724
+      ]
+    },
+    {
+      "number": 9,
+      "source_pixel_y": 881.5,
+      "PDF_centre": [
+        62.12091038406828,
+        346.7969416785206
+      ]
+    },
+    {
+      "number": 8,
+      "source_pixel_y": 1046.5,
+      "PDF_centre": [
+        62.25782361308677,
+        391.978307254623
+      ]
+    },
+    {
+      "number": 7,
+      "source_pixel_y": 1148.5,
+      "PDF_centre": [
+        62.25782361308677,
+        419.90860597439547
+      ]
+    },
+    {
+      "number": 6,
+      "source_pixel_y": 1341.5,
+      "PDF_centre": [
+        62.25782361308677,
+        472.75711237553344
+      ]
+    },
+    {
+      "number": 5,
+      "source_pixel_y": 1440.5,
+      "PDF_centre": [
+        62.12091038406828,
+        499.86593172119484
+      ]
+    },
+    {
+      "number": 4,
+      "source_pixel_y": 1592.5,
+      "PDF_centre": [
+        62.25782361308677,
+        541.4875533428165
+      ]
+    },
+    {
+      "number": 3,
+      "source_pixel_y": 1698.5,
+      "PDF_centre": [
+        62.12091038406828,
+        570.5131578947369
+      ]
+    },
+    {
+      "number": 2,
+      "source_pixel_y": 1749.5,
+      "PDF_centre": [
+        62.25782361308677,
+        584.4783072546229
+      ]
+    },
+    {
+      "number": 1,
+      "source_pixel_y": 1978.5,
+      "PDF_centre": [
+        62.12091038406828,
+        647.1845661450925
+      ]
+    }
+  ]
+}

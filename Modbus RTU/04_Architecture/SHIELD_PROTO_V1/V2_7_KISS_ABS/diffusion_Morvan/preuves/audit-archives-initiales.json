@@ -1,0 +1,726 @@
+{
+  "mission_id": "TR2-20261106-SHIELD-V27-PACK-MORVAN-PDF",
+  "V26": {
+    "path": "V2_6_IMPRESSION_COMPLETE/pack_imprimeur/TR2_V26_COMPLET_2_PROTOTYPES.zip",
+    "sha256": "2fee5474fc251d96a5d2b01eb2df2c50561965d72085f32319f07780f9a80230",
+    "entries": [
+      {
+        "entry": "ASSEMBLAGE_AJUSTEMENT_V26.pdf",
+        "bytes": 64770,
+        "sha256": "2040e9b14ca1fb3160e95687b6b476398f1ef661b91be4429da03787e90ee8ad",
+        "crc32": "0c8c8f23",
+        "obsolete_name": false
+      },
+      {
+        "entry": "BOM_QUINCAILLERIE.csv",
+        "bytes": 1160,
+        "sha256": "012246f9231fb7c0e48f08974435783e4330018ea9756194bb0379663c2058d0",
+        "crc32": "0d5e94f6",
+        "obsolete_name": false
+      },
+      {
+        "entry": "LISEZ_MOI_IMPRIMEUR.md",
+        "bytes": 2799,
+        "sha256": "a957e24a5bf7ad28c2baebcdbc79475bd3d14eb5dd2a5356941dc2cd2e58b011",
+        "crc32": "6675ac22",
+        "obsolete_name": false
+      },
+      {
+        "entry": "MANIFESTE.json",
+        "bytes": 3456,
+        "sha256": "0a7f04e43facf779c4f07fc0f242ebee170da7cb967ae174375bdd336fac85aa",
+        "crc32": "592b271b",
+        "obsolete_name": false
+      },
+      {
+        "entry": "MASSE.json",
+        "bytes": 397,
+        "sha256": "e4afe5fa1b332c1f28f9c0b28d1a046561bf6829315add38898e6b48aa511b4c",
+        "crc32": "aee744ea",
+        "obsolete_name": false
+      },
+      {
+        "entry": "MONTAGE_A_FROID.md",
+        "bytes": 7061,
+        "sha256": "5aa41a0d442885203afc1f55e658ee4475d8f046be6ef5df975dc80832ab106d",
+        "crc32": "844cb820",
+        "obsolete_name": false
+      },
+      {
+        "entry": "QUANTITES.csv",
+        "bytes": 2418,
+        "sha256": "76ad3cc2c8a1b0a46c51ce1098d2c0051e8a30bb4c470f4e34ecaea20d388c40",
+        "crc32": "6ffb0cee",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/01_base.stl",
+        "bytes": 646484,
+        "sha256": "affa55096643155494d9e86f5a7e1e66bd348df98045f50e59fd098968494017",
+        "crc32": "487620a7",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/02_couvercle_ARNACO.stl",
+        "bytes": 284884,
+        "sha256": "0afab14685b7ce1e29b6c45198a793b0a08bd9727cffca1cc00893a2d512faed",
+        "crc32": "2bd13db4",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/03_cassette_nord.stl",
+        "bytes": 89684,
+        "sha256": "13f39c65d99d9bf6a3e139fcefed77d67fa2678fbb613f0ab25b5fff26f40102",
+        "crc32": "218e10ac",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/04_cassette_sud.stl",
+        "bytes": 23884,
+        "sha256": "7ea4cc8d66f1349177e8d545136d45b5e2a051dce7a77c023a537c81f57ebf58",
+        "crc32": "5b82b367",
+        "obsolete_name": true
+      },
+      {
+        "entry": "STL/05_cassette_SD.stl",
+        "bytes": 22884,
+        "sha256": "baeb3b5c05273264b95c4628ba083e7ebd0c6e81bcedd69bb00f47fafc264bd6",
+        "crc32": "d26a3dc0",
+        "obsolete_name": true
+      },
+      {
+        "entry": "STL/06_cassette_RS485.stl",
+        "bytes": 1684,
+        "sha256": "8a75661848b70e9d23f495894c1f8e147079f68f518dc541676aeff666abb7fe",
+        "crc32": "34b338b5",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/07_cadre_vitre.stl",
+        "bytes": 44084,
+        "sha256": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+        "crc32": "176e9750",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/08_trappe_USER.stl",
+        "bytes": 21884,
+        "sha256": "1325cf9d6967f87cafa62f03fb41c7f3390c845915f2335781b9e78251618a61",
+        "crc32": "e6ed6d5c",
+        "obsolete_name": true
+      },
+      {
+        "entry": "STL/09_trappe_SD.stl",
+        "bytes": 21884,
+        "sha256": "68360a8588b81cfd06dfff89241302aa23e132fbc91a4d4d6f82fc3d2ab8706d",
+        "crc32": "9accbc80",
+        "obsolete_name": true
+      },
+      {
+        "entry": "STL/10_serre_nappe.stl",
+        "bytes": 45084,
+        "sha256": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+        "crc32": "b3b3806e",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/11_serre_cable_RS485.stl",
+        "bytes": 63884,
+        "sha256": "8387f16bd2659225e859b38b732ceaac66d6f297a3a34967dd4348f520684e9e",
+        "crc32": "21880587",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/12_trappe_outil_RS485.stl",
+        "bytes": 43084,
+        "sha256": "53e10fffaace10440a46423937a8a6c33a76fd0f1fd22e35f050d73f528b87bb",
+        "crc32": "a0906ece",
+        "obsolete_name": true
+      },
+      {
+        "entry": "STL/13_D126.stl",
+        "bytes": 21484,
+        "sha256": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+        "crc32": "ab7ce7e5",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/15_retenue_Nucleo.stl",
+        "bytes": 72284,
+        "sha256": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505",
+        "crc32": "82220ec1",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/20_appui_H08.stl",
+        "bytes": 43484,
+        "sha256": "76b97adc0434408cbaab2233783ac0b898ef1263c05732da7fc860d8ed0f6820",
+        "crc32": "1863d47f",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/21_appui_H10.stl",
+        "bytes": 43484,
+        "sha256": "1bd212bbd0e47e9d687a6e7b86426810439b35ab27c05eb5566a27294c92bcf4",
+        "crc32": "cd68a7f5",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/22_appui_H12.stl",
+        "bytes": 43484,
+        "sha256": "2303588bc2ab110c5cc343a364ba6d950c435eef877c16191a1ef850fd81e208",
+        "crc32": "85f17a61",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/23_cale_0p5.stl",
+        "bytes": 43484,
+        "sha256": "bbb0e66119e636c37f555dd52b77b02df04338fd67281179d3de02bdd456ab7f",
+        "crc32": "5186f060",
+        "obsolete_name": true
+      },
+      {
+        "entry": "STL/24_cale_1.stl",
+        "bytes": 43484,
+        "sha256": "27a34efee99b49059c276971cb020a284c6a06d9769b52c54b5db4a14820316f",
+        "crc32": "02d42b07",
+        "obsolete_name": true
+      },
+      {
+        "entry": "STL/25_cale_2.stl",
+        "bytes": 43484,
+        "sha256": "aa6a778ba4dbb49dc97dcbad956528b015736848b07d8c479ffa888f677f99aa",
+        "crc32": "31a2e23c",
+        "obsolete_name": true
+      },
+      {
+        "entry": "STL/30_etrier_MKI.stl",
+        "bytes": 209784,
+        "sha256": "501beaba2d7154ea5cabef73a3dac7840406e61e5ae3a29f0c5c5b19feb031c7",
+        "crc32": "7fb9bdf4",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/31_etrier_Click.stl",
+        "bytes": 203884,
+        "sha256": "b9b898ca42098f4eddcefdfc0452b8baf9cd599d9be146f91310d6ac9a557407",
+        "crc32": "f1fd55b8",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/32_patin_MKI_avant.stl",
+        "bytes": 34984,
+        "sha256": "3eb9480ff066e1c08ed5ae8ab5fb3fb5a2442d4e724abb6bb2177effc9cf0e4f",
+        "crc32": "d446a183",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/33_patin_MKI_arriere.stl",
+        "bytes": 24284,
+        "sha256": "ad074e8bff5cec511d20d4a1fd63757c6eec7bcba68e48efc5c5951303f11e79",
+        "crc32": "db622092",
+        "obsolete_name": false
+      },
+      {
+        "entry": "STL/34_patin_Click.stl",
+        "bytes": 22884,
+        "sha256": "8729ef2cc6d64b7b3948046f49aaaa15482f70e9a143ed654763973c5f5f2d8c",
+        "crc32": "e4b47502",
+        "obsolete_name": false
+      }
+    ],
+    "real_extraction": "/home/lolo/dev/msm/reports/TR2-shield-v27-pack-morvan-pdf-20261106/ancien_V26",
+    "CRC_full_readback": true
+  },
+  "V27_technical": {
+    "path": "V2_7_KISS_ABS/pack_Morvan/TR2_V27_ABS_POUR_MORVAN_2_PROTOTYPES.zip",
+    "sha256": "7f21033ffeb50732b3223037159ed1aecf0052235d98e4e7c62ca02c599bbb8d",
+    "entries": [
+      {
+        "entry": "README.md",
+        "bytes": 4948,
+        "sha256": "fa005fa26719ce20cc8ed8d617f6471b05554788361269d0b1a521d0f2f594ae",
+        "crc32": "1148eb39",
+        "obsolete_name": false
+      },
+      {
+        "entry": "IMPRIMEUR.md",
+        "bytes": 3268,
+        "sha256": "c729e87facb80baa47bda6dec780b151c3d0931fc2551a1a2dc7db421b17e575",
+        "crc32": "7b61c428",
+        "obsolete_name": false
+      },
+      {
+        "entry": "MONTAGE_A_FROID.md",
+        "bytes": 6683,
+        "sha256": "01c3211f49e6cd898397a05df5e2423508c54c808083ccaad767ee0a2e2ebde7",
+        "crc32": "fb56f7d7",
+        "obsolete_name": false
+      },
+      {
+        "entry": "QUANTITES.csv",
+        "bytes": 3200,
+        "sha256": "2d0b435c2378e15742f0e3bc8478861163c5542e7674edefdcf0dfc14aacc061",
+        "crc32": "0d858ee8",
+        "obsolete_name": false
+      },
+      {
+        "entry": "BOM_QUINCAILLERIE.csv",
+        "bytes": 1110,
+        "sha256": "dae1f9fcdcf16f7541bab75ea0a4357b5ac71457c91e3d41509d02e04a64a50c",
+        "crc32": "ad64020a",
+        "obsolete_name": false
+      },
+      {
+        "entry": "SOURCES.md",
+        "bytes": 4842,
+        "sha256": "1dbe5fd314c63ac362ed8c5bb7f00cdac01c674e2dec9f54a8444844bfa455a7",
+        "crc32": "dca76e00",
+        "obsolete_name": false
+      },
+      {
+        "entry": "cad/eclate-un-prototype.step",
+        "bytes": 13391718,
+        "sha256": "e2b9ea32cf9162aa86b77f7612938c1ee2a34ff9d9a579af8e03764c37eb7360",
+        "crc32": "6539f1c6",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/01_base_ABS.stl",
+        "bytes": 653684,
+        "sha256": "b6ee0c219e2d266557fd145284d739e363a925856d2b068ee7c43e87835f5296",
+        "crc32": "877ebc8b",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/02_couvercle_ARNACO_USER.stl",
+        "bytes": 304284,
+        "sha256": "85c59c11a3460d60f4382fb838f12b055a06de659450e5ee20be53eadf5f8fcc",
+        "crc32": "7ea99e36",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/03_facade_STLINK_LED_nappe.stl",
+        "bytes": 89484,
+        "sha256": "adace7ca4cc9c1381868512379abcfc6870942b6c5caa6f647fdb5658edab3cd",
+        "crc32": "f31db800",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/06_passe_cable_RS485.stl",
+        "bytes": 11884,
+        "sha256": "3e10d6438afca7844e945c08e80e010840b1ae984afa8dd31e6b0102708d36fd",
+        "crc32": "bf84a3c2",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/07_cadre_vitre.stl",
+        "bytes": 44084,
+        "sha256": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+        "crc32": "176e9750",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/10_serre_nappe.stl",
+        "bytes": 45084,
+        "sha256": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+        "crc32": "b3b3806e",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/11_serre_cable_RS485.stl",
+        "bytes": 65884,
+        "sha256": "e312d4d3969dd0b14e9452801ed5af9c43227f70bd2529f7c0bb0a2ac1887858",
+        "crc32": "d9fb586b",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/13_D126.stl",
+        "bytes": 21484,
+        "sha256": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+        "crc32": "ab7ce7e5",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/15_retenue_Nucleo.stl",
+        "bytes": 72284,
+        "sha256": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505",
+        "crc32": "82220ec1",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/20_selle_FRAM_H10p6.stl",
+        "bytes": 120484,
+        "sha256": "0edcf53c043a39f866043079645236b9e95250e7f69dafcab388a00005807fb4",
+        "crc32": "f8bc4233",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/20_selle_FRAM_H11p2.stl",
+        "bytes": 141484,
+        "sha256": "b0b61d5cdd160be1174980d0b04b30f38d50fbefae6057fd5c0cc215f789fb8b",
+        "crc32": "29b4204c",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/20_selle_FRAM_H11p8.stl",
+        "bytes": 162484,
+        "sha256": "a939b3fdd3d0594d105007e57b585ef576dad4673723d055d3b3467f7d0cd1f4",
+        "crc32": "aaf5a728",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/20_selle_SD_H10p6.stl",
+        "bytes": 120484,
+        "sha256": "06595a34c63beef51e2d7d60decc2a597cdb57ae99018e73210cad5dabb85237",
+        "crc32": "4fb8d91b",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/20_selle_SD_H11p2.stl",
+        "bytes": 141484,
+        "sha256": "4c973e439533c8d612a05145bd36826807a86da4bf884b804048087c3f08027c",
+        "crc32": "b9a5ceb1",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/20_selle_SD_H11p8.stl",
+        "bytes": 162484,
+        "sha256": "9eb273344ae9d9ece98e77022571c44d26cd6ce81fe8ec8a67079cfea4c60243",
+        "crc32": "30f7f08a",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/30_etrier_MKI_ABS.stl",
+        "bytes": 210684,
+        "sha256": "81babfe72735a7db6001757e5fb4d6d407f3647dbfe3ba192fdeb053ca07727a",
+        "crc32": "e9eee014",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/31_etrier_Click_ABS.stl",
+        "bytes": 205084,
+        "sha256": "0b2adf3e789e0a4633cf9815ccd8cf3165a2ba57c7a3644772dc2cce605e11db",
+        "crc32": "5a1db6c0",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/32_patin_MKI_avant_ABS.stl",
+        "bytes": 34784,
+        "sha256": "2688205a362b24d0cdb11ad29c5fad638779ffc3eafd0da3f1e9ccab4afad328",
+        "crc32": "1b6a2678",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/33_patin_MKI_arriere_ABS.stl",
+        "bytes": 24284,
+        "sha256": "306a8271f8f0045821712e35433e24db926a63f58f00bf731f00f581d86c2b49",
+        "crc32": "481f6c9c",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/34_patin_Click_ABS.stl",
+        "bytes": 22884,
+        "sha256": "acbb97f56da0952c53e4f1153ad8f5bfb9061f46a2aa419e6addf59f22a39b90",
+        "crc32": "6cc1ab66",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/40_cage_USER_captive.stl",
+        "bytes": 358184,
+        "sha256": "b4e30b7cf04ad01ef164694bbd38e53f54c039c597f5767de07d3449440bd448",
+        "crc32": "381b9928",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/41_USER_pointe_Z10p4.stl",
+        "bytes": 146884,
+        "sha256": "3ed677bcbd927eeddc9503202a330201ceb8863e14bb117a2a7675acb1f31486",
+        "crc32": "93ea80a4",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/41_USER_pointe_Z8p8.stl",
+        "bytes": 104884,
+        "sha256": "78ee3544d722c50c693b0d98dcc675bb298d0563b7f538672868015440646c0e",
+        "crc32": "0238b783",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/41_USER_pointe_Z9p6.stl",
+        "bytes": 125884,
+        "sha256": "ed637917406bdd24953b5e02baa5f81fa1ba89d5c5426e418e5b3705515100d7",
+        "crc32": "d2748a59",
+        "obsolete_name": false
+      },
+      {
+        "entry": "stl/50_coupon_ABS.stl",
+        "bytes": 88884,
+        "sha256": "abbeaddcdae196fce2923c3d73dfca214b1f10d71c201b5fde93fa39d1d787a3",
+        "crc32": "83e18c5f",
+        "obsolete_name": false
+      },
+      {
+        "entry": "vues/BOITIER_FERME.png",
+        "bytes": 124574,
+        "sha256": "caa60fd560261fe6f15dd99261c2d447b6fb4c5051856fa2857747e8b4e47450",
+        "crc32": "abab312c",
+        "obsolete_name": false
+      },
+      {
+        "entry": "vues/COUPE_USER.png",
+        "bytes": 152459,
+        "sha256": "46eebf57bb97a79d645d1ed779bd69a002d6229aa48d96202c2c5f0638af07b5",
+        "crc32": "8f4b8dda",
+        "obsolete_name": false
+      },
+      {
+        "entry": "vues/IMPLANTATION.png",
+        "bytes": 281939,
+        "sha256": "783fc0fa378ef5c0346f97ca6fa4e665bb754823b89260019a53b8f199ca9921",
+        "crc32": "b0b37eee",
+        "obsolete_name": false
+      },
+      {
+        "entry": "vues/PLAN_MONTAGE_V27.pdf",
+        "bytes": 343529,
+        "sha256": "97e241c58ed04497d96493dd8abb91ba831ef556e3f3467055f1fb5124601eab",
+        "crc32": "6022e6cd",
+        "obsolete_name": false
+      },
+      {
+        "entry": "vues/VUE_ECLATEE_V27.png",
+        "bytes": 384211,
+        "sha256": "423d6b98c77e23fa3ed4a30f41c52e58fe3c2f47bc10758555bf96ac2d406e45",
+        "crc32": "5d8d8883",
+        "obsolete_name": false
+      },
+      {
+        "entry": "MANIFESTE.json",
+        "bytes": 6844,
+        "sha256": "39a246e499e656bd7aa9c3204bf20c96fe917cadd0bc7396414e21f47dd39944",
+        "crc32": "35f63170",
+        "obsolete_name": false
+      }
+    ],
+    "real_extraction": "/home/lolo/dev/msm/reports/TR2-shield-v27-pack-morvan-pdf-20261106/technique_V27",
+    "CRC_full_readback": true
+  },
+  "V26_obsolete_entries": [
+    "STL/04_cassette_sud.stl",
+    "STL/05_cassette_SD.stl",
+    "STL/08_trappe_USER.stl",
+    "STL/09_trappe_SD.stl",
+    "STL/12_trappe_outil_RS485.stl",
+    "STL/23_cale_0p5.stl",
+    "STL/24_cale_1.stl",
+    "STL/25_cale_2.stl"
+  ],
+  "V27_obsolete_entries": [],
+  "sources_frozen_V27": {
+    "01_base_ABS.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Caisse",
+      "source": "V2_7_KISS_ABS/stl/01_base_ABS.stl",
+      "sha256": "b6ee0c219e2d266557fd145284d739e363a925856d2b068ee7c43e87835f5296",
+      "bytes": 653684,
+      "matches_old_V27_zip": true
+    },
+    "02_couvercle_ARNACO_USER.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Couvercle",
+      "source": "V2_7_KISS_ABS/stl/02_couvercle_ARNACO_USER.stl",
+      "sha256": "85c59c11a3460d60f4382fb838f12b055a06de659450e5ee20be53eadf5f8fcc",
+      "bytes": 304284,
+      "matches_old_V27_zip": true
+    },
+    "03_facade_STLINK_LED_nappe.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Façade avec fenêtre",
+      "source": "V2_7_KISS_ABS/stl/03_facade_STLINK_LED_nappe.stl",
+      "sha256": "adace7ca4cc9c1381868512379abcfc6870942b6c5caa6f647fdb5658edab3cd",
+      "bytes": 89484,
+      "matches_old_V27_zip": true
+    },
+    "06_passe_cable_RS485.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Passage de câble",
+      "source": "V2_7_KISS_ABS/stl/06_passe_cable_RS485.stl",
+      "sha256": "3e10d6438afca7844e945c08e80e010840b1ae984afa8dd31e6b0102708d36fd",
+      "bytes": 11884,
+      "matches_old_V27_zip": true
+    },
+    "07_cadre_vitre.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Cadre de fenêtre",
+      "source": "V2_7_KISS_ABS/stl/07_cadre_vitre.stl",
+      "sha256": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+      "bytes": 44084,
+      "matches_old_V27_zip": true
+    },
+    "10_serre_nappe.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Bride de nappe plate",
+      "source": "V2_7_KISS_ABS/stl/10_serre_nappe.stl",
+      "sha256": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+      "bytes": 45084,
+      "matches_old_V27_zip": true
+    },
+    "11_serre_cable_RS485.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Bride de câble rond",
+      "source": "V2_7_KISS_ABS/stl/11_serre_cable_RS485.stl",
+      "sha256": "e312d4d3969dd0b14e9452801ed5af9c43227f70bd2529f7c0bb0a2ac1887858",
+      "bytes": 65884,
+      "matches_old_V27_zip": true
+    },
+    "13_D126.stl": {
+      "quantity_two_prototypes": 8,
+      "role": "6 utiles + 2 en réserve",
+      "source": "V2_7_KISS_ABS/stl/13_D126.stl",
+      "sha256": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+      "bytes": 21484,
+      "matches_old_V27_zip": true
+    },
+    "15_retenue_Nucleo.stl": {
+      "quantity_two_prototypes": 6,
+      "role": "Retenue de carte",
+      "source": "V2_7_KISS_ABS/stl/15_retenue_Nucleo.stl",
+      "sha256": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505",
+      "bytes": 72284,
+      "matches_old_V27_zip": true
+    },
+    "20_selle_FRAM_H10p6.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Support mémoire 10,6",
+      "source": "V2_7_KISS_ABS/stl/20_selle_FRAM_H10p6.stl",
+      "sha256": "0edcf53c043a39f866043079645236b9e95250e7f69dafcab388a00005807fb4",
+      "bytes": 120484,
+      "matches_old_V27_zip": true
+    },
+    "20_selle_FRAM_H11p2.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Support mémoire 11,2",
+      "source": "V2_7_KISS_ABS/stl/20_selle_FRAM_H11p2.stl",
+      "sha256": "b0b61d5cdd160be1174980d0b04b30f38d50fbefae6057fd5c0cc215f789fb8b",
+      "bytes": 141484,
+      "matches_old_V27_zip": true
+    },
+    "20_selle_FRAM_H11p8.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Support mémoire 11,8",
+      "source": "V2_7_KISS_ABS/stl/20_selle_FRAM_H11p8.stl",
+      "sha256": "a939b3fdd3d0594d105007e57b585ef576dad4673723d055d3b3467f7d0cd1f4",
+      "bytes": 162484,
+      "matches_old_V27_zip": true
+    },
+    "20_selle_SD_H10p6.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Support lecteur 10,6",
+      "source": "V2_7_KISS_ABS/stl/20_selle_SD_H10p6.stl",
+      "sha256": "06595a34c63beef51e2d7d60decc2a597cdb57ae99018e73210cad5dabb85237",
+      "bytes": 120484,
+      "matches_old_V27_zip": true
+    },
+    "20_selle_SD_H11p2.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Support lecteur 11,2",
+      "source": "V2_7_KISS_ABS/stl/20_selle_SD_H11p2.stl",
+      "sha256": "4c973e439533c8d612a05145bd36826807a86da4bf884b804048087c3f08027c",
+      "bytes": 141484,
+      "matches_old_V27_zip": true
+    },
+    "20_selle_SD_H11p8.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Support lecteur 11,8",
+      "source": "V2_7_KISS_ABS/stl/20_selle_SD_H11p8.stl",
+      "sha256": "9eb273344ae9d9ece98e77022571c44d26cd6ce81fe8ec8a67079cfea4c60243",
+      "bytes": 162484,
+      "matches_old_V27_zip": true
+    },
+    "30_etrier_MKI_ABS.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Retenue du capteur",
+      "source": "V2_7_KISS_ABS/stl/30_etrier_MKI_ABS.stl",
+      "sha256": "81babfe72735a7db6001757e5fb4d6d407f3647dbfe3ba192fdeb053ca07727a",
+      "bytes": 210684,
+      "matches_old_V27_zip": true
+    },
+    "31_etrier_Click_ABS.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Retenue du module",
+      "source": "V2_7_KISS_ABS/stl/31_etrier_Click_ABS.stl",
+      "sha256": "0b2adf3e789e0a4633cf9815ccd8cf3165a2ba57c7a3644772dc2cce605e11db",
+      "bytes": 205084,
+      "matches_old_V27_zip": true
+    },
+    "32_patin_MKI_avant_ABS.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Petit patin avant",
+      "source": "V2_7_KISS_ABS/stl/32_patin_MKI_avant_ABS.stl",
+      "sha256": "2688205a362b24d0cdb11ad29c5fad638779ffc3eafd0da3f1e9ccab4afad328",
+      "bytes": 34784,
+      "matches_old_V27_zip": true
+    },
+    "33_patin_MKI_arriere_ABS.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Petit patin arrière",
+      "source": "V2_7_KISS_ABS/stl/33_patin_MKI_arriere_ABS.stl",
+      "sha256": "306a8271f8f0045821712e35433e24db926a63f58f00bf731f00f581d86c2b49",
+      "bytes": 24284,
+      "matches_old_V27_zip": true
+    },
+    "34_patin_Click_ABS.stl": {
+      "quantity_two_prototypes": 4,
+      "role": "Petit patin de retenue",
+      "source": "V2_7_KISS_ABS/stl/34_patin_Click_ABS.stl",
+      "sha256": "acbb97f56da0952c53e4f1153ad8f5bfb9061f46a2aa419e6addf59f22a39b90",
+      "bytes": 22884,
+      "matches_old_V27_zip": true
+    },
+    "40_cage_USER_captive.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Guide du poussoir",
+      "source": "V2_7_KISS_ABS/stl/40_cage_USER_captive.stl",
+      "sha256": "b4e30b7cf04ad01ef164694bbd38e53f54c039c597f5767de07d3449440bd448",
+      "bytes": 358184,
+      "matches_old_V27_zip": true
+    },
+    "41_USER_pointe_Z8p8.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Poussoir, version 1",
+      "source": "V2_7_KISS_ABS/stl/41_USER_pointe_Z8p8.stl",
+      "sha256": "78ee3544d722c50c693b0d98dcc675bb298d0563b7f538672868015440646c0e",
+      "bytes": 104884,
+      "matches_old_V27_zip": true
+    },
+    "41_USER_pointe_Z9p6.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Poussoir, version 2",
+      "source": "V2_7_KISS_ABS/stl/41_USER_pointe_Z9p6.stl",
+      "sha256": "ed637917406bdd24953b5e02baa5f81fa1ba89d5c5426e418e5b3705515100d7",
+      "bytes": 125884,
+      "matches_old_V27_zip": true
+    },
+    "41_USER_pointe_Z10p4.stl": {
+      "quantity_two_prototypes": 2,
+      "role": "Poussoir, version 3",
+      "source": "V2_7_KISS_ABS/stl/41_USER_pointe_Z10p4.stl",
+      "sha256": "3ed677bcbd927eeddc9503202a330201ceb8863e14bb117a2a7675acb1f31486",
+      "bytes": 146884,
+      "matches_old_V27_zip": true
+    },
+    "50_coupon_ABS.stl": {
+      "quantity_two_prototypes": 1,
+      "role": "Petit échantillon ABS",
+      "source": "V2_7_KISS_ABS/stl/50_coupon_ABS.stl",
+      "sha256": "abbeaddcdae196fce2923c3d73dfca214b1f10d71c201b5fde93fa39d1d787a3",
+      "bytes": 88884,
+      "matches_old_V27_zip": true
+    }
+  },
+  "old_V27_contains_trappe_USER": false,
+  "old_V27_contains_cale": false,
+  "conclusion": "The reported names are really present in V26. Binary V27 contains none; the locally consulted user download cannot be identified from repository evidence alone.",
+  "passed": true
+}

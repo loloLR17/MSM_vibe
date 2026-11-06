@@ -1,0 +1,143 @@
+{
+  "reviewer": "Codex, inspection réelle via view_image de chacune des cinq pages finales",
+  "pages": [
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 1,
+      "render": "rendus_pdf/01_LIRE_EN_PREMIER_MORVAN-page-1.png",
+      "render_sha256": "ba18084b1c36eefd313319bac2087684341a08213b36168bb012f1d23064dff0",
+      "observed": "Texte lisible, accents corrects, aucune coupure ou superposition; légende et repères de l’éclaté lisibles.",
+      "passed_visual": true
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 2,
+      "render": "rendus_pdf/01_LIRE_EN_PREMIER_MORVAN-page-2.png",
+      "render_sha256": "ec9cdb70dbebb35b5a3dceab216fb03f85b58b14ea038f3674b7e7c271490023",
+      "observed": "Texte lisible, accents corrects, aucune coupure ou superposition; légende et repères de l’éclaté lisibles.",
+      "passed_visual": true
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 3,
+      "render": "rendus_pdf/01_LIRE_EN_PREMIER_MORVAN-page-3.png",
+      "render_sha256": "d5eac263aaf151e6551aef67092fc4d437e8dd0a91fea10a593f5fc08dc60b50",
+      "observed": "Texte lisible, accents corrects, aucune coupure ou superposition; légende et repères de l’éclaté lisibles.",
+      "passed_visual": true
+    },
+    {
+      "PDF": "02_VUES_DES_PIECES.pdf",
+      "page": 1,
+      "render": "rendus_pdf/02_VUES_DES_PIECES-page-1.png",
+      "render_sha256": "7205a4e51b9e4ea664ff983e0dcd59e28bd992c0a843d222617b614eb2aeff28",
+      "observed": "Texte lisible, accents corrects, aucune coupure ou superposition; légende et repères de l’éclaté lisibles.",
+      "passed_visual": true
+    },
+    {
+      "PDF": "02_VUES_DES_PIECES.pdf",
+      "page": 2,
+      "render": "rendus_pdf/02_VUES_DES_PIECES-page-2.png",
+      "render_sha256": "6dd4465f95e81669105294c5d3ad42fb890826a2046b636f8b75d89173d442cc",
+      "observed": "Texte lisible, accents corrects, aucune coupure ou superposition; légende et repères de l’éclaté lisibles.",
+      "passed_visual": true
+    }
+  ],
+  "fonts_embedded": [
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 1,
+      "font": "MCOAGI+DejaVu Sans Book",
+      "embedded_bytes": 66122
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 1,
+      "font": "IXWQWZ+DejaVu Sans Bold",
+      "embedded_bytes": 66156
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 1,
+      "font": "YDRPAJ+DejaVu Sans Mono Book",
+      "embedded_bytes": 31898
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 2,
+      "font": "MCOAGI+DejaVu Sans Book",
+      "embedded_bytes": 66122
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 2,
+      "font": "IXWQWZ+DejaVu Sans Bold",
+      "embedded_bytes": 66156
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 2,
+      "font": "YDRPAJ+DejaVu Sans Mono Book",
+      "embedded_bytes": 31898
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 3,
+      "font": "MCOAGI+DejaVu Sans Book",
+      "embedded_bytes": 66122
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 3,
+      "font": "IXWQWZ+DejaVu Sans Bold",
+      "embedded_bytes": 66156
+    },
+    {
+      "PDF": "01_LIRE_EN_PREMIER_MORVAN.pdf",
+      "page": 3,
+      "font": "YDRPAJ+DejaVu Sans Mono Book",
+      "embedded_bytes": 31898
+    },
+    {
+      "PDF": "02_VUES_DES_PIECES.pdf",
+      "page": 1,
+      "font": "MTISGS+DejaVu Sans Book",
+      "embedded_bytes": 62686
+    },
+    {
+      "PDF": "02_VUES_DES_PIECES.pdf",
+      "page": 1,
+      "font": "FTFLHL+DejaVu Sans Bold",
+      "embedded_bytes": 64440
+    },
+    {
+      "PDF": "02_VUES_DES_PIECES.pdf",
+      "page": 1,
+      "font": "DejaVu Sans Mono Book",
+      "embedded_bytes": 343140
+    },
+    {
+      "PDF": "02_VUES_DES_PIECES.pdf",
+      "page": 2,
+      "font": "MTISGS+DejaVu Sans Book",
+      "embedded_bytes": 62686
+    },
+    {
+      "PDF": "02_VUES_DES_PIECES.pdf",
+      "page": 2,
+      "font": "FTFLHL+DejaVu Sans Bold",
+      "embedded_bytes": 64440
+    },
+    {
+      "PDF": "02_VUES_DES_PIECES.pdf",
+      "page": 2,
+      "font": "DejaVu Sans Mono Book",
+      "embedded_bytes": 343140
+    }
+  ],
+  "five_pages_inspected": true,
+  "table_numbers_readable": true,
+  "circles_2_and_3_separated": true,
+  "print_only_no_sort_or_assembly": true,
+  "physical_qualification": false,
+  "passed": true
+}

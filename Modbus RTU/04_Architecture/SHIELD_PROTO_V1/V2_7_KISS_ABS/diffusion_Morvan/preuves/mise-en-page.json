@@ -1,0 +1,1739 @@
+[
+  {
+    "page": 1,
+    "text": "TR2 V2.7 ABS — dossier d'impression Morvan — 2 prototypes",
+    "fontsize": 12,
+    "font": "B",
+    "x": 38,
+    "y": 37,
+    "width": 414.076171875
+  },
+  {
+    "page": 1,
+    "text": "01 — Lire en premier",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 64,
+    "width": 129.45947265625
+  },
+  {
+    "page": 1,
+    "text": "V2.7 • aucun ancien ZIP V2.6 • impression prototype ABS",
+    "fontsize": 8.5,
+    "font": "R",
+    "x": 38,
+    "y": 815,
+    "width": 245.97705078125
+  },
+  {
+    "page": 1,
+    "text": "1/3",
+    "fontsize": 9,
+    "font": "B",
+    "x": 510,
+    "y": 815,
+    "width": 15.8115234375
+  },
+  {
+    "page": 1,
+    "text": "Imprimer seulement.",
+    "fontsize": 22,
+    "font": "B",
+    "x": 38,
+    "y": 110,
+    "width": 260.1220703125
+  },
+  {
+    "page": 1,
+    "text": "Aucune électronique à monter.",
+    "fontsize": 22,
+    "font": "B",
+    "x": 38,
+    "y": 140,
+    "width": 384.5810546875
+  },
+  {
+    "page": 1,
+    "text": "25 fichiers STL → 61 pièces au total",
+    "fontsize": 18,
+    "font": "B",
+    "x": 52,
+    "y": 213,
+    "width": 358.9189453125
+  },
+  {
+    "page": 1,
+    "text": "Les quantités incluent déjà les DEUX prototypes.",
+    "fontsize": 12,
+    "font": "B",
+    "x": 52,
+    "y": 235,
+    "width": 331.6875
+  },
+  {
+    "page": 1,
+    "text": "Ouvrir les 25 fichiers du dossier STL et suivre les nombres des pages 2 et 3. Un",
+    "fontsize": 12,
+    "font": "R",
+    "x": 38,
+    "y": 278,
+    "width": 477.779296875
+  },
+  {
+    "page": 1,
+    "text": "fichier contient une seule pièce : imprimer le nombre indiqué, sans multiplier le lot",
+    "fontsize": 12,
+    "font": "R",
+    "x": 38,
+    "y": 294.56,
+    "width": 498.52734375
+  },
+  {
+    "page": 1,
+    "text": "par deux.",
+    "fontsize": 12,
+    "font": "R",
+    "x": 38,
+    "y": 311.12,
+    "width": 57.240234375
+  },
+  {
+    "page": 1,
+    "text": "Réglages d’impression",
+    "fontsize": 11,
+    "font": "B",
+    "x": 47,
+    "y": 350.68,
+    "width": 141.00732421875
+  },
+  {
+    "page": 1,
+    "text": "Matière",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 374.68,
+    "width": 47.74365234375
+  },
+  {
+    "page": 1,
+    "text": "ABS non chargé, non conducteur. Couleur au choix.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 389.86,
+    "width": 284.453125
+  },
+  {
+    "page": 1,
+    "text": "Taille et échelle",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 409.04,
+    "width": 98.35009765625
+  },
+  {
+    "page": 1,
+    "text": "Fichiers en millimètres, échelle 100 %. Caisse : 158 × 166 × 61 mm. Vérifier le plateau avec",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 424.22,
+    "width": 511.607421875
+  },
+  {
+    "page": 1,
+    "text": "la bordure d’adhésion.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 439.40000000000003,
+    "width": 124.19580078125
+  },
+  {
+    "page": 1,
+    "text": "Orientation",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 458.58000000000004,
+    "width": 70.93603515625
+  },
+  {
+    "page": 1,
+    "text": "Conserver la position déjà prévue dans les STL ; ne pas redresser automatiquement toutes",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 473.76000000000005,
+    "width": 502.0146484375
+  },
+  {
+    "page": 1,
+    "text": "les pièces.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 488.94000000000005,
+    "width": 57.900390625
+  },
+  {
+    "page": 1,
+    "text": "Profil",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 508.12000000000006,
+    "width": 33.37060546875
+  },
+  {
+    "page": 1,
+    "text": "Profil ABS éprouvé de la machine, enceinte et adhésion adaptées. Le retrait des grandes",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 523.3000000000001,
+    "width": 489.47314453125
+  },
+  {
+    "page": 1,
+    "text": "pièces peut demander une reprise locale par le propriétaire.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 538.48,
+    "width": 332.79833984375
+  },
+  {
+    "page": 1,
+    "text": "Couches et densité",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 557.66,
+    "width": 118.400390625
+  },
+  {
+    "page": 1,
+    "text": "Caisses/grands volumes : 0,15–0,20 mm, 4 périmètres, 25–35 %. Petites pièces : 0,10–0,15",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 572.8399999999999,
+    "width": 503.8408203125
+  },
+  {
+    "page": 1,
+    "text": "mm ; selles, cage, patins et poussoirs : 100 %. D126 : 0,10 mm et 100 %.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 588.0199999999999,
+    "width": 406.55419921875
+  },
+  {
+    "page": 1,
+    "text": "Finition",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 607.1999999999998,
+    "width": 47.30322265625
+  },
+  {
+    "page": 1,
+    "text": "Supports locaux retirables sous les débords des poussoirs et si nécessaire dans les poches.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 622.3799999999998,
+    "width": 503.9482421875
+  },
+  {
+    "page": 1,
+    "text": "Nettoyage et léger ébavurage ; pas de nouvel outillage imposé.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 637.5599999999997,
+    "width": 352.0537109375
+  },
+  {
+    "page": 1,
+    "text": "Pièces en vrac acceptées : pas de tri, d’étiquetage ni d’assemblage demandé. Aucun achat",
+    "fontsize": 10,
+    "font": "B",
+    "x": 38,
+    "y": 778,
+    "width": 514.4873046875
+  },
+  {
+    "page": 1,
+    "text": "d’accessoires. Le propriétaire fera le montage et les réglages.",
+    "fontsize": 10,
+    "font": "B",
+    "x": 38,
+    "y": 791,
+    "width": 352.3095703125
+  },
+  {
+    "page": 2,
+    "text": "TR2 V2.7 ABS — dossier d'impression Morvan — 2 prototypes",
+    "fontsize": 12,
+    "font": "B",
+    "x": 38,
+    "y": 37,
+    "width": 414.076171875
+  },
+  {
+    "page": 2,
+    "text": "01 — Quantités : pièces courantes et réserves",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 64,
+    "width": 285.9462890625
+  },
+  {
+    "page": 2,
+    "text": "V2.7 • aucun ancien ZIP V2.6 • impression prototype ABS",
+    "fontsize": 8.5,
+    "font": "R",
+    "x": 38,
+    "y": 815,
+    "width": 245.97705078125
+  },
+  {
+    "page": 2,
+    "text": "2/3",
+    "fontsize": 9,
+    "font": "B",
+    "x": 510,
+    "y": 815,
+    "width": 15.8115234375
+  },
+  {
+    "page": 2,
+    "text": "POUR LES DEUX PROTOTYPES ENSEMBLE",
+    "fontsize": 13,
+    "font": "B",
+    "x": 38,
+    "y": 109,
+    "width": 300.599609375
+  },
+  {
+    "page": 2,
+    "text": "Chaque nom apparaît une seule fois dans la liste complète des pages 2 et 3.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 133.94,
+    "width": 422.74267578125
+  },
+  {
+    "page": 2,
+    "text": "Pièces courantes — 14 fichiers, 34 exemplaires",
+    "fontsize": 11,
+    "font": "B",
+    "x": 47,
+    "y": 164.12,
+    "width": 292.3056640625
+  },
+  {
+    "page": 2,
+    "text": "Fichier exact dans le dossier STL",
+    "fontsize": 10,
+    "font": "B",
+    "x": 44,
+    "y": 188.12,
+    "width": 185.2001953125
+  },
+  {
+    "page": 2,
+    "text": "Copies",
+    "fontsize": 10,
+    "font": "B",
+    "x": 363,
+    "y": 188.12,
+    "width": 37.529296875
+  },
+  {
+    "page": 2,
+    "text": "Reconnaître",
+    "fontsize": 10,
+    "font": "B",
+    "x": 418,
+    "y": 188.12,
+    "width": 68.1884765625
+  },
+  {
+    "page": 2,
+    "text": "01_base_ABS.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 207.12,
+    "width": 84.88916015625
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 207.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Caisse",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 207.12,
+    "width": 30.837890625
+  },
+  {
+    "page": 2,
+    "text": "02_couvercle_ARNACO_USER.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 236.12,
+    "width": 158.45976562500002
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 236.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Couvercle",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 236.12,
+    "width": 47.54638671875
+  },
+  {
+    "page": 2,
+    "text": "03_facade_STLINK_LED_nappe.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 265.12,
+    "width": 169.7783203125
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 265.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Façade avec fenêtre",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 265.12,
+    "width": 97.286865234375
+  },
+  {
+    "page": 2,
+    "text": "06_passe_cable_RS485.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 294.12,
+    "width": 135.82265625
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 294.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Passage de câble",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 294.12,
+    "width": 82.619384765625
+  },
+  {
+    "page": 2,
+    "text": "07_cadre_vitre.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 323.12,
+    "width": 101.8669921875
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 323.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Cadre de fenêtre",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 323.12,
+    "width": 80.680419921875
+  },
+  {
+    "page": 2,
+    "text": "10_serre_nappe.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 352.12,
+    "width": 101.8669921875
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 352.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Bride de nappe plate",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 352.12,
+    "width": 99.680419921875
+  },
+  {
+    "page": 2,
+    "text": "11_serre_cable_RS485.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 381.12,
+    "width": 135.82265625
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 381.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Bride de câble rond",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 381.12,
+    "width": 93.2001953125
+  },
+  {
+    "page": 2,
+    "text": "15_retenue_Nucleo.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 410.12,
+    "width": 118.84482421875
+  },
+  {
+    "page": 2,
+    "text": "6",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 410.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Retenue de carte",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 410.12,
+    "width": 82.33642578125
+  },
+  {
+    "page": 2,
+    "text": "30_etrier_MKI_ABS.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 439.12,
+    "width": 118.84482421875
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 439.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Retenue du capteur",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 439.12,
+    "width": 94.56396484375
+  },
+  {
+    "page": 2,
+    "text": "31_etrier_Click_ABS.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 468.12,
+    "width": 130.16337890625002
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 468.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Retenue du module",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 468.12,
+    "width": 93.594482421875
+  },
+  {
+    "page": 2,
+    "text": "32_patin_MKI_avant_ABS.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 497.12,
+    "width": 147.1412109375
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 497.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Petit patin avant",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 497.12,
+    "width": 78.9501953125
+  },
+  {
+    "page": 2,
+    "text": "33_patin_MKI_arriere_ABS.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 526.12,
+    "width": 158.45976562500002
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 526.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Petit patin arrière",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 526.12,
+    "width": 83.806884765625
+  },
+  {
+    "page": 2,
+    "text": "34_patin_Click_ABS.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 555.12,
+    "width": 124.50410156250001
+  },
+  {
+    "page": 2,
+    "text": "4",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 555.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Petit patin de retenue",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 555.12,
+    "width": 104.040771484375
+  },
+  {
+    "page": 2,
+    "text": "40_cage_USER_captive.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 584.12,
+    "width": 135.82265625
+  },
+  {
+    "page": 2,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 584.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "Guide du poussoir",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 584.12,
+    "width": 86.107666015625
+  },
+  {
+    "page": 2,
+    "text": "Entretoises D126 — 1 fichier, 8 exemplaires",
+    "fontsize": 11,
+    "font": "B",
+    "x": 47,
+    "y": 627.12,
+    "width": 271.498046875
+  },
+  {
+    "page": 2,
+    "text": "Fichier exact dans le dossier STL",
+    "fontsize": 10,
+    "font": "B",
+    "x": 44,
+    "y": 651.12,
+    "width": 185.2001953125
+  },
+  {
+    "page": 2,
+    "text": "Copies",
+    "fontsize": 10,
+    "font": "B",
+    "x": 363,
+    "y": 651.12,
+    "width": 37.529296875
+  },
+  {
+    "page": 2,
+    "text": "Reconnaître",
+    "fontsize": 10,
+    "font": "B",
+    "x": 418,
+    "y": 651.12,
+    "width": 68.1884765625
+  },
+  {
+    "page": 2,
+    "text": "13_D126.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 670.12,
+    "width": 62.252050781250006
+  },
+  {
+    "page": 2,
+    "text": "8",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 670.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 2,
+    "text": "6 utiles + 2 en réserve",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 670.12,
+    "width": 108.7490234375
+  },
+  {
+    "page": 2,
+    "text": "Les 8 D126 comprennent 6 pièces utiles et 2 pièces de réserve. Si mesurable après",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 708.12,
+    "width": 461.35546875
+  },
+  {
+    "page": 2,
+    "text": "nettoyage : hauteur 12,15 à 12,35 mm. Aucun essai avec vis ou carte demandé.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 723.3,
+    "width": 444.56005859375
+  },
+  {
+    "page": 3,
+    "text": "TR2 V2.7 ABS — dossier d'impression Morvan — 2 prototypes",
+    "fontsize": 12,
+    "font": "B",
+    "x": 38,
+    "y": 37,
+    "width": 414.076171875
+  },
+  {
+    "page": 3,
+    "text": "01 — Quantités : variantes et échantillon",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 64,
+    "width": 254.46630859375
+  },
+  {
+    "page": 3,
+    "text": "V2.7 • aucun ancien ZIP V2.6 • impression prototype ABS",
+    "fontsize": 8.5,
+    "font": "R",
+    "x": 38,
+    "y": 815,
+    "width": 245.97705078125
+  },
+  {
+    "page": 3,
+    "text": "3/3",
+    "fontsize": 9,
+    "font": "B",
+    "x": 510,
+    "y": 815,
+    "width": 15.8115234375
+  },
+  {
+    "page": 3,
+    "text": "Imprimer ces variantes aussi : le propriétaire choisira ensuite les longueurs",
+    "fontsize": 12,
+    "font": "R",
+    "x": 38,
+    "y": 108,
+    "width": 453.609375
+  },
+  {
+    "page": 3,
+    "text": "adaptées. Morvan n’a pas à les choisir ni à les trier.",
+    "fontsize": 12,
+    "font": "R",
+    "x": 38,
+    "y": 124.56,
+    "width": 310.39453125
+  },
+  {
+    "page": 3,
+    "text": "Supports à trois hauteurs — 6 fichiers, 12 exemplaires",
+    "fontsize": 11,
+    "font": "B",
+    "x": 47,
+    "y": 157.12,
+    "width": 338.51318359375
+  },
+  {
+    "page": 3,
+    "text": "Fichier exact dans le dossier STL",
+    "fontsize": 10,
+    "font": "B",
+    "x": 44,
+    "y": 181.12,
+    "width": 185.2001953125
+  },
+  {
+    "page": 3,
+    "text": "Copies",
+    "fontsize": 10,
+    "font": "B",
+    "x": 363,
+    "y": 181.12,
+    "width": 37.529296875
+  },
+  {
+    "page": 3,
+    "text": "Reconnaître",
+    "fontsize": 10,
+    "font": "B",
+    "x": 418,
+    "y": 181.12,
+    "width": 68.1884765625
+  },
+  {
+    "page": 3,
+    "text": "20_selle_FRAM_H10p6.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 200.12,
+    "width": 130.16337890625002
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 200.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Support mémoire 10,6",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 200.12,
+    "width": 107.3017578125
+  },
+  {
+    "page": 3,
+    "text": "20_selle_FRAM_H11p2.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 229.12,
+    "width": 130.16337890625002
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 229.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Support mémoire 11,2",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 229.12,
+    "width": 107.3017578125
+  },
+  {
+    "page": 3,
+    "text": "20_selle_FRAM_H11p8.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 258.12,
+    "width": 130.16337890625002
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 258.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Support mémoire 11,8",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 258.12,
+    "width": 107.3017578125
+  },
+  {
+    "page": 3,
+    "text": "20_selle_SD_H10p6.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 287.12,
+    "width": 118.84482421875
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 287.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Support lecteur 10,6",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 287.12,
+    "width": 97.9501953125
+  },
+  {
+    "page": 3,
+    "text": "20_selle_SD_H11p2.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 316.12,
+    "width": 118.84482421875
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 316.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Support lecteur 11,2",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 316.12,
+    "width": 97.9501953125
+  },
+  {
+    "page": 3,
+    "text": "20_selle_SD_H11p8.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 345.12,
+    "width": 118.84482421875
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 345.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Support lecteur 11,8",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 345.12,
+    "width": 97.9501953125
+  },
+  {
+    "page": 3,
+    "text": "Poussoirs à trois longueurs — 3 fichiers, 6 exemplaires",
+    "fontsize": 11,
+    "font": "B",
+    "x": 47,
+    "y": 384.12,
+    "width": 340.935546875
+  },
+  {
+    "page": 3,
+    "text": "Fichier exact dans le dossier STL",
+    "fontsize": 10,
+    "font": "B",
+    "x": 44,
+    "y": 408.12,
+    "width": 185.2001953125
+  },
+  {
+    "page": 3,
+    "text": "Copies",
+    "fontsize": 10,
+    "font": "B",
+    "x": 363,
+    "y": 408.12,
+    "width": 37.529296875
+  },
+  {
+    "page": 3,
+    "text": "Reconnaître",
+    "fontsize": 10,
+    "font": "B",
+    "x": 418,
+    "y": 408.12,
+    "width": 68.1884765625
+  },
+  {
+    "page": 3,
+    "text": "41_USER_pointe_Z8p8.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 427.12,
+    "width": 130.16337890625002
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 427.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Poussoir, version 1",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 427.12,
+    "width": 89.716552734375
+  },
+  {
+    "page": 3,
+    "text": "41_USER_pointe_Z9p6.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 456.12,
+    "width": 130.16337890625002
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 456.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Poussoir, version 2",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 456.12,
+    "width": 89.716552734375
+  },
+  {
+    "page": 3,
+    "text": "41_USER_pointe_Z10p4.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 485.12,
+    "width": 135.82265625
+  },
+  {
+    "page": 3,
+    "text": "2",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 485.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Poussoir, version 3",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 485.12,
+    "width": 89.716552734375
+  },
+  {
+    "page": 3,
+    "text": "Échantillon ABS — 1 fichier, 1 exemplaire",
+    "fontsize": 11,
+    "font": "B",
+    "x": 47,
+    "y": 524.12,
+    "width": 256.1259765625
+  },
+  {
+    "page": 3,
+    "text": "Fichier exact dans le dossier STL",
+    "fontsize": 10,
+    "font": "B",
+    "x": 44,
+    "y": 548.12,
+    "width": 185.2001953125
+  },
+  {
+    "page": 3,
+    "text": "Copies",
+    "fontsize": 10,
+    "font": "B",
+    "x": 363,
+    "y": 548.12,
+    "width": 37.529296875
+  },
+  {
+    "page": 3,
+    "text": "Reconnaître",
+    "fontsize": 10,
+    "font": "B",
+    "x": 418,
+    "y": 548.12,
+    "width": 68.1884765625
+  },
+  {
+    "page": 3,
+    "text": "50_coupon_ABS.stl",
+    "fontsize": 9.4,
+    "font": "M",
+    "x": 44,
+    "y": 567.12,
+    "width": 96.20771484375
+  },
+  {
+    "page": 3,
+    "text": "1",
+    "fontsize": 12,
+    "font": "B",
+    "x": 378,
+    "y": 567.12,
+    "width": 8.349609375
+  },
+  {
+    "page": 3,
+    "text": "Petit échantillon ABS",
+    "fontsize": 9.5,
+    "font": "R",
+    "x": 418,
+    "y": 567.12,
+    "width": 99.15625
+  },
+  {
+    "page": 3,
+    "text": "Les supports et poussoirs portent 1, 2 ou 3 petits creux pour distinguer leurs versions. Le",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 603.12,
+    "width": 493.10400390625
+  },
+  {
+    "page": 3,
+    "text": "petit échantillon peut être imprimé d’abord, si souhaité, pour régler le profil ABS.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 618.3,
+    "width": 448.21240234375
+  },
+  {
+    "page": 3,
+    "text": "TOTAL : 25 fichiers distincts, 61 pièces",
+    "fontsize": 16,
+    "font": "B",
+    "x": 38,
+    "y": 642.4799999999999,
+    "width": 350.796875
+  },
+  {
+    "page": 3,
+    "text": "46 utiles + 12 alternatives + 2 réserves D126 + 1 échantillon. Les variantes ne seront pas",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 664.56,
+    "width": 500.1455078125
+  },
+  {
+    "page": 3,
+    "text": "toutes montées en même temps.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 679.7399999999999,
+    "width": 183.51953125
+  },
+  {
+    "page": 1,
+    "text": "TR2 V2.7 ABS — dossier d'impression Morvan — 2 prototypes",
+    "fontsize": 12,
+    "font": "B",
+    "x": 38,
+    "y": 37,
+    "width": 414.076171875
+  },
+  {
+    "page": 1,
+    "text": "02 — Vue d’ensemble : où vont les pièces",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 64,
+    "width": 257.68359375
+  },
+  {
+    "page": 1,
+    "text": "V2.7 • aucun ancien ZIP V2.6 • impression prototype ABS",
+    "fontsize": 8.5,
+    "font": "R",
+    "x": 38,
+    "y": 815,
+    "width": 245.97705078125
+  },
+  {
+    "page": 1,
+    "text": "1/2",
+    "fontsize": 9,
+    "font": "B",
+    "x": 510,
+    "y": 815,
+    "width": 15.8115234375
+  },
+  {
+    "page": 1,
+    "text": "Un prototype représenté ; les pièces sont séparées pour mieux les reconnaître. Morvan",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 102,
+    "width": 481.9697265625
+  },
+  {
+    "page": 1,
+    "text": "imprime les plastiques et ne monte pas les cartes.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 38,
+    "y": 117.18,
+    "width": 278.6201171875
+  },
+  {
+    "page": 1,
+    "text": "12",
+    "fontsize": 10,
+    "font": "B",
+    "x": 55.29981580058677,
+    "y": 205.2689189189189,
+    "width": 13.916015625
+  },
+  {
+    "page": 1,
+    "text": "12 Couvercle et",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 152,
+    "width": 92.546630859375
+  },
+  {
+    "page": 1,
+    "text": "poussoir",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 166,
+    "width": 50.6953125
+  },
+  {
+    "page": 1,
+    "text": "11",
+    "fontsize": 10,
+    "font": "B",
+    "x": 55.16290257156828,
+    "y": 264.4154338549075,
+    "width": 13.916015625
+  },
+  {
+    "page": 1,
+    "text": "11 Guide du",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 196,
+    "width": 71.244140625
+  },
+  {
+    "page": 1,
+    "text": "poussoir",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 210,
+    "width": 50.6953125
+  },
+  {
+    "page": 1,
+    "text": "10",
+    "fontsize": 10,
+    "font": "B",
+    "x": 55.16290257156828,
+    "y": 304.39409672830726,
+    "width": 13.916015625
+  },
+  {
+    "page": 1,
+    "text": "10 Brides de câbles",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 240,
+    "width": 115.679443359375
+  },
+  {
+    "page": 1,
+    "text": "9",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.64190647781828,
+    "y": 350.39694167852065,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "09 Retenues et",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 284,
+    "width": 89.73193359375
+  },
+  {
+    "page": 1,
+    "text": "patins",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 298,
+    "width": 36.94482421875
+  },
+  {
+    "page": 1,
+    "text": "8",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.77881970683677,
+    "y": 395.57830725462304,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "08 Capteur et",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 328,
+    "width": 81.164794921875
+  },
+  {
+    "page": 1,
+    "text": "module",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 342,
+    "width": 43.8662109375
+  },
+  {
+    "page": 1,
+    "text": "7",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.77881970683677,
+    "y": 423.5086059743955,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "07 Mémoire et",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 372,
+    "width": 85.686767578125
+  },
+  {
+    "page": 1,
+    "text": "lecteur SD",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 386,
+    "width": 61.672119140625
+  },
+  {
+    "page": 1,
+    "text": "6",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.77881970683677,
+    "y": 476.35711237553346,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "06 Supports des",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 416,
+    "width": 96.54052734375
+  },
+  {
+    "page": 1,
+    "text": "modules",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 430,
+    "width": 50.115966796875
+  },
+  {
+    "page": 1,
+    "text": "5",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.64190647781828,
+    "y": 503.46593172119486,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "05 Shield : carte",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 460,
+    "width": 97.27880859375
+  },
+  {
+    "page": 1,
+    "text": "ajoutée",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 474,
+    "width": 44.63525390625
+  },
+  {
+    "page": 1,
+    "text": "4",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.77881970683677,
+    "y": 545.0875533428165,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "04 Entretoises et",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 504,
+    "width": 101.48291015625
+  },
+  {
+    "page": 1,
+    "text": "retenues",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 518,
+    "width": 52.761474609375
+  },
+  {
+    "page": 1,
+    "text": "3",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.64190647781828,
+    "y": 574.1131578947369,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "03 Carte Nucleo",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 548,
+    "width": 94.453857421875
+  },
+  {
+    "page": 1,
+    "text": "2",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.77881970683677,
+    "y": 588.0783072546229,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "02 Façades et",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 592,
+    "width": 82.518310546875
+  },
+  {
+    "page": 1,
+    "text": "fenêtre",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 606,
+    "width": 43.604736328125
+  },
+  {
+    "page": 1,
+    "text": "1",
+    "fontsize": 10,
+    "font": "B",
+    "x": 58.64190647781828,
+    "y": 650.7845661450925,
+    "width": 6.9580078125
+  },
+  {
+    "page": 1,
+    "text": "01 Caisse",
+    "fontsize": 10.5,
+    "font": "B",
+    "x": 438,
+    "y": 636,
+    "width": 56.278564453125
+  },
+  {
+    "page": 1,
+    "text": "Images de la conception : les cartes et accessoires servent seulement à comprendre la forme",
+    "fontsize": 10.5,
+    "font": "R",
+    "x": 38,
+    "y": 760,
+    "width": 493.915283203125
+  },
+  {
+    "page": 1,
+    "text": "finale. Aucun achat, essai de bouton ni montage électronique demandé.",
+    "fontsize": 10.5,
+    "font": "R",
+    "x": 38,
+    "y": 774.49,
+    "width": 380.22509765625
+  },
+  {
+    "page": 2,
+    "text": "TR2 V2.7 ABS — dossier d'impression Morvan — 2 prototypes",
+    "fontsize": 12,
+    "font": "B",
+    "x": 38,
+    "y": 37,
+    "width": 414.076171875
+  },
+  {
+    "page": 2,
+    "text": "02 — Le résultat une fois assemblé",
+    "fontsize": 11,
+    "font": "B",
+    "x": 38,
+    "y": 64,
+    "width": 217.056640625
+  },
+  {
+    "page": 2,
+    "text": "V2.7 • aucun ancien ZIP V2.6 • impression prototype ABS",
+    "fontsize": 8.5,
+    "font": "R",
+    "x": 38,
+    "y": 815,
+    "width": 245.97705078125
+  },
+  {
+    "page": 2,
+    "text": "2/2",
+    "fontsize": 9,
+    "font": "B",
+    "x": 510,
+    "y": 815,
+    "width": 15.8115234375
+  },
+  {
+    "page": 2,
+    "text": "Boîtier fermé : le couvercle et son poussoir sont au-dessus.",
+    "fontsize": 12,
+    "font": "B",
+    "x": 44,
+    "y": 428,
+    "width": 403.412109375
+  },
+  {
+    "page": 2,
+    "text": "Boîtier ouvert : les pièces plastiques maintiendront les cartes. Assemblage et réglages",
+    "fontsize": 11,
+    "font": "R",
+    "x": 44,
+    "y": 754,
+    "width": 478.12939453125
+  },
+  {
+    "page": 2,
+    "text": "réalisés plus tard par le propriétaire.",
+    "fontsize": 11,
+    "font": "R",
+    "x": 44,
+    "y": 769.18,
+    "width": 201.6845703125
+  }
+]

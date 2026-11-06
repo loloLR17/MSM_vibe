@@ -1,0 +1,148 @@
+{
+  "mission_id": "TR2-20261106-SHIELD-V27-PACK-MORVAN-PDF",
+  "ZIP": "pack_Morvan/TR2_V27_ABS_MORVAN_IMPRESSION_SIMPLE_2_PROTOTYPES.zip",
+  "sha256": "0ce87b103fbc5eaa2602a9687628cc959d092cf5275700c7308e198f59c29c8f",
+  "bytes": 1716575,
+  "entries": 27,
+  "STL": 25,
+  "PDF": 2,
+  "parts_two_prototypes": 61,
+  "builder_byte_comparison": true,
+  "members": {
+    "STL/01_base_ABS.stl": {
+      "sha256": "b6ee0c219e2d266557fd145284d739e363a925856d2b068ee7c43e87835f5296",
+      "bytes": 653684,
+      "crc32": "877ebc8b"
+    },
+    "STL/02_couvercle_ARNACO_USER.stl": {
+      "sha256": "85c59c11a3460d60f4382fb838f12b055a06de659450e5ee20be53eadf5f8fcc",
+      "bytes": 304284,
+      "crc32": "7ea99e36"
+    },
+    "STL/03_facade_STLINK_LED_nappe.stl": {
+      "sha256": "adace7ca4cc9c1381868512379abcfc6870942b6c5caa6f647fdb5658edab3cd",
+      "bytes": 89484,
+      "crc32": "f31db800"
+    },
+    "STL/06_passe_cable_RS485.stl": {
+      "sha256": "3e10d6438afca7844e945c08e80e010840b1ae984afa8dd31e6b0102708d36fd",
+      "bytes": 11884,
+      "crc32": "bf84a3c2"
+    },
+    "STL/07_cadre_vitre.stl": {
+      "sha256": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+      "bytes": 44084,
+      "crc32": "176e9750"
+    },
+    "STL/10_serre_nappe.stl": {
+      "sha256": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+      "bytes": 45084,
+      "crc32": "b3b3806e"
+    },
+    "STL/11_serre_cable_RS485.stl": {
+      "sha256": "e312d4d3969dd0b14e9452801ed5af9c43227f70bd2529f7c0bb0a2ac1887858",
+      "bytes": 65884,
+      "crc32": "d9fb586b"
+    },
+    "STL/13_D126.stl": {
+      "sha256": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+      "bytes": 21484,
+      "crc32": "ab7ce7e5"
+    },
+    "STL/15_retenue_Nucleo.stl": {
+      "sha256": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505",
+      "bytes": 72284,
+      "crc32": "82220ec1"
+    },
+    "STL/20_selle_FRAM_H10p6.stl": {
+      "sha256": "0edcf53c043a39f866043079645236b9e95250e7f69dafcab388a00005807fb4",
+      "bytes": 120484,
+      "crc32": "f8bc4233"
+    },
+    "STL/20_selle_FRAM_H11p2.stl": {
+      "sha256": "b0b61d5cdd160be1174980d0b04b30f38d50fbefae6057fd5c0cc215f789fb8b",
+      "bytes": 141484,
+      "crc32": "29b4204c"
+    },
+    "STL/20_selle_FRAM_H11p8.stl": {
+      "sha256": "a939b3fdd3d0594d105007e57b585ef576dad4673723d055d3b3467f7d0cd1f4",
+      "bytes": 162484,
+      "crc32": "aaf5a728"
+    },
+    "STL/20_selle_SD_H10p6.stl": {
+      "sha256": "06595a34c63beef51e2d7d60decc2a597cdb57ae99018e73210cad5dabb85237",
+      "bytes": 120484,
+      "crc32": "4fb8d91b"
+    },
+    "STL/20_selle_SD_H11p2.stl": {
+      "sha256": "4c973e439533c8d612a05145bd36826807a86da4bf884b804048087c3f08027c",
+      "bytes": 141484,
+      "crc32": "b9a5ceb1"
+    },
+    "STL/20_selle_SD_H11p8.stl": {
+      "sha256": "9eb273344ae9d9ece98e77022571c44d26cd6ce81fe8ec8a67079cfea4c60243",
+      "bytes": 162484,
+      "crc32": "30f7f08a"
+    },
+    "STL/30_etrier_MKI_ABS.stl": {
+      "sha256": "81babfe72735a7db6001757e5fb4d6d407f3647dbfe3ba192fdeb053ca07727a",
+      "bytes": 210684,
+      "crc32": "e9eee014"
+    },
+    "STL/31_etrier_Click_ABS.stl": {
+      "sha256": "0b2adf3e789e0a4633cf9815ccd8cf3165a2ba57c7a3644772dc2cce605e11db",
+      "bytes": 205084,
+      "crc32": "5a1db6c0"
+    },
+    "STL/32_patin_MKI_avant_ABS.stl": {
+      "sha256": "2688205a362b24d0cdb11ad29c5fad638779ffc3eafd0da3f1e9ccab4afad328",
+      "bytes": 34784,
+      "crc32": "1b6a2678"
+    },
+    "STL/33_patin_MKI_arriere_ABS.stl": {
+      "sha256": "306a8271f8f0045821712e35433e24db926a63f58f00bf731f00f581d86c2b49",
+      "bytes": 24284,
+      "crc32": "481f6c9c"
+    },
+    "STL/34_patin_Click_ABS.stl": {
+      "sha256": "acbb97f56da0952c53e4f1153ad8f5bfb9061f46a2aa419e6addf59f22a39b90",
+      "bytes": 22884,
+      "crc32": "6cc1ab66"
+    },
+    "STL/40_cage_USER_captive.stl": {
+      "sha256": "b4e30b7cf04ad01ef164694bbd38e53f54c039c597f5767de07d3449440bd448",
+      "bytes": 358184,
+      "crc32": "381b9928"
+    },
+    "STL/41_USER_pointe_Z8p8.stl": {
+      "sha256": "78ee3544d722c50c693b0d98dcc675bb298d0563b7f538672868015440646c0e",
+      "bytes": 104884,
+      "crc32": "0238b783"
+    },
+    "STL/41_USER_pointe_Z9p6.stl": {
+      "sha256": "ed637917406bdd24953b5e02baa5f81fa1ba89d5c5426e418e5b3705515100d7",
+      "bytes": 125884,
+      "crc32": "d2748a59"
+    },
+    "STL/41_USER_pointe_Z10p4.stl": {
+      "sha256": "3ed677bcbd927eeddc9503202a330201ceb8863e14bb117a2a7675acb1f31486",
+      "bytes": 146884,
+      "crc32": "93ea80a4"
+    },
+    "STL/50_coupon_ABS.stl": {
+      "sha256": "abbeaddcdae196fce2923c3d73dfca214b1f10d71c201b5fde93fa39d1d787a3",
+      "bytes": 88884,
+      "crc32": "83e18c5f"
+    },
+    "01_LIRE_EN_PREMIER_MORVAN.pdf": {
+      "sha256": "cd37f80a0d1518f42cc1d7c927a94389ae73c86b5548498b8c85b71aca835eb5",
+      "bytes": 126156,
+      "crc32": "5e9017be"
+    },
+    "02_VUES_DES_PIECES.pdf": {
+      "sha256": "6150bd9b357a28c7f7e808d3c64b56be413e6617808ccbdc74a281dbabab83a6",
+      "bytes": 946778,
+      "crc32": "6289f9f3"
+    }
+  }
+}
