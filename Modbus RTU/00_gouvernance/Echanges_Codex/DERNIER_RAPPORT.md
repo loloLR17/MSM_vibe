@@ -1,10 +1,11 @@
 ---
 mission_id: TR2-20261106-SHIELD-V27-PACK-MORVAN-PDF
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: cc941c9c90051ff0bee78f8caa2b0e1290513907
 initial_head: 50af554db63ab76664df63565f9203e04f2d963e
-result_sha: null
+result_sha: c7219f1731f3294851700db9ac19cc08d503589e
+completed_at_utc: 2026-11-06T11:45:22Z
 created_at_utc: 2026-11-06T11:43:20Z
 author: Codex
 target_branch: main
@@ -16,7 +17,7 @@ allow_debug: false
 
 # V2.7 — envoi simplifié :25 STL +2 PDF pour Morvan
 
-**Dossier de diffusion terminé et validé localement :un seul nouveau ZIP,27 entrées exactement, aucun fichier technique annexe.** IN_PROGRESS porte uniquement sur la publication et sa relecture distante. Géométrie, quantités, STL/STEP, nomenclature de fabrication, anciens ZIP et950 fichiers historiques du shield strictement conservés. Mission documentaire uniquement ; aucune nouvelle CAO, compilation, ERC/DRC, impression, intervention matérielle ou commande.
+**Dossier de diffusion terminé, publié et relu depuis GitHub :un seul nouveau ZIP,27 entrées exactement, aucun fichier technique annexe.** DONE porte sur cette livraison documentaire ; aucune qualification matérielle supplémentaire. Géométrie, quantités, STL/STEP, nomenclature de fabrication, anciens ZIP et950 fichiers historiques du shield strictement conservés. Mission documentaire uniquement ; aucune nouvelle CAO, compilation, ERC/DRC, impression, intervention matérielle ou commande.
 
 La revue indépendante ChatGPT publiée surmain àcc941c9c a accordé le **GO impression de prototypes ABS** à V2.7, distinct de la qualification physique. Le contrat actif50af554d (renforcement de l'audit binaire après1bbe6a1d) est lu intégralement ; aucune mission V2.7 ancienne réexécutée. Le journal, intégralement inchangé depuis sa lecture précédente, a été comparé àb1cd6f47 et sa dernière entrée consultée ; gouvernance et protocole inchangés, règles de commit/push applicables vérifiées. Un worktree neuf évite la divergence historique de la racine.
 
@@ -76,4 +77,8 @@ HEAD initial **50af554db63ab76664df63565f9203e04f2d963e**, référence de contra
 
 `ETAT_COURANT_TR2.md` actualisé par ajout documentaire :acceptation prototypeV2.7 par revueChatGPT, nouveau paquet minimal, audit des anciennes formes, conservation du gel et limites physiques. Contrat et règles de gouvernance non modifiés. Permissions exercées :documentation, scripts d'audit/conditionnement, commits et push normaux surmain ; flash/debug interdits et non utilisés.
 
-Publication/relecture distante encore à réaliser avant DONE. Le paquet et les rapports seront publiés puis tous les fichiers concernés relus depuis GitHub ; le SHA de contenu évalué sera consigné dans la clôture. **Aucun envoi à Morvan effectué :ChatGPT décide de remettre le lien après sa revue indépendante.** L'impression prototype a déjà été autorisée pour la mécanique V2.7 ; aucune libération physique/électrique supplémentaire créée par ces PDF.
+**Publication technique vérifiée** :commit `c7219f1731f3294851700db9ac19cc08d503589e` — `Shield V27: package frozen STL with two clear Morvan PDFs`, push normal `HEAD:refs/heads/main` réussi, suivi de `git fetch origin main`. Référence récupérée égale àHEAD. **979 blobs complets relus et comparés octet pour octet**, dont950 fichiers historiques conservés et29 ajouts/modifications. Le ZIP distant est rouvert et ses27 membres comparés aux sources individuelles distantes, CRC complets vérifiés. SHA ZIP `0ce87b103fbc5eaa2602a9687628cc959d092cf5275700c7308e198f59c29c8f`, manifeste de relecture `9f854d0f4d8ade02ea553da1384f74912272fc6ee686127671f7dcca2a22e791`. Preuve `diffusion_Morvan/preuves/publication-initiale.json` ; script reproductible `sources/relecture_distante.py` aprèsfetch.
+
+La clôture ajoute seulement le rapportDONE, son archive, cette preuve et la confirmation factuelle dans le journal ; **aucun PDF/STL/STEP/ZIP ou générateur retouché après cette relecture technique**. Son push et sa relecture finale sont vérifiés avant réponse utilisateur ; le SHA de clôture sera donné dans cette réponse, distinct du `result_sha` évalué ci-dessus. Worktree propre après publication ; racine historique propre à82169af7, ancien worktree V2.7,119 worktrees et deux stashes historiques préservés. Aucun reset, merge/rebase, suppression ou force push.
+
+**Aucun envoi à Morvan effectué :ChatGPT décide de remettre le lien après sa revue indépendante du nouveau dossier de diffusion.** Retenir exclusivement le ZIP nommé `IMPRESSION_SIMPLE` pour cette remise, pas les ZIP historiques. L'impression prototype a déjà été autorisée pour la mécanique V2.7 ; aucune libération physique/électrique supplémentaire créée par ces PDF.
