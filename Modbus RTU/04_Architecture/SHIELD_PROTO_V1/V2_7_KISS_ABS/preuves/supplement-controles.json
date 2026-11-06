@@ -1,0 +1,947 @@
+{
+  "passive_envelope_checks": [
+    {
+      "check": "R1/01_base_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R1/02_couvercle_ARNACO_USER",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/03_facade_STLINK_LED_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/06_passe_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/07_cadre_vitre",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/10_serre_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/11_serre_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/40_cage_USER_captive",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/41_USER_pointe_Z10p4",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/20_selle_FRAM_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/20_selle_SD_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/30_etrier_MKI_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R1/31_etrier_Click_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/D126_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/D126_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/D126_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/retenue_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/retenue_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/retenue_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/MKI_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/MKI_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/Click_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/Click_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/all_checked_metal_washers",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R1/saddleFRAM10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/saddleFRAM10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/saddleFRAM11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/saddleFRAM11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/saddleSD10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/saddleSD10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/saddleSD11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/saddleSD11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/SD_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/Click_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/FRAM_envelope",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/MKI_Gerber_component_envelopes",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/FRAM_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R1/SD_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/01_base_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R2/02_couvercle_ARNACO_USER",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/03_facade_STLINK_LED_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/06_passe_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/07_cadre_vitre",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/10_serre_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/11_serre_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/40_cage_USER_captive",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/41_USER_pointe_Z10p4",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/20_selle_FRAM_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/20_selle_SD_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/30_etrier_MKI_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/31_etrier_Click_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/D126_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/D126_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/D126_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/retenue_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/retenue_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/retenue_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/MKI_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/MKI_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/Click_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/Click_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/all_checked_metal_washers",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R2/saddleFRAM10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/saddleFRAM10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/saddleFRAM11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/saddleFRAM11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/saddleSD10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/saddleSD10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/saddleSD11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/saddleSD11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/SD_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/Click_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/FRAM_envelope",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/MKI_Gerber_component_envelopes",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/FRAM_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R2/SD_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/01_base_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R3/02_couvercle_ARNACO_USER",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/03_facade_STLINK_LED_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/06_passe_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/07_cadre_vitre",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/10_serre_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/11_serre_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/40_cage_USER_captive",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/41_USER_pointe_Z10p4",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/20_selle_FRAM_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/20_selle_SD_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/30_etrier_MKI_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/31_etrier_Click_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/D126_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/D126_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/D126_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/retenue_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/retenue_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/retenue_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/MKI_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/MKI_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/Click_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/Click_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/all_checked_metal_washers",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R3/saddleFRAM10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/saddleFRAM10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/saddleFRAM11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/saddleFRAM11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/saddleSD10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/saddleSD10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/saddleSD11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/saddleSD11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/SD_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/Click_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/FRAM_envelope",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/MKI_Gerber_component_envelopes",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/FRAM_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R3/SD_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/01_base_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R4/02_couvercle_ARNACO_USER",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/03_facade_STLINK_LED_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/06_passe_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/07_cadre_vitre",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/10_serre_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/11_serre_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/40_cage_USER_captive",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/41_USER_pointe_Z10p4",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/20_selle_FRAM_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/20_selle_SD_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/30_etrier_MKI_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/31_etrier_Click_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R4/D126_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/D126_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/D126_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/retenue_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/retenue_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/retenue_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/MKI_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/MKI_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/Click_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/Click_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/all_checked_metal_washers",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "R4/saddleFRAM10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/saddleFRAM10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/saddleFRAM11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/saddleFRAM11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/saddleSD10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/saddleSD10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/saddleSD11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/saddleSD11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/SD_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/Click_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/FRAM_envelope",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/MKI_Gerber_component_envelopes",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/FRAM_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "R4/SD_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/01_base_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "C1/02_couvercle_ARNACO_USER",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/03_facade_STLINK_LED_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/06_passe_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/07_cadre_vitre",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/10_serre_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/11_serre_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/40_cage_USER_captive",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/41_USER_pointe_Z10p4",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/20_selle_FRAM_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/20_selle_SD_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/30_etrier_MKI_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "C1/31_etrier_Click_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/D126_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/D126_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/D126_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/retenue_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/retenue_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/retenue_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/MKI_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/MKI_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/Click_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/Click_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/all_checked_metal_washers",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "C1/saddleFRAM10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/saddleFRAM10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/saddleFRAM11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/saddleFRAM11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/saddleSD10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/saddleSD10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/saddleSD11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/saddleSD11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/SD_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/Click_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/FRAM_envelope",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/MKI_Gerber_component_envelopes",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/FRAM_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C1/SD_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/01_base_ABS",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "C2/02_couvercle_ARNACO_USER",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/03_facade_STLINK_LED_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/06_passe_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/07_cadre_vitre",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/10_serre_nappe",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/11_serre_cable_RS485",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/40_cage_USER_captive",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/41_USER_pointe_Z10p4",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/20_selle_FRAM_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/20_selle_SD_H11p2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/30_etrier_MKI_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/31_etrier_Click_ABS",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/D126_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/D126_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/D126_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/retenue_0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/retenue_1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/retenue_2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/MKI_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/MKI_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/Click_patin0",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/Click_patin1",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/all_checked_metal_washers",
+      "positive_volume_mm3": 0.0
+    },
+    {
+      "check": "C2/saddleFRAM10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/saddleFRAM10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/saddleFRAM11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/saddleFRAM11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/saddleSD10",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/saddleSD10.6",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/saddleSD11.2",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/saddleSD11.8",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/SD_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/Click_native",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/FRAM_envelope",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/MKI_Gerber_component_envelopes",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/FRAM_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "C2/SD_socket",
+      "positive_volume_mm3": 0
+    },
+    {
+      "check": "USER calibratedH8.56 stroke0.7/STbbox0",
+      "positive_volume_mm3": 0.0
+    }
+  ],
+  "positive_intersections": [],
+  "passive_dims_C1": [
+    6,
+    4,
+    7
+  ],
+  "passive_dims_C2": [
+    6,
+    6,
+    14
+  ],
+  "resistor_body_envelope": [
+    4.5,
+    2.5,
+    3.5
+  ],
+  "placement": "centres computed from actual pads, not uniform footprint origin assumption",
+  "C2_source_nominal_D5_H11": "V22/sourcePanasonic; envelopeD6H14 includes standoff",
+  "C2_nominal_gap_to_full_SD_female_end": 0.7199999999999989,
+  "C2_design_envelope_gap_to_full_SD_female_end": 0.21999999999999886,
+  "LED_existing_observers": 66,
+  "LED_common_still_clear": 66,
+  "LED_limit": "geometry only; emission pattern/window/real cap position not physically qualified",
+  "former_RS485_roof_hatch_closed": true,
+  "ARNACO_above_Z50_symmetric_difference": 0,
+  "mesh_tests_reused": "immutable existing STL SHA verified below",
+  "passed": true
+}

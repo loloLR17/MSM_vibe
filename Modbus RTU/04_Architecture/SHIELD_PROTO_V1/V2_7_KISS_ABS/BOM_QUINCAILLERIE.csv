@@ -1,0 +1,13 @@
+article,utile_deux_TR2,reserve_suggeree,stock_cible,affectation_limite
+Ajile M2x20 nylon,6,2,8,Deja commande; exclusivement D126; aucune nouvelle commande
+Ecrou M2 nylon Ajile,12,4,16,Deja commande; exclusivement D126
+Vis M3x12 metallique,40,6,46,30 coffrets/cages +8 patins +2 butees USER; tete D<=6 H<=3.2
+Ecrou M3 DIN934,30,6,36,15 par coffret avec cage USER; AF5.5 H2.4 enveloppe
+Ecrou frein M3 DIN985,10,2,12,8 patins +2 butees USER; AF5.5 H4 enveloppe
+Vis M2x30 metallique,16,4,20,4 Adafruit +4 etriers par TR2; tete D<=4.2 H<=2.2
+Ecrou M2 DIN934 metallique,32,8,40,Deux contre-ecrous par M2x30; AF4 H1.6 enveloppe
+Rondelle isolante nylon DIN433 M2 2.2x4.5x0.3,24,6,30,16 sous tetes M2x30 +8 dessus des quatre modules Adafruit
+Ressort compression type D-064 ou equivalent controle,2,1,3,"fil0.5 OD6.8 +/-0.25 libre13.5 +/-0.75; exemple primaire, pas achat impose"
+Colson largeur<=2.5,4,2,6,Une retenue nappe et une RS485 par TR2
+Garniture souple non conductrice,4,2,6,Chambre a air/feuille de joint; deux brides par TR2
+Vitre polycarbonate 50x18x1.5 mm,2,0,2,Fenetre laterale LED; a decouper et ebavurer

@@ -1,0 +1,215 @@
+[
+  {
+    "id": "01_base_ABS",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 3.129667147513386e-05,
+    "passed": true
+  },
+  {
+    "id": "02_couvercle_ARNACO_USER",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 4.431620646831503e-06,
+    "passed": true
+  },
+  {
+    "id": "03_facade_STLINK_LED_nappe",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 8.918349107519137e-06,
+    "passed": true
+  },
+  {
+    "id": "06_passe_cable_RS485",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 2.22835092940685e-05,
+    "passed": true
+  },
+  {
+    "id": "07_cadre_vitre",
+    "byte_identity_V25": true,
+    "shape_proof_reused": "V25; ABS physical tolerances not qualified",
+    "passed": true
+  },
+  {
+    "id": "10_serre_nappe",
+    "byte_identity_V25": true,
+    "shape_proof_reused": "V25; ABS physical tolerances not qualified",
+    "passed": true
+  },
+  {
+    "id": "13_D126",
+    "byte_identity_V25": true,
+    "shape_proof_reused": "V25; ABS physical tolerances not qualified",
+    "passed": true
+  },
+  {
+    "id": "15_retenue_Nucleo",
+    "byte_identity_V25": true,
+    "shape_proof_reused": "V25; ABS physical tolerances not qualified",
+    "passed": true
+  },
+  {
+    "id": "11_serre_cable_RS485",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 3.8424899219972535e-05,
+    "passed": true
+  },
+  {
+    "id": "20_selle_FRAM_H10p6",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.0001262261359954911,
+    "passed": true
+  },
+  {
+    "id": "20_selle_FRAM_H11p2",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.00012953201775459144,
+    "passed": true
+  },
+  {
+    "id": "20_selle_FRAM_H11p8",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.00013266037671114697,
+    "passed": true
+  },
+  {
+    "id": "20_selle_SD_H10p6",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.00012695920755099378,
+    "passed": true
+  },
+  {
+    "id": "20_selle_SD_H11p2",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.00013025690130755375,
+    "passed": true
+  },
+  {
+    "id": "20_selle_SD_H11p8",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.00013337677029459871,
+    "passed": true
+  },
+  {
+    "id": "30_etrier_MKI_ABS",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.00011494888606995767,
+    "passed": true
+  },
+  {
+    "id": "31_etrier_Click_ABS",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.0001180185633930535,
+    "passed": true
+  },
+  {
+    "id": "32_patin_MKI_avant_ABS",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 4.61077596461237e-05,
+    "passed": true
+  },
+  {
+    "id": "33_patin_MKI_arriere_ABS",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 3.987162497757989e-05,
+    "passed": true
+  },
+  {
+    "id": "34_patin_Click_ABS",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 7.67880616021388e-05,
+    "passed": true
+  },
+  {
+    "id": "40_cage_USER_captive",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.00045634113220912486,
+    "passed": true
+  },
+  {
+    "id": "41_USER_pointe_Z8p8",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.0005966844360539955,
+    "passed": true
+  },
+  {
+    "id": "41_USER_pointe_Z9p6",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.000596678349015293,
+    "passed": true
+  },
+  {
+    "id": "41_USER_pointe_Z10p4",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 0.0005966721759368334,
+    "passed": true
+  },
+  {
+    "id": "50_coupon_ABS",
+    "watertight": true,
+    "components": 1,
+    "STEP_valid": true,
+    "STEP_solids": 1,
+    "relative_volume_error": 8.986894731201785e-05,
+    "passed": true
+  }
+]

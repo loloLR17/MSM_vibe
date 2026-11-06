@@ -1,0 +1,452 @@
+[
+  {
+    "id": "01_base_ABS",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Caisse, CN15 fixe et poche SD intégrés",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/01_base_ABS.stl",
+    "STEP": "cad/01_base_ABS.step",
+    "STL_sha256": "b6ee0c219e2d266557fd145284d739e363a925856d2b068ee7c43e87835f5296",
+    "dimensions_print_mm": [
+      158.00000020004052,
+      166.00000020004052,
+      61.00223847913971
+    ],
+    "volume_mm3": 195635.63942026603
+  },
+  {
+    "id": "02_couvercle_ARNACO_USER",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Capot fermé sans trappe bornier; USER encastré Ø13",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/02_couvercle_ARNACO_USER.stl",
+    "STEP": "cad/02_couvercle_ARNACO_USER.step",
+    "STL_sha256": "85c59c11a3460d60f4382fb838f12b055a06de659450e5ee20be53eadf5f8fcc",
+    "dimensions_print_mm": [
+      158.0000002001284,
+      166.0000002001284,
+      4.002909390164185
+    ],
+    "volume_mm3": 78296.40871821142
+  },
+  {
+    "id": "03_facade_STLINK_LED_nappe",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Une cassette nord, fente nappe en U, vitre conservée",
+    "orientation": "north",
+    "inherited_exact_V25": false,
+    "STL": "stl/03_facade_STLINK_LED_nappe.stl",
+    "STEP": "cad/03_facade_STLINK_LED_nappe.step",
+    "STL_sha256": "adace7ca4cc9c1381868512379abcfc6870942b6c5caa6f647fdb5658edab3cd",
+    "dimensions_print_mm": [
+      67.60000020000004,
+      53.55000020000003,
+      2.401611443779399
+    ],
+    "volume_mm3": 6473.315902102728
+  },
+  {
+    "id": "06_passe_cable_RS485",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Un panneau de passage fixe, pas une trappe",
+    "orientation": "east",
+    "inherited_exact_V25": false,
+    "STL": "stl/06_passe_cable_RS485.stl",
+    "STEP": "cad/06_passe_cable_RS485.step",
+    "STL_sha256": "3e10d6438afca7844e945c08e80e010840b1ae984afa8dd31e6b0102708d36fd",
+    "dimensions_print_mm": [
+      25.55000020000001,
+      38.6000002,
+      2.4039526714208344
+    ],
+    "volume_mm3": 2003.3312985177486
+  },
+  {
+    "id": "07_cadre_vitre",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Forme V25 inchangée; ABS à contrôler à froid",
+    "orientation": "north",
+    "inherited_exact_V25": true,
+    "STL": "stl/07_cadre_vitre.stl",
+    "STEP": "cad/07_cadre_vitre.step",
+    "STL_sha256": "b44805d52243a1386c942385bb2073f8049ed0b19b258e7b961bf84be780149f",
+    "dimensions_print_mm": [
+      61.1,
+      20.0,
+      2.000000000000002
+    ],
+    "volume_mm3": 1143.284959209475
+  },
+  {
+    "id": "10_serre_nappe",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Forme V25 inchangée; ABS à contrôler à froid",
+    "orientation": "north",
+    "inherited_exact_V25": true,
+    "STL": "stl/10_serre_nappe.stl",
+    "STEP": "cad/10_serre_nappe.step",
+    "STL_sha256": "1babdee649a8772d4b818d533b0b60d96c21b73df1748fafa17f15c5cbf3d231",
+    "dimensions_print_mm": [
+      28.0,
+      6.0,
+      3.0000000000000018
+    ],
+    "volume_mm3": 408.36743881421216
+  },
+  {
+    "id": "13_D126",
+    "quantity_to_print_two_kits": 8,
+    "useful_two_kits": 6,
+    "variant_or_spare": 2,
+    "role": "Forme V25 inchangée; ABS à contrôler à froid",
+    "orientation": "flat",
+    "inherited_exact_V25": true,
+    "STL": "stl/13_D126.stl",
+    "STEP": "cad/13_D126.step",
+    "STL_sha256": "627eec2ed85c8f124a8957169d3ec4319376d26e5a2322cabcdb020591b3d377",
+    "dimensions_print_mm": [
+      6.0,
+      3.0000000000000004,
+      12.25
+    ],
+    "volume_mm3": 145.47144782448174
+  },
+  {
+    "id": "15_retenue_Nucleo",
+    "quantity_to_print_two_kits": 6,
+    "useful_two_kits": 6,
+    "variant_or_spare": 0,
+    "role": "Forme V25 inchangée; ABS à contrôler à froid",
+    "orientation": "upside_down",
+    "inherited_exact_V25": true,
+    "STL": "stl/15_retenue_Nucleo.stl",
+    "STEP": "cad/15_retenue_Nucleo.step",
+    "STL_sha256": "53b0ecc27172c518368a8cc37dedd09357d9cf8d87b4d4690f7687a2e926a505",
+    "dimensions_print_mm": [
+      17.3,
+      6.800000000000001,
+      3.6000000000000005
+    ],
+    "volume_mm3": 208.91522121043474
+  },
+  {
+    "id": "11_serre_cable_RS485",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Deux fentes Colson, garniture souple et câble placé sur la bride",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/11_serre_cable_RS485.stl",
+    "STEP": "cad/11_serre_cable_RS485.step",
+    "STL_sha256": "e312d4d3969dd0b14e9452801ed5af9c43227f70bd2529f7c0bb0a2ac1887858",
+    "dimensions_print_mm": [
+      6.002635180947243,
+      25.000000200000006,
+      3.002635180947242
+    ],
+    "volume_mm3": 344.1504404611396
+  },
+  {
+    "id": "20_selle_FRAM_H10p6",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 0,
+    "variant_or_spare": 2,
+    "role": "Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/20_selle_FRAM_H10p6.stl",
+    "STEP": "cad/20_selle_FRAM_H10p6.step",
+    "STL_sha256": "0edcf53c043a39f866043079645236b9e95250e7f69dafcab388a00005807fb4",
+    "dimensions_print_mm": [
+      24.72033863993424,
+      7.100677079868478,
+      10.601074362519599
+    ],
+    "volume_mm3": 388.27614849571063
+  },
+  {
+    "id": "20_selle_FRAM_H11p2",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/20_selle_FRAM_H11p2.stl",
+    "STEP": "cad/20_selle_FRAM_H11p2.step",
+    "STL_sha256": "b0b61d5cdd160be1174980d0b04b30f38d50fbefae6057fd5c0cc215f789fb8b",
+    "dimensions_print_mm": [
+      24.72033863993424,
+      7.100677079868478,
+      11.201074362519597
+    ],
+    "volume_mm3": 403.2371755021505
+  },
+  {
+    "id": "20_selle_FRAM_H11p8",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 0,
+    "variant_or_spare": 2,
+    "role": "Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/20_selle_FRAM_H11p8.stl",
+    "STEP": "cad/20_selle_FRAM_H11p8.step",
+    "STL_sha256": "a939b3fdd3d0594d105007e57b585ef576dad4673723d055d3b3467f7d0cd1f4",
+    "dimensions_print_mm": [
+      24.72033863993424,
+      7.100677079868478,
+      11.801074362519598
+    ],
+    "volume_mm3": 418.1982025085904
+  },
+  {
+    "id": "20_selle_SD_H10p6",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 0,
+    "variant_or_spare": 2,
+    "role": "Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/20_selle_SD_H10p6.stl",
+    "STEP": "cad/20_selle_SD_H10p6.step",
+    "STL_sha256": "06595a34c63beef51e2d7d60decc2a597cdb57ae99018e73210cad5dabb85237",
+    "dimensions_print_mm": [
+      7.280677079868484,
+      24.320338639934235,
+      10.601074362519599
+    ],
+    "volume_mm3": 386.1641484957104
+  },
+  {
+    "id": "20_selle_SD_H11p2",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/20_selle_SD_H11p2.stl",
+    "STEP": "cad/20_selle_SD_H11p2.step",
+    "STL_sha256": "4c973e439533c8d612a05145bd36826807a86da4bf884b804048087c3f08027c",
+    "dimensions_print_mm": [
+      7.280677079868484,
+      24.320338639934235,
+      11.201074362519597
+    ],
+    "volume_mm3": 401.12517550215034
+  },
+  {
+    "id": "20_selle_SD_H11p8",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 0,
+    "variant_or_spare": 2,
+    "role": "Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/20_selle_SD_H11p8.stl",
+    "STEP": "cad/20_selle_SD_H11p8.step",
+    "STL_sha256": "9eb273344ae9d9ece98e77022571c44d26cd6ce81fe8ec8a67079cfea4c60243",
+    "dimensions_print_mm": [
+      7.280677079868484,
+      24.320338639934235,
+      11.801074362519598
+    ],
+    "volume_mm3": 416.08620250859025
+  },
+  {
+    "id": "30_etrier_MKI_ABS",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Guide élargi ABS; contact uniquement patins isolants",
+    "orientation": "upside_down",
+    "inherited_exact_V25": false,
+    "STL": "stl/30_etrier_MKI_ABS.stl",
+    "STEP": "cad/30_etrier_MKI_ABS.step",
+    "STL_sha256": "81babfe72735a7db6001757e5fb4d6d407f3647dbfe3ba192fdeb053ca07727a",
+    "dimensions_print_mm": [
+      39.80123575663636,
+      45.800922441704905,
+      24.152451500834655
+    ],
+    "volume_mm3": 2728.2653686329104
+  },
+  {
+    "id": "31_etrier_Click_ABS",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Guide élargi ABS; contact uniquement patins isolants",
+    "orientation": "upside_down",
+    "inherited_exact_V25": false,
+    "STL": "stl/31_etrier_Click_ABS.stl",
+    "STEP": "cad/31_etrier_Click_ABS.step",
+    "STL_sha256": "0b2adf3e789e0a4633cf9815ccd8cf3165a2ba57c7a3644772dc2cce605e11db",
+    "dimensions_print_mm": [
+      23.501234482608705,
+      43.10201383048354,
+      24.15243259383709
+    ],
+    "volume_mm3": 2995.808147061095
+  },
+  {
+    "id": "32_patin_MKI_avant_ABS",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Patin contact1,0×2,4, coupelle fermée1,5",
+    "orientation": "upside_down",
+    "inherited_exact_V25": false,
+    "STL": "stl/32_patin_MKI_avant_ABS.stl",
+    "STEP": "cad/32_patin_MKI_avant_ABS.step",
+    "STL_sha256": "2688205a362b24d0cdb11ad29c5fad638779ffc3eafd0da3f1e9ccab4afad328",
+    "dimensions_print_mm": [
+      7.700000200000005,
+      11.200273601079086,
+      2.5007610651180485
+    ],
+    "volume_mm3": 86.45564330577209
+  },
+  {
+    "id": "33_patin_MKI_arriere_ABS",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Patin contact1,0×2,4, coupelle fermée1,5",
+    "orientation": "upside_down",
+    "inherited_exact_V25": false,
+    "STL": "stl/33_patin_MKI_arriere_ABS.stl",
+    "STEP": "cad/33_patin_MKI_arriere_ABS.step",
+    "STL_sha256": "306a8271f8f0045821712e35433e24db926a63f58f00bf731f00f581d86c2b49",
+    "dimensions_print_mm": [
+      13.200000200000002,
+      10.000000200000002,
+      2.5007610651180476
+    ],
+    "volume_mm3": 135.80079723112544
+  },
+  {
+    "id": "34_patin_Click_ABS",
+    "quantity_to_print_two_kits": 4,
+    "useful_two_kits": 4,
+    "variant_or_spare": 0,
+    "role": "Patin contact1,0×2,4, coupelle fermée1,5",
+    "orientation": "upside_down",
+    "inherited_exact_V25": false,
+    "STL": "stl/34_patin_Click_ABS.stl",
+    "STEP": "cad/34_patin_Click_ABS.step",
+    "STL_sha256": "acbb97f56da0952c53e4f1153ad8f5bfb9061f46a2aa419e6addf59f22a39b90",
+    "dimensions_print_mm": [
+      9.100000200000002,
+      5.000000200000002,
+      2.5007610651180476
+    ],
+    "volume_mm3": 70.58079723112547
+  },
+  {
+    "id": "40_cage_USER_captive",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Cage fixée sous capot, guide et butées, aucun élément libre",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/40_cage_USER_captive.stl",
+    "STEP": "cad/40_cage_USER_captive.step",
+    "STL_sha256": "b4e30b7cf04ad01ef164694bbd38e53f54c039c597f5767de07d3449440bd448",
+    "dimensions_print_mm": [
+      37.20580670763112,
+      20.18009555172874,
+      29.007218785998525
+    ],
+    "volume_mm3": 5778.082244494637
+  },
+  {
+    "id": "41_USER_pointe_Z8p8",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 0,
+    "variant_or_spare": 2,
+    "role": "Choisir UNE tige; ajustage pointe hors banc, jeu au repos obligatoire",
+    "orientation": "upside_down",
+    "inherited_exact_V25": false,
+    "STL": "stl/41_USER_pointe_Z8p8.stl",
+    "STEP": "cad/41_USER_pointe_Z8p8.step",
+    "STL_sha256": "78ee3544d722c50c693b0d98dcc675bb298d0563b7f538672868015440646c0e",
+    "dimensions_print_mm": [
+      23.00514722873972,
+      23.007720599115718,
+      40.60335695787373
+    ],
+    "volume_mm3": 1523.7729679559643
+  },
+  {
+    "id": "41_USER_pointe_Z9p6",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 0,
+    "variant_or_spare": 2,
+    "role": "Choisir UNE tige; ajustage pointe hors banc, jeu au repos obligatoire",
+    "orientation": "upside_down",
+    "inherited_exact_V25": false,
+    "STL": "stl/41_USER_pointe_Z9p6.stl",
+    "STEP": "cad/41_USER_pointe_Z9p6.step",
+    "STL_sha256": "ed637917406bdd24953b5e02baa5f81fa1ba89d5c5426e418e5b3705515100d7",
+    "dimensions_print_mm": [
+      23.00514722873972,
+      23.007720599115718,
+      39.80335695787373
+    ],
+    "volume_mm3": 1513.1543847868306
+  },
+  {
+    "id": "41_USER_pointe_Z10p4",
+    "quantity_to_print_two_kits": 2,
+    "useful_two_kits": 2,
+    "variant_or_spare": 0,
+    "role": "Choisir UNE tige; ajustage pointe hors banc, jeu au repos obligatoire",
+    "orientation": "upside_down",
+    "inherited_exact_V25": false,
+    "STL": "stl/41_USER_pointe_Z10p4.stl",
+    "STEP": "cad/41_USER_pointe_Z10p4.step",
+    "STL_sha256": "3ed677bcbd927eeddc9503202a330201ceb8863e14bb117a2a7675acb1f31486",
+    "dimensions_print_mm": [
+      23.00514722873972,
+      23.007720599115718,
+      39.003356957873734
+    ],
+    "volume_mm3": 1502.5358016176967
+  },
+  {
+    "id": "50_coupon_ABS",
+    "quantity_to_print_two_kits": 1,
+    "useful_two_kits": 0,
+    "variant_or_spare": 1,
+    "role": "Coupon unique pour profil machine; ne pas intégrer au TR2",
+    "orientation": "flat",
+    "inherited_exact_V25": false,
+    "STL": "stl/50_coupon_ABS.stl",
+    "STEP": "cad/50_coupon_ABS.step",
+    "STL_sha256": "abbeaddcdae196fce2923c3d73dfca214b1f10d71c201b5fde93fa39d1d787a3",
+    "dimensions_print_mm": [
+      50.00000020000002,
+      16.000000200000017,
+      12.252909390157239
+    ],
+    "volume_mm3": 2186.7897450654314
+  }
+]

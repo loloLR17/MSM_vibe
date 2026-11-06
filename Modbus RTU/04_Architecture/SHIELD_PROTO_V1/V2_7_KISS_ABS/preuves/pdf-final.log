@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/vues.py", line 166, in <module>
+    document()if '--pdf-only'in sys.argv else main()
+    ~~~~~~~~^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/vues.py", line 97, in document
+    if sec is None:sec=section()
+                       ~~~~~~~^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/vues.py", line 82, in section
+    shapes=[('capot',v.PARTS['02_couvercle_ARNACO_USER']['shape'],a.COL['case']),('cage',v.PARTS['40_cage_USER_captive']['shape'],a.COL['USER']),('tige',v.PARTS['41_USER_pointe_Z10p4']['shape'],a.COL['Click'])]
+                     ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: '02_couvercle_ARNACO_USER'

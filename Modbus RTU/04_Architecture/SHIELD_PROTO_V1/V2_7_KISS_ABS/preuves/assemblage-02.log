@@ -1,0 +1,10 @@
+/home/lolo/dev/msm/cache/shield-v15-cad-venv/lib/python3.13/site-packages/cadquery/utils.py:82: FutureWarning: save will be removed in the next release.
+  warn(f"{f.__name__} will be removed in the next release.", FutureWarning)
+{
+  "groups": 12,
+  "objects": 141,
+  "single_prototype": true,
+  "variants_or_spares_in_assembly": false,
+  "STEP": "eclate-un-prototype.step",
+  "supplier_objects": "own derived bounding envelopes, no vendor solids"
+}

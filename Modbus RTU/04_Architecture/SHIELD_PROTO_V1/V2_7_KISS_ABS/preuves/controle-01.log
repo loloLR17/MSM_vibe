@@ -1,0 +1,101 @@
+STL/STEP reopens pass 25
+own pairs 253
+/home/lolo/dev/msm/cache/shield-v15-cad-venv/lib/python3.13/site-packages/cadquery/utils.py:82: FutureWarning: save will be removed in the next release.
+  warn(f"{f.__name__} will be removed in the next release.", FutureWarning)
+{
+  "types": 25,
+  "print_parts_two_kits": 61,
+  "useful_two_kits": 46,
+  "all_new_meshes_passed": true,
+  "unchanged_exact_shapes_reused": 4,
+  "BREP_checks": 5477,
+  "positive_intersections": [
+    {
+      "check": "30_etrier_MKI_ABS / MKI_patin0",
+      "positive_volume_mm3": 1.2431443240213842
+    },
+    {
+      "check": "30_etrier_MKI_ABS / MKI_patin1",
+      "positive_volume_mm3": 1.0000000000000142
+    },
+    {
+      "check": "31_etrier_Click_ABS / Click_patin0",
+      "positive_volume_mm3": 0.720000000000012
+    },
+    {
+      "check": "31_etrier_Click_ABS / Click_patin1",
+      "positive_volume_mm3": 0.720000000000012
+    },
+    {
+      "check": "MKI0 B24.75pad/frame",
+      "positive_volume_mm3": 1.2431443240213844
+    },
+    {
+      "check": "MKI1 B24.75pad/frame",
+      "positive_volume_mm3": 1.0000000000000142
+    },
+    {
+      "check": "Click0 B24.75pad/frame",
+      "positive_volume_mm3": 0.7200000000000121
+    },
+    {
+      "check": "Click1 B24.75pad/frame",
+      "positive_volume_mm3": 0.7200000000000121
+    },
+    {
+      "check": "MKI0 B26.65pad/frame",
+      "positive_volume_mm3": 1.2431443240213844
+    },
+    {
+      "check": "MKI1 B26.65pad/frame",
+      "positive_volume_mm3": 1.000000000000014
+    },
+    {
+      "check": "Click0 B26.65pad/frame",
+      "positive_volume_mm3": 0.7200000000000122
+    },
+    {
+      "check": "Click1 B26.65pad/frame",
+      "positive_volume_mm3": 0.7200000000000122
+    },
+    {
+      "check": "MKI0 B29.15pad/frame",
+      "positive_volume_mm3": 1.2431443240213844
+    },
+    {
+      "check": "MKI1 B29.15pad/frame",
+      "positive_volume_mm3": 1.0000000000000142
+    },
+    {
+      "check": "Click0 B29.15pad/frame",
+      "positive_volume_mm3": 0.7200000000000121
+    },
+    {
+      "check": "Click1 B29.15pad/frame",
+      "positive_volume_mm3": 0.7200000000000121
+    },
+    {
+      "check": "spring0/cage",
+      "positive_volume_mm3": 0.04399072175251052
+    },
+    {
+      "check": "spring0.7/cage",
+      "positive_volume_mm3": 0.04399072175251052
+    },
+    {
+      "check": "spring1.4/cage",
+      "positive_volume_mm3": 0.04399072175251052
+    }
+  ],
+  "C05_native_source_solids": 1060,
+  "physical_qualification": false,
+  "passed": false
+}
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/controle.py", line 181, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/controle.py", line 180, in main
+    save('synthese-controles.json',summary);print(json.dumps(summary,indent=2),flush=True);assert not HITS,'Review actual intersections'
+                                                                                                  ^^^^^^^^
+AssertionError: Review actual intersections

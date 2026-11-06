@@ -1,0 +1,26 @@
+fichier_STL,a_imprimer_deux_TR2,utilise_deux_TR2_exemple_H11p2,variante_ou_reserve,role,orientation,dimensions_impression_mm
+stl/01_base_ABS.stl,2,2,0,"Caisse, CN15 fixe et poche SD intégrés",flat,158.00 x 166.00 x 61.00
+stl/02_couvercle_ARNACO_USER.stl,2,2,0,Capot fermé sans trappe bornier; USER encastré Ø13,flat,158.00 x 166.00 x 4.00
+stl/03_facade_STLINK_LED_nappe.stl,2,2,0,"Une cassette nord, fente nappe en U, vitre conservée",north,67.60 x 53.55 x 2.40
+stl/06_passe_cable_RS485.stl,2,2,0,"Un panneau de passage fixe, pas une trappe",east,25.55 x 38.60 x 2.40
+stl/07_cadre_vitre.stl,2,2,0,Forme V25 inchangée; ABS à contrôler à froid,north,61.10 x 20.00 x 2.00
+stl/10_serre_nappe.stl,2,2,0,Forme V25 inchangée; ABS à contrôler à froid,north,28.00 x 6.00 x 3.00
+stl/13_D126.stl,8,6,2,Forme V25 inchangée; ABS à contrôler à froid,flat,6.00 x 3.00 x 12.25
+stl/15_retenue_Nucleo.stl,6,6,0,Forme V25 inchangée; ABS à contrôler à froid,upside_down,17.30 x 6.80 x 3.60
+stl/11_serre_cable_RS485.stl,2,2,0,"Deux fentes Colson, garniture souple et câble placé sur la bride",flat,6.00 x 25.00 x 3.00
+stl/20_selle_FRAM_H10p6.stl,2,0,2,"Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",flat,24.72 x 7.10 x 10.60
+stl/20_selle_FRAM_H11p2.stl,2,2,0,"Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",flat,24.72 x 7.10 x 11.20
+stl/20_selle_FRAM_H11p8.stl,2,0,2,"Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",flat,24.72 x 7.10 x 11.80
+stl/20_selle_SD_H10p6.stl,2,0,2,"Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",flat,7.28 x 24.32 x 10.60
+stl/20_selle_SD_H11p2.stl,2,2,0,"Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",flat,7.28 x 24.32 x 11.20
+stl/20_selle_SD_H11p8.stl,2,0,2,"Une selle deux portées, ponçage à plat≤0,6mm; choisir UNE hauteur/module",flat,7.28 x 24.32 x 11.80
+stl/30_etrier_MKI_ABS.stl,2,2,0,Guide élargi ABS; contact uniquement patins isolants,upside_down,39.80 x 45.80 x 24.15
+stl/31_etrier_Click_ABS.stl,2,2,0,Guide élargi ABS; contact uniquement patins isolants,upside_down,23.50 x 43.10 x 24.15
+stl/32_patin_MKI_avant_ABS.stl,2,2,0,"Patin contact1,0×2,4, coupelle fermée1,5",upside_down,7.70 x 11.20 x 2.50
+stl/33_patin_MKI_arriere_ABS.stl,2,2,0,"Patin contact1,0×2,4, coupelle fermée1,5",upside_down,13.20 x 10.00 x 2.50
+stl/34_patin_Click_ABS.stl,4,4,0,"Patin contact1,0×2,4, coupelle fermée1,5",upside_down,9.10 x 5.00 x 2.50
+stl/40_cage_USER_captive.stl,2,2,0,"Cage fixée sous capot, guide et butées, aucun élément libre",flat,37.21 x 20.18 x 29.01
+stl/41_USER_pointe_Z8p8.stl,2,0,2,"Choisir UNE tige; ajustage pointe hors banc, jeu au repos obligatoire",upside_down,23.01 x 23.01 x 40.60
+stl/41_USER_pointe_Z9p6.stl,2,0,2,"Choisir UNE tige; ajustage pointe hors banc, jeu au repos obligatoire",upside_down,23.01 x 23.01 x 39.80
+stl/41_USER_pointe_Z10p4.stl,2,2,0,"Choisir UNE tige; ajustage pointe hors banc, jeu au repos obligatoire",upside_down,23.01 x 23.01 x 39.00
+stl/50_coupon_ABS.stl,1,0,1,Coupon unique pour profil machine; ne pas intégrer au TR2,flat,50.00 x 16.00 x 12.25

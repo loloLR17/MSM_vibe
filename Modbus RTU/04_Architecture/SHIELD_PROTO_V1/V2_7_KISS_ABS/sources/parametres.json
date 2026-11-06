@@ -1,0 +1,103 @@
+{
+  "mission_id": "TR2-20261106-SHIELD-V27-KISS-ABS-MORVAN",
+  "material": "ABS non-conductive",
+  "G": 12.25,
+  "frame": "KiCadX,-KiCadY,Z0Nucleo",
+  "USER": {
+    "xy": [
+      29.5212,
+      120.3262
+    ],
+    "reported_button_top": 10.2,
+    "first_click_reported_approx": 0.4,
+    "shaft_d": 4,
+    "guide_bore": 4.8,
+    "head_d": 11,
+    "lid_bore_d": 13,
+    "flange_d": 23,
+    "head_top_rest": 49.4,
+    "lid_top": 50,
+    "flange_rest_bottom": 45,
+    "guide_spring_seat_Z": 36,
+    "stop_xy": [
+      29.5212,
+      129.3262
+    ],
+    "stop_adjustable_Z": [
+      43.6,
+      44.8
+    ],
+    "operating_travel_range": [
+      0.2,
+      1.4
+    ],
+    "printed_fail_safe_Z": 43,
+    "spring_rest_length": 9,
+    "spring_min_operating_length": 7.6,
+    "spring_example": "Gutekunst DIN2098 D-064,13.5free,OD6.8,ID5.8,rate0.728N/mm",
+    "pusher_tip_variants": [
+      8.8,
+      9.6,
+      10.4
+    ],
+    "cold_fit_required": true,
+    "button_force_max_overtravel": null
+  },
+  "USER_cage_lid_mounts": [
+    [
+      15.8,
+      131
+    ],
+    [
+      44,
+      131
+    ]
+  ],
+  "support_heights": [
+    10.6,
+    11.2,
+    11.8
+  ],
+  "sanding_max": 0.6,
+  "mechanical_support_range": [
+    10,
+    11.8
+  ],
+  "electrical_engagement_window": "not known; manual socket stops first",
+  "washer_standard": "DIN433 nylon M2,2.2x4.5x0.3",
+  "separate_washers_two_kits": 24,
+  "module_contacts": {
+    "MKI": [
+      [
+        48,
+        23.6
+      ],
+      [
+        48,
+        52.3
+      ]
+    ],
+    "Click": [
+      [
+        84.4,
+        86.75
+      ],
+      [
+        84.4,
+        96.75
+      ]
+    ]
+  },
+  "ABS": {
+    "slider_clearance_per_side": 0.3,
+    "nyloc_pocket_AF": 6.1,
+    "case_scale": 1,
+    "shrinkage_compensation": "machine specific, not applied blindly to critical ST distances"
+  },
+  "case_outside": [
+    158,
+    166,
+    64
+  ],
+  "physical_qualification": false
+}

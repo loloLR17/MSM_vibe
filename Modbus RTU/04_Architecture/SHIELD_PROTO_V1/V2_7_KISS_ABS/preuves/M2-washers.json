@@ -1,0 +1,130 @@
+[
+  {
+    "kind": "FRAM",
+    "H": 10,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 28.950000000000003,
+    "M2x30_L29p5_thread_emergence": 12.5
+  },
+  {
+    "kind": "FRAM",
+    "H": 10,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 28.950000000000003,
+    "M2x30_L29p5_thread_emergence": 12.5
+  },
+  {
+    "kind": "SD",
+    "H": 10,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 28.92,
+    "M2x30_L29p5_thread_emergence": 12.530000000000001
+  },
+  {
+    "kind": "SD",
+    "H": 10,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 28.92,
+    "M2x30_L29p5_thread_emergence": 12.530000000000001
+  },
+  {
+    "kind": "FRAM",
+    "H": 10.6,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 29.55,
+    "M2x30_L29p5_thread_emergence": 11.900000000000002
+  },
+  {
+    "kind": "FRAM",
+    "H": 10.6,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 29.55,
+    "M2x30_L29p5_thread_emergence": 11.900000000000002
+  },
+  {
+    "kind": "SD",
+    "H": 10.6,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 29.52,
+    "M2x30_L29p5_thread_emergence": 11.930000000000003
+  },
+  {
+    "kind": "SD",
+    "H": 10.6,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 29.52,
+    "M2x30_L29p5_thread_emergence": 11.930000000000003
+  },
+  {
+    "kind": "FRAM",
+    "H": 11.2,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 30.15,
+    "M2x30_L29p5_thread_emergence": 11.300000000000004
+  },
+  {
+    "kind": "FRAM",
+    "H": 11.2,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 30.15,
+    "M2x30_L29p5_thread_emergence": 11.300000000000004
+  },
+  {
+    "kind": "SD",
+    "H": 11.2,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 30.119999999999997,
+    "M2x30_L29p5_thread_emergence": 11.330000000000005
+  },
+  {
+    "kind": "SD",
+    "H": 11.2,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 30.119999999999997,
+    "M2x30_L29p5_thread_emergence": 11.330000000000005
+  },
+  {
+    "kind": "FRAM",
+    "H": 11.8,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 30.75,
+    "M2x30_L29p5_thread_emergence": 10.700000000000003
+  },
+  {
+    "kind": "FRAM",
+    "H": 11.8,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 30.75,
+    "M2x30_L29p5_thread_emergence": 10.700000000000003
+  },
+  {
+    "kind": "SD",
+    "H": 11.8,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 30.72,
+    "M2x30_L29p5_thread_emergence": 10.730000000000004
+  },
+  {
+    "kind": "SD",
+    "H": 11.8,
+    "head_bottom": 9.75,
+    "washer_height": 0.3,
+    "nut_top": 30.72,
+    "M2x30_L29p5_thread_emergence": 10.730000000000004
+  }
+]

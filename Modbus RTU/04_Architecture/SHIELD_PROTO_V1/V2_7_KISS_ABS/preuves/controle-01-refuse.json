@@ -1,0 +1,82 @@
+{
+  "checks": 5477,
+  "positive_intersections": [
+    {
+      "check": "30_etrier_MKI_ABS / MKI_patin0",
+      "positive_volume_mm3": 1.2431443240213842
+    },
+    {
+      "check": "30_etrier_MKI_ABS / MKI_patin1",
+      "positive_volume_mm3": 1.0000000000000142
+    },
+    {
+      "check": "31_etrier_Click_ABS / Click_patin0",
+      "positive_volume_mm3": 0.720000000000012
+    },
+    {
+      "check": "31_etrier_Click_ABS / Click_patin1",
+      "positive_volume_mm3": 0.720000000000012
+    },
+    {
+      "check": "MKI0 B24.75pad/frame",
+      "positive_volume_mm3": 1.2431443240213844
+    },
+    {
+      "check": "MKI1 B24.75pad/frame",
+      "positive_volume_mm3": 1.0000000000000142
+    },
+    {
+      "check": "Click0 B24.75pad/frame",
+      "positive_volume_mm3": 0.7200000000000121
+    },
+    {
+      "check": "Click1 B24.75pad/frame",
+      "positive_volume_mm3": 0.7200000000000121
+    },
+    {
+      "check": "MKI0 B26.65pad/frame",
+      "positive_volume_mm3": 1.2431443240213844
+    },
+    {
+      "check": "MKI1 B26.65pad/frame",
+      "positive_volume_mm3": 1.000000000000014
+    },
+    {
+      "check": "Click0 B26.65pad/frame",
+      "positive_volume_mm3": 0.7200000000000122
+    },
+    {
+      "check": "Click1 B26.65pad/frame",
+      "positive_volume_mm3": 0.7200000000000122
+    },
+    {
+      "check": "MKI0 B29.15pad/frame",
+      "positive_volume_mm3": 1.2431443240213844
+    },
+    {
+      "check": "MKI1 B29.15pad/frame",
+      "positive_volume_mm3": 1.0000000000000142
+    },
+    {
+      "check": "Click0 B29.15pad/frame",
+      "positive_volume_mm3": 0.7200000000000121
+    },
+    {
+      "check": "Click1 B29.15pad/frame",
+      "positive_volume_mm3": 0.7200000000000121
+    },
+    {
+      "check": "spring0/cage",
+      "positive_volume_mm3": 0.04399072175251052
+    },
+    {
+      "check": "spring0.7/cage",
+      "positive_volume_mm3": 0.04399072175251052
+    },
+    {
+      "check": "spring1.4/cage",
+      "positive_volume_mm3": 0.04399072175251052
+    }
+  ],
+  "released": false
+}

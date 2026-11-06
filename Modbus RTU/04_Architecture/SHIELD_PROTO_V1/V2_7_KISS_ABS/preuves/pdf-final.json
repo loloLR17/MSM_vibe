@@ -1,0 +1,11 @@
+{
+  "PDF_pages": 6,
+  "text_inside_pages": true,
+  "D126_reserves_table_corrected": true,
+  "washer_count_corrected": true,
+  "STL_unchanged": 25,
+  "sources_AST_valid": true,
+  "visual_review": "Final VTK depth-buffer render: all twelve layers/case/lid visible without cropping or false triangle occlusion; closed/open views inspected; quantity/assembly pages inspected",
+  "PDF_sha256": "97e241c58ed04497d96493dd8abb91ba831ef556e3f3467055f1fb5124601eab",
+  "passed": true
+}

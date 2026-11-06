@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/modele.py", line 143, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/modele.py", line 131, in main
+    build();rows=[];a=cq.Assembly(name='V27_OWN_ASSEMBLY_NOMINAL_NOT_PHYSICAL_QUALIFICATION')
+    ~~~~~^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/modele.py", line 113, in build
+    part('40_cage_USER_captive',user_cage(),2,2,'Cage fixée sous capot, guide et butées, aucun élément libre')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-KISS-ABS/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/sources/modele.py", line 15, in part
+    s=s.clean();assert s.isValid()and len(s.Solids())==1,(n,'invalid or disconnected')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('40_cage_USER_captive', 'invalid or disconnected')

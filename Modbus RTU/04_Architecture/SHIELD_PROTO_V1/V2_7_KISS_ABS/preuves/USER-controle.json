@@ -1,0 +1,78 @@
+{
+  "samples": [
+    {
+      "button_top_scenario": 8.56,
+      "restgap": 0.3,
+      "stroke": 0,
+      "tip_Z": 8.860000000000001,
+      "button_travel_after_gap": 0,
+      "mechanical_first_click_observation_not_maxstroke": 0.4
+    },
+    {
+      "button_top_scenario": 8.56,
+      "restgap": 0.3,
+      "stroke": 0.2,
+      "tip_Z": 8.660000000000002,
+      "button_travel_after_gap": 0,
+      "mechanical_first_click_observation_not_maxstroke": 0.4
+    },
+    {
+      "button_top_scenario": 8.56,
+      "restgap": 0.3,
+      "stroke": 0.7,
+      "tip_Z": 8.160000000000002,
+      "button_travel_after_gap": 0.39999999999999997,
+      "mechanical_first_click_observation_not_maxstroke": 0.4
+    },
+    {
+      "button_top_scenario": 10.2,
+      "restgap": 0.3,
+      "stroke": 0,
+      "tip_Z": 10.5,
+      "button_travel_after_gap": 0,
+      "mechanical_first_click_observation_not_maxstroke": 0.4
+    },
+    {
+      "button_top_scenario": 10.2,
+      "restgap": 0.3,
+      "stroke": 0.2,
+      "tip_Z": 10.3,
+      "button_travel_after_gap": 0,
+      "mechanical_first_click_observation_not_maxstroke": 0.4
+    },
+    {
+      "button_top_scenario": 10.2,
+      "restgap": 0.3,
+      "stroke": 0.7,
+      "tip_Z": 9.8,
+      "button_travel_after_gap": 0.39999999999999997,
+      "mechanical_first_click_observation_not_maxstroke": 0.4
+    }
+  ],
+  "upward_custody": "flange23 > lidbore13; no release path with cage installed",
+  "downward_custody": "two printedpinsZ43 plus normaladjustablestop43.6..44.8; flange cannot fall past guide",
+  "shaft_guide_radial_clearance": 0.4,
+  "guide_length": 18,
+  "maximum_tilt_model_deg": 2.5448043798130957,
+  "flange_projected_min_d_at_tilt": 22.9773175487228,
+  "lid_hole_d": 13,
+  "head_recess": 0.6,
+  "stop_operation_range": [
+    0.2,
+    1.4
+  ],
+  "shipping_stop_stroke": 0.2,
+  "first_click_observed_approx_only": 0.4,
+  "max_B1_overtravel_and_force": "UNKNOWN; adjust stop to actual first click at cold assembly, no guarantee from approximate observation",
+  "spring_example_rate_N_mm": 0.728,
+  "spring_free_length": 13.5,
+  "spring_installed_range": [
+    7.6,
+    9
+  ],
+  "spring_static_min_length_manufacturer": 3.34,
+  "spring_calculated_force_rest": 3.276,
+  "spring_calculated_force_at_max_stroke": 4.2952,
+  "physical_return_force_and_ergonomics": "NOT_TESTED",
+  "no_firmware_change": true
+}

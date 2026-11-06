@@ -1,0 +1,83 @@
+{
+  "unchanged_STL_sha256": 25,
+  "STEP_reopened": {
+    "assemblage-propre.step": {
+      "solids": 23,
+      "all_solids_valid": true,
+      "bytes": 6112517
+    },
+    "quincaillerie-enveloppes.step": {
+      "solids": 80,
+      "all_solids_valid": true,
+      "bytes": 1715341
+    },
+    "assemblage-complet-enveloppes.step": {
+      "solids": 336,
+      "all_solids_valid": true,
+      "bytes": 13420082
+    },
+    "eclate-un-prototype.step": {
+      "solids": 336,
+      "all_solids_valid": true,
+      "bytes": 13391718
+    }
+  },
+  "counts": {
+    "STL_types": 25,
+    "total": 61,
+    "useful": 46,
+    "alternatives": 12,
+    "D126_spares": 2,
+    "coupon": 1,
+    "previous": 142,
+    "reduction": 81,
+    "reduction_percent": 57.04225352112676
+  },
+  "PDF_pages": [
+    {
+      "page": 1,
+      "width_pt": 595.4400024414062,
+      "height_pt": 841.6799926757812,
+      "text_chars": 0,
+      "images": 3
+    },
+    {
+      "page": 2,
+      "width_pt": 595.4400024414062,
+      "height_pt": 841.6799926757812,
+      "text_chars": 42,
+      "images": 3
+    },
+    {
+      "page": 3,
+      "width_pt": 623.7530517578125,
+      "height_pt": 586.1082153320312,
+      "text_chars": 517,
+      "images": 3
+    },
+    {
+      "page": 4,
+      "width_pt": 595.4400024414062,
+      "height_pt": 841.6799926757812,
+      "text_chars": 1260,
+      "images": 3
+    },
+    {
+      "page": 5,
+      "width_pt": 490.75201416015625,
+      "height_pt": 794.8758544921875,
+      "text_chars": 1914,
+      "images": 3
+    },
+    {
+      "page": 6,
+      "width_pt": 490.75201416015625,
+      "height_pt": 794.8758544921875,
+      "text_chars": 1738,
+      "images": 3
+    }
+  ],
+  "preserved_baseline_files": 842,
+  "physical_qualification": false,
+  "passed": true
+}

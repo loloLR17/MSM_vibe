@@ -1,0 +1,12 @@
+{
+  "types": 25,
+  "print_parts_two_kits": 61,
+  "useful_two_kits": 46,
+  "all_new_meshes_passed": true,
+  "unchanged_exact_shapes_reused": 4,
+  "BREP_checks": 5477,
+  "positive_intersections": [],
+  "C05_native_source_solids": 1060,
+  "physical_qualification": false,
+  "passed": true
+}

@@ -1,0 +1,1262 @@
+[
+  {
+    "repere": 1,
+    "label": "Caisse et écrous captifs",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      0
+    ],
+    "objects": [
+      {
+        "name": "01_base_ABS",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut0_lid",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut1_lid",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut2_lid",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut3_lid",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut4_keeper",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut5_keeper",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut6_keeper",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut7_RSbar",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "M3nut8_RSbar",
+        "translation": [
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 2,
+    "label": "Façades fixes et vitre",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      0
+    ],
+    "objects": [
+      {
+        "name": "03_facade_STLINK_LED_nappe",
+        "translation": [
+          0,
+          30,
+          12
+        ]
+      },
+      {
+        "name": "06_passe_cable_RS485",
+        "translation": [
+          30,
+          0,
+          12
+        ]
+      },
+      {
+        "name": "07_cadre_vitre",
+        "translation": [
+          0,
+          30,
+          12
+        ]
+      },
+      {
+        "name": "M3case9_window",
+        "translation": [
+          0,
+          30,
+          12
+        ]
+      },
+      {
+        "name": "M3nut9_window",
+        "translation": [
+          0,
+          30,
+          12
+        ]
+      },
+      {
+        "name": "M3case10_window",
+        "translation": [
+          0,
+          30,
+          12
+        ]
+      },
+      {
+        "name": "M3nut10_window",
+        "translation": [
+          0,
+          30,
+          12
+        ]
+      },
+      {
+        "name": "PC_window_50x18x1p5",
+        "translation": [
+          0,
+          30,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 3,
+    "label": "Nucleo C05 (enveloppes ST)",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      52
+    ],
+    "objects": [
+      {
+        "name": "PCB_C05_outline_ST",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "Zio_enveloppes_ST",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "CN1_enveloppes_ST",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "CN15_enveloppes_ST",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "B1_source_enveloppes_ST",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "B1_top_reported_not_force_model",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "RESET_axis_envelope",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "LD3_position_ST",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "LD2_position_ST",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "LD1_position_ST",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "Ajile_M2x20_envelope_0",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "Ajile_M2x20_envelope_1",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      },
+      {
+        "name": "Ajile_M2x20_envelope_2",
+        "translation": [
+          0,
+          0,
+          52
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 4,
+    "label": "D126, bras et Ajile",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      78
+    ],
+    "objects": [
+      {
+        "name": "D126_0",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      },
+      {
+        "name": "D126_1",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      },
+      {
+        "name": "D126_2",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      },
+      {
+        "name": "retenue_0",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      },
+      {
+        "name": "retenue_1",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      },
+      {
+        "name": "retenue_2",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      },
+      {
+        "name": "M3case4_keeper",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      },
+      {
+        "name": "M3case5_keeper",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      },
+      {
+        "name": "M3case6_keeper",
+        "translation": [
+          0,
+          0,
+          78
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 5,
+    "label": "Shield V2.3 et connecteurs",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      102
+    ],
+    "objects": [
+      {
+        "name": "PCB_V23_holes_and_RC_envelopes",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "FRAM_1x10_intact",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "SD_1x10_intact",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Zio_male_body_892",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Zio_male_body_895",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Zio_male_body_898",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Zio_male_body_901",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "J5_SSW103_envelope",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "MKI_socket_45",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "MKI_socket_60.24",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Click_socket_80",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Click_socket_102.86",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Ajile_nut0_0",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Ajile_nut0_1",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Ajile_nut1_0",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Ajile_nut1_1",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Ajile_nut2_0",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Ajile_nut2_1",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "FRAM0_M2x30",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "FRAM0_lower_washer_DIN433",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "FRAM1_M2x30",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "FRAM1_lower_washer_DIN433",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "SD0_M2x30",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "SD0_lower_washer_DIN433",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "SD1_M2x30",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "SD1_lower_washer_DIN433",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "MKI0_M2x30",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "MKI0_lower_washer",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "MKI1_M2x30",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "MKI1_lower_washer",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Click0_M2x30",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Click0_lower_washer",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Click1_M2x30",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      },
+      {
+        "name": "Click1_lower_washer",
+        "translation": [
+          0,
+          0,
+          102
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 6,
+    "label": "Selles choisies, M2 et rondelles",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      124
+    ],
+    "objects": [
+      {
+        "name": "20_selle_FRAM_H11p2",
+        "translation": [
+          0,
+          0,
+          124
+        ]
+      },
+      {
+        "name": "20_selle_SD_H11p2",
+        "translation": [
+          0,
+          0,
+          124
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 7,
+    "label": "FRAM et microSD",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      162
+    ],
+    "objects": [
+      {
+        "name": "FRAM_Eagle_envelopes",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "SD_6_supplier_derived_boxes",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "FRAM0_upper_washer_DIN433",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "FRAM0_nut0",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "FRAM0_nut1",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "FRAM1_upper_washer_DIN433",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "FRAM1_nut0",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "FRAM1_nut1",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "SD0_upper_washer_DIN433",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "SD0_nut0",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "SD0_nut1",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "SD1_upper_washer_DIN433",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "SD1_nut0",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      },
+      {
+        "name": "SD1_nut1",
+        "translation": [
+          0,
+          0,
+          162
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 8,
+    "label": "MKI et Click",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      188
+    ],
+    "objects": [
+      {
+        "name": "MKI_Gerber_derived_envelopes",
+        "translation": [
+          0,
+          0,
+          188
+        ]
+      },
+      {
+        "name": "Click_v101_163_supplier_derived_boxes_NOT_v102",
+        "translation": [
+          0,
+          0,
+          188
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 9,
+    "label": "Étriers et patins isolants",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      220
+    ],
+    "objects": [
+      {
+        "name": "30_etrier_MKI_ABS",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "31_etrier_Click_ABS",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI_patin0",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI_patin1",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click_patin0",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click_patin1",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI0_nut0",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI0_nut1",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI1_nut0",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI1_nut1",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI0_M3_adjustment",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI0_DIN985",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI1_M3_adjustment",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "MKI1_DIN985",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click0_nut0",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click0_nut1",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click1_nut0",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click1_nut1",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click0_M3_adjustment",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click0_DIN985",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click1_M3_adjustment",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      },
+      {
+        "name": "Click1_DIN985",
+        "translation": [
+          0,
+          0,
+          220
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 10,
+    "label": "Brides et couloirs câbles",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      258
+    ],
+    "objects": [
+      {
+        "name": "10_serre_nappe",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "11_serre_cable_RS485",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "M3case7_RSbar",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "M3case8_RSbar",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "M3case11_ribbon",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "M3nut11_ribbon",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "M3case12_ribbon",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "M3nut12_ribbon",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "RS485_cable_D6_design_not_measured",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "RS485_soft_protection",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "ribbon_8x1_design_envelope",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "Colson_RS485_envelope",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      },
+      {
+        "name": "Colson_ribbon_envelope",
+        "translation": [
+          0,
+          0,
+          258
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 11,
+    "label": "Cage USER, ressort, butée",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      300
+    ],
+    "objects": [
+      {
+        "name": "40_cage_USER_captive",
+        "translation": [
+          0,
+          0,
+          300
+        ]
+      },
+      {
+        "name": "M3nut13_USERcage",
+        "translation": [
+          0,
+          0,
+          300
+        ]
+      },
+      {
+        "name": "M3nut14_USERcage",
+        "translation": [
+          0,
+          0,
+          300
+        ]
+      },
+      {
+        "name": "M3_stop_SHIPPING_SHORT_0p2",
+        "translation": [
+          0,
+          0,
+          300
+        ]
+      },
+      {
+        "name": "DIN985_stop",
+        "translation": [
+          0,
+          0,
+          300
+        ]
+      },
+      {
+        "name": "D064_spring_annular_envelope_NOT_coils",
+        "translation": [
+          0,
+          0,
+          300
+        ]
+      }
+    ]
+  },
+  {
+    "repere": 12,
+    "label": "Capot ARNACO et USER captif",
+    "explosion_translation_CAD_mm": [
+      0,
+      0,
+      342
+    ],
+    "objects": [
+      {
+        "name": "02_couvercle_ARNACO_USER",
+        "translation": [
+          0,
+          0,
+          342
+        ]
+      },
+      {
+        "name": "41_USER_pointe_Z10p4",
+        "translation": [
+          0,
+          0,
+          342
+        ]
+      },
+      {
+        "name": "M3case0_lid",
+        "translation": [
+          0,
+          0,
+          342
+        ]
+      },
+      {
+        "name": "M3case1_lid",
+        "translation": [
+          0,
+          0,
+          342
+        ]
+      },
+      {
+        "name": "M3case2_lid",
+        "translation": [
+          0,
+          0,
+          342
+        ]
+      },
+      {
+        "name": "M3case3_lid",
+        "translation": [
+          0,
+          0,
+          342
+        ]
+      },
+      {
+        "name": "M3case13_USERcage",
+        "translation": [
+          0,
+          0,
+          342
+        ]
+      },
+      {
+        "name": "M3case14_USERcage",
+        "translation": [
+          0,
+          0,
+          342
+        ]
+      }
+    ]
+  }
+]
