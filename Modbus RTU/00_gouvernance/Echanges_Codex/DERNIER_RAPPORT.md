@@ -1,10 +1,11 @@
 ---
 mission_id: TR2-20261106-SHIELD-V27-KISS-ABS-MORVAN
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 631505d0d6c466443c49b732795e56e804c6f502
 initial_head: c2bb310b85e974a87048093575eb69afe0728264
-result_sha: null
+result_sha: c6a9c8b78d9fb0e9a1e5c3c14bbf31fd97d4d10d
+completed_at_utc: 2026-11-06T10:31:01Z
 created_at_utc: 2026-11-06T10:22:24Z
 author: Codex
 target_branch: main
@@ -16,7 +17,7 @@ allow_debug: false
 
 # V2.7 — ABS, USER captif et dossier unique pour Morvan
 
-**La conception et les contrôles numériques sont terminés :25 STL /61 pièces pour deux prototypes, avec vue éclatée complète et un seul ZIP « POUR MORVAN ».** IN_PROGRESS porte uniquement sur le commit/push puis la relecture distante encore à effectuer. Revue indépendante ChatGPT avant transmission, montage à froid indispensable ; aucune qualification physique revendiquée. Le précédent feu vert d'impression V2.6 a été retiré par la revue indépendante, conservée dans son archive. Le contrat USER V27 antérieur est annulé avant exécution ; seul le présent contrat a été exécuté.
+**La livraison numérique est terminée, publiée et relue depuis GitHub :25 STL /61 pièces pour deux prototypes, avec vue éclatée complète et un seul ZIP « POUR MORVAN ».** DONE porte sur ce dossier numérique livré, sans qualifier son montage réel. Revue indépendante ChatGPT avant transmission, montage à froid indispensable ; aucune qualification physique revendiquée. Le précédent feu vert d'impression V2.6 a été retiré par la revue indépendante, conservée dans son archive. Le contrat USER V27 antérieur est annulé avant exécution ; seul le présent contrat a été exécuté.
 
 Livrables : `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/`. Modifications ciblées de la mécanique, aucun changement de PCB/Gerber V2.3, firmware, électronique, positions ST, Zio/J5 ou G12,25. **842 fichiers historiques du shield comparés sans différence.** Aucun achat, impression, envoi à Morvan, manipulation, flash/debug ni modification de gouvernance.
 
@@ -93,4 +94,8 @@ Départ vérifié c2bb310b distant/local sur worktree isolé `/home/lolo/dev/msm
 
 `ETAT_COURANT_TR2.md` actualisé par ajout V2.7 :retrait du feu vert V2.6, nouvelle livraison ABS/USER/KISS, contrôles et réserves physiques. Archive de mission exacte créée ; aucun document humain de gouvernance ou de contrat modifié. Permissions exercées :CAO/docs/tests puis commits et push normal vers `HEAD:refs/heads/main` ; flash/debug interdits et non utilisés.
 
-Le commit technique, l'empreinte du ZIP, le résultat du push et la preuve de lecture distante seront consignés après publication. La clôture DONE sera réservée à la livraison numérique effectivement publiée/relue, sans qualifier le matériel.
+**Publication technique vérifiée** :commit `c6a9c8b78d9fb0e9a1e5c3c14bbf31fd97d4d10d` — `Shield V27: simplify ABS kit and restore captive USER on lid`, push normal `HEAD:refs/heads/main` réussi, puis `git fetch origin main`. HEAD etorigin/main identiques. Depuis les objets complets de cette référence fraîchement récupérée de GitHub :**952 blobs relus intégralement et comparés octet pour octet**, dont842 historiques préservés et110 fichiers modifiés/ajoutés. ZIP distant rouvert, **38 entrées CRC/SHA/taille comparées**, également aux blobs individuels distants ;25 STL/61 pièces. Empreinte du manifeste de relecture `8aa62c6bc73db229fc6826debe3dd5e13320ede339cfc8680c22e3f313bed5b2` ; preuve `preuves/publication-initiale.json`, outil `sources/relecture_distante.py` aprèsfetch.
+
+Après la publication technique :worktree propre avant ajout de la preuve de relecture, racine historique propre et deux stashes inchangés. La clôture ajoute uniquement le rapportDONE, son archive, cette preuve et la confirmation factuelle dans le journal ; **aucun STL/STEP/ZIP ni générateur retouché après la preuve technique**. Le push puis la relecture de cette clôture sont vérifiés avant la réponse finale ; son SHA sera donné à l'utilisateur, distinct du `result_sha` technique ci-dessus.118 worktrees préservés, aucun nettoyage destructif ni réécriture d'historique. Le matériel n'a pas été interrogé ou modifié.
+
+**Statut de remise** :dossier V2.7 complet livré pour revue indépendante ChatGPT. Pas d'envoi à Morvan, pas de lancement d'impression automatique. Les réserves physiques ci-dessus restent applicables, particulièrement le réglage sûr du poussoir sur le vraiB1 et le montage ABS sans précharge. Cette clôture ne rétablit pas le feu vert retiré de V2.6.

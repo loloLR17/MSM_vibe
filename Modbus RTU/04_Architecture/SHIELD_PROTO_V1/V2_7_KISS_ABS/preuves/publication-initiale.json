@@ -1,0 +1,12 @@
+{
+  "remote_sha": "c6a9c8b78d9fb0e9a1e5c3c14bbf31fd97d4d10d",
+  "full_files_read_and_compared": 952,
+  "preserved_baseline_files": 842,
+  "changed_files_read": 110,
+  "zip_sha256": "7f21033ffeb50732b3223037159ed1aecf0052235d98e4e7c62ca02c599bbb8d",
+  "zip_remote_members_verified": 38,
+  "STL_types": 25,
+  "parts_two_prototypes": 61,
+  "sha256_full_readback_manifest": "8aa62c6bc73db229fc6826debe3dd5e13320ede339cfc8680c22e3f313bed5b2",
+  "comparison": "all freshly fetched GitHub blobs byte-identical to local; all remote ZIP members CRC/SHA/size and individual remote source blobs compared"
+}
