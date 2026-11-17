@@ -1,0 +1,500 @@
+{
+  "+3V3": [
+    {
+      "ref": "C1",
+      "pin": "1"
+    },
+    {
+      "ref": "C2",
+      "pin": "1"
+    },
+    {
+      "ref": "J2",
+      "pin": "7"
+    },
+    {
+      "ref": "J6",
+      "pin": "9"
+    },
+    {
+      "ref": "J7",
+      "pin": "1"
+    },
+    {
+      "ref": "J8",
+      "pin": "1"
+    },
+    {
+      "ref": "J8",
+      "pin": "2"
+    },
+    {
+      "ref": "J9",
+      "pin": "7"
+    },
+    {
+      "ref": "R1",
+      "pin": "1"
+    },
+    {
+      "ref": "R2",
+      "pin": "1"
+    },
+    {
+      "ref": "R3",
+      "pin": "1"
+    },
+    {
+      "ref": "TP1",
+      "pin": "1"
+    }
+  ],
+  "ACC_CS": [
+    {
+      "ref": "J2",
+      "pin": "4"
+    },
+    {
+      "ref": "J8",
+      "pin": "21"
+    },
+    {
+      "ref": "R1",
+      "pin": "2"
+    }
+  ],
+  "ACC_MISO": [
+    {
+      "ref": "J2",
+      "pin": "8"
+    },
+    {
+      "ref": "J8",
+      "pin": "24"
+    }
+  ],
+  "ACC_MOSI": [
+    {
+      "ref": "J2",
+      "pin": "10"
+    },
+    {
+      "ref": "J8",
+      "pin": "23"
+    }
+  ],
+  "ACC_SCK": [
+    {
+      "ref": "J2",
+      "pin": "6"
+    },
+    {
+      "ref": "J8",
+      "pin": "22"
+    },
+    {
+      "ref": "TP3",
+      "pin": "1"
+    }
+  ],
+  "FRAM_CS": [
+    {
+      "ref": "J1",
+      "pin": "16"
+    },
+    {
+      "ref": "J6",
+      "pin": "3"
+    },
+    {
+      "ref": "R2",
+      "pin": "2"
+    }
+  ],
+  "FRAM_MISO": [
+    {
+      "ref": "J1",
+      "pin": "12"
+    },
+    {
+      "ref": "J6",
+      "pin": "5"
+    }
+  ],
+  "FRAM_MOSI": [
+    {
+      "ref": "J1",
+      "pin": "14"
+    },
+    {
+      "ref": "J6",
+      "pin": "4"
+    }
+  ],
+  "FRAM_SCK": [
+    {
+      "ref": "J1",
+      "pin": "10"
+    },
+    {
+      "ref": "J6",
+      "pin": "6"
+    }
+  ],
+  "GND": [
+    {
+      "ref": "C1",
+      "pin": "2"
+    },
+    {
+      "ref": "C2",
+      "pin": "2"
+    },
+    {
+      "ref": "J2",
+      "pin": "11"
+    },
+    {
+      "ref": "J2",
+      "pin": "13"
+    },
+    {
+      "ref": "J6",
+      "pin": "7"
+    },
+    {
+      "ref": "J7",
+      "pin": "2"
+    },
+    {
+      "ref": "J8",
+      "pin": "13"
+    },
+    {
+      "ref": "J9",
+      "pin": "8"
+    },
+    {
+      "ref": "J9",
+      "pin": "9"
+    },
+    {
+      "ref": "R4",
+      "pin": "2"
+    },
+    {
+      "ref": "TP2",
+      "pin": "1"
+    }
+  ],
+  "RTU_DE": [
+    {
+      "ref": "J5",
+      "pin": "5"
+    },
+    {
+      "ref": "J9",
+      "pin": "3"
+    },
+    {
+      "ref": "R4",
+      "pin": "1"
+    }
+  ],
+  "RTU_RX": [
+    {
+      "ref": "J4",
+      "pin": "16"
+    },
+    {
+      "ref": "J9",
+      "pin": "14"
+    }
+  ],
+  "RTU_TX": [
+    {
+      "ref": "J4",
+      "pin": "14"
+    },
+    {
+      "ref": "J9",
+      "pin": "13"
+    }
+  ],
+  "SD_CS": [
+    {
+      "ref": "J1",
+      "pin": "20"
+    },
+    {
+      "ref": "J7",
+      "pin": "6"
+    },
+    {
+      "ref": "R3",
+      "pin": "2"
+    },
+    {
+      "ref": "TP4",
+      "pin": "1"
+    }
+  ],
+  "SD_MISO": [
+    {
+      "ref": "J3",
+      "pin": "10"
+    },
+    {
+      "ref": "J7",
+      "pin": "4"
+    }
+  ],
+  "SD_MOSI": [
+    {
+      "ref": "J3",
+      "pin": "8"
+    },
+    {
+      "ref": "J7",
+      "pin": "5"
+    }
+  ],
+  "SD_SCK": [
+    {
+      "ref": "J1",
+      "pin": "5"
+    },
+    {
+      "ref": "J7",
+      "pin": "3"
+    }
+  ],
+  "unconnected-(J5-NC-Pad1)": [
+    {
+      "ref": "J5",
+      "pin": "1"
+    }
+  ],
+  "unconnected-(J5-NC-Pad2)": [
+    {
+      "ref": "J5",
+      "pin": "2"
+    }
+  ],
+  "unconnected-(J5-NC-Pad3)": [
+    {
+      "ref": "J5",
+      "pin": "3"
+    }
+  ],
+  "unconnected-(J5-NC-Pad4)": [
+    {
+      "ref": "J5",
+      "pin": "4"
+    }
+  ],
+  "unconnected-(J5-NC-Pad6)": [
+    {
+      "ref": "J5",
+      "pin": "6"
+    }
+  ],
+  "unconnected-(J6-NC-Pad1)": [
+    {
+      "ref": "J6",
+      "pin": "1"
+    }
+  ],
+  "unconnected-(J6-NC-Pad2)": [
+    {
+      "ref": "J6",
+      "pin": "2"
+    }
+  ],
+  "unconnected-(J6-NC-Pad8)": [
+    {
+      "ref": "J6",
+      "pin": "8"
+    }
+  ],
+  "unconnected-(J7-NC-Pad7)": [
+    {
+      "ref": "J7",
+      "pin": "7"
+    }
+  ],
+  "unconnected-(J7-NC-Pad8)": [
+    {
+      "ref": "J7",
+      "pin": "8"
+    }
+  ],
+  "unconnected-(J7-NC-Pad9)": [
+    {
+      "ref": "J7",
+      "pin": "9"
+    }
+  ],
+  "unconnected-(J8-NC-Pad3)": [
+    {
+      "ref": "J8",
+      "pin": "3"
+    }
+  ],
+  "unconnected-(J8-NC-Pad4)": [
+    {
+      "ref": "J8",
+      "pin": "4"
+    }
+  ],
+  "unconnected-(J8-NC-Pad5)": [
+    {
+      "ref": "J8",
+      "pin": "5"
+    }
+  ],
+  "unconnected-(J8-NC-Pad6)": [
+    {
+      "ref": "J8",
+      "pin": "6"
+    }
+  ],
+  "unconnected-(J8-NC-Pad7)": [
+    {
+      "ref": "J8",
+      "pin": "7"
+    }
+  ],
+  "unconnected-(J8-NC-Pad8)": [
+    {
+      "ref": "J8",
+      "pin": "8"
+    }
+  ],
+  "unconnected-(J8-NC-Pad9)": [
+    {
+      "ref": "J8",
+      "pin": "9"
+    }
+  ],
+  "unconnected-(J8-NC-Pad10)": [
+    {
+      "ref": "J8",
+      "pin": "10"
+    }
+  ],
+  "unconnected-(J8-NC-Pad11)": [
+    {
+      "ref": "J8",
+      "pin": "11"
+    }
+  ],
+  "unconnected-(J8-NC-Pad12)": [
+    {
+      "ref": "J8",
+      "pin": "12"
+    }
+  ],
+  "unconnected-(J8-NC-Pad14)": [
+    {
+      "ref": "J8",
+      "pin": "14"
+    }
+  ],
+  "unconnected-(J8-NC-Pad15)": [
+    {
+      "ref": "J8",
+      "pin": "15"
+    }
+  ],
+  "unconnected-(J8-NC-Pad16)": [
+    {
+      "ref": "J8",
+      "pin": "16"
+    }
+  ],
+  "unconnected-(J8-NC-Pad17)": [
+    {
+      "ref": "J8",
+      "pin": "17"
+    }
+  ],
+  "unconnected-(J8-NC-Pad18)": [
+    {
+      "ref": "J8",
+      "pin": "18"
+    }
+  ],
+  "unconnected-(J8-NC-Pad19)": [
+    {
+      "ref": "J8",
+      "pin": "19"
+    }
+  ],
+  "unconnected-(J8-NC-Pad20)": [
+    {
+      "ref": "J8",
+      "pin": "20"
+    }
+  ],
+  "unconnected-(J9-NC-Pad1)": [
+    {
+      "ref": "J9",
+      "pin": "1"
+    }
+  ],
+  "unconnected-(J9-NC-Pad2)": [
+    {
+      "ref": "J9",
+      "pin": "2"
+    }
+  ],
+  "unconnected-(J9-NC-Pad4)": [
+    {
+      "ref": "J9",
+      "pin": "4"
+    }
+  ],
+  "unconnected-(J9-NC-Pad5)": [
+    {
+      "ref": "J9",
+      "pin": "5"
+    }
+  ],
+  "unconnected-(J9-NC-Pad6)": [
+    {
+      "ref": "J9",
+      "pin": "6"
+    }
+  ],
+  "unconnected-(J9-NC-Pad10)": [
+    {
+      "ref": "J9",
+      "pin": "10"
+    }
+  ],
+  "unconnected-(J9-NC-Pad11)": [
+    {
+      "ref": "J9",
+      "pin": "11"
+    }
+  ],
+  "unconnected-(J9-NC-Pad12)": [
+    {
+      "ref": "J9",
+      "pin": "12"
+    }
+  ],
+  "unconnected-(J9-NC-Pad15)": [
+    {
+      "ref": "J9",
+      "pin": "15"
+    }
+  ],
+  "unconnected-(J9-NC-Pad16)": [
+    {
+      "ref": "J9",
+      "pin": "16"
+    }
+  ]
+}

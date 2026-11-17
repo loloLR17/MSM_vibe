@@ -1,0 +1,7 @@
+{
+  "remote_sha": "1cb1ced71d6392305c717cdd162d2e2f5971f52d",
+  "full_files_read": 31,
+  "sha256_readback_manifest": "89053b6999f20b156ff3812ff8daed61ce9cb9f0dc0095b9674065d8f32e5426",
+  "raw_Windows_CRLF_preserved": true,
+  "raw_log_whitespace_warnings": "Default git diff --check returns2 on preserved Windows CRLF/vendor trailing spaces; not a hardware or test failure"
+}

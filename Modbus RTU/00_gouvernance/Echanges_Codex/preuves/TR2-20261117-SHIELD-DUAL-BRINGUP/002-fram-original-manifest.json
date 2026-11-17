@@ -1,0 +1,8 @@
+{
+  "bytes": 262144,
+  "sha256": "8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90",
+  "crc32": "e20eea22",
+  "double_target_read_equal": true,
+  "write_occurred": false,
+  "restorable_host_backup": "/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/002-fram-original-262144.bin"
+}

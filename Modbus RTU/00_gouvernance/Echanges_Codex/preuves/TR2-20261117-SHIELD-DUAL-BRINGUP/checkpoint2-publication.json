@@ -1,0 +1,12 @@
+{
+  "remote_sha": "41c55205a61eb26d406edf52bfed68f7de145fc9",
+  "full_files_compared": {
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md": "ffe9e2353d6e38742a362a36e738f5b87486896f9c1a89dd45704d723e75b10f",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/probe-software-validation.json": "67b50b3489d400d100cdfcb65397437344b6401658417d731dfb53278a3b7be9",
+    "experiments/shield_dual_bringup/CMakeLists.txt": "a827159ee96c519a64f2a080e3a8ceefd9be426ba80587e6a9dd293ae41967e0",
+    "experiments/shield_dual_bringup/README.md": "1a400a854b0be6d89542e94b1b045a2c115849faafd7d455d2ce73e789600260",
+    "experiments/shield_dual_bringup/src/gates.h": "2134f7c51ce4ba9f1f3188d4482ff0c2d49678eeb8a4ee2a7aad08c13abe5cb3",
+    "experiments/shield_dual_bringup/src/main.c": "04a75f5b1762601c7cc44677fe98184d71def10bde2f1e1294cc8171e67df77e",
+    "experiments/shield_dual_bringup/tests/test_gates.c": "426105828ac586c87c847c3adac67144abad655d19358956a0225af965333299"
+  }
+}

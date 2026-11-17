@@ -1,0 +1,18 @@
+0x08001366 in main () at /home/lolo/dev/msm/projects/MSM_vibe-SHIELD-DUAL-BRINGUP/experiments/shield_dual_bringup/src/main.c:162
+162	  while(!probe_command){(void)r3_now(0);__WFI();}
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = {version = 1, stage = 99, command = 3, sequence = 4, error = 301, done_mask = 34, uid = {1769542, 943869976, 540225879}, fram_crc = 3792628258, fram_mismatches = 0, fram_restore_mismatches = 0, sd_crc = 0, sd_bytes = 0, sd_file_verified = 0, sd_file_deleted = 0, sd_writes = 0, sensor_count = 0, fram_id = "\004\177H\003", who = 0 '\000', ctrl_before = "\000", ctrl_after = "\000", xyz = {{0, 0, 0} <repeats 16 times>}, sensor_restore_error = 0}
+$2 = 1
+$3 = {tick = 160788, reg = 15, len = 1, write = 0, status = 0, error = 0, rx_left = 0, tx_left = 0, offset = 0, valid = 1}
+$4 = 1
+$5 = {trace_index = 0, phase = 2, begin_cycles = 4251313381, end_cycles = 4251315473, tick = 160788, requested = 2, state = 5, sr = 4122, cr1 = 4097, cr2 = 2, cfg1 = 537329671, cfg2 = 2269118464, error_before_close = 0, rx_size = 2, rx_remaining = 0, tx_remaining = 0, rx_offset = 2, cs = 0, offset_valid = 1}
+$6 = 0 '\000'
+$7 = 0x1e00
+$8 = 0x200
+$9 = 0x20070007
+$10 = 0x87400000
+$11 = false
+$12 = 0
+$13 = 0
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

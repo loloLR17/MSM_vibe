@@ -1,0 +1,91 @@
+{
+  "utc": "2026-11-17T18:52:51.513275+00:00",
+  "mission": "TR2-20261117-SHIELD-DUAL-BRINGUP",
+  "evaluated_code_sha": "41c55205a61eb26d406edf52bfed68f7de145fc9",
+  "board": "002",
+  "sn": "0032001F3235510C37333439",
+  "uid": [
+    "001B0046",
+    "38425018",
+    "20333157"
+  ],
+  "programmer_voltage_V": 3.28,
+  "module_rails_measured": false,
+  "flash_readback": {
+    "readback_image_byte_exact": true,
+    "full_flash_sha256": "764e010bec7e2d8c9fe431279e6e6578889bedb7a000e8a7916477d60015dfed",
+    "unaltered_tail_after_erase_span": 40960,
+    "software_reset_after_last_CLI": true,
+    "bin_sha256": "631b05dbc27843a7cdc780818418790057e193ed454fdd7e26d78dc7390782d7"
+  },
+  "fram": {
+    "RDID": "047f4803",
+    "capacity": 262144,
+    "first_double_read_equal": true,
+    "backup": {
+      "bytes": 262144,
+      "sha256": "8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90",
+      "crc32": "e20eea22",
+      "double_target_read_equal": true,
+      "write_occurred": false,
+      "restorable_host_backup": "/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/002-fram-original-262144.bin"
+    },
+    "scratch_offset": 262080,
+    "scratch_bytes": 64,
+    "pattern_write_and_readback": true,
+    "restore_full_byte_compare_mismatches": 0,
+    "CRC32_before": "e20eea22",
+    "hardware_serial_number_identified": false
+  },
+  "sd": {
+    "initialized": false,
+    "error": 2,
+    "probe_error": 202,
+    "last_cmd": 0,
+    "last_r1": 255,
+    "recognized_commands": 0,
+    "reads": 0,
+    "writes": 0,
+    "CID_and_CSD_valid": false,
+    "FAT_mount_reached": false,
+    "note": "No response recognized: counters do not distinguish readiness timeout before CMD0 from R1 timeout after frame. No extra SD attempt."
+  },
+  "sensor_differential": {
+    "previous_config_MHz": 8,
+    "new_config_MHz": 2,
+    "mode": 3,
+    "WHO": 0,
+    "expected": 123,
+    "valid_trace_count": 1,
+    "HAL_status": 0,
+    "rx_remaining": 0,
+    "tx_remaining": 0,
+    "preclose_rx_offset": 2,
+    "configured_frequency_not_wire_measurement": true,
+    "sensor_config_writes": 0,
+    "XYZ": 0,
+    "cause_established": false
+  },
+  "gdb_observation_error": {
+    "file": "002-who-2MHz-differential-result.log",
+    "cause": "incorrect script symbol bench_traces (actual bench_trace); abort before trace dump",
+    "corrected_readonly": "002-who-2MHz-preserved-trace.log",
+    "WHO_retriggered_by_correction": false
+  },
+  "end_state": {
+    "probe_stage": 99,
+    "probe_error": 301,
+    "sequence": 4,
+    "done_mask": 34,
+    "command": 0,
+    "arm": 0,
+    "writer_active": false,
+    "writer_uncertain": false,
+    "SD_writes": 0,
+    "CS_released": true,
+    "DE_output": 0,
+    "debugger_detached": true,
+    "TR2_001_accessed": false
+  },
+  "pending": "Physical module voltage/connection and Click/J5 observations; then board transfer by user"
+}

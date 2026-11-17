@@ -1,0 +1,7 @@
+{
+  "readback_image_byte_exact": true,
+  "full_flash_sha256": "764e010bec7e2d8c9fe431279e6e6578889bedb7a000e8a7916477d60015dfed",
+  "unaltered_tail_after_erase_span": 40960,
+  "software_reset_after_last_CLI": true,
+  "bin_sha256": "631b05dbc27843a7cdc780818418790057e193ed454fdd7e26d78dc7390782d7"
+}
