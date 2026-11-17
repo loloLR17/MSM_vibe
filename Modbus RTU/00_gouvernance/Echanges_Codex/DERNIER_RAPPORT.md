@@ -5,7 +5,7 @@ base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
 result_sha: 41c55205a61eb26d406edf52bfed68f7de145fc9
-created_at_utc: 2026-11-17T19:12:51Z
+created_at_utc: 2026-11-17T19:18:12Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -20,7 +20,7 @@ allow_debug: true
 
 **Actualisation alimentation :** l'utilisateur rapporte **2,3 V entre TP1/TP2 et aux alimentations des breakouts**, contre **3,3 V entre J2-7/J2-11**. Le premier repérage J2-9 a été explicitement corrigé ; aucune conclusion sur le rail5V n'en est tirée. Ces mesures révèlent un écart à localiser sur l'alimentation ou le retour de masse, sans preuve d'un composant défectueux. Essais matériels suspendus ; coupure ST-LINK et contrôles de continuité hors tension demandés, pas encore confirmés.
 
-**Contrôle Ω rapporté ensuite :** pointes0,1Ω ; J2-7↔TP1 **0,3Ω** ; J2-11↔TP2 d'abord instable puis **≈26kΩ**. Le défaut de continuité basse résistance se situe donc, d'après ces mesures, sur le chemin de masse à localiser, plutôt que sur le chemin+3V3 testé. Pas de contact/soudure/composant identifié à ce stade. Deux mesures hors tension demandées :J2-13↔TP2 etJ2-11↔J2-13.
+**Dernier relevé Ω utilisateur : J2-11↔TP2=35Ω ; J2-13↔TP2=35Ω ; J2-11↔J2-13=0,1Ω.** Les deux contacts de masse sont reliés entre eux mais présentent une résistance anormale versTP2. La lecture précédente≈26kΩ n’est pas reproduite et reste archivée. La liaison commune vers la masse du shield ou la prise de mesure est à localiser ; aucune soudure précise identifiée. Les tests restent suspendus hors tension.
 
 ## Périmètre et confirmations utilisateur
 
@@ -124,3 +124,15 @@ Le chemin positif testé est proche de la résistance despointes (excès apparen
 SourceSTetnetlistshield recontrôlées :J2-11 etJ2-13 sont toutesdeuxGND, reliées àTP2 par conception. Demande ciblée sans démontage ni remise sous tension :résistanceJ2-13↔TP2 etJ2-11↔J2-13, aprèsvérificationDCprès0V. Cesmesures doivent départager un contactisolé de11, une rupture commune versleGNDshield ou un problème de prise de mesure ; aucune soudure, pose defil ouinjection d'alimentation prescrite àce stade. Preuve `002-operator-ground-resistance.json`.
 
 Aucun nouvel accès cible, flash/reset, SPI/SD ouModbus ; FRAM sauvegardée/restaurée inchangée depuis son test. Contrôle documentaire uniquement, pas de build acquis relancé. Mission resteBLOCKED surla vérification électrique physique. Publication précédente58d139ddea13e69c9a6a698d3427ff8b74c31536 relue intégralement(4blobs).
+
+## Localisation de la masse — dernier relevé 35 Ω
+
+L'utilisateur rapporte désormais **J2-11↔TP2=35Ω, J2-13↔TP2=35Ω et J2-11↔J2-13=0,1Ω**. Cette dernière valeur est celle des pointes court-circuitées lors du relevé antérieur. La valeur de26kΩ initiale n'est pas reproduite : elle est conservée dans sa preuve, sans moyenne ni remplacement silencieux. Origine de cette variation et qualité de contact des pointes non établies.
+
+**Déduction bornée :** les deux contacts11/13 sont reliés entre eux, mais leur liaison versTP2 ne présente pas la faible résistance attendue. Le défaut n'est donc pas attribuable à11seul sur ces mesures ; un segment commun vers la masse du shield ou la prise de contact de mesure reste suspect. La continuité11↔13 peut aussi passer par la Nucleo toujours assemblée : cette mesure ne prouve pas à elle seule les deux soudures du shield. Le chemin positif antérieurement mesuré0,3Ω ne présente pas le même symptôme. Aucun courant en fonctionnement n'est déduit des35Ω mesurés hors tension dans un circuit comportant des composants.
+
+Inspection statique duPCB candidat V2.3 :J2-11,J2-13 etTP2 affectésGND, zonesGND remplies présentes surF.Cu etB.Cu ; aucune résistance35Ω prévue dans ce chemin. Cela ne démontre pas la continuité du PCB fabriqué et assemblé. La cause exacte(contact,soudure,piste,point de mesure) etson lien causal exclusif auxrefusWHO/SD ne sont pas établis.
+
+**Prochain contrôle utilisateur, toujours hors tension et sans déplacer lesmodules :** TP2↔GND marqué du lecteurSD Adafruit ; puis TP2↔anneau métallique de la pastilleJ2-11 sur lePCB du shield, en distinguant ce cuivre de la tige déjàmesurée35Ω. Si la pastille n'est pas accessible sans démontage, nepas forcer etle signaler. Les demandes de coupureST-LINK/CN15 etvérificationDCprès0V restent applicables ; pas de nouvelordre de remise sous tension, shunt ou retouche de soudure.
+
+Preuve `002-ground-localization-35ohm.json`. Aucun build,testlogiciel,flash/debug,SPI/SD ouModbus ; sauvegardes etfirmware inchangés. Journal mis àjour etmissionBLOCKEDsurcette localisation physique. Publication antérieureb16f8f8344a955de9b9fdbd81bd47d76464f3fc1 relue(3blobs).

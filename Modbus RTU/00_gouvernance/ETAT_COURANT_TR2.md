@@ -834,3 +834,8 @@ Aucun flash/debug/COM/accès microSD/FRAM, manipulation de banc, achat ou fabric
 
 - **RAPPORTÉ** aprèsconsignehors tension :pointes0,1Ω ;J2-7↔TP1=0,3Ω ;J2-11↔TP2 instablepuis≈26kΩ. DCprès0V/coupure nonconfirmés séparément, préalables rappelés. Lechemindemasse neprésentepas lafaiblerésistanceattendue ;cheminpositiftestéproche despointes. DéfautderetourGND suspecté, contacts/soudures/cuivre/prise de mesure nonlocalisés ;pas de causeuniqueSPI/SDdéclarée.
 - **SUITE HORS TENSION** :J2-13↔TP2 etJ2-11↔J2-13 àmesurer,001hors tension,CN15/ST-LINKdébranchés,DCprès0V avantΩ. Pas dedémontage/shunt/retouche prescrits ;aucunenouvelleopérationcible. AcquisFRAMetpreuvespréservés ;publication58d139ddrelue(4blobs),missionBLOCKEDsurmesuresphysiques.
+
+### 2026-11-17 — localisation commune du retour de masse
+
+- **Dernières mesures utilisateur** : J2-11↔TP2=35 Ω ; J2-13↔TP2=35 Ω ; J2-11↔J2-13=0,1 Ω. La valeur antérieure26 kΩ n'est pas reproduite, preuve conservée. Les contacts11/13 sont mutuellement continus, possiblement via la Nucleo ; cela ne qualifie pas leurs soudures au shield. Segment commun versGNDshield ou contact de mesure suspect, cause précise nonétablie.
+- **Suite hors tension, sans démontage** : TP2↔GND marqué du lecteurAdafruit, puis TP2↔cuivre de la pastilleJ2-11 plutôt que sa tige ; si inaccessible, signaler sans forcer. ZonesGND F.Cu/B.Cu etaffectations net relues, pasde preuve de continuité physique par laCAO. Aucun essai cible/flash/debug/SD/Modbus ni réparation effectué ; missionBLOCKEDsurlesmesures, publicationb16f8f83relue(3blobs).
