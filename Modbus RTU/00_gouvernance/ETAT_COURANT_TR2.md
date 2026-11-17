@@ -839,3 +839,11 @@ Aucun flash/debug/COM/accès microSD/FRAM, manipulation de banc, achat ou fabric
 - Mission identique, reprise à6b208d29 dans un worktree isolé ; précédent BLOCKED7c70e7ea conservé byte exact. Aucun accès MCU, flash, debug, média ou COM ; shields à garder hors tension.
 - PRÉPARÉ POUR CONTRE-LECTURE : référence constructeur indépendante puis matrice180contacts (J1..J9, passifs, TP),174correspondances/6écarts J8. Schéma natif et PCB relus ; CAM cuivre géométrique, tous pads/perçages et ZIP9membres comparés. Pas d’autre court-circuit/coupure vsnetsPCB ; pas de validation physique ou fabrication réelle déduite.
 - NON VÉRIFIÉ : identité du ZIP finalement téléversé à l’usine, configurations physiques Click/J5, continuités complètes réelles, réparationGND002 et margesFRAM001. RCA, sens/miroirs et étude réemploi/réparation en cours ; état général matériel resteNO-GO. RésultatsSD/FRAM bornés précédents etV2.7 conservés.
+
+
+### 2026-11-17 — E-01 livré pour contre-lecture, décision matérielle en attente
+
+- VALIDÉ DOCUMENTAIREMENT :180contacts couverts,174concordances/6écarts J8 ;17nets ; lecture schéma/PCB native et cuivreCAM géométrique, aucunautrecourt-circuit/ouvert vsPCB.106positions C05 etempreintes180pads recoupées ;Adafruit18contacts/4trous ;géométrieClickv101 distincte duv102réel. AucunPASSmatériel ajouté, aucunessai acquis rejoué.
+- RCA : première affectationerronée trouvée à74517bef (28/09), reprise M015-K puis cuivreinitial1d2aa668 (02/11), conservée V1.9/V2.3 ;paritéinterne nonéquivalente aucontrôleconstructeur. AncienlibelléClickPWM/DE corrigé parnotice, routageCS3 correct ;directionsUART/straps/rails recoupés avec réservesphysiques.
+- PRÉPARÉ POUR REVUE : inventaireBOM/achats historique etréemploi, sansprésumer toussockets dessoudables ;optionreprise2isolations/4liaisons parPCB àinstruireavantinterposeur/refabrication. Aucunlieudecoupequalifié, dépense ouintervention décidée ;Nucleo/modules/données/V2.3/V2.7/firmwarepréservés.
+- BLOCKED matériel/NO-GO : contre-lectureindépendanteChatGPT etchoixcorrectif, puisgatesfroids etqualification. Deuxshields àgarderhorstension ;GND002/FRAM0011MHz/J5/Click/révisionsréelles/marges3V3-VDDIO2 restentdistincts. Pasdeflash/debug/COM/média enE01. Checkpointd485fe44 relu20blobs ;rapportfinaldétaillétrancheE01 livré, sansclôtureglobale.

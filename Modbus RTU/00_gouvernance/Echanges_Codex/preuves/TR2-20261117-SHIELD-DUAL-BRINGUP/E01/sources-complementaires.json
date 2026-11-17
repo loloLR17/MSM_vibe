@@ -1,0 +1,119 @@
+{
+  "consulted_at_utc": "2026-11-17T21:32:53.642113+00:00",
+  "additional_sources": [
+    {
+      "source": "FRAM_SCHEMATIC",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-FRAM-Breakout-PCB/f7d4afa22ddd562f52c557e2e8f003611515b4f4/SPI%20FRAM%202%20and%204%20Mbit.sch",
+      "revision": "f7d4afa22ddd562f52c557e2e8f003611515b4f4",
+      "sha256": "a4c522e9101a4d2140a5c83a4feacb1d570743edc22ef30f10e0489b57391b26",
+      "bytes": 120212,
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-proto-v1-20261102/sources/Adafruit-FRAM-Breakout-PCB__SPI FRAM 2 and 4 Mbit.sch"
+    },
+    {
+      "source": "SD_SCHEMATIC",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB/959792478854acec21fb862650427ffaa32b07f1/Adafruit%20SDIO%20microSD.sch",
+      "revision": "959792478854acec21fb862650427ffaa32b07f1",
+      "sha256": "2d6f148ef86f4478184cf76fbda9a9554ce3597025784223532577f4de9ebe8e",
+      "bytes": 329535,
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-proto-v1-20261102/sources/Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB__Adafruit SDIO microSD.sch"
+    },
+    {
+      "source": "CLICK_v101_SCHEMATIC_FOR_COMPARISON_ONLY",
+      "url": "https://download.mikroe.com/documents/2d-3d-files/RS485_Isolator_2_click-2d-3d-files.zip",
+      "revision": "v101,24-Dec-2019",
+      "sha256": "23b994bca26f29e3249f7a7732a7d100fb9139ae4fbc2a4a6e002e8ba484b4d0",
+      "bytes": 232977,
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-v26-20261105/Click2/RS485_Isolator_2_click-master/Documents/HW Output Files/PDF/RS485_Isolator_2_click_v101_Schematic.PDF",
+      "not_claimed_actual_v102": true
+    },
+    {
+      "source": "CLICK_v101_PCB_FOR_GEOMETRY_ONLY",
+      "url": "https://download.mikroe.com/documents/2d-3d-files/RS485_Isolator_2_click-2d-3d-files.zip",
+      "revision": "v101",
+      "sha256": "7202f0eca2c89f95e66add76d82bb98a6234e9f25463bc074de4fa8b2feb777c",
+      "not_claimed_actual_v102": true
+    },
+    {
+      "source": "ST_ARCHIVES_PROVENANCE",
+      "repository_manifest": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V1_9_C05/preuves/transport-variants.json",
+      "entries": [
+        {
+          "url": "https://st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+          "file": "variant-0",
+          "bytes": 11019805,
+          "sha256": "ba9ce5359d9b5f81ca61423b11d6432d76e438e28af98259a64ab1eba5447f4c",
+          "http": 200,
+          "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+          "type": "application/zip"
+        },
+        {
+          "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip?download=true",
+          "file": "variant-1",
+          "bytes": 11019805,
+          "sha256": "ba9ce5359d9b5f81ca61423b11d6432d76e438e28af98259a64ab1eba5447f4c",
+          "http": 200,
+          "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+          "type": "application/zip"
+        },
+        {
+          "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip?download=true",
+          "file": "variant-2",
+          "bytes": 30596347,
+          "sha256": "ecd9d543fa90b384ce741696ededc6d388f2d9154e4ef0bc626bece68c59c31f",
+          "http": 200,
+          "url_final": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip",
+          "type": "application/zip"
+        }
+      ],
+      "reused_no_unnecessary_redownload": true
+    }
+  ],
+  "fresh_downloads": [
+    {
+      "name": "ST-kit-schematic.pdf",
+      "url": "https://st.com/resource/en/schematic_pack/steval-mki208v1k_schematic.pdf",
+      "result": "failed",
+      "error": "The read operation timed out"
+    },
+    {
+      "name": "Click-v102.pdf",
+      "url": "https://download.mikroe.com/documents/add-on-boards/click/rs485_lsolator_2_click/rs485-isolator-2-click-schematic-v102.pdf",
+      "bytes": 387120,
+      "sha256": "204f5c4ba323457f7e08c0c44c0f3a025cad8d06ca73ffc189fd46c73d8b716c",
+      "result": "downloaded"
+    }
+  ],
+  "copyright": "Original vendor files remain local; references and derived factual tables only published.",
+  "TR2_bus_policy_code_evidence": [
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/main.c",
+      "sha256": "94c1fd53dd36566b680558dc630ef98c90d56d49bdc9297265572d72a4c1c211",
+      "source_ref": "6b208d29591c4fc50af819e0bfe72d5c92d1f20f",
+      "role": "MCU functional assignment and inactive GPIO policy only; not vendor breakout numbering"
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c",
+      "sha256": "d8fa604ca1f084217896b676f1877dbb5341584818bd3e1d2c62e4483950d56d",
+      "source_ref": "6b208d29591c4fc50af819e0bfe72d5c92d1f20f",
+      "role": "MCU functional assignment and inactive GPIO policy only; not vendor breakout numbering"
+    },
+    {
+      "path": "experiments/shield_dual_bringup/src/main.c",
+      "sha256": "fa2e2533d284ac26b1f8eacc82b10ed6adccc7a589caa94d5cb3d25e84f6c9d2",
+      "source_ref": "6b208d29591c4fc50af819e0bfe72d5c92d1f20f",
+      "role": "MCU functional assignment and inactive GPIO policy only; not vendor breakout numbering"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/src/main.c",
+      "sha256": "74422551e0a896d8fcbbc153d40de10bc733282ca7a5e34b77e0b871ebece094",
+      "source_ref": "6b208d29591c4fc50af819e0bfe72d5c92d1f20f",
+      "role": "MCU functional assignment and inactive GPIO policy only; not vendor breakout numbering"
+    }
+  ],
+  "reader_dependencies": {
+    "sexpdata": "1.0.2",
+    "shapely": "2.2.0",
+    "olefile": "0.47",
+    "Python": "3.13.5"
+  }
+}

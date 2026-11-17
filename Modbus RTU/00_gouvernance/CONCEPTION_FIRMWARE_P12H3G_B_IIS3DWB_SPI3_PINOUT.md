@@ -1,5 +1,7 @@
 # P12-H3g-B — Pinout SPI3 IIS3DWB / NUCLEO-U575ZI-Q
 
+> **Erratum E-01 du17/11/2026 : document historique, ne pas appliquer son §3 comme consigne de câblage.** Le dessin constructeur MKIGIBV2 donne **CS19/SCL20/SDA21/SDO22**, avec23/24NC ; les numéros21/22/23/24 ci-dessous sont erronés. JP1-1=VDD etJP1-2=VDDIO sur ce dessin ; les deux rails restent3V3. Le choix MCU PC9..PC12 n’est pas remis en cause. Voir l’[audit complet et sa RCA](Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/E01/AUDIT_E01.md). Corps ancien conservé pour traçabilité ; aucune correction matérielle autorisée par cette notice.
+
 ## 1. Décision
 
 Le bring-up IIS3DWB utilise **SPI3** sur un groupe contigu de GPIO du STM32U575 :

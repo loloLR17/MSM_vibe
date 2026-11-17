@@ -1,0 +1,1006 @@
+{
+  "ST_native_sha256": "acb801385195543d1471c6bf34cd278865449e0fc15c5546173782455c1749bf",
+  "ST_106_pad_comparison": [
+    {
+      "ref": "J1",
+      "pin": 1,
+      "source_pin": "CN7-1",
+      "ST_native_net": "PC6",
+      "delta_mm": 9.99999969053534e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 2,
+      "source_pin": "CN7-2",
+      "ST_native_net": "PB8",
+      "delta_mm": 9.999999974752433e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 3,
+      "source_pin": "CN7-3",
+      "ST_native_net": "PD11",
+      "delta_mm": 9.99999969053536e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 4,
+      "source_pin": "CN7-4",
+      "ST_native_net": "PB9",
+      "delta_mm": 9.999999974752455e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 5,
+      "source_pin": "CN7-5",
+      "ST_native_net": "PB13",
+      "delta_mm": 9.999999690535394e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 6,
+      "source_pin": "CN7-6",
+      "ST_native_net": "VREFP_ARD",
+      "delta_mm": 9.999999974752488e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 7,
+      "source_pin": "CN7-7",
+      "ST_native_net": "PD12",
+      "delta_mm": 9.99999969053534e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 8,
+      "source_pin": "CN7-8",
+      "ST_native_net": "GND",
+      "delta_mm": 9.999999974752433e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 9,
+      "source_pin": "CN7-9",
+      "ST_native_net": "NetCN7_9",
+      "delta_mm": 9.999999690535358e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 10,
+      "source_pin": "CN7-10",
+      "ST_native_net": "PA5",
+      "delta_mm": 9.999999974752452e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 11,
+      "source_pin": "CN7-11",
+      "ST_native_net": "NetCN7_11",
+      "delta_mm": 9.99999969053539e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 12,
+      "source_pin": "CN7-12",
+      "ST_native_net": "PA6",
+      "delta_mm": 9.999999974752484e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 13,
+      "source_pin": "CN7-13",
+      "ST_native_net": "NetCN7_13",
+      "delta_mm": 9.999999690535337e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 14,
+      "source_pin": "CN7-14",
+      "ST_native_net": "PA7",
+      "delta_mm": 9.999999974752431e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 15,
+      "source_pin": "CN7-15",
+      "ST_native_net": "PB3",
+      "delta_mm": 9.999999690535354e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 16,
+      "source_pin": "CN7-16",
+      "ST_native_net": "PD14",
+      "delta_mm": 9.999999974752448e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 17,
+      "source_pin": "CN7-17",
+      "ST_native_net": "NetCN7_17",
+      "delta_mm": 9.999999690535381e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 18,
+      "source_pin": "CN7-18",
+      "ST_native_net": "PD15",
+      "delta_mm": 9.999999974752476e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 19,
+      "source_pin": "CN7-19",
+      "ST_native_net": "NetCN7_19",
+      "delta_mm": 9.999999690535335e-07
+    },
+    {
+      "ref": "J1",
+      "pin": 20,
+      "source_pin": "CN7-20",
+      "ST_native_net": "PF12",
+      "delta_mm": 9.99999997475243e-07
+    },
+    {
+      "ref": "J2",
+      "pin": 1,
+      "source_pin": "CN8-1",
+      "ST_native_net": "NetCN8_1",
+      "delta_mm": 2.929642751054232e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 2,
+      "source_pin": "CN8-2",
+      "ST_native_net": "PC8",
+      "delta_mm": 8.987733679556355e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 3,
+      "source_pin": "CN8-3",
+      "ST_native_net": "IOREF",
+      "delta_mm": 7.140866117879973e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 4,
+      "source_pin": "CN8-4",
+      "ST_native_net": "PC9",
+      "delta_mm": 1.10990323433763e-13
+    },
+    {
+      "ref": "J2",
+      "pin": 5,
+      "source_pin": "CN8-5",
+      "ST_native_net": "NRST",
+      "delta_mm": 1.0681799536181492e-13
+    },
+    {
+      "ref": "J2",
+      "pin": 6,
+      "source_pin": "CN8-6",
+      "ST_native_net": "PC10",
+      "delta_mm": 1.3649080239232024e-13
+    },
+    {
+      "ref": "J2",
+      "pin": 7,
+      "source_pin": "CN8-7",
+      "ST_native_net": "3V3",
+      "delta_mm": 2.929642751054232e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 8,
+      "source_pin": "CN8-8",
+      "ST_native_net": "PC11",
+      "delta_mm": 8.987733679556355e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 9,
+      "source_pin": "CN8-9",
+      "ST_native_net": "5V",
+      "delta_mm": 6.434238129413513e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 10,
+      "source_pin": "CN8-10",
+      "ST_native_net": "PC12",
+      "delta_mm": 1.0658141036401503e-13
+    },
+    {
+      "ref": "J2",
+      "pin": 11,
+      "source_pin": "CN8-11",
+      "ST_native_net": "GND",
+      "delta_mm": 9.972942541209448e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 12,
+      "source_pin": "CN8-12",
+      "ST_native_net": "PD2",
+      "delta_mm": 1.3101760682293512e-13
+    },
+    {
+      "ref": "J2",
+      "pin": 13,
+      "source_pin": "CN8-13",
+      "ST_native_net": "GND",
+      "delta_mm": 2.2469334198890888e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 14,
+      "source_pin": "CN8-14",
+      "ST_native_net": "PF3",
+      "delta_mm": 8.788928253162695e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 15,
+      "source_pin": "CN8-15",
+      "ST_native_net": "VIN",
+      "delta_mm": 5.728578676879116e-14
+    },
+    {
+      "ref": "J2",
+      "pin": 16,
+      "source_pin": "CN8-16",
+      "ST_native_net": "PF5",
+      "delta_mm": 1.0247593068766006e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 1,
+      "source_pin": "CN9-1",
+      "ST_native_net": "PA3",
+      "delta_mm": 2.2469334198890888e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 2,
+      "source_pin": "CN9-2",
+      "ST_native_net": "PD7",
+      "delta_mm": 8.788928253162695e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 3,
+      "source_pin": "CN9-3",
+      "ST_native_net": "NetCN9_3",
+      "delta_mm": 5.728578676879116e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 4,
+      "source_pin": "CN9-4",
+      "ST_native_net": "PD6",
+      "delta_mm": 1.0247593068766006e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 5,
+      "source_pin": "CN9-5",
+      "ST_native_net": "PC3",
+      "delta_mm": 9.264343823933031e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 6,
+      "source_pin": "CN9-6",
+      "ST_native_net": "PD5",
+      "delta_mm": 1.257078424498142e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 7,
+      "source_pin": "CN9-7",
+      "ST_native_net": "NetCN9_7",
+      "delta_mm": 1.5888218580782548e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 8,
+      "source_pin": "CN9-8",
+      "ST_native_net": "PD4",
+      "delta_mm": 8.644125458514252e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 9,
+      "source_pin": "CN9-9",
+      "ST_native_net": "PC1",
+      "delta_mm": 5.728578676879116e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 10,
+      "source_pin": "CN9-10",
+      "ST_native_net": "PD3",
+      "delta_mm": 1.0247593068766006e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 11,
+      "source_pin": "CN9-11",
+      "ST_native_net": "PC0",
+      "delta_mm": 8.556067554929069e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 12,
+      "source_pin": "CN9-12",
+      "ST_native_net": "GND",
+      "delta_mm": 1.2058310082691391e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 13,
+      "source_pin": "CN9-13",
+      "ST_native_net": "PB2",
+      "delta_mm": 1.2809491335957507e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 14,
+      "source_pin": "CN9-14",
+      "ST_native_net": "PE2",
+      "delta_mm": 1.537138960314901e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 15,
+      "source_pin": "CN9-15",
+      "ST_native_net": "PB6",
+      "delta_mm": 4.322062729257126e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 16,
+      "source_pin": "CN9-16",
+      "ST_native_net": "PE4",
+      "delta_mm": 9.532931148469529e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 17,
+      "source_pin": "CN9-17",
+      "ST_native_net": "PF2",
+      "delta_mm": 8.556067554929069e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 18,
+      "source_pin": "CN9-18",
+      "ST_native_net": "PE5",
+      "delta_mm": 1.2058310082691391e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 19,
+      "source_pin": "CN9-19",
+      "ST_native_net": "PF1",
+      "delta_mm": 1.139086659085919e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 20,
+      "source_pin": "CN9-20",
+      "ST_native_net": "PE6",
+      "delta_mm": 1.4210854715202004e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 21,
+      "source_pin": "CN9-21",
+      "ST_native_net": "PF0",
+      "delta_mm": 4.322062729257126e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 22,
+      "source_pin": "CN9-22",
+      "ST_native_net": "PE3",
+      "delta_mm": 9.532931148469529e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 23,
+      "source_pin": "CN9-23",
+      "ST_native_net": "GND",
+      "delta_mm": 7.140866117879973e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 24,
+      "source_pin": "CN9-24",
+      "ST_native_net": "PF8",
+      "delta_mm": 1.10990323433763e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 25,
+      "source_pin": "CN9-25",
+      "ST_native_net": "PD0",
+      "delta_mm": 1.139086659085919e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 26,
+      "source_pin": "CN9-26",
+      "ST_native_net": "PF7",
+      "delta_mm": 1.4210854715202004e-13
+    },
+    {
+      "ref": "J3",
+      "pin": 27,
+      "source_pin": "CN9-27",
+      "ST_native_net": "PD1",
+      "delta_mm": 4.322062729257126e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 28,
+      "source_pin": "CN9-28",
+      "ST_native_net": "PF9",
+      "delta_mm": 9.532931148469529e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 29,
+      "source_pin": "CN9-29",
+      "ST_native_net": "PG0",
+      "delta_mm": 7.140866117879973e-14
+    },
+    {
+      "ref": "J3",
+      "pin": 30,
+      "source_pin": "CN9-30",
+      "ST_native_net": "PG1",
+      "delta_mm": 1.10990323433763e-13
+    },
+    {
+      "ref": "J4",
+      "pin": 1,
+      "source_pin": "CN10-1",
+      "ST_native_net": "VDDA",
+      "delta_mm": 9.99999969053535e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 2,
+      "source_pin": "CN10-2",
+      "ST_native_net": "PF13",
+      "delta_mm": 9.999999974752444e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 3,
+      "source_pin": "CN10-3",
+      "ST_native_net": "AGND",
+      "delta_mm": 9.999999690535375e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 4,
+      "source_pin": "CN10-4",
+      "ST_native_net": "PE9",
+      "delta_mm": 9.99999997475247e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 5,
+      "source_pin": "CN10-5",
+      "ST_native_net": "GND",
+      "delta_mm": 9.999999690535335e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 6,
+      "source_pin": "CN10-6",
+      "ST_native_net": "PE11",
+      "delta_mm": 9.99999997475243e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 7,
+      "source_pin": "CN10-7",
+      "ST_native_net": "PB1",
+      "delta_mm": 9.99999969053535e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 8,
+      "source_pin": "CN10-8",
+      "ST_native_net": "PF14",
+      "delta_mm": 9.999999974752444e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 9,
+      "source_pin": "CN10-9",
+      "ST_native_net": "NetCN10_9",
+      "delta_mm": 9.999999690535375e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 10,
+      "source_pin": "CN10-10",
+      "ST_native_net": "PE13",
+      "delta_mm": 9.99999997475247e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 11,
+      "source_pin": "CN10-11",
+      "ST_native_net": "PA1",
+      "delta_mm": 9.999999690535333e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 12,
+      "source_pin": "CN10-12",
+      "ST_native_net": "PF15",
+      "delta_mm": 9.999999974752427e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 13,
+      "source_pin": "CN10-13",
+      "ST_native_net": "NetCN10_13",
+      "delta_mm": 9.99999969053535e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 14,
+      "source_pin": "CN10-14",
+      "ST_native_net": "ARD_D1_TX",
+      "delta_mm": 9.999999974752444e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 15,
+      "source_pin": "CN10-15",
+      "ST_native_net": "NetCN10_15",
+      "delta_mm": 9.999999690535369e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 16,
+      "source_pin": "CN10-16",
+      "ST_native_net": "ARD_D0_RX",
+      "delta_mm": 9.999999974752463e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 17,
+      "source_pin": "CN10-17",
+      "ST_native_net": "GND",
+      "delta_mm": 9.999999690535415e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 18,
+      "source_pin": "CN10-18",
+      "ST_native_net": "PE8",
+      "delta_mm": 9.99999997475251e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 19,
+      "source_pin": "CN10-19",
+      "ST_native_net": "NetCN10_19",
+      "delta_mm": 9.999999690535341e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 20,
+      "source_pin": "CN10-20",
+      "ST_native_net": "PE7",
+      "delta_mm": 9.999999974752436e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 21,
+      "source_pin": "CN10-21",
+      "ST_native_net": "NetCN10_21",
+      "delta_mm": 9.999999690535369e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 22,
+      "source_pin": "CN10-22",
+      "ST_native_net": "GND",
+      "delta_mm": 9.999999974752463e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 23,
+      "source_pin": "CN10-23",
+      "ST_native_net": "NetCN10_23",
+      "delta_mm": 9.999999690535398e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 24,
+      "source_pin": "CN10-24",
+      "ST_native_net": "PE10",
+      "delta_mm": 9.999999974752493e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 25,
+      "source_pin": "CN10-25",
+      "ST_native_net": "NetCN10_25",
+      "delta_mm": 9.999999690535341e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 26,
+      "source_pin": "CN10-26",
+      "ST_native_net": "NetCN10_26",
+      "delta_mm": 9.999999974752436e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 27,
+      "source_pin": "CN10-27",
+      "ST_native_net": "GND",
+      "delta_mm": 9.999999690535358e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 28,
+      "source_pin": "CN10-28",
+      "ST_native_net": "NetCN10_28",
+      "delta_mm": 9.999999974752452e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 29,
+      "source_pin": "CN10-29",
+      "ST_native_net": "NetCN10_29",
+      "delta_mm": 9.999999690535398e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 30,
+      "source_pin": "CN10-30",
+      "ST_native_net": "NetCN10_30",
+      "delta_mm": 9.999999974752493e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 31,
+      "source_pin": "CN10-31",
+      "ST_native_net": "PA8",
+      "delta_mm": 9.999999690535341e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 32,
+      "source_pin": "CN10-32",
+      "ST_native_net": "NetCN10_32",
+      "delta_mm": 9.999999974752436e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 33,
+      "source_pin": "CN10-33",
+      "ST_native_net": "PE0",
+      "delta_mm": 9.999999690535358e-07
+    },
+    {
+      "ref": "J4",
+      "pin": 34,
+      "source_pin": "CN10-34",
+      "ST_native_net": "PB11",
+      "delta_mm": 9.999999974752452e-07
+    },
+    {
+      "ref": "J5",
+      "pin": 1,
+      "source_pin": "CN12-65",
+      "ST_native_net": "PD10",
+      "delta_mm": 1.0239139912217501e-06
+    },
+    {
+      "ref": "J5",
+      "pin": 2,
+      "source_pin": "CN12-66",
+      "ST_native_net": "NetCN12_66",
+      "delta_mm": 1.023914032858609e-06
+    },
+    {
+      "ref": "J5",
+      "pin": 3,
+      "source_pin": "CN12-67",
+      "ST_native_net": "NetCN12_67",
+      "delta_mm": 1.0239140095419632e-06
+    },
+    {
+      "ref": "J5",
+      "pin": 4,
+      "source_pin": "CN12-68",
+      "ST_native_net": "PG5",
+      "delta_mm": 1.0239140511788212e-06
+    },
+    {
+      "ref": "J5",
+      "pin": 5,
+      "source_pin": "CN12-69",
+      "ST_native_net": "PG4",
+      "delta_mm": 1.0239140003818558e-06
+    },
+    {
+      "ref": "J5",
+      "pin": 6,
+      "source_pin": "CN12-70",
+      "ST_native_net": "PG6",
+      "delta_mm": 1.0239140420187143e-06
+    }
+  ],
+  "ST_max_delta_mm": 1.0239140511788212e-06,
+  "library_180_pads": [
+    {
+      "ref": "R4",
+      "library": "R4_10k",
+      "pads": 2,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "library": "J6_ADAFRUIT_4718",
+      "pads": 9,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "TP2",
+      "library": "TP2_TP_GND",
+      "pads": 1,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "TP1",
+      "library": "TP1_TP_3V3",
+      "pads": 1,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "R3",
+      "library": "R3_10k",
+      "pads": 2,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "library": "J8_ST_MKIGIBV2",
+      "pads": 24,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "C2",
+      "library": "C2_10u_10V",
+      "pads": 2,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "C1",
+      "library": "C1_100n",
+      "pads": 2,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "library": "J7_ADAFRUIT_4682",
+      "pads": 9,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "TP3",
+      "library": "TP3_TP_ACC_SCK",
+      "pads": 1,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "R1",
+      "library": "R1_10k",
+      "pads": 2,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "library": "J9_MIKROE_3863",
+      "pads": 16,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "R2",
+      "library": "R2_10k",
+      "pads": 2,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "TP4",
+      "library": "TP4_TP_SD_CS",
+      "pads": 1,
+      "bottom": false,
+      "status": "PASS"
+    },
+    {
+      "ref": "J5",
+      "library": "J5_CN12_65_70_2X3_FEMALE",
+      "pads": 6,
+      "bottom": true,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "library": "J4_NUCLEO_CN10",
+      "pads": 34,
+      "bottom": true,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "library": "J2_NUCLEO_CN8",
+      "pads": 16,
+      "bottom": true,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "library": "J1_NUCLEO_CN7",
+      "pads": 20,
+      "bottom": true,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "library": "J3_NUCLEO_CN9",
+      "pads": 30,
+      "bottom": true,
+      "status": "PASS"
+    }
+  ],
+  "Adafruit": [
+    {
+      "ref": "J6",
+      "source_sha256": "861a05b686fcd5ad03a8f586ccf199ddb5163454c9b6663071ac254c937ece2f",
+      "pads_checked": 9,
+      "holes_checked": 2,
+      "coordinate_determinant": -1,
+      "meaning": "y-up to y-down plus physical rotation; not a mirrored module",
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "source_sha256": "0ec91e989f1004c85c203bc4539bb2652b8c33614cc18f624bd3bdac7cbf8c57",
+      "pads_checked": 9,
+      "holes_checked": 2,
+      "coordinate_determinant": -1,
+      "meaning": "y-up to y-down plus physical rotation; not a mirrored module",
+      "status": "PASS"
+    }
+  ],
+  "MKIGIBV2_DIL24_numbering": "PASS geometry; FAIL electrical assignment remains",
+  "Click_v101_native_sha256": "7202f0eca2c89f95e66add76d82bb98a6234e9f25463bc074de4fa8b2feb777c",
+  "Click_v101_headers": [
+    {
+      "pin": "1",
+      "native_net": "NC",
+      "x_mm": 666.11499238,
+      "y_mm": 635.25400508
+    },
+    {
+      "pin": "2",
+      "native_net": "NetJ3_1",
+      "x_mm": 666.11499238,
+      "y_mm": 632.71400508
+    },
+    {
+      "pin": "5",
+      "native_net": "NC",
+      "x_mm": 666.11499238,
+      "y_mm": 625.09400508
+    },
+    {
+      "pin": "7",
+      "native_net": "3V3",
+      "x_mm": 666.11499238,
+      "y_mm": 620.01400508
+    },
+    {
+      "pin": "6",
+      "native_net": "NC",
+      "x_mm": 666.11499238,
+      "y_mm": 622.5540050799999
+    },
+    {
+      "pin": "4",
+      "native_net": "NC",
+      "x_mm": 666.11499238,
+      "y_mm": 627.63400508
+    },
+    {
+      "pin": "8",
+      "native_net": "GND",
+      "x_mm": 666.11499238,
+      "y_mm": 617.47400508
+    },
+    {
+      "pin": "3",
+      "native_net": "DE",
+      "x_mm": 666.11499238,
+      "y_mm": 630.1740050799999
+    },
+    {
+      "pin": "9",
+      "native_net": "GND",
+      "x_mm": 688.97499238,
+      "y_mm": 617.47400508
+    },
+    {
+      "pin": "13",
+      "native_net": "Tx",
+      "x_mm": 688.97499238,
+      "y_mm": 627.63400508
+    },
+    {
+      "pin": "11",
+      "native_net": "NC",
+      "x_mm": 688.97499238,
+      "y_mm": 622.5540050799999
+    },
+    {
+      "pin": "12",
+      "native_net": "NC",
+      "x_mm": 688.97499238,
+      "y_mm": 625.09400508
+    },
+    {
+      "pin": "16",
+      "native_net": "InvR",
+      "x_mm": 688.97499238,
+      "y_mm": 635.25400508
+    },
+    {
+      "pin": "14",
+      "native_net": "Rx",
+      "x_mm": 688.97499238,
+      "y_mm": 630.1740050799999
+    },
+    {
+      "pin": "15",
+      "native_net": "InvD",
+      "x_mm": 688.97499238,
+      "y_mm": 632.71400508
+    },
+    {
+      "pin": "10",
+      "native_net": "5V",
+      "x_mm": 688.97499238,
+      "y_mm": 620.01400508
+    }
+  ],
+  "Click_max_delta_mm": 4.4938668397781776e-14,
+  "Click_v102_geometry": "INCONNU exact native CAv102 unavailable; standard footprint and v102 schematic compared, not substituted by v101",
+  "physical_assembly": "INCONNU; source geometry agreement does not prove contact, insertion depth or actual soldering"
+}

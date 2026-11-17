@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-11-17T21:41:35.362737+00:00",
+  "result": "PASS documentary consistency",
+  "coverage": {
+    "PASS": 174,
+    "FAIL": 6
+  },
+  "checks": [
+    "all_source_ids_resolve",
+    "180rows_unique_and_six_fail_J8_19_through24",
+    "17nets_four_SPI3_fail",
+    "reference_content_hash_current",
+    "106_ST_positions_and180_library_pads",
+    "JSON_and_script_syntax",
+    "all_local_markdown_links_resolve_including_archive_original_context",
+    "archived_BLOCKED_report_byte_exact",
+    "preserved_CAD_CAM_mechanics_firmware_scopes",
+    "git_diff_check_CRLF_accepted"
+  ],
+  "whitespace_command": [
+    "git",
+    "-c",
+    "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+    "diff",
+    "--check"
+  ],
+  "whitespace_note": "CSV uses standard CRLF; plain diff check flags CR as trailing whitespace, scoped cr-at-eol accepts it without removing any actual spaces or normalizing raw evidence.",
+  "limits": "No hardware qualification or independent second review; no old physical/host/ERC/DRC rerun"
+}

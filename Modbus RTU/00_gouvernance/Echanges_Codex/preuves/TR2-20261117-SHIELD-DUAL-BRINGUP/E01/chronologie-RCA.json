@@ -1,0 +1,171 @@
+[
+  {
+    "commit": "74517bef0fae7fcd2420919f8a4a3ff762acf8e5",
+    "date": "2026-09-28T13:20:33+02:00",
+    "path": "Modbus RTU/00_gouvernance/CONCEPTION_FIRMWARE_P12H3G_B_IIS3DWB_SPI3_PINOUT.md",
+    "blob": "9e686b54f1a64845a57586825342d89270dcf8a6",
+    "sha256": "bccc5d3ac7773f72d6a550f896429bd0f99a51164b75f9344287c8d51cb8125d",
+    "meaning": "First versioned wrong global pin assignment found,28Sep",
+    "excerpts": [
+      {
+        "line": 33,
+        "text": "- JP2 pin 24 = SDO-SA0 ;"
+      },
+      {
+        "line": 34,
+        "text": "- JP2 pin 23 = SDA ;"
+      },
+      {
+        "line": 35,
+        "text": "- JP2 pin 22 = SCL ;"
+      },
+      {
+        "line": 36,
+        "text": "- JP2 pin 21 = CS ;"
+      },
+      {
+        "line": 69,
+        "text": "- lecture seule de WHO_AM_I (0x0F) ;"
+      },
+      {
+        "line": 70,
+        "text": "- valeur attendue : 0x7B ;"
+      },
+      {
+        "line": 83,
+        "text": "- aucun gel avant lecture physique WHO_AM_I = 0x7B."
+      }
+    ]
+  },
+  {
+    "commit": "e222dc8ddb7cfd0829c655533ac8e646220721f2",
+    "date": "2026-10-12T21:45:48+02:00",
+    "path": "experiments/iis3dwb_st_reference/README.md",
+    "blob": "871cf7640600c2518a69f59347008292bbc52618",
+    "sha256": "ca2c55c16755395c5690bf34888d5c08530b7178dd4c7bef93d0784c6a12f1ad",
+    "meaning": "Wrong pin numbers propagated into standalone ST harness instructions,12Oct",
+    "excerpts": []
+  },
+  {
+    "commit": "0eda53843e64becf8dfa5ae4ec02dfb23a04c77d",
+    "date": "2026-10-12T22:33:25+02:00",
+    "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "blob": "fd240e55c0700be21de606520fab83dc9ef3fc4a",
+    "sha256": "1d3d6e6edf805694b0ef78cb0c8c10c031b74dd5dbdd2d26175075890c183cfe",
+    "meaning": "WHO and polling succeeded on manually corrected wire bench,12Oct; actual global pin-to-wire photo absent",
+    "excerpts": []
+  },
+  {
+    "commit": "1d2aa6683e972a3751f69229db4022283f55b3fb",
+    "date": "2026-11-02T22:30:31+01:00",
+    "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/design.json",
+    "blob": "9ab649a0001096b3cd35b8bd39bb671bbb359558",
+    "sha256": "7fe2aa076261ff716a2f3e375795d104aa00438cc9c998049242fc1deb0f8831",
+    "meaning": "First routed shield carries wrong J8 mapping,2Nov",
+    "excerpts": [
+      {
+        "line": 256,
+        "text": "        \"21\": \"ACC_CS\","
+      },
+      {
+        "line": 257,
+        "text": "        \"22\": \"ACC_SCK\","
+      },
+      {
+        "line": 258,
+        "text": "        \"23\": \"ACC_MOSI\","
+      },
+      {
+        "line": 259,
+        "text": "        \"24\": \"ACC_MISO\""
+      }
+    ]
+  },
+  {
+    "commit": "1d2aa6683e972a3751f69229db4022283f55b3fb",
+    "date": "2026-11-02T22:30:31+01:00",
+    "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/MATRICE_INTERFACES.md",
+    "blob": "7ab10fbe2781749cbffec24095fab0c39bb1142b",
+    "sha256": "8caf12c60583e0ff283578f24cdc36b4d2c555191c87f0ef96d9697d93888d22",
+    "meaning": "Matrix claims incorrect pinout as manufacturer verified,2Nov",
+    "excerpts": [
+      {
+        "line": 7,
+        "text": "| SPI3 CS | PC9 / CN8-4 | J2-4 → J8-21 | MKIGIBV2 JP2-21 / CS |"
+      },
+      {
+        "line": 8,
+        "text": "| SPI3 SCK | PC10 / CN8-6 | J2-6 → J8-22 | JP2-22 / SCL |"
+      },
+      {
+        "line": 9,
+        "text": "| SPI3 MISO | PC11 / CN8-8 | J2-8 → J8-24 | JP2-24 / SDO |"
+      },
+      {
+        "line": 10,
+        "text": "| SPI3 MOSI | PC12 / CN8-10 | J2-10 → J8-23 | JP2-23 / SDA |"
+      }
+    ]
+  },
+  {
+    "commit": "7557cce168219ad42b17b744cb38ffa330882346",
+    "date": "2026-11-05T12:55:20+01:00",
+    "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V1_9_C05/design.json",
+    "blob": "e5f8a25729c7bdfd4dbbc6e3e5d32c17d0a05ef8",
+    "sha256": "ec76d9d804e0f966042fbf0395d66c1d9a5727320710f2cfb6c3ea7309ad391a",
+    "meaning": "C05 XY correction retained wrong J8 nets,5Nov",
+    "excerpts": [
+      {
+        "line": 296,
+        "text": "        \"21\": \"ACC_CS\","
+      },
+      {
+        "line": 297,
+        "text": "        \"22\": \"ACC_SCK\","
+      },
+      {
+        "line": 298,
+        "text": "        \"23\": \"ACC_MOSI\","
+      },
+      {
+        "line": 299,
+        "text": "        \"24\": \"ACC_MISO\""
+      }
+    ]
+  },
+  {
+    "commit": "e85c6201a3d866384a8103dc58c70f03f31a36b1",
+    "date": "2026-11-05T19:26:04+01:00",
+    "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_3_ARNACO/design.json",
+    "blob": "e5f8a25729c7bdfd4dbbc6e3e5d32c17d0a05ef8",
+    "sha256": "ec76d9d804e0f966042fbf0395d66c1d9a5727320710f2cfb6c3ea7309ad391a",
+    "meaning": "V23 preserved same electrical mapping while changing silkscreen",
+    "excerpts": [
+      {
+        "line": 296,
+        "text": "        \"21\": \"ACC_CS\","
+      },
+      {
+        "line": 297,
+        "text": "        \"22\": \"ACC_SCK\","
+      },
+      {
+        "line": 298,
+        "text": "        \"23\": \"ACC_MOSI\","
+      },
+      {
+        "line": 299,
+        "text": "        \"24\": \"ACC_MISO\""
+      }
+    ]
+  },
+  {
+    "commit": "7c70e7ea4edfe5194198058ab03660073129f285",
+    "date": "2026-11-17T21:45:45+01:00",
+    "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "blob": "4ce3fc6cc58ada5471eda9630b7478e66277ef6c",
+    "sha256": "258c0a75b5ba9acbd9300bbf1f666f7aa18987006a10a64d3717b3a8f801665c",
+    "meaning": "Physical clock-to-SDO confirmation and design discrepancy published,17Nov",
+    "excerpts": []
+  }
+]

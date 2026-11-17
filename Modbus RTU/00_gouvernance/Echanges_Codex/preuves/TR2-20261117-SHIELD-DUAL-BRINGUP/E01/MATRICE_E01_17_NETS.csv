@@ -1,0 +1,18 @@
+net,desired_pads,source_ids,verdict,bad_endpoints,physical
+SD_SCK,J1-5;J7-3,ADAFRUIT_4682;ST_C05_NET,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+FRAM_SCK,J1-10;J6-6,ADAFRUIT_4718;ST_C05_NET,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+FRAM_MISO,J1-12;J6-5,ADAFRUIT_4718;ST_C05_NET,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+FRAM_MOSI,J1-14;J6-4,ADAFRUIT_4718;ST_C05_NET,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+FRAM_CS,J1-16;J6-3;R2-2,ADAFRUIT_4718;ST_C05_NET;TR2_REQUIREMENT,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+SD_CS,J1-20;J7-6;R3-2;TP4-1,ADAFRUIT_4682;ST_C05_NET;TR2_REQUIREMENT,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+ACC_CS,J2-4;J8-19;R1-2,ST_C05_NET;ST_MKI_DRAWING;TR2_REQUIREMENT,FAIL,J8-19,INCONNU global; see historical bounded observations; no live test in E01
+ACC_SCK,J2-6;J8-20;TP3-1,ST_C05_NET;ST_MKI_DRAWING;TR2_REQUIREMENT,FAIL,J8-20,INCONNU global; see historical bounded observations; no live test in E01
++3V3,J2-7;J6-9;J7-1;J8-1;J8-2;J9-7;R1-1;R2-1;R3-1;C1-1;C2-1;TP1-1,ADAFRUIT_4682;ADAFRUIT_4718;CLICK_V102;ST_C05_NET;ST_MKI_DRAWING;TR2_REQUIREMENT,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+ACC_MISO,J2-8;J8-22,ST_C05_NET;ST_MKI_DRAWING,FAIL,J8-22,INCONNU global; see historical bounded observations; no live test in E01
+ACC_MOSI,J2-10;J8-21,ST_C05_NET;ST_MKI_DRAWING,FAIL,J8-21,INCONNU global; see historical bounded observations; no live test in E01
+GND,J2-11;J2-13;J6-7;J7-2;J8-13;J9-8;J9-9;R4-2;C1-2;C2-2;TP2-1,ADAFRUIT_4682;ADAFRUIT_4718;CLICK_V102;ST_C05_NET;ST_MKI_DRAWING;TR2_REQUIREMENT,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+SD_MOSI,J3-8;J7-5,ADAFRUIT_4682;ST_C05_NET,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+SD_MISO,J3-10;J7-4,ADAFRUIT_4682;ST_C05_NET,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+RTU_TX,J4-14;J9-13,CLICK_V102;ST_C05_NET,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+RTU_RX,J4-16;J9-14,CLICK_V102;ST_C05_NET,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01
+RTU_DE,J5-5;J9-3;R4-1,CLICK_V102;ST_C05_NET;TR2_REQUIREMENT,PASS_DOCUMENTAIRE,,INCONNU global; see historical bounded observations; no live test in E01

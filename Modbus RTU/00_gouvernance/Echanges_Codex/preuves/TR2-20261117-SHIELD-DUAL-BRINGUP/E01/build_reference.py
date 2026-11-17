@@ -45,6 +45,15 @@ visit(tree)
 source('ST_C05_PROJECT', reports/'TR2-shield-v19-20261105/ST-design/MB1549C/MB1549.PrjPcb',
        'https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip',
        'BDP4.0; Board PCB C, assembly05; U575ZIQ variant', 'variant evidence, not inferred from generic footprint')
+source('ST_UM2861', reports/'TR2-shield-v14-20261104/UM2861-Rev8-STJapan.pdf',
+       'https://www.stmcu.jp/wp/wp-content/uploads/2021/10/UM2861_Rev8.pdf',
+       'Rev8, tables10/11 and15..19, pp28/33/34/37',
+       'manufacturer nominal functions for unused multiplexed pins; C05 netlist remains exact routing source')
+nominal_mux={'NetCN7_9':'PA4','NetCN7_11':'PB4','NetCN7_13':'PB5','NetCN7_17':'PA4','NetCN7_19':'PB4',
+             'NetCN9_3':'PA2','NetCN9_7':'PB0','NetCN10_9':'PC2','NetCN10_13':'PA2',
+             'NetCN10_15':'PB10','NetCN10_19':'PE15','NetCN10_21':'PB0','NetCN10_23':'PE12',
+             'NetCN10_25':'PE14','NetCN10_26':'PE12','NetCN10_28':'PE14','NetCN10_29':'PA0',
+             'NetCN10_30':'PE15','NetCN10_32':'PB10','NetCN12_66':'PG8','NetCN12_67':'PG7'}
 
 # Functional pin choices from the existing TR2 drivers; independent from shield mapping.
 policy = {'PB13': 'SD_SCK', 'PD3': 'SD_MISO', 'PD4': 'SD_MOSI', 'PF12': 'SD_CS',
@@ -59,20 +68,32 @@ def add(ref, pin, vendor, function, desired, direction, level, src, note=''):
 for ref, cn, count in [('J1','CN7',20),('J2','CN8',16),('J3','CN9',30),('J4','CN10',34)]:
     for pin in range(1, count+1):
         native = stpins[cn,str(pin)]
-        function = {'ARD_D1_TX':'PG7 via SB25 (SB31 open)', 'ARD_D0_RX':'PG8 via SB27 (SB33 open)'}.get(native,native)
+        function = {'ARD_D1_TX':'PG7 via SB25 (SB31 open)', 'ARD_D0_RX':'PG8 via SB27 (SB33 open)',
+                    'NetCN8_1':'RES/NC per UM2861; native header net includes R30'}.get(native,native)
+        if native in nominal_mux:
+            function=nominal_mux[native]+' (nominal UM2861; via C05 solder-bridge net '+native+')'
         mcu = {'ARD_D1_TX':'PG7','ARD_D0_RX':'PG8'}.get(native,native)
         desired = policy.get(mcu, 'NC')
         if (cn,pin)==('CN8',7): desired = '+3V3'
         if cn=='CN8' and pin in [11,13]: desired = 'GND'
         if desired in ['+3V3','GND']: direction,level = 'power','3.3V / logic ground'
-        elif desired=='NC': direction,level = 'unused on shield','native signal/rail, deliberately not routed'
+        elif desired=='NC':
+            direction,level='GPIO configurable; unused on shield','3.3V nominal; actual mode not assumed'
+            if native in ['GND','AGND']:direction,level='power ground unused','logic/analog ground, deliberately not routed'
+            if native=='5V':direction,level='power output unused','5V, deliberately not routed'
+            if native=='VIN':direction,level='power input unused','external VIN domain; deliberately not routed'
+            if native in ['VDDA','VREFP_ARD','IOREF']:direction,level='analog/reference unused','reference rail; no external connection; actual level not inferred'
+            if native=='NRST':direction,level='reset active low unused','MCU reset domain; no external connection'
+            if native=='NetCN8_1':direction,level='reserved unused','not used as signal or supply'
         else: direction,level = ('MCU input' if desired.endswith(('MISO','RX')) else 'MCU output'),'3.3V logic'
         add(ref,pin,f'{cn}-{pin}',function,desired,direction,level,'ST_C05_NET',
             'Native net '+native+('; solder bridge configuration must be checked on actual C05' if native.startswith('ARD_') else ''))
 for pin, cn in enumerate(range(65,71),1):
-    add('J5',pin,f'CN12-{cn}',stpins['CN12',str(cn)],'RTU_DE' if cn==69 else 'NC',
-        'MCU output' if cn==69 else 'unused','3.3V logic','ST_C05_NET',
-        'Bottom female 2x3; user reports males66/67/68/69, others may be absent')
+    native=stpins['CN12',str(cn)]
+    function=nominal_mux.get(native,native)+(' via solder bridge' if native in nominal_mux else '')
+    add('J5',pin,f'CN12-{cn}',function,'RTU_DE' if cn==69 else 'NC',
+        'MCU output' if cn==69 else 'GPIO configurable; unused','3.3V logic / VDDIO2','ST_C05_NET',
+        'Bottom female2x3; males66/67/68/69 user-reported; GPIOG depends on VDDIO2; native net '+native)
 
 for ref, key, name, commit, filename, rename in [
     ('J6','ADAFRUIT_4718','FRAM','f7d4afa22ddd562f52c557e2e8f003611515b4f4','SPI%20FRAM%202%20and%204%20Mbit.brd',
@@ -106,6 +127,7 @@ for pin in range(1,25):
     f=mki.get(pin,'NC');direction='module output' if f in ['SDO','INT1','INT2'] else 'module input'
     if f in ['VDD','VDDIO','GND']:direction='power'
     if f=='NC':direction='none'
+    if f in ['OCS','CSX','SDX','OSDO']:direction='auxiliary; direction depends on module/straps; unused'
     add('J8',pin,('JP1-' if pin<=12 else 'JP2-')+str(pin),f,mkinets.get(pin,'NC'),direction,'3.3V domain','ST_MKI_DRAWING',
         'JP1 numbered1..12; JP2 global24..13 from same end; connector J1 goes to MKI208V1 via ribbon')
 
@@ -124,6 +146,14 @@ for pin in range(1,17):
     add('J9',pin,'mikroBUS-'+str(pin),click[pin],clicknets.get(pin,'NC'),direction,'logic side3.3V / GND1','CLICK_V102',note)
 
 # These are explicit TR2 circuit requirements, not manufacturer connector pinouts.
+sources['TR2_REQUIREMENT'] = dict(
+    source_type='audit design intent for generic passives/TP only; not manufacturer evidence',
+    local_file=str(Path(__file__).resolve()),
+    url='https://github.com/loloLR17/MSM_vibe/blob/main/Modbus%20RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/E01/build_reference.py',
+    revision='E01 functional intent 17-Nov-2026; content pinned by SHA256 and publication commit',
+    sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+    bytes=Path(__file__).stat().st_size,
+    method='explicit resistor/capacitor/test-point design requirements; actual fitted MPN/values remain a hardware gate')
 passives={'R1':('+3V3','ACC_CS'),'R2':('+3V3','FRAM_CS'),'R3':('+3V3','SD_CS'),
           'R4':('RTU_DE','GND'),'C1':('+3V3','GND'),'C2':('+3V3','GND')}
 for ref,nets in passives.items():

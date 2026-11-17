@@ -144,7 +144,11 @@ for original in reference['rows']:
              schematic_net=normal(sch[key]['net']),pcb_net=normal(pcb[key]['net']),
              CAM_F=normal(cam['F'][key]['net']),CAM_B=normal(cam['B'][key]['net']),
              pcb_x_mm=pcb[key]['x'],pcb_y_mm=pcb[key]['y'],
-             copper_component_verified=True,physical_status='INCONNU — continuity not measured for this pad')
+             copper_component_verified=True,physical_status='NON_QUALIFIE — complete physical path not demonstrated; bounded historical observations remain separate')
+    if key in [('J2','11'),('TP2','1')]:
+        r['physical_status']='Operator001: J2-11 to TP2=0.1ohm, one ground segment only; not overall qualification'
+    if key in [('J2','6'),('TP3','1'),('J8','22')]:
+        r['physical_status']='Operator001: J2-6 to TP3=0.3ohm, TP3 to adapter SDO=0.3ohm vs SCL~600kohm; wrong clock endpoint confirmed'
     r['verdict']='PASS' if all(r[x]==want for x in ['schematic_net','pcb_net','CAM_F','CAM_B']) else 'FAIL'
     r['consequence']='Matches independent intended connection (documentary only)' if r['verdict']=='PASS' else 'Wrong connection or missing required connection; blocks power/release'
     rows.append(r)

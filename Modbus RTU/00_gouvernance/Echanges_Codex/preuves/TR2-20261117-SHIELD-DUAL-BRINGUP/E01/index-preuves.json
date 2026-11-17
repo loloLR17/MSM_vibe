@@ -1,0 +1,151 @@
+{
+  "files": [
+    {
+      "file": "AUDIT_E01.md",
+      "bytes": 12689,
+      "sha256": "89a8a82a237d47bd9158ba4f5aa782c08a56e44c010677c09ab5a183d57d2916"
+    },
+    {
+      "file": "FRAM-vendor-schematic-readback.json",
+      "bytes": 6928,
+      "sha256": "23d0f6f7e10dfc27abfd5d3af73cd47f13b948bedd774323a7a2c3889cca16c8"
+    },
+    {
+      "file": "MATRICE_E01_17_NETS.csv",
+      "bytes": 2667,
+      "sha256": "3c75b82ddaa4625fb5210a683ff03a071d21ef516a013660dc3267eb96b6bf30"
+    },
+    {
+      "file": "MATRICE_E01_180_CONTACTS.csv",
+      "bytes": 65253,
+      "sha256": "4a1b727a06944f6fefb0c0ea0a5b820514fd04fefacd122fb4742ae36c3c1b93"
+    },
+    {
+      "file": "RAPPORT_AVANT_AVENANT_E01.md",
+      "bytes": 20133,
+      "sha256": "258c0a75b5ba9acbd9300bbf1f666f7aa18987006a10a64d3717b3a8f801665c"
+    },
+    {
+      "file": "RCA_SPI3.md",
+      "bytes": 6210,
+      "sha256": "4978a208c6852dc7f2b32bc4ce487af199635dacb923993adc3099c4df40c3ab"
+    },
+    {
+      "file": "REEMPLOI_ET_OPTIONS.md",
+      "bytes": 7532,
+      "sha256": "c1bb44924f68369612c8f8744c07c00e7451461435e021a81b8be329dd15f078"
+    },
+    {
+      "file": "REPRODUCTION.md",
+      "bytes": 3209,
+      "sha256": "4a0e0bfe5bf5c812ee066e2eade32a3bf3f3f842ffe5150f37e818c58d308404"
+    },
+    {
+      "file": "SD-vendor-schematic-readback.json",
+      "bytes": 5093,
+      "sha256": "10ba11c0061b1b74e0f88cecc4deaa7c7ab27a840150496706be85233ce8167a"
+    },
+    {
+      "file": "ST-C05-netnodes-relevant.json",
+      "bytes": 24880,
+      "sha256": "6d89cf1dfd6c0ec5d961499f6fc0e851c1f391c9f224ec0418e1f384af1e2213"
+    },
+    {
+      "file": "audit-complet.json",
+      "bytes": 154011,
+      "sha256": "bbf0144106e5a59282d8bdad7e9d98ab4d1c74f386d55d322c547b1efc69b245"
+    },
+    {
+      "file": "audit_e01.py",
+      "bytes": 9591,
+      "sha256": "16b6d1686247da818ee842320b52647cb9c4b923ce4b042436d8e5400af41777"
+    },
+    {
+      "file": "audit_orientations.py",
+      "bytes": 7558,
+      "sha256": "a0517ba031b26f9983247193d8b97355716d35d9804a8a455efac3686b711e47"
+    },
+    {
+      "file": "build_reference.py",
+      "bytes": 12145,
+      "sha256": "3aa6f016181396ebe1f3caf73b3eaaa9b24e444258540b65fbff52eb065b35d6"
+    },
+    {
+      "file": "chronologie-RCA.json",
+      "bytes": 5510,
+      "sha256": "52e39b93ceed23730f36b235801ec4149cbe89e2b7f73bb41c66c381f9fa4652"
+    },
+    {
+      "file": "incident-lecture-native.md",
+      "bytes": 467,
+      "sha256": "ba5b1a932637a9e5c9cf74757a4d5afb8a5aa13ee01765aab1727a00832c8cc1"
+    },
+    {
+      "file": "native-PCB.json",
+      "bytes": 138421,
+      "sha256": "92a113350d0add2b1f9bf13327b8fad8cfe0738ee2681b6a3f5a1b0e1ccbfd00"
+    },
+    {
+      "file": "native-commands.json",
+      "bytes": 1361,
+      "sha256": "d5a86a7e089b7c3ed776af9a48f2e5771cd7070d5d7a252e815615f3da5ec5d5"
+    },
+    {
+      "file": "native-schematic-netlist.xml",
+      "bytes": 58767,
+      "sha256": "22dc3602e36c00a98026a93923c02a55039b201ee6f236c6ace754cc5765da25"
+    },
+    {
+      "file": "orientations-et-empreintes.json",
+      "bytes": 21573,
+      "sha256": "c9b6ab5b2149db760beaf687122fa2bfa175c0c5428e88dca74b60d11d03ac8d"
+    },
+    {
+      "file": "preservation.json",
+      "bytes": 712,
+      "sha256": "8e1a9d5fa912267f50a1e8e8ac37849a34e880ed67fd8d87dc94481dfc0cf920"
+    },
+    {
+      "file": "read-PCB-fixed.log",
+      "bytes": 56,
+      "sha256": "eff000c2518078690889a94820682d085a6f554f7087a191a1628bc5d2752ca7"
+    },
+    {
+      "file": "read-PCB.log",
+      "bytes": 179,
+      "sha256": "374e3bb11145f4c3ea1f73eb1963a588f4befac5d2c5ad676945046b1a52df25"
+    },
+    {
+      "file": "read-schematic-fixed.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "read_native.py",
+      "bytes": 1872,
+      "sha256": "030b60e35121d7160c87789fb905fce903f6ad8a820590e16e5cc62c10a1980c"
+    },
+    {
+      "file": "reference-constructeurs.json",
+      "bytes": 64041,
+      "sha256": "6f9a6b1664c3046869a97089434dd9001d9e286131ed906af38fc188c48b462c"
+    },
+    {
+      "file": "reprise.json",
+      "bytes": 526,
+      "sha256": "c37b88d80edd966201aa927620277374ecc3891c1345a2a1e20bebc4c1fb8490"
+    },
+    {
+      "file": "sources-complementaires.json",
+      "bytes": 5768,
+      "sha256": "30540714338c4d947bcf00c6be0bb79a527d265a58193524063a06b353cd5e48"
+    },
+    {
+      "file": "validation-documentaire-finale.json",
+      "bytes": 1049,
+      "sha256": "8a2e87ffc0a1ef96f4ad00ea20061690a480cd2650a20e5eb4e17986183c0b53"
+    }
+  ],
+  "report_sha256": "e8e6a7110de54619eb11ff253924256a0475473837c65e52628a82f0543e40c1",
+  "scope": "E01 local final files; publication verified separately after push"
+}
