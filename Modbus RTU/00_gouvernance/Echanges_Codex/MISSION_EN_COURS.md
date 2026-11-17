@@ -1,6 +1,8 @@
 ---
 mission_id: TR2-20261117-SHIELD-DUAL-BRINGUP
 status: READY
+revision: 2
+resume_reason: USER_APPROVED_E01_FULL_ELECTRICAL_AUDIT_2026-11-17
 base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 created_at_utc: 2026-11-17T17:53:00Z
@@ -30,3 +32,17 @@ Conserver les spécifications Modbus V1 et le firmware/contrôles gelés ; aucun
 
 ## Critères et livrables
 Rapport DERNIER_RAPPORT.md, résultats séparés par ensemble avec numéros UID et association constatée de périphériques (ne pas inventer numéro de série module si non détectable), configuration jumpers et traces horodatées, versions/SHA build/flash et statuts physiques, identification de la carte 32 Go, résultat FRAM vérifiable sans perte des acquis, tests RS485 TX/RX et Modbus conditionnels. Adapter les outils/tests ciblés sans régression et publier commits sur main selon gouvernance ; laisser en IN_PROGRESS ou BLOCKED avec preuve et étapes précises lorsqu'une action physique utilisateur est requise. Ne pas déclarer DONE tant que le contrat complet n'est pas démontré et ne pas revendiquer qualification industrielle/endurance.
+
+## Avenant de reprise E-01 — décision utilisateur du 17/11/2026 (même mission, non remplacement)
+
+Le rapport Codex de cette mission a constaté `BLOCKED` (erreur SPI3 structurelle) et doit rester conservé, sans être réinterprété comme `DONE`. L'utilisateur demande explicitement de reprendre **l'audit électrique exhaustif de toutes les interfaces** du shield V2.3, avant toute décision de reprise ou refabrication. Cet avenant maintient le même `mission_id`; `READY` désigne uniquement la **tranche d'audit reprise**, et n'annule aucun blocage physique antérieur. Aucune nouvelle mission concurrente ni aucune action sous tension sur les shields.
+
+### Objet immédiat et portée
+
+Appliquer impérativement GATE E-01 dans `AGENTS.md` et `GOUVERNANCE_CHATGPT_CODEX.md`. Faire le **contrôle indépendant intégral des signaux Nucleo→shield→breakout** à partir des sources **constructeurs** et des révisions réelles, en s'interdisant de prendre la matrice interne historique ou l'empreinte KiCad comme vérité. Comparer les pinouts natifs ST NUCLEO C05 et MKIGIBV2/MKI208V1, Adafruit4718 FRAM, Adafruit4682 microSD, MikroE RS485 Isolator 2 Click MIKROE3863 **HW v1.02 effectivement utilisé**, incluant v1.01/v1.02 non confondues. Auditer 100 % des broches de J1..J9 et des rails/TP/pullups/passifs intéressants, y compris NC, signaux +3V3/GND/GND2, /RE/DE/J2 du Click, J7/J8, VCCSEL, UART TX/RX, séparation galvanique, et tout risque de court-circuit ou contention.
+
+**Preuves attendues** : matrice indépendante constructeur `source/version/url/sha` → pin physique breakout → net souhaité MCU → KiCad schéma → KiCad PCB → CAM livré ; pour chaque net verdict individuel PASS/FAIL/INCONNU avec preuve et conséquence. Contrôler sens/miroir des connecteurs, fiche de fabrication effective et archives, et reconstituer chronologiquement **où et quand** la mauvaise affectation MKIGIBV2 a été introduite, malgré les précédentes acquisitions sur fils ; chercher historique des approbations demandées sur Click et distinguer vérification de géométrie, vérification électrique et simple parité interne. Signaler toute autre divergence sans la réparer aveuglément.
+
+**Coût/récupération** : inventorier les composants effectivement soudés et achetés selon BOM et historique de commande ; séparer composants réutilisables sans dessoudage, potentiellement récupérables (risques thermiques/mécaniques), consommables et éléments non commandés. Chiffrer seulement si prix actuel sourcé ; sinon indiquer quantité et coût inconnu. Étudier comparativement réparation des deux cartes existantes, interposeur, ou nouvelle fabrication, avec impacts sur mécanique V2.7, temps, capacités de production, risques, sans détruire ni désouder. Aucun nouvel achat/commande et aucune réparation physique décidés par Codex.
+
+**Livrables** : audit E-01, RCA documentée de l'erreur SPI3, inventaire financier/réemploi prudent, préconisation corrective non destructive sur fichiers de **variante distincte** seulement si nécessaire aux preuves ; conserver V2.3 original, ne pas changer CAM définitif ni lancer production ; rapport avec statuts factuels et références de commits. ChatGPT réalisera sa propre contre-lecture des sources avant décision structurante. Pas de flash/debug/essai sous tension requis pour cet audit documentaire même si les permissions de la mission restent `true` pour la reprise complète ; les garder inutilisées tant que le gate physique reste bloqué. Pas de relance de tests déjà acquis.
