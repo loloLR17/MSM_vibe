@@ -1,0 +1,20 @@
+{
+  "utc_recorded": "2026-11-17T19:22:15Z",
+  "source": "operator response to TP2-to-Adafruit-GND and annular-pad request",
+  "board": "TR2-002 current assembly",
+  "reported_resistance_ohm": {
+    "TP2_to_SD_breakout_marked_GND": 0.1
+  },
+  "J2_11_copper_annulus": "inaccessible on assembled bench; not measured",
+  "context_previous_ohm": {
+    "leads": 0.1,
+    "J2_11_to_TP2": 35,
+    "J2_13_to_TP2": 35,
+    "J2_11_to_J2_13": 0.1,
+    "J2_7_to_TP1": 0.3
+  },
+  "bounded_deduction": "TP2 low-resistance to local SD GND. Suspect Nucleo-ground/contact-to-shield-ground link; exact solder/contact/copper fault not identified. Full ground plane not qualified from one local link.",
+  "next_physical_action_requested": "All power removed incl STLINK/CN15 and USB-RS485 USB. Verify near0V. Separate shield from Nucleo gently, keep all modules/card installed; stop if force/flex. Read standalone shield J2-11 pin/TP2, J2-13 pin/TP2 and J2-11 pad copper/TP2 if accessible; inspect joints; no re-power.",
+  "shield_removal_confirmed": false,
+  "new_target_or_firmware_operations": false
+}

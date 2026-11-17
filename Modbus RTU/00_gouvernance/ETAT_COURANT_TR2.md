@@ -839,3 +839,8 @@ Aucun flash/debug/COM/accès microSD/FRAM, manipulation de banc, achat ou fabric
 
 - **Dernières mesures utilisateur** : J2-11↔TP2=35 Ω ; J2-13↔TP2=35 Ω ; J2-11↔J2-13=0,1 Ω. La valeur antérieure26 kΩ n'est pas reproduite, preuve conservée. Les contacts11/13 sont mutuellement continus, possiblement via la Nucleo ; cela ne qualifie pas leurs soudures au shield. Segment commun versGNDshield ou contact de mesure suspect, cause précise nonétablie.
 - **Suite hors tension, sans démontage** : TP2↔GND marqué du lecteurAdafruit, puis TP2↔cuivre de la pastilleJ2-11 plutôt que sa tige ; si inaccessible, signaler sans forcer. ZonesGND F.Cu/B.Cu etaffectations net relues, pasde preuve de continuité physique par laCAO. Aucun essai cible/flash/debug/SD/Modbus ni réparation effectué ; missionBLOCKEDsurlesmesures, publicationb16f8f83relue(3blobs).
+
+### 2026-11-17 — TP2 / GND lecteur continu, accès soudure impossible en assemblage
+
+- **Rapporté utilisateur** : TP2↔GND du lecteurSD=0,1 Ω ; pastilleJ2-11 inaccessible. Continuité locale seulement, pas qualification de tout leGND. Liaison entre massesNucleo etréseauGNDshield suspecte ; exact contact/soudure/cuivre toujours indéterminé.
+- **Action utilisateur demandée, nonconfirmée** : toutes alimentations débranchées(ST-LINK,CN15,USB-RS485),DCprès0V ;déboîter shield sans forcer/fléchir ni tirer surmodules, conservermodules/SD/cavaliers. Mesurer shield isolé tiges11/13↔TP2 etcuivreJ2-11↔TP2 siaccessible, inspectersoudures ;pasderemise sous tension/retouche. Cela retirele cheminparallèle Nucleo desmesures. Aucun accèscible ni changementfirmware/PCB/NVM ;publicationf1bf6329relue(3blobs),missionBLOCKEDphysique.

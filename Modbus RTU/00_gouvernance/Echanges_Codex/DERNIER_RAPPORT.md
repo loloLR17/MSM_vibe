@@ -5,7 +5,7 @@ base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
 result_sha: 41c55205a61eb26d406edf52bfed68f7de145fc9
-created_at_utc: 2026-11-17T19:18:12Z
+created_at_utc: 2026-11-17T19:22:15Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -21,6 +21,8 @@ allow_debug: true
 **Actualisation alimentation :** l'utilisateur rapporte **2,3 V entre TP1/TP2 et aux alimentations des breakouts**, contre **3,3 V entre J2-7/J2-11**. Le premier repérage J2-9 a été explicitement corrigé ; aucune conclusion sur le rail5V n'en est tirée. Ces mesures révèlent un écart à localiser sur l'alimentation ou le retour de masse, sans preuve d'un composant défectueux. Essais matériels suspendus ; coupure ST-LINK et contrôles de continuité hors tension demandés, pas encore confirmés.
 
 **Dernier relevé Ω utilisateur : J2-11↔TP2=35Ω ; J2-13↔TP2=35Ω ; J2-11↔J2-13=0,1Ω.** Les deux contacts de masse sont reliés entre eux mais présentent une résistance anormale versTP2. La lecture précédente≈26kΩ n’est pas reproduite et reste archivée. La liaison commune vers la masse du shield ou la prise de mesure est à localiser ; aucune soudure précise identifiée. Les tests restent suspendus hors tension.
+
+**Complément : TP2↔GND du lecteurSD=0,1Ω**, rapporté par l'utilisateur ; la pastilleJ2-11 est inaccessible sur le montage assemblé. Cette liaison locale est continue. Il faut maintenant isoler le shield de la Nucleo hors tension pour distinguer broches, soudures et cuivre ; démontage demandé, pas encore confirmé. Aucun module ou microSD à retirer, aucune remise sous tension autorisée à ce stade.
 
 ## Périmètre et confirmations utilisateur
 
@@ -136,3 +138,13 @@ Inspection statique duPCB candidat V2.3 :J2-11,J2-13 etTP2 affectésGND, zonesGN
 **Prochain contrôle utilisateur, toujours hors tension et sans déplacer lesmodules :** TP2↔GND marqué du lecteurSD Adafruit ; puis TP2↔anneau métallique de la pastilleJ2-11 sur lePCB du shield, en distinguant ce cuivre de la tige déjàmesurée35Ω. Si la pastille n'est pas accessible sans démontage, nepas forcer etle signaler. Les demandes de coupureST-LINK/CN15 etvérificationDCprès0V restent applicables ; pas de nouvelordre de remise sous tension, shunt ou retouche de soudure.
 
 Preuve `002-ground-localization-35ohm.json`. Aucun build,testlogiciel,flash/debug,SPI/SD ouModbus ; sauvegardes etfirmware inchangés. Journal mis àjour etmissionBLOCKEDsurcette localisation physique. Publication antérieureb16f8f8344a955de9b9fdbd81bd47d76464f3fc1 relue(3blobs).
+
+## Continuité locale TP2 / lecteurSD et nécessité d'isoler le shield
+
+Utilisateur :anneauJ2-11 inaccessible ;**TP2↔GND du lecteurAdafruit=0,1Ω**, identique àla résistance despointes rapportée. Ce contrôle valide seulement la continuité locale entre cesdeuxpoints. Associé aux35Ω depuis11 et13, il oriente vers la liaison entre lescontacts de masse côtéNucleo etle réseau de masse du shield ; il ne distingue pas encore un contact de connecteur, une soudure ou un défaut du cuivre. Ne pas présenter l'ensemble du planGND ou les modules comme qualifiés.
+
+La mesure11↔13 réalisée enassemblage peut emprunter le GND de la Nucleo. Puisque lescouronnes de soudure ne sontpas accessibles, unnouveau contrôle identique enassemblage n'apporteraitpas cette discrimination. **Action physique demandée selonAGENTS.md§9 :** débrancherST-LINK/CN15 etl'USB de l'adaptateurRS485, vérifierTP1/TP2près0V ; séparer doucement le shield de la Nucleo enprenant lesbords, sans tirer surlesmodules, sansflexion/forçage, sansdéplacer lescavaliers, enconservantmodules etSD. Si résistance mécanique anormale, arrêter.
+
+Shield isolé :résistances tigeJ2-11↔TP2, tigeJ2-13↔TP2 etcuivre de pastilleJ2-11↔TP2 siaccessible ; inspectionvisuelle de11/13(fissure,mouillage), sansretouche préalable. Ce changement de configuration est techniquement nécessaire pour éliminer leschemins parallèles de la Nucleo, pasunrejeu d'un testvalidé. Aucune remise sous tension demandée. Retrait du shield etrésultats nonencoreconfirmés.
+
+Preuve `002-local-SD-ground-continuity.json`. Aucun accèsdebug, flash/reset, commandeSPI/SD ouModbus ; code etNVM préservés. Journal actualisé. Publicationprécédentef1bf6329d974958dfb6081f7e5ab5412a60c486a relue intégralement(3blobs). La mission demeureBLOCKEDsurcetaccès physique ; aucune modificationCAO ou réparation déclarée.
