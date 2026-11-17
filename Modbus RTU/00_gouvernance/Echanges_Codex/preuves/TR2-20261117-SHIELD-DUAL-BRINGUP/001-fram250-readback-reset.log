@@ -1,0 +1,5 @@
+0x08001366 in main () at /home/lolo/dev/msm/projects/MSM_vibe-SHIELD-DUAL-BRINGUP/experiments/shield_dual_bringup/src/main.c:170
+170	  while(!probe_command){(void)r3_now(0);__WFI();}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

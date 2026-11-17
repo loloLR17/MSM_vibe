@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-17T20:00:23.079134+00:00",
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "//wsl.localhost/Debian/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/arm-fram64/shield_bringup.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "exit": 0,
+  "source_sha": "2e39e2c61b5e9e4960a306aed1a47f517cb70dbf",
+  "bin_sha256": "019569f9d58d09189f12b167be7e71b87ee4fcbbc5f95e3f354fee1ffd0795fd",
+  "SPI1_configured_Hz": 250000,
+  "normal_standard_only": true
+}

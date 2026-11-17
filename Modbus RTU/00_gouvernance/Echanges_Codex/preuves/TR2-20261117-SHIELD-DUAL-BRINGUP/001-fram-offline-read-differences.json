@@ -1,0 +1,53 @@
+{
+  "offline_only": true,
+  "different_read_profiles_and_times": true,
+  "differences": [
+    {
+      "offset": 4096,
+      "first_read_1MHz": 68,
+      "stable_read_250kHz": 0
+    },
+    {
+      "offset": 4097,
+      "first_read_1MHz": 64,
+      "stable_read_250kHz": 0
+    },
+    {
+      "offset": 4098,
+      "first_read_1MHz": 16,
+      "stable_read_250kHz": 0
+    },
+    {
+      "offset": 4099,
+      "first_read_1MHz": 4,
+      "stable_read_250kHz": 0
+    },
+    {
+      "offset": 4111,
+      "first_read_1MHz": 4,
+      "stable_read_250kHz": 0
+    },
+    {
+      "offset": 4118,
+      "first_read_1MHz": 64,
+      "stable_read_250kHz": 0
+    },
+    {
+      "offset": 4119,
+      "first_read_1MHz": 64,
+      "stable_read_250kHz": 0
+    },
+    {
+      "offset": 4156,
+      "first_read_1MHz": 112,
+      "stable_read_250kHz": 0
+    },
+    {
+      "offset": 4157,
+      "first_read_1MHz": 14,
+      "stable_read_250kHz": 0
+    }
+  ],
+  "no_memory_write_between_reads_requested": true,
+  "cause_not_established": true
+}

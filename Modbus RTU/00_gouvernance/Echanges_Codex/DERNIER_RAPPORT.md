@@ -1,11 +1,11 @@
 ---
 mission_id: TR2-20261117-SHIELD-DUAL-BRINGUP
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
-result_sha: 41c55205a61eb26d406edf52bfed68f7de145fc9
-created_at_utc: 2026-11-17T19:58:16Z
+result_sha: 2e39e2c61b5e9e4960a306aed1a47f517cb70dbf
+created_at_utc: 2026-11-17T20:10:07Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,99 +14,104 @@ allow_flash: true
 allow_debug: true
 ---
 
-# Qualification progressive — SD de001 réussie, comparaison FRAM préparée
+# Deux shields : SD001 réussie, FRAM001 réussie à 250 kHz, suite physique requise
 
-**Mission en cours, non clôturée.** TR2-001 a réussi le test SD/FAT32 avec création d'un fichier neuf4096octets, relecture intégrale/CRC et suppression. Sa FRAM est identifiée mais deux lectures diffèrent sur9octets ; aucune écriture FRAM n'a été armée. Le capteur renvoie00 au lieu7B. TR2-002 est hors tension, démonté pour reprise des soudures de masse par l'utilisateur. Aucune communication RS485/Modbus qualifiée.
+**Mission non clôturée.** TR2-001 a réussi le test SD/FAT32 et le test FRAM avec restauration à 250 kHz. La FRAM reste non qualifiée à 1 MHz et le capteur n'est pas identifié. TR2-002 est démonté et hors tension pour reprise des soudures de masse. Les prochaines étapes nécessitent les contrôles physiques demandés ; aucune émission RS485 ou communication Modbus n'est validée.
 
-Ce checkpoint préserve les résultats physiques001 et un seul essai différentiel FRAM préparé à250kHz, **pas encore flashé**. StatutIN_PROGRESS car une comparaison logicielle autorisée peut se poursuivre ; les obstacles physiques distincts restent documentés. Ne pas confondre logiciel compilé, données lues et qualification matérielle.
-
-## Identités et état physique rapporté
-
-| Ensemble | ST-LINK et UID frais | État utilisateur / alimentation |
-|---|---|---|
-|002|0032001F3235510C37333439 ;001B0046/38425018/20333157|Première qualification sousST-LINK/JP6STLK,CN15débranché ; ensuite entièrement débranché etshield démonté pour soudure, confirmation utilisateur|
-|001|003500463235510B37333439 ;004A003D/38425018/20333157|ST-LINK/JP6STLK,CN15débranché ; inspection hors tension C2/modules/soudures/sanspont oucontrainte confirmée ;3,3V rapportés auxbreakouts|
-
-Les périphériques ont pu être permutés :aucune identité ou association module déduite de la Nucleo. RDIDFRAM etWHOcapteur ne donnent pas un numéro de série module. Même32Go transférée parutilisateur vers001, identifiée ensuite parCIDexact. Aucun accès àla512Go.
-
-L'ordre002puis001 etla bascule vers001pendant réparation002 ont été explicitement demandés. La réponse intermédiaire «TR2 débranché,shield séparé,prêt à souder» était ambiguë ; elle a ensuite été explicitement attribuée à002. Les valeurs de résistance du shield001 n'ont pas été fournies et ne sont pas inventées ; son contrôle visuel etles3,3V ont été confirmés avant accèsMCU.
-
-## Résultats séparés
+## Résultats par ensemble
 
 | Interface | TR2-002 | TR2-001 |
 |---|---|---|
-|FRAM SPI1|**PASS borné** RDID047f4803,doublelecture262144octets identique, motif64octets relu puisrestauration intégrale zéroécart|**FAIL stabilité à1MHz** RDIDconforme,9octets différents entre lectures complètes ; aucun write/testrestore|
-|IIS3DWB SPI3|**FAIL WHO00** à8 puis2MHz ;HAL_OK/RXcomplet ; aucunXYZ|**FAIL WHO00** conservé sousCN0, puisuniqueWHO2MHz du banc ;HAL_OK/RXcomplet ; aucunXYZ|
-|SD SPI2/FAT32|**FAIL init/timeout**,CID nonlu,écriture0|**PASS borné** CID/CSD/capacité/FAT32 ;fichier4096octets neuf,sync/close/relecture complèteCRC/suppression,erreur0|
-|RS485/Modbus|NON_TESTÉ ;J2Clickseulconfirmé|NON_TESTÉ ;J2ClicketbranchementRS485rapportés, autresgatesenattente|
+| Identification Nucleo | SN0032001F3235510C37333439 ; UID001B0046/38425018/20333157 | SN003500463235510B37333439 ; UID004A003D/38425018/20333157 |
+| FRAM | PASS borné à 1 MHz : RDID, double lecture intégrale, motif64 octets et restauration intégrale sans différence | FAIL stabilité à 1 MHz :9 différences ; **PASS borné à 250 kHz**, double lecture, motif64 octets et restauration intégrale sans différence |
+| IIS3DWB | FAIL WHO00 au lieu7B, à8 puis2 MHz configurés ; aucun XYZ | FAIL WHO00 conservé sous CN0, puis unique essai à2 MHz ; aucun XYZ |
+| microSD/FAT32 | FAIL initialisation/timeout, CID non lu ; aucune écriture | **PASS court** : CID/CSD/capacité/FAT32, fichier neuf4096 octets relu intégralement/CRC puis supprimé |
+| RS485/Modbus | NON_TESTÉ, gates matériels en attente | NON_TESTÉ, gates matériels en attente |
 
-Aucune endurance, coexistence générale, tenue mécanique/industrielle ou mesure vibratoire qualifiée. L'échec d'identification du capteur interdit ses configurations/XYZ ; aucune répétition aveugle du même essai.
+Les périphériques ont pu être permutés. Aucune association module déduite du numéro de Nucleo, aucun numéro de série FRAM ou capteur inventé. Les PASS ci-dessus sont limités aux essais observés ; aucune endurance, tenue mécanique, qualification industrielle, coexistence générale ou mesure vibratoire qualifiée.
 
-## Préservation et flash
+## Conditions physiques rapportées par l'utilisateur
 
-Chaîne Windows qualifiée, outils relus :CubeProgrammer2.23.0/GDBserver7.14.0/GDB15.2.90 CubeCLT1.22,ST-LINKV3J15M7 ; sourcesLinux/SDKCubeU5v1.9.0 aux chemins prescrits. Source001 de procédure standard relue dans les preuves versionnéesCN0 du02/11 ; chaîne002 documentée par`QUALIFICATION_M015_L_BANC_ST.md`. CLI NORMAL/SWD/SNexplicite/8000/adresse08000000/verify/reset, puisresetGDBaprèsdernierCLI. PasHOTPLUG/mass erase/OptionBytes/RDP.
+002 a été testé en premier sur demande explicite, sous ST-LINK/JP6STLK, CN15 débranché, montage annoncé correct. Après les mesures de masse anormales, l'utilisateur confirme002 entièrement débranché, shield séparé et prêt pour reprise des soudures. Cette reprise n'est pas encore confirmée terminée.
 
-Avant modification de chaque carte :UID frais,Flash2MiB etRAM768KiB sauvegardées. Toutes les images exécutables comparées intégralement au préfixeFlash ; pas d'identification depuis les octets résiduels de fin.
+Pour001 : ST-LINK/JP6STLK, CN15 débranché, même carte de test transférée, RS485 connecté et pont J2 du Click annoncés. L'utilisateur confirme inspection hors tension de C2, modules et soudures sans pont ou contrainte, et **3,3 V aux alimentations des breakouts**. Les résistances de masse de001 n'ont pas été fournies ; elles ne sont pas inventées. Les réponses intermédiaires ambiguës sur le banc démonté ont été clarifiées comme concernant002.
 
-| Sauvegarde | SHA256 |
+Les indications CLI de3,28 V sur002 et3,29 V sur001 portent sur la cible MCU et ne remplacent pas les mesures aux modules. Aucun changement physique réalisé par Codex ; un seul banc alimenté selon les confirmations utilisateur. Aucun accès à la512 Go.
+
+## Firmware, sauvegardes et chaîne utilisée
+
+GDB et programmation Windows qualifiés : CubeProgrammer2.23.0, GDBserver7.14.0, GNU GDB15.2.90/CubeCLT1.22, ST-LINKV3J15M7 ; SDK Linux CubeU5v1.9.0. Qualification002 documentée dans `QUALIFICATION_M015_L_BANC_ST.md` ; procédure001 relue dans les preuves versionnées CN0 du02/11. Pas d'inférence de qualification depuis la seule disponibilité d'un outil.
+
+Avant modification de chaque cible : UID frais, Flash2 MiB et RAM768 KiB sauvegardées ; l'exécutable est comparé intégralement à la Flash. Les dumps complets restent locaux, leurs empreintes sont publiées.
+
+| Image initiale | Source / empreinte |
 |---|---|
-|002Flashinitiale|ca275a54998a0730d9067f4107b06830aacc59e3e5789d6e25df579e91731a7e|
-|002RAMinitiale|76839fdf2f691cab553b4d2d9176cc61dde1a1f8aa1bd877adc63444509f4be7|
-|001Flashinitiale|65f4ab9f828ee358e30a1df1b07f21d03848bdaab837b5ac130e311be333fcf5|
-|001RAMinitiale|ded90b5dcc0cbfb6c8d1f47eec897b973217cb6d02236eed61db0fc84d1324f5|
+|002 : OBE2h,53032 octets | Source `dd2f27ca3d886742b0ab37ab378cd524012a0370`, BIN20785017… ; Flash2 MiB SHA `ca275a54998a0730d9067f4107b06830aacc59e3e5789d6e25df579e91731a7e` |
+|001 : CN0,53340 octets | Source `6633b0154bf67b4c5437f1d259732fc1b1f21e4a`, BINd3186380… ; Flash2 MiB SHA `65f4ab9f828ee358e30a1df1b07f21d03848bdaab837b5ac130e311be333fcf5` |
 
-002portaitOBE2h/source`dd2f27ca3d886742b0ab37ab378cd524012a0370`,53032octets/SHA20785017… ;001portaitCN0/source`6633b0154bf67b4c5437f1d259732fc1b1f21e4a`,53340octets/SHAd3186380… . Sur001, la RAMinitiale conservait déjà unWHO00 valideHAL/reg0F,len1,RX2complet sousancienfirmware :extraction horsligne depuis dumppréservé, adressesELFexactes etstructures ducode. Aucun nouvelordreSPI pour cettepreuve.
+Un flash du banc indépendant initial sur chaque cible, puis un second flash sur001 pour le seul profil FRAM250 kHz. Procédure standard : NORMAL/SWD/SN explicite/freq8000, adresse08000000, verify/reset ; uniquement pages0..4, pas de mass erase, Option Bytes ou RDP. Readback entier : image exacte et tail après40960 octets inchangée depuis l'original. Reset GDB après chaque dernier CLI selon le diagnostic NVIC historique, aucun HOTPLUG.
 
-Un flash du banc indépendant41c55205 sur chaque carte, pages0..4 uniquement ; readback entier imageexacte ettail>40960inchangée. BIN`631b05dbc27843a7cdc780818418790057e193ed454fdd7e26d78dc7390782d7`. BootWAIT observé, séquence/commande/armement0,CSrelâchées,PG4/ODR0 (liaisonDE nonvérifiée),zérocommandeSD,aucunUART. CLI3,28V sur002 et3,29V sur001 côtéMCU :ces indications ne remplacent pas les mesuresmodule. Les sauvegardes originales permettent une récupération desoctets, pas une qualification du firmwarehistorique.
+| Profil évalué | Code / binaire |
+|---|---|
+| Initial, FRAM1 MHz | `41c55205a61eb26d406edf52bfed68f7de145fc9` ; SHA256 `631b05dbc27843a7cdc780818418790057e193ed454fdd7e26d78dc7390782d7` |
+| Comparatif FRAM250 kHz, actuellement sur001 | `2e39e2c61b5e9e4960a306aed1a47f517cb70dbf` ; SHA256 `019569f9d58d09189f12b167be7e71b87ee4fcbbc5f95e3f354fee1ffd0795fd` |
 
-## FRAM : résultats et protection
+Boot WAIT observé, aucune commande média ni UART au démarrage, trois CS relâchées, PG4/ODR0. Ce dernier relevé ne prouve pas le niveau réel au Click ni la continuité J5/DE. Les images initiales restent récupérables ; aucune restauration inutile vers un firmware qui relancerait son initialisation de périphériques. Aucun code partagé de production ni contrôle normatif modifié.
 
-002 :doublelecture262144octets identique,exporthôte CRC32e20eea22/SHA`8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90`. Zone0x3FFC0..0x3FFFF **non prétendue libre**, méthode sauvegarde/restauration autorisée :64octets de motifécrit/relu, restauration etcomparaison de chaqueoctet du média au snapshot,zéroécart. Aucune identité provisionnée, contenu complet horsGit.
+## FRAM : échec préservé et comparaison contrôlée
 
-001 :RDID047f4803, comparaison intégrale **9écarts**,error113,CRCpremièrelecture1351935669. Export du premier snapshot conservé etCRC hôte égal auMCU ; **ce n'est pas une sauvegarde stable qualifiée**. `001-fram-unstable-read-manifest.json` distingue export exact etlectureinstable. Aucun test d'écriture/restauration etaucunwriteFRAM exécuté sur001. La secondelecture n'a pas été conservée intégralement :adresses/valeurs des9écarts non identifiées par ce banc, pas de précision inventée.
+RDID des modules lus : **04 7F 48 03**. Test002 à1 MHz : double lecture262144 octets identique, export vérifié, motif64 octets à0x3FFC0 puis restauration et comparaison complète sans écart. CRC32 de la sauvegarde `e20eea22`, SHA256 `8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90`.
 
-**Comparaison préparée** :ajout minimal de`BENCH_FRAM_DIVIDER` au seul bancisolé, défaut16/1MHz inchangé, variante64/250kHz ; autresvaleurs refusées. Deuxcross-builds réussis ; leBINdéfaut est **byteexact** àcelui déjàévalué41c55205, seulslesoctets de réglage changent dans la variante250kHz. Configuration32 explicitementrefusée. BIN250kHz`019569f9d58d09189f12b167be7e71b87ee4fcbbc5f95e3f354fee1ffd0795fd`,compilé **nonencoreflashé**. Gardes/comparaisons/armements identiques, zéroécart toujours exigé ; abaisser la fréquence ne qualifie pas1MHz ni une soudure. Liredeuxfois etexportervérifié avant toute éventuelleécriture ; pas d'usage du snapshotinstable comme référence de restauration.
+Sur001 à1 MHz, la comparaison complète signale **9 octets différents**. Première lecture conservée avec CRC1351935669 ; export hôte exact, mais **pas une sauvegarde stable qualifiée**. Aucune écriture n'a été armée dans ce profil. La seconde lecture n'a pas été conservée intégralement : ses neuf adresses différentes ne sont pas prétendues connues.
 
-Validationproportionnée :bancexpérimental seulement,cœur/driver/HAL/V1 inchangés. Builds ciblés desprofils nouveaux ; tests hôte de sécurité1/1PASS déjàconservés, nonrejoués car logiqueinchangée. Avertissementsnosyslinker conservés, aucunfilesystemnewlib utilisé. Pas de validationmatérielle déduite du build. Aucunrejeu duSDPASS ouWHOrefusé prévu lors du changement de profilFRAM.
+Un seul comparatif à250 kHz a été préparé puis exécuté, sans déplacer le montage. Ajout minimal de `BENCH_FRAM_DIVIDER` dans `experiments/shield_dual_bringup/` ; défaut16 inchangé,64 pour250 kHz, autres valeurs refusées. Deux cross-builds réussis ; le binaire par défaut reste **byte exact** à l'initial. La variante ne diffère que de deux octets ; différence archivée. Configuration32 explicitement refusée. Gardes, seuil zéro différence et armements inchangés.
 
-## SD001 : preuve physique complète du test court
+À250 kHz : deux lectures intégrales identiques, export hôte dont CRC32 **92b9b0f5** égale le MCU, SHA256 **`f442f68373b5c41ff25408c47fbcf4dd032f0ee1257a806741668c3e55225f2e`**. Seulement après cet export vérifié, armement RAM et test64 octets, motif relu, restauration puis comparaison des262144 octets : **zéro différence**, error0. La zone n'est pas déclarée libre : méthode sauvegarde/restauration expressément autorisée par le contrat. Aucun effacement ni provisioning.
 
-CID **0353445344333247858bf0923c01927b**, CSD **400e00325b590000edc87f800a4040c3**,62333952secteurs/31914983424octets,SDHC/FAT32,csize64,n_fats2. LeCRC desregistres/données etlesgatesCID/capacité conservés ; compteurlecture4 avant scratch,aucunwriteàl'identification. Seulecarteadressée par le firmware,unvolumeFatFs, aucun accès disque Windows ou512Go.
+La première lecture instable à1 MHz et la lecture stable à250 kHz diffèrent sur neuf octets entre0x1000 et0x103D ; détails hors ligne publiés. Cela ne localise pas automatiquement les écarts de la seconde lecture à1 MHz. Aucun ordre d'écriture entre profils. Le défaut n'est pas observé dans l'essai à250 kHz ; **cause non établie et 1 MHz non qualifié**. Un succès à fréquence réduite ne démontre pas l'absence de défaut de soudure ou de marge électrique. La restauration est prouvée par rapport à la référence stable250 kHz, pas à un état initial dont la première lecture était instable.
 
-Fichierneuf **`0:/T1700101.TMP`**,CREATE_NEW après`f_stat` inexistant,armementRAMone-shot.4096octets déterministes écrits,sync/close,rouverture/relecturecomplète/EOF,memcmp MCU puisexport/comparaisonhôte. **CRC32c0e65e2b** égalMCU/hôte,hash dans`001-sd-scratch-roundtrip.json`. Suppression danscommande séparée armée,`f_stat=FR_NO_FILE` etquiesceSD réussis.15secteurs confirmés au total incluent lesmétadonnéesFAT ;zéroerreurCRC/timeout,writerinactif/nonincertain. Aucunformatage niécrasement d'unfichierexistant. Les autresfichiers ne sontpas déclarés hashvérifiés après ce test :ils n'ontpas été relus intégralement auPC.
+## SD001 : test physique court réussi
 
-SD002 :timeoutinit,error2,lastcmd0/R1FF,commands0. Ce compteur compte lesréponses reconnues ; ilnepermetpas de distinguer attenteprécommande etR1aprèsCMD0. Correction explicite de la premièreinterprétation donnéeenconversation ;CID/FAT nonlus,écritures0.
+Carte autorisée identifiée par **CID0353445344333247858bf0923c01927b**, CSD400e00325b590000edc87f800a4040c3, **62333952 secteurs, 31914983424 octets**, FAT32,64 secteurs/cluster et deux FAT. CRC transport conservés, aucune erreur de lecture. Seule carte adressée par le banc, un seul volume FatFs ; aucun accès à un lecteur Windows ou autre média pour écrire.
 
-## Refus capteur et erreurs d'observation
+Fichier **`0:/T1700101.TMP`**, nom absent vérifié et CREATE_NEW.4096 octets synthétiques écrits après armement one-shot, sync/close, réouverture/relecture complète/EOF, comparaison MCU puis export et comparaison hôte octet par octet. **CRC32c0e65e2b** identique MCU/hôte, SHA dans le manifeste. Suppression par commande séparée armée, absence `FR_NO_FILE` et repos SD contrôlés.
 
-WHO00 à2MHz/mode3 surchacun,traceuniqueHAL_OK/error0/remaining0/précloseRXoffset2,valid1,payload00. Anciennes traces8MHz conservées ;différence de firmware,reset ettemps depuisalimentation empêchent une attributioncausale isolée àlafréquence. Aucunwritecapteur niXYZ ; causecapteur/câble/soudure/alimentation nonétablie. GPIO/SPI instantanés ne sontpas desmesuresanalogiques.
+**15 secteurs confirmés au total**, métadonnées FAT incluses, zéro CRC/timeout, writer inactif et non incertain. Aucun formatage ou écrasement d'un fichier existant. Les autres fichiers ne sont pas déclarés intégralement relus/hachés après ce test. Le PASS concerne ce fichier court et le profil initial41c55205, pas une endurance. Aucun rejeu après le changement du seul diviseur SPI1.
 
-Deuxerreurs de scripts ont été conservées puis corrigées sans rejeuSPI :sur002,nomerroné`bench_traces` au lieu`bench_trace` ;sur001,`r3_command` absent duELFautonomeCN0. Correction deslectures depuis les vrais symboles, pas de reset/flash pourcorrigerlacapture. Premierdump001 sansELF volontaire, puischargement de l'ELF exact aprèsidentificationFlash ;pasd'hypothèse surlesymbolage.
+Sur002, timeout d'initialisation et aucune écriture ; CID/FAT non lus. Correction conservée : `commands=0` compte les réponses reconnues et ne prouve pas que CMD0 n'a pas été émis ; l'attente précommande et le délai R1 ne sont pas distingués par cette trace.
 
-## Défaut de masse002 et reprise physique
+## Capteurs, défaut de masse002 et erreurs d'observation
 
-Mesures utilisateur :2,3V TP1/TP2 etauxbreakouts contre3,3V J2-7/J2-11. Premierrepérage9/11 explicitement corrigé7/11 :aucuneanomalie5V déduite. NetlistSTC05 relue :CN8-7=3V3,9=5V,11/13=GND ;shieldJ2-7↔TP1 et11/13↔TP2 directs,aucunerésistancesérie prévue.
+Sur001, la RAM initiale CN0 contenait déjà une trace WHO00 valideHAL/RX complet. Extraction hors ligne depuis le dump préservé et l'ELF exact ; aucun nouvel ordre SPI pour cette observation. Puis unique essai du banc à2 MHz/mode3 : WHO00, trace valide, réception2 octets complète. Sur002, premier WHO00 à8 MHz puis unique comparaison2 MHz, même résultat. Aucune configuration/XYZ après refus ; pas de répétition aveugle. Les changements de firmware, reset et temps depuis alimentation empêchent d'attribuer isolément le résultat à la fréquence. Les GPIO/SPI instantanés ne sont pas des mesures aux fils.
 
-Pointes0,1Ω ;cheminpositif0,3Ω ;J2-11/TP2 d'abord≈26kΩ(nonreproduit),puis11/TP2=35Ω,13/TP2=35Ω,11/13=0,1Ω ;TP2/GNDlecteur=0,1Ω. Cesmesures orientent vers entréeGNDshield/connecteur/soudures, sans localiser encorela cause ;11/13assemblés peuvent être reliés viaNucleo. Résistancesen-circuit ne permettentpas de calculer simplementle courant sous tension.
+002 : utilisateur mesure2,3 V aux breakouts/TP1-TP2 contre3,3 V J2-7/J2-11. Le premier repérage9 a été corrigé7, sans conclusion sur le rail5 V. Netlist ST C05 : CN8-7=3V3,9=5V,11/13=GND ; shield J2-7/TP1 et11/13/TP2 directement reliés par conception.
 
-Utilisateur rapporte ensuite desdéfauts apparents auxsoudures11/13,annonce leurreprise,puis confirme002entièrement débranché,shield séparé. Repèreclarifié **J2shield/CN8**, pasunautreJP2. Pasdephotoinspectée parCodex ni réparation confirmée finie. Aprèsreprise etavantalimentation :R11/TP2,R13/TP2 prochesdespointes,RTP1/TP2stabilisée,absencepontvoisin ;puisrails. Aucunshunt oualimentationcontournantledéfaut. Aucunaccès002pendanttravauxphysiques,aucuneactionmanuelleparCodex.
+Pointes0,1 Ω ; chemin positif0,3 Ω ; masse d'abord≈26 kΩ, valeur non reproduite puis35 Ω de11 et13 versTP2, contre0,1 Ω entre11/13 et entreTP2/GND lecteur. Les deux contacts peuvent être reliés via la Nucleo assemblée. Retour de masse suspect, défaut exact non établi ; aucune intensité sous tension déduite par simple V/R. Soudures11/13 jugées défectueuses par l'utilisateur, reprise annoncée,002 démonté et débranché. Après reprise : continuités de masse, absence de court-circuit/pont et rails avant qualification ciblée. Aucun accès002 pendant cette intervention.
 
-## RS485 : gates matériels non levés
+Erreurs de capture conservées : nom `bench_traces` corrigé en `bench_trace` sur002 ; symbole `r3_command` absent du CN0 autonome001, supprimé du script de lecture. Corrections sans nouvelle commande SPI/reset/flash pour refaire l'observation. Avant le second flash001, GDB a averti que le source local avait changé ; variables interprétées avec l'ELF exact de l'image initiale, structure inchangée. Après flash250 kHz, nouvel ELF exact utilisé. Pas d'erreur masquée pour annoncer un PASS.
 
-Sources primaires :[Click3863](https://www.mikroe.com/rs485-isolator-2-click) et[schémav102](https://download.mikroe.com/documents/add-on-boards/click/rs485_lsolator_2_click/rs485-isolator-2-click-schematic-v102.pdf). J2DE/RE,pontconfirméutilisateur,distinct deJ7A/Y etJ8B/Z halfduplex. VCCSEL3V3,J3/RE,TERMJ5/J9,BIASJ4/J6 etbus àrelever réellement ;GND2 reste isolé deGNDlogique etpolaritéconvertisseur nonprésumée.
+## RS485 : réception et émission encore non testées
 
-PG4/CN12-69→J5local5→ClickDE ;présenceJ5 etcommandeDE réelles nonétablies. AucunportCOM ouvert niémission surlesdeuxbancs. InventaireinitialWMI incomplet(COM5seul),PnP completCOM4FTDIBG04KSSW :pasdedéconnexiondéduite du seulWMI. Pasd'accèsHP. AucunRX/TX/Modbusrevendiqué avantlevée desgates.
+Pont J2 DE/RE confirmé par utilisateur sur les deux montages testés ; cela ne démontre ni J5/PG4/DE ni J7/J8 half-duplex. Sources primaires : [Click3863](https://www.mikroe.com/rs485-isolator-2-click) et [schéma v102](https://download.mikroe.com/documents/add-on-boards/click/rs485_lsolator_2_click/rs485-isolator-2-click-schematic-v102.pdf). J7 relie A/Y et J8 B/Z ; VCCSEL doit être3V3. J3/RE, TERMJ5/J9, BIASJ4/J6 et montage réel à relever. GND2 reste séparé du GND logique ; polarité du convertisseur USB non présumée.
 
-## État et suite
+PG4/CN12-69→J5local5→ClickDE : présence/continuité non établies. Aucun port COM ouvert ni émission par Codex, pas de double maître introduit. Inventaire initial PnP : COM4 FTDI BG04KSSW etCOM5ST-LINK ; WMI initial incomplet non interprété comme déconnexion. Aucun accès au HP historique. Pas de PASS bidirectionnel déduit du seul branchement RS485.
 
-001aprèsSD :stage3/command7/sequence5/done_mask196,commande/armement0,writerinactif/nonincertain,SDready/CSrelâchée,PG4/ODR0 (liaisonDE nonvérifiée),GDBdétaché. Image41c55205 enplace. **Suiteautonome :** publier cecheckpoint,puisrecontrôlerUID/repos,flashstandard du seulprofilFRAM250kHz,readback/resetGDB etdoublelectureFRAM,aucunrejeuSD/WHO ;écritureFRAMseulementsnapshotstable/exportvérifié. Encasdenouvelécart,conserveretstopperlesécritures,contrôlephysiqueciblé.
+## État final et prochaine intervention
 
-002restehors tensionpourréparation. LescontrôlesRS485etlespoursuitesSPI3nécessiteront observations/interventionsutilisateur. Aucuncritèrecomplet dequalificationdesdeuxensembles satisfait ;pasdeDONE.
+001 : profil250 kHz en place, stage3/command5/sequence2/done_mask34, error0, commande/armement0 ; writer inactif/non incertain, CS relâchées, PG4/ODR0, GDB détaché. Les compteurs SD sont nuls **depuis ce changement de profil**, ce qui n'annule pas les15 secteurs du test précédent. La SD était au repos avant le flash, aucun ordre SD ensuite. Aucun essai ne démarre automatiquement au prochain boot.
 
-## Git, preuves et journal
+**Action utilisateur demandée sur001** : laisser002 hors tension, débrancher ST-LINK et USB-RS485 de001, CN15 débranché et tension TP1/TP2 proche de0 V ; sans déplacer les modules ni forcer l'accès, mesurer J2-11/TP2 puis les quatre continuités capteur : J2-4→JP2-21/CS,6→22/SCL,8→24/SDO,10→23/SDA. Signaler les points inaccessibles. Relever J5 et les positions Click sans modification. Ne pas réalimenter avant examen de ces résultats. Ces actions relèvent d'AGENTS.md §9 et ne constituent pas une demande supplémentaire d'autorisation logicielle.
 
-Départd5d3da95,worktreeisolé`MSM_vibe-SHIELD-DUAL-BRINGUP`,branche`codex/shield-dual-bringup`,ciblemain. Racinehistorique82169af7 etdeuxstashes préservés,aucunreset/clean/merge/rebase/forcepush. Touslescheckpointsprécédents ont étépubliés etleursblobsmodifiés intégralementrelus ;dernieravantcetravail **baf5cf1b83679a1764d966e2e3b6f365813ce072**(3blobs).
+**Action002** : terminer la reprise annoncée, fournir R11/TP2, R13/TP2 et Ralimentation/masse stabilisé, absence de pont voisin ; puis seulement rails et essais affectés par la réparation. Ne pas déduire que002 est réparé du succès SD001. Aucun test déjà réussi sur code et montage inchangés à relancer.
 
-Preuvesversionnées `Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/` :rawGDB/scripts/invocations,hashes,identificationCID/CSD,scratchsynthétique,manifestesdebuild etdepublication,observationsutilisateur distinctes. Originaux etNVM complets restent dans `/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/`. AucuneFRAMcomplète ouFlash/RAMinitiale diffusée. LogsWindows byteexact(CRLF/espacesfabricant),whitespacecheck horslogsbruts,preuvesnonaltérées.
+Les limites restantes sont physiques : accès/continuités capteur, réparation002 et configuration RS485. Pas de nouvelle campagne exhaustive de fréquence ni de modification normative implicite ; aucune raison de poursuivre des écritures sans ces vérifications. Statut **BLOCKED**, qualification des deux ensembles incomplète.
 
-`ETAT_COURANT_TR2.md` actualisé avecUID001/imageCN0,sauvegardes,SDPASS,FRAMinstable/écrituresrefusées,WHOFAILetprofil250kHzpréparé ;002toujoursréparationnonconfirmée etRS485enattente. SHAduprésentcommit fourniaprèspublicationnormale etrelecturedistante. Aucunequalificationindustrielle ouadoptionnormative implicite.
+## Validation, publication et journal
+
+Modification limitée au banc isolé et à son paramètre SPI1. Cœur, drivers partagés, HAL, PCB/Gerber et Modbus V1 inchangés. Cross-builds des deux nouveaux profils réussis, configuration interdite refusée ; tests hôte des garde-fous1/1PASS conservés, pas rejoués car logique inchangée. Le validateur général ne construit pas ce projet autonome ; le cross-build ciblé est la preuve pertinente. Avertissements linker nosys conservés, aucun filesystem newlib utilisé. Un build ne vaut pas validation physique.
+
+Worktree `MSM_vibe-SHIELD-DUAL-BRINGUP`, branche `codex/shield-dual-bringup`, publication normale surmain. Racine historique82169af7 et deux stashes conservés ; aucun reset/clean/merge/rebase/force push. Dernier checkpoint **2e39e2c61b5e9e4960a306aed1a47f517cb70dbf**,96 blobs complets relus et comparés après publication. Le présent rapport reçoit son propre SHA après commit/push/relecture, communiqué dans la réponse finale.
+
+Preuves : `Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/`, notamment `001-final-results-fram250-and-SD.json`, scripts/logs/invocations, manifestes et données synthétiques. Originaux et copies complètes Flash/RAM/FRAM dans `/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/`, non redistribués. Logs Windows conservés byte exact ; whitespace contrôlé hors logs bruts, pas de normalisation des preuves.
+
+`ETAT_COURANT_TR2.md` actualisé et entrée de cette mission synthétisée avec les résultats présents, les états matériels et les actions restantes. Historique des étapes et observations conservé dans Git et les preuves. À transmettre à ChatGPT : PASS limités SD001 et FRAM001 à250 kHz, échec1 MHz, capteurs non identifiés et travaux physiques/RS485 en attente ; pas de clôture ni de qualification générale.

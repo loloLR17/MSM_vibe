@@ -1,0 +1,24 @@
+{
+  "source_sha": "2e39e2c61b5e9e4960a306aed1a47f517cb70dbf",
+  "configured_SPI1_Hz": 250000,
+  "scratch_offset": 262080,
+  "scratch_bytes": 64,
+  "pattern_written_and_read_exact": true,
+  "original_bytes_restored": true,
+  "full_262144_byte_compare_after_restore_mismatches": 0,
+  "original_backup_sha256": "f442f68373b5c41ff25408c47fbcf4dd032f0ee1257a806741668c3e55225f2e",
+  "original_backup_crc32": "92b9b0f5",
+  "volatile_export_and_arm_checked_before_write": true,
+  "SPI1_at_1MHz_remains_unqualified": true,
+  "SD_and_sensor_not_retested_after_profile_change": true,
+  "latest_counter_state": {
+    "sequence": 2,
+    "done_mask": 34,
+    "command": 0,
+    "arm": 0,
+    "SD_commands_since_profile_flash": 0,
+    "SD_writes_since_profile_flash": 0
+  },
+  "SD_mission_total_prior_sector_writes": 15,
+  "GDB_detached": true
+}
