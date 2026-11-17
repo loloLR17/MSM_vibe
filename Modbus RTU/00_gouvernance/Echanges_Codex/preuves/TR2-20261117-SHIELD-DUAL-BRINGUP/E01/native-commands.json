@@ -1,0 +1,27 @@
+[
+  {
+    "name": "read-PCB",
+    "args": [
+      "/mnt/c/Program Files/KiCad/10.0/bin/python.exe",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-E01-AUDIT\\Modbus RTU\\00_gouvernance\\Echanges_Codex\\preuves\\TR2-20261117-SHIELD-DUAL-BRINGUP\\E01\\read_native.py",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-E01-AUDIT\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_3_ARNACO\\cad\\TR2_Shield_Proto_V1.kicad_pcb",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-E01-AUDIT\\Modbus RTU\\00_gouvernance\\Echanges_Codex\\preuves\\TR2-20261117-SHIELD-DUAL-BRINGUP\\E01\\native-PCB.json"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "read-schematic",
+    "args": [
+      "/mnt/c/Program Files/KiCad/10.0/bin/kicad-cli.exe",
+      "sch",
+      "export",
+      "netlist",
+      "--format",
+      "kicadxml",
+      "-o",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-E01-AUDIT\\Modbus RTU\\00_gouvernance\\Echanges_Codex\\preuves\\TR2-20261117-SHIELD-DUAL-BRINGUP\\E01\\native-schematic-netlist.xml",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-E01-AUDIT\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_3_ARNACO\\cad\\TR2_Shield_Proto_V1.kicad_sch"
+    ],
+    "exit_code": 0
+  }
+]

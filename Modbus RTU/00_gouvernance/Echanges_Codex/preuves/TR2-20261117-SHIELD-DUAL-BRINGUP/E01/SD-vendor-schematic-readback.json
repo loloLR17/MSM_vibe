@@ -1,0 +1,290 @@
+{
+  "sha256": "2d6f148ef86f4478184cf76fbda9a9554ce3597025784223532577f4de9ebe8e",
+  "parts": [
+    {
+      "name": "R1",
+      "library": "microbuilder",
+      "deviceset": "RESISTOR_4PACK",
+      "device": "",
+      "value": "47K"
+    },
+    {
+      "name": "R2",
+      "library": "microbuilder",
+      "deviceset": "RESISTOR_4PACK",
+      "device": "",
+      "value": "47K"
+    }
+  ],
+  "nets": [
+    {
+      "name": "GND",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "GND@1"
+        },
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "GND@2"
+        },
+        {
+          "part": "GND1",
+          "gate": "1",
+          "pin": "GND"
+        },
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "GND@3"
+        },
+        {
+          "part": "GND2",
+          "gate": "1",
+          "pin": "GND"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "2"
+        },
+        {
+          "part": "GND4",
+          "gate": "1",
+          "pin": "GND"
+        },
+        {
+          "part": "C1",
+          "gate": "G$1",
+          "pin": "2"
+        },
+        {
+          "part": "GND5",
+          "gate": "1",
+          "pin": "GND"
+        },
+        {
+          "part": "C2",
+          "gate": "G$1",
+          "pin": "2"
+        },
+        {
+          "part": "GND6",
+          "gate": "1",
+          "pin": "GND"
+        }
+      ]
+    },
+    {
+      "name": "DO",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "DATA_OUT"
+        },
+        {
+          "part": "R2",
+          "gate": "G$3",
+          "pin": "2"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "DI",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "DATA_IN"
+        },
+        {
+          "part": "R1",
+          "gate": "G$3",
+          "pin": "2"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "SCLK",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "SCLK"
+        },
+        {
+          "part": "R1",
+          "gate": "G$4",
+          "pin": "2"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "CS",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "CS"
+        },
+        {
+          "part": "R1",
+          "gate": "G$2",
+          "pin": "2"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "6"
+        }
+      ]
+    },
+    {
+      "name": "DAT1",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "DAT1"
+        },
+        {
+          "part": "R2",
+          "gate": "G$2",
+          "pin": "2"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "DAT2",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "DAT2"
+        },
+        {
+          "part": "R1",
+          "gate": "G$1",
+          "pin": "2"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "3.3V",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "SD_VDD"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "1"
+        },
+        {
+          "part": "C1",
+          "gate": "G$1",
+          "pin": "1"
+        },
+        {
+          "part": "C2",
+          "gate": "G$1",
+          "pin": "1"
+        },
+        {
+          "part": "R1",
+          "gate": "G$1",
+          "pin": "1"
+        },
+        {
+          "part": "R2",
+          "gate": "G$2",
+          "pin": "1"
+        },
+        {
+          "part": "R1",
+          "gate": "G$2",
+          "pin": "1"
+        },
+        {
+          "part": "R1",
+          "gate": "G$4",
+          "pin": "1"
+        },
+        {
+          "part": "R1",
+          "gate": "G$3",
+          "pin": "1"
+        },
+        {
+          "part": "R2",
+          "gate": "G$3",
+          "pin": "1"
+        },
+        {
+          "part": "R2",
+          "gate": "G$1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "CARDDET",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "X1",
+          "gate": "G$1",
+          "pin": "CARD_DETECT"
+        },
+        {
+          "part": "R2",
+          "gate": "G$1",
+          "pin": "2"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "9"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "sha256": "a4c522e9101a4d2140a5c83a4feacb1d570743edc22ef30f10e0489b57391b26",
+  "parts": [
+    {
+      "name": "U1",
+      "library": "microbuilder",
+      "deviceset": "SPIFLASH_8PIN",
+      "device": "208MIL",
+      "value": "Generic SPI Flash"
+    },
+    {
+      "name": "U2",
+      "library": "microbuilder",
+      "deviceset": "SPIFLASH_8PIN",
+      "device": "UX",
+      "value": "Generic SPI Flash"
+    },
+    {
+      "name": "U3",
+      "library": "microbuilder",
+      "deviceset": "74HC4050D",
+      "device": "TSSOP",
+      "value": "74HC4050D"
+    },
+    {
+      "name": "U4",
+      "library": "microbuilder",
+      "deviceset": "VREG_SOT23-5",
+      "device": "",
+      "value": "AP2112K-3.3"
+    },
+    {
+      "name": "R1",
+      "library": "microbuilder",
+      "deviceset": "RESISTOR_4PACK",
+      "device": "",
+      "value": "10K"
+    }
+  ],
+  "nets": [
+    {
+      "name": "GND",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "GND"
+        },
+        {
+          "part": "U4",
+          "gate": "G$1",
+          "pin": "GND"
+        },
+        {
+          "part": "U2",
+          "gate": "G$1",
+          "pin": "VSS"
+        },
+        {
+          "part": "C1",
+          "gate": "G$1",
+          "pin": "2"
+        },
+        {
+          "part": "U1",
+          "gate": "G$1",
+          "pin": "VSS"
+        },
+        {
+          "part": "C4",
+          "gate": "G$1",
+          "pin": "2"
+        },
+        {
+          "part": "C3",
+          "gate": "G$1",
+          "pin": "1"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "SCK_3.3V",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "U2",
+          "gate": "G$1",
+          "pin": "SCK"
+        },
+        {
+          "part": "U1",
+          "gate": "G$1",
+          "pin": "SCK"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "2Y"
+        }
+      ]
+    },
+    {
+      "name": "MOSI_3.3V",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "U1",
+          "gate": "G$1",
+          "pin": "MOSI"
+        },
+        {
+          "part": "U2",
+          "gate": "G$1",
+          "pin": "MOSI"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "1Y"
+        }
+      ]
+    },
+    {
+      "name": "MISO_3.3V",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "U2",
+          "gate": "G$1",
+          "pin": "MISO"
+        },
+        {
+          "part": "U1",
+          "gate": "G$1",
+          "pin": "MISO"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "SSEL_3.3V",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "U1",
+          "gate": "G$1",
+          "pin": "SSEL"
+        },
+        {
+          "part": "U2",
+          "gate": "G$1",
+          "pin": "SSEL"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "4Y"
+        }
+      ]
+    },
+    {
+      "name": "WP_3.3V",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "U2",
+          "gate": "G$1",
+          "pin": "WP#/IO2"
+        },
+        {
+          "part": "U1",
+          "gate": "G$1",
+          "pin": "WP#/IO2"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "5Y"
+        }
+      ]
+    },
+    {
+      "name": "HOLD_3.3V",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "U2",
+          "gate": "G$1",
+          "pin": "HOLD#/IO3"
+        },
+        {
+          "part": "U1",
+          "gate": "G$1",
+          "pin": "HOLD#/IO3"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "3Y"
+        }
+      ]
+    },
+    {
+      "name": "SCK",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "6"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "2A"
+        }
+      ]
+    },
+    {
+      "name": "MOSI",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "4"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "1A"
+        }
+      ]
+    },
+    {
+      "name": "SS",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "3"
+        },
+        {
+          "part": "R1",
+          "gate": "G$3",
+          "pin": "2"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "4A"
+        }
+      ]
+    },
+    {
+      "name": "WP",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "2"
+        },
+        {
+          "part": "R1",
+          "gate": "G$2",
+          "pin": "2"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "5A"
+        }
+      ]
+    },
+    {
+      "name": "HOLD",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "1"
+        },
+        {
+          "part": "R1",
+          "gate": "G$1",
+          "pin": "2"
+        },
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "3A"
+        }
+      ]
+    },
+    {
+      "name": "3.3V",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "U3",
+          "gate": "G$1",
+          "pin": "VCC"
+        },
+        {
+          "part": "U4",
+          "gate": "G$1",
+          "pin": "OUT"
+        },
+        {
+          "part": "C3",
+          "gate": "G$1",
+          "pin": "2"
+        },
+        {
+          "part": "U2",
+          "gate": "G$1",
+          "pin": "VCC"
+        },
+        {
+          "part": "C1",
+          "gate": "G$1",
+          "pin": "1"
+        },
+        {
+          "part": "U1",
+          "gate": "G$1",
+          "pin": "VCC"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "VIN",
+      "class": "0",
+      "pinrefs": [
+        {
+          "part": "R1",
+          "gate": "G$2",
+          "pin": "1"
+        },
+        {
+          "part": "R1",
+          "gate": "G$1",
+          "pin": "1"
+        },
+        {
+          "part": "R1",
+          "gate": "G$3",
+          "pin": "1"
+        },
+        {
+          "part": "JP1",
+          "gate": "A",
+          "pin": "9"
+        },
+        {
+          "part": "U4",
+          "gate": "G$1",
+          "pin": "IN"
+        },
+        {
+          "part": "U4",
+          "gate": "G$1",
+          "pin": "EN"
+        },
+        {
+          "part": "C4",
+          "gate": "G$1",
+          "pin": "1"
+        }
+      ]
+    }
+  ]
+}
