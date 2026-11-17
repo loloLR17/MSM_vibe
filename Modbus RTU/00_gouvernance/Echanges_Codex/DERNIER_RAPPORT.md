@@ -5,7 +5,7 @@ base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
 result_sha: 41c55205a61eb26d406edf52bfed68f7de145fc9
-created_at_utc: 2026-11-17T19:07:57Z
+created_at_utc: 2026-11-17T19:12:51Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -19,6 +19,8 @@ allow_debug: true
 **Mission non clôturée.** Sur TR2-002, la FRAM réussit l'identification, la double lecture et le test de 64 octets avec restauration intégrale contrôlée. Le capteur renvoie `WHO_AM_I=0x00` et la SD échoue à l'initialisation. Les causes ne sont pas établies. Les mesures et observations physiques demandées sont nécessaires pour poursuivre ; aucun essai identique n'est relancé en boucle. TR2-001 et RS485 restent non testés.
 
 **Actualisation alimentation :** l'utilisateur rapporte **2,3 V entre TP1/TP2 et aux alimentations des breakouts**, contre **3,3 V entre J2-7/J2-11**. Le premier repérage J2-9 a été explicitement corrigé ; aucune conclusion sur le rail5V n'en est tirée. Ces mesures révèlent un écart à localiser sur l'alimentation ou le retour de masse, sans preuve d'un composant défectueux. Essais matériels suspendus ; coupure ST-LINK et contrôles de continuité hors tension demandés, pas encore confirmés.
+
+**Contrôle Ω rapporté ensuite :** pointes0,1Ω ; J2-7↔TP1 **0,3Ω** ; J2-11↔TP2 d'abord instable puis **≈26kΩ**. Le défaut de continuité basse résistance se situe donc, d'après ces mesures, sur le chemin de masse à localiser, plutôt que sur le chemin+3V3 testé. Pas de contact/soudure/composant identifié à ce stade. Deux mesures hors tension demandées :J2-13↔TP2 etJ2-11↔J2-13.
 
 ## Périmètre et confirmations utilisateur
 
@@ -112,3 +114,13 @@ Netlist officielle ST C05 réutilisée depuis les fichiers de fabrication déjà
 **Intervention demandée selonAGENTS.md§9 :** débrancherST-LINK, conserverCN15débranché et001hors tension ; vérifier d'abord enDC queTP1/TP2 est près de0V. Seulement après mise hors tension, mesurer la résistance des pointes court-circuitées, puisJ2-7↔TP1 etJ2-11↔TP2, sans démontage ni contrainte. Rapporter lesohms etnonseulement le bip. En présence d'une tension résiduelle, nepas utiliser l'ohmmètre. Coupure etrésultats nonencoreconfirmés àla publication. La reprise matérielle reste bloquée surce contrôle électrique, aucune permissionlogicielle supplémentaire requise.
 
 Journal actualisé avec cetécart rapporté etle repérage corrigé. La validation de cette tranche est documentaire :lecture croisée netlistST/shield, conservation des valeurs utilisateur etdiff ; aucunbuild/test acquis répété.
+
+## Contrôle du retour de masse — reprise après 58d139dd
+
+Après la consigne de mise hors tension, l'utilisateur rapporte :pointes court-circuitées0,1Ω ;J2-7/TP1 0,3Ω ;J2-11/TP2 initialement instable puis stabilisé vers26kΩ. L'état débranché etla valeurDCprès0V n'ont pas été confirmés séparément ; ces conditions ont été rappelées comme préalables avant toute nouvellemesureΩ. Mesures utilisateur, précision/contacts nonvérifiés indépendamment.
+
+Le chemin positif testé est proche de la résistance despointes (excès apparent≈0,2Ω, pas une mesure milliohm qualifiée). La résistance élevée côtéGND est incompatible avec la liaisondirecte basseimpédance prévue surle schéma. **Hypothèse principale : défaut du retour de masse**, cohérent avec l'écart de tension rapporté ; cela ne localise pas encore la coupure ni ne démontre que c'est l'unique cause desrefusSD/WHO. Unchemin àtravers descomposants peut expliquer une lecture instable ouélevée ; nepas en déduire un courant de fonctionnement par une simple divisionV/R.
+
+SourceSTetnetlistshield recontrôlées :J2-11 etJ2-13 sont toutesdeuxGND, reliées àTP2 par conception. Demande ciblée sans démontage ni remise sous tension :résistanceJ2-13↔TP2 etJ2-11↔J2-13, aprèsvérificationDCprès0V. Cesmesures doivent départager un contactisolé de11, une rupture commune versleGNDshield ou un problème de prise de mesure ; aucune soudure, pose defil ouinjection d'alimentation prescrite àce stade. Preuve `002-operator-ground-resistance.json`.
+
+Aucun nouvel accès cible, flash/reset, SPI/SD ouModbus ; FRAM sauvegardée/restaurée inchangée depuis son test. Contrôle documentaire uniquement, pas de build acquis relancé. Mission resteBLOCKED surla vérification électrique physique. Publication précédente58d139ddea13e69c9a6a698d3427ff8b74c31536 relue intégralement(4blobs).

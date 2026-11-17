@@ -1,0 +1,23 @@
+{
+  "utc_recorded": "2026-11-17T19:12:51Z",
+  "source": "operator measurements reported in conversation, after instructions to remove power before ohmmeter",
+  "board_context": "TR2-002 current shield",
+  "reported_resistance_ohm": {
+    "leads_shorted": 0.1,
+    "J2_7_to_TP1": 0.3,
+    "J2_11_to_TP2_after_settling": 26000
+  },
+  "operator_note": "J2-11/TP2 unstable at first, then settles toward26kohm",
+  "measurement_conditions_limit": "Explicit power-off/DC near0V value not separately returned; those conditions remain required before further resistance checks. Precision/contact quality not independently verified.",
+  "comparison": {
+    "expected_design": "J2-7 andTP1 same +3V3 net; J2-11/J2-13/TP2 same GND net",
+    "positive_path_excess_over_leads_approx_ohm": 0.2,
+    "ground_path": "reported high resistance inconsistent with intended direct low-resistance ground connection",
+    "interpretation_limit": "In-circuit resistance is not a model of the powered circuit; no current derived. Contact/solder/connector/copper/probe-location cause not established."
+  },
+  "next_requested_readings": [
+    "J2-13 toTP2",
+    "J2-11 toJ2-13"
+  ],
+  "no_new_target_operations": true
+}

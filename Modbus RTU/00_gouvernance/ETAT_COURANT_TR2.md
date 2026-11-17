@@ -829,3 +829,8 @@ Aucun flash/debug/COM/accès microSD/FRAM, manipulation de banc, achat ou fabric
 - **OBSERVATION UTILISATEUR** :2,3V aux alimentations des breakouts etentreTP1/TP2,3,3V entreJ2-7/J2-11. Repérage initialJ2-9 explicitement corrigé7 ;nepas en déduire une anomalie5V. Contrôle netlistSTC05 :CN8-7=3V3,9=5V,11/13=GND ;shield+3V3 J2-7↔TP1 etGND J2-11/13↔TP2 directement.
 - **ARRÊT MATÉRIEL** :aucun nouveau flash/debug/SPI/SD/Modbus depuis cetteannonce. Cause contact/soudure/rail/masse/surcharge nonétablie ;pasde shunt oualimentationcontournantle défaut. Demandeutilisateur :ST-LINKdébranché,CN15débranché,001hors tension ;DC TP1/TP2près0V avant Ω ;releverRpointes,RJ2-7↔TP1,RJ2-11↔TP2,sansdémontage. Coupure etrésistances nonencoreconfirmées.
 - **ACQUIS CONSERVÉS** :FRAMPASSborné/restore etbackup restentlesrésultats antérieurs ;SD/IISrefusés,RS485/001nontestés. Écartmesuré plustard,nepas inventerlatensionpendantlesessais. MissionBLOCKEDsurcontrôleélectriquephysique ;preuves etrapportfc1d2cb7distantsrelus(64blobs).
+
+### 2026-11-17 — retour de masse suspect, mesuresΩ utilisateur
+
+- **RAPPORTÉ** aprèsconsignehors tension :pointes0,1Ω ;J2-7↔TP1=0,3Ω ;J2-11↔TP2 instablepuis≈26kΩ. DCprès0V/coupure nonconfirmés séparément, préalables rappelés. Lechemindemasse neprésentepas lafaiblerésistanceattendue ;cheminpositiftestéproche despointes. DéfautderetourGND suspecté, contacts/soudures/cuivre/prise de mesure nonlocalisés ;pas de causeuniqueSPI/SDdéclarée.
+- **SUITE HORS TENSION** :J2-13↔TP2 etJ2-11↔J2-13 àmesurer,001hors tension,CN15/ST-LINKdébranchés,DCprès0V avantΩ. Pas dedémontage/shunt/retouche prescrits ;aucunenouvelleopérationcible. AcquisFRAMetpreuvespréservés ;publication58d139ddrelue(4blobs),missionBLOCKEDsurmesuresphysiques.
