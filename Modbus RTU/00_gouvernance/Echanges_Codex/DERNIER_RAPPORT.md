@@ -5,7 +5,7 @@ base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
 result_sha: 41c55205a61eb26d406edf52bfed68f7de145fc9
-created_at_utc: 2026-11-17T19:30:57Z
+created_at_utc: 2026-11-17T19:35:47Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -25,6 +25,8 @@ allow_debug: true
 **Complément : TP2↔GND du lecteurSD=0,1Ω**, rapporté par l'utilisateur ; la pastilleJ2-11 est inaccessible sur le montage assemblé. Cette liaison locale est continue. Il faut maintenant isoler le shield de la Nucleo hors tension pour distinguer broches, soudures et cuivre ; démontage demandé, pas encore confirmé. Aucun module ou microSD à retirer, aucune remise sous tension autorisée à ce stade.
 
 **Inspection utilisateur :** les soudures des deux contacts de masse J2-11/J2-13 semblent présenter des défauts ; reprise annoncée, non encore confirmée. Le repère écrit «JP2» dans le message a été clarifié comme **J2 du shield, correspondant à CN8 Nucleo**. Contrôles de continuité et d'absence de court-circuit demandés après reprise, avant toute alimentation.
+
+**Bascule demandée vers001 :** l'utilisateur propose de qualifierTR2-001 pendant la reprise des soudures de002 ;SD transférée,ST-LINK/JP6STLK,J2Click ponté,RS485 connecté rapportés. L'énumération USB ne voit que le ST-LINK historique001 ; **UID, firmware et périphériques001 pas encore lus**. Gate électrique du second shield etidentité du banc «débranché,shield séparé,prêt à souder» àclarifier avant accès cible.
 
 ## Périmètre et confirmations utilisateur
 
@@ -158,3 +160,15 @@ L'utilisateur rapporte avoir observé des défauts apparents sur les deux soudur
 Consigne physique :shield séparé de la Nucleo et toutes alimentations débranchées pour reprise des deuxsoudures, sans pont entrecontacts ; pas de changement de conception, cavalier ou module. Aprèsreprise, conserver hors tension et rapporterJ2-11↔TP2,J2-13↔TP2 (attendues proches des0,1Ω despointes), puisTP1↔TP2 stabilisé etinspection d'absence de pont voisin. La résistance entre alimentation etmasse est uncontrôle d'absence de court-circuit àinterpréter enprésence desmodules, pas une valeur idéale inventée.
 
 Reprise, mesures etabsence de pont **nonencoreconfirmées**. Pas d'alimentation/flash/debug/SPI/SD/Modbus supplémentaire. Même si la continuité est rétablie, confirmer ensuite les rails3,3V avant essais fonctionnels ciblés ; nepas conclure àla résolution desrefusWHO/SD depuis l'aspect des soudures seul. Preuve `002-operator-suspected-ground-solder-joints.json`, journal actualisé ; missionBLOCKEDsurretour physique. Publication1250511ed09d8a7744f2e3fe452d43c43c916d00 relue intégralement(3blobs).
+
+## Bascule vers TR2-001 pendant réparation002 — préparation sans accès MCU
+
+Demande utilisateur :tester001pendant qu'il reprend les soudures de002, mêmeSD annoncée transférée,ST-LINK avec5V_STLINK,J2Click ponté etRS485 connecté. Les mesures etrésultats002 ne sont pas transposés ; la seule32Go autorisée reste à identifier parCID sur001. Aucun portCOM ouvert ouémission du fait du branchementRS485.
+
+Seule opération matérielle automatisée :`STM32_Programmer_CLI.exe -l stlink`, exit0, **SN003500463235510B37333439/V3J15M7,NUCLEO-U575ZI-Q uniquement**, avant lemessage de suivi utilisateur. Énumération du programmateurUSB, pasconnexion auMCU ni lectureUID/Flash. La réponse suivante «TR2 complètement débranché,shield séparé etprêt à souder» ne précise pas le numéro de banc :clarification demandée, sansl'attribuer silencieusement à001ou002 ; cetétat peut aussi avoir changé depuis l'énumération.
+
+**Gate001 demandé, encore nonconfirmé** :002hors tension/débranché,CN15de001débranché ; inspection hors tensionC2/modules/soudures/contactsanscontrainte,continuitésJ2-11/13↔TP2 etrésistanceTP1↔TP2 stabilisée après vérificationDCprès0V ; si conforme,reconnexionST-LINKseul etmesureTP1↔TP2. Compte tenu du défaut de masse réel suspecté sur002, ces contrôles constituent le gate prévu parmission, pas une demande supplémentaire d'autorisationlogicielle. Pas d'accèsGDB/flash de001avant cesconditions.
+
+**Acquis réutilisables** :banc expérimental41c55205 déjàcompilé/testé avecgardeUID001et002, mêmeBIN631b05db… vérifié, pas de rebuild/test relancé. Méthode001historique relue depuispreuve versionnéeCN0 `TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/CN0-without-STLINK/hardware/02-CN0-standard-programming-command.json` :SN001explicite,NORMAL/SWD8000,08000000,verify/reset ; cette référence ne dispense pas du gate actuel ni du backup frais. Après gate :UID001frais,firmware/Flash/RAM préservés etidentifiés, puis seulement flashstandard du bancWAITsi nécessaire,readback/resetGDB etcommandes courtes séparées avecbackupFRAM etCIDSD avant écritures. Nom001scratchdifférent`T1700101.TMP`,CREATE_NEW, àrégler seulement aprèsgardeidentité. J5/DEetClick3V3/J7/J8/TERM/BIAS restent à établir avantRS485.
+
+Preuve `001-switch-request-and-pending-gates.json`. Reprise de soudures002nonconfirmée finie. Aucun nouveauflash/reset/debug/SPI/SD/Modbus ni écriturepersistante ;code etimages inchangés. MissionBLOCKEDsurclarification/gatesphysiques, pas surl'outillage. Journal actualisé ;publication4669107b3c7ad91187a37ed604e65d2ad2254d1a relue intégralement(3blobs).

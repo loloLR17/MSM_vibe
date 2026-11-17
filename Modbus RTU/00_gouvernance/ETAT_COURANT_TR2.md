@@ -849,3 +849,8 @@ Aucun flash/debug/COM/accès microSD/FRAM, manipulation de banc, achat ou fabric
 
 - **Observation utilisateur** : défauts apparents aux deux soudures désignéesJP2-11/13 ; repère clarifiéJ2-11/13 du shield/CN8 Nucleo. Pas de photo inspectée ni réparation déjàconfirmée. Cohérent avec la résistance élevée entre entréesGND etmasse locale, pas encore preuve de cause unique.
 - **Reprise physique annoncée** : toutes alimentations débranchées, shield séparé, pas de pont entrebroches. Après reprise etavant alimentation :R11↔TP2,R13↔TP2,RTP1↔TP2 stabilisé etinspection de pontsvoisins. Puis seulement rails etessaisciblés si contrôlesconformes. Aucun nouvelaccèscible/NVM/code/CAO,missionBLOCKEDsurconfirmation ;1250511erelu(3blobs).
+
+### 2026-11-17 — bascule001 demandée pendant soudure002
+
+- **Demande utilisateur** :001sousST-LINK/JP6STLK,SD transférée,J2Click ponté,RS485 connecté ;souhaite essais pendant reprise002. ÉnumérationUSB fraîche avantsonsuivi :seulSN003500463235510B37333439/V3J15M7, pasconnexionMCU. Réponse«TR2 débranché,shield séparé,prêtà souder» sansnuméro :clarification demandée,nepas attribuer automatiquement ;UID/firmware001toujoursNONVÉRIFIÉS.
+- **Gate001attendu** :002hors tension,CN15de001débranché,inspectionmontage/continuitésGND etabsencecourt-circuit avantalimentation,puisTP1/TP2 tension. Banc41c55205 etgarde001déjàcompilés,chaîneprogrammation001CN0relue ;pasderebuild/test,reflash/GDB/SPI/SD/Modbus ouécriture. Réparation002nonconfirmée,missionBLOCKEDsurphysique ;4669107brelu(3blobs).

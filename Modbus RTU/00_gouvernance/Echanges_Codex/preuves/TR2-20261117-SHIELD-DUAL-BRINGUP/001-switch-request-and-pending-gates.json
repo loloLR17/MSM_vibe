@@ -1,0 +1,37 @@
+{
+  "utc_recorded": "2026-11-17T19:35:47Z",
+  "operator_request": "Test TR2-001 while TR2-002 solder rework is in progress; SD transferred, STLINK/5V_STLINK, ClickJ2 bridged, RS485 connected reported",
+  "USB_probe_enumeration_observed_before_followup": {
+    "command": [
+      "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+      "-l",
+      "stlink"
+    ],
+    "exit": 0,
+    "only_SN": "003500463235510B37333439",
+    "firmware": "V3J15M7",
+    "board": "NUCLEO-U575ZI-Q",
+    "no_MCU_connection": true,
+    "limit": "USB programmer identity only, not fresh MCU UID or software identification; state may change after operator followup"
+  },
+  "followup_operator_text": "TR2 completement debranché, shield séparé et pret à souder",
+  "followup_target_ambiguous": true,
+  "clarification_requested": "Is TR2-002 the unplugged separated board to solder, while TR2-001 remains STLINK connected withCN15 unplugged?",
+  "001_gate_pending": [
+    "002 completely unpowered/disconnected",
+    "001CN15 disconnected",
+    "001C2/modules/solder bridges/contact/constraint check",
+    "001ground resistance J2-11/TP2 andJ2-13/TP2",
+    "001settled supply-ground resistance andDCnear0V before ohmmeter",
+    "001powered TP1/TP2 voltage after electrical gate"
+  ],
+  "existing_probe_prepared": {
+    "code_sha": "41c55205a61eb26d406edf52bfed68f7de145fc9",
+    "bin_sha256": "631b05dbc27843a7cdc780818418790057e193ed454fdd7e26d78dc7390782d7",
+    "001_UID_guard_compiled": true,
+    "new_build_or_test": false,
+    "001_filename_to_set_only_after_identity": "0:/T1700101.TMP"
+  },
+  "historical_001_standard_programming_reference": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/CN0-without-STLINK/hardware/02-CN0-standard-programming-command.json",
+  "new_target_debug_flash_SPI_SD_Modbus": false
+}
