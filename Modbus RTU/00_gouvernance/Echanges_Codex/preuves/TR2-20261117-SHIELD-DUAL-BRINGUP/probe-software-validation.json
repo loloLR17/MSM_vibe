@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-17T18:45:44.653300+00:00",
+  "scope": "isolated experiment; shared production sources unchanged",
+  "host_result_observed": "CTest shield_bringup_write_gates 1/1 PASS (assertions enabled)",
+  "arm_result_observed": "cross build exit0, -Wall -Wextra -Werror",
+  "link_warnings": "newlib nosys _close/_lseek/_read/_write not implemented; no file-system syscall used; FatFs direct disk callbacks",
+  "initial_build_corrections": [
+    "bench_uid gate name collided with platform exported symbol: renamed bringup_uid_allowed",
+    "FatFs configuration is in durable/src, not vendor: explicit existing include added"
+  ],
+  "artifacts": {
+    "shield_bringup.bin": {
+      "bytes": 35672,
+      "sha256": "631b05dbc27843a7cdc780818418790057e193ed454fdd7e26d78dc7390782d7"
+    },
+    "shield_bringup.elf": {
+      "bytes": 1988656,
+      "sha256": "4fe932f36fac6d30e03c5eeb83b8c8b53d12ea5535f4e6262d5a1aa3ae2bb0ee"
+    },
+    "shield_bringup.map": {
+      "bytes": 553859,
+      "sha256": "eceb03c377397b0803974e46e894b7d22135a4eda5aa4a64d06851eb3617aa4f"
+    }
+  },
+  "source_sha256": {
+    "experiments/shield_dual_bringup/README.md": "1a400a854b0be6d89542e94b1b045a2c115849faafd7d455d2ce73e789600260",
+    "experiments/shield_dual_bringup/CMakeLists.txt": "a827159ee96c519a64f2a080e3a8ceefd9be426ba80587e6a9dd293ae41967e0",
+    "experiments/shield_dual_bringup/tests/test_gates.c": "426105828ac586c87c847c3adac67144abad655d19358956a0225af965333299",
+    "experiments/shield_dual_bringup/src/gates.h": "2134f7c51ce4ba9f1f3188d4482ff0c2d49678eeb8a4ee2a7aad08c13abe5cb3",
+    "experiments/shield_dual_bringup/src/main.c": "04a75f5b1762601c7cc44677fe98184d71def10bde2f1e1294cc8171e67df77e"
+  },
+  "size_output": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n  35636\t     36\t 545664\t 581336\t  8ded8\t/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/arm/shield_bringup.elf\n",
+  "physical_validation": false
+}
