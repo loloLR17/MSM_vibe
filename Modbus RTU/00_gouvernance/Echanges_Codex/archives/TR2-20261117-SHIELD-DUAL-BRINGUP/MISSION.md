@@ -1,0 +1,32 @@
+---
+mission_id: TR2-20261117-SHIELD-DUAL-BRINGUP
+status: READY
+base_ref: main
+base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
+created_at_utc: 2026-11-17T17:53:00Z
+author: ChatGPT
+target_branch: main
+allow_commit: true
+allow_push: true
+allow_flash: true
+allow_debug: true
+---
+
+# TR2 — Qualification électrique et fonctionnelle progressive des deux ensembles assemblés
+
+## Faits utilisateur et périmètre
+Deux NUCLEO STM32U575 avec shields TR2 assemblés électroniquement, sans boîtiers imprimés ni entretoises mécaniques. Les modules IIS3DWB/MKI, FRAM, microSD Adafruit et RS485 Isolator 2 Click peuvent avoir été permutés entre ensembles 001 et 002 : **ne jamais inférer l'identité des périphériques depuis l'identité de la Nucleo**. Une seule microSD 32 Go de banc, historiquement 002, est disponible ; utilisateur déclare sa sauvegarde faite et autorise la suppression des données de **cette carte explicitement identifiée uniquement**. Ne pas toucher aux autres cartes, 512 Go ou données et FRAM historiques. Tester un seul TR2 à la fois, l'autre hors tension/débranché. Samtec J5 peut être absent : PG4/RTU_DE non raccordé ; ne pas déclarer de transmission Modbus validée si le pilotage DE requis manque. Le PLA de Morvan n'est pas encore reçu. Ne pas entreprendre d'essai endurance ou mécanique sous contrainte.
+
+## Mission
+Codex doit inspecter l'état réel T1000, les identités des deux Nucleo, l'architecture shield V2.3, la configuration officielle du Click MIKROE-3863 HW réellement reçu (y compris jumpers half-duplex J7/J8, JP1 alimentation 3V3, DE/RE, TERM, BIAS), les preuves de qualification existantes et l'état des drivers/outils. Produire une procédure minimale et exécuter de manière autonome **les essais possibles** successivement sur 001 puis 002, avec mesures et traces brutes de chaque périphérique, sans présupposer la permutation des modules :
+1. Gate montage hors tension avant alimentation : inspection guidée utilisateur des éventuels courts-circuits/continuités +3V3/GND, orientation C2, absence de bridage/contrainte mécanique des cartes non fixées, soudures, positions de cavaliers, câblage et masse isolée ; stop si anomalie.
+2. Identification fraîche par UID STM32, ST-LINK, firmware/empreinte, contrôle alimentation 3V3 et sources ; inventaire distinct de chaque assemblage et périphériques effectivement identifiables.
+3. Tests non destructifs IIS3DWB (WHO_AM_I, configuration, axes/échantillons plausibles), FRAM (identification si supportée, test sur zone scratch explicitement libre ou méthode non destructive avec sauvegarde/restore byte exact contrôlée et sans compromettre les données de référence), SD (CID/CSD/capacité, FAT, fichier temporaire unique / écriture-lecture-CRC et suppression seulement après identification sûre de la 32 Go et absence d'autre stockage monté), lecture des interfaces et supervision locale pertinentes.
+4. RS485 isolé : confirmer au schéma et à l'inscription réelle du Click la correspondance A/B récepteur, Y/Z émetteur, pontage half-duplex fabricant, GND2 séparé, termination/bias selon câblage réel et polarité du convertisseur USB non présumée ; confirmer rôle de J5/DE absent, tester réception passive si faisable, puis émission/échange Modbus uniquement après commande DE réellement établie et bus protégé ; ne jamais contourner absence de DE avec une affirmation de PASS.
+5. Reproduire sur le second TR2 avec la même microSD transférée par l'utilisateur hors tension ; documenter pour chaque composant PASS/FAIL/BLOCKED/NON_TESTÉ et limites, incluant l'effet du câblage/ensemble choisi.
+
+## Garde-fous
+Conserver les spécifications Modbus V1 et le firmware/contrôles gelés ; aucune refonte, pas de formatage automatique de masse, pas d'effacement de FRAM ou SD hors fichier scratch, pas de modification d'identité/Option Bytes/security/boot. L'autorisation d'effacer la microSD 32Go identifiée n'est pas une autorisation d'effacer une autre carte ; n'utiliser un formatage de cette seule 32Go que si indispensable, en démontrant explicitement sa sélection, sa sauvegarde déclarée et la raison. Standard flash/debug autorisés dans le cadre des chaînes matériellement qualifiées AGENTS.md ; vérifier UID/programme/image/readback et récupérabilité, préserver média et autres fonctions. Escalader les branchements, insertions/retraits et mesures physiques à l'utilisateur, pas le travail Git/logiciel. Ne pas alimenter le blindage tant que les réserves mécaniques essentielles ne sont pas levées. Pas de contention ST-LINK/COM/WSL/Windows ni de double maître Modbus.
+
+## Critères et livrables
+Rapport DERNIER_RAPPORT.md, résultats séparés par ensemble avec numéros UID et association constatée de périphériques (ne pas inventer numéro de série module si non détectable), configuration jumpers et traces horodatées, versions/SHA build/flash et statuts physiques, identification de la carte 32 Go, résultat FRAM vérifiable sans perte des acquis, tests RS485 TX/RX et Modbus conditionnels. Adapter les outils/tests ciblés sans régression et publier commits sur main selon gouvernance ; laisser en IN_PROGRESS ou BLOCKED avec preuve et étapes précises lorsqu'une action physique utilisateur est requise. Ne pas déclarer DONE tant que le contrat complet n'est pas démontré et ne pas revendiquer qualification industrielle/endurance.

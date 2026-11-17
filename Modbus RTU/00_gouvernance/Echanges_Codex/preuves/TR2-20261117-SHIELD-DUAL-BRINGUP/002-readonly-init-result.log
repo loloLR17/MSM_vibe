@@ -1,0 +1,20 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:525
+525	  if(r3_result.error)for(;;){(void)now();
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = {version = 4, stage = 99, error = 91, uid = {1769542, 943869976, 540225879}, clock = 160000000, who = 0, run = 0, mode = 0, duration_us = 0, records = 0, span_us = 0, span_ticks = 0, cal_residual = 0, cal_brackets = 0, cal_anchors = 0, accepted = 0, outputs = 0, warmup = 0, rails = 0, clips = 0, source_hash = 0, output_hash = 0, first_us = 0, last_us = 0, residual = 0, clock_checks = 0, level = 0, flags = 0, stop_us = 0, stopped = 0, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 0, stack_deepest = 0, stack_floor = 3680, primask = 0, basepri = 0, faultmask = 0, max_words = 0, raw_words = 0, pending_xyz = 0, ctrl1 = 0, cal_xyz_span = 0, cal_tick_span = 0, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 0, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 0, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 0, marker_ok = 0, who_ok = 0, trace_count = 0, queue_overflows = 0, sd_pending_polls = 0}
+$2 = {io = {context = 0x0, exchange = 0x0, select = 0x0, us = 0x0}, cid = '\000' <repeats 15 times>, csd = '\000' <repeats 15 times>, ocr = 0, sectors = 0, error = 0, last_cmd = 0, last_r1 = 0, commands = 0, reads = 0, writes = 0, max_busy_us = 0, last_busy_us = 0, timeouts = 0, crc_errors = 0, begin_lba = 0, limit_lba = 0, initialized = false, write_enabled = false, failed = false, trace = {{cmd = 0, arg = 0, r1 = 0, extra = 0, elapsed_us = 0} <repeats 256 times>}}
+$3 = {mounted = 0, formatted = 0, error = 0, io_error = 0, io_uncertain = 0, io_writes = 0, first_lba = 0, sectors = 0, run = 0, fs_type = 0, cluster_sectors = 0, free_clusters = 0, required_clusters = 0, session = 0}
+$4 = {ctx = {write_reg = 0x8008375 <platform_write>, read_reg = 0x8008365 <platform_read>, mdelay = 0x8009921 <HAL_Delay>, handle = 0x20085628 <spi>, priv_data = 0x0}, parser = {target_xyz = 0, received = 0, xyz = 0, timestamps = 0, polls = 0, bursts = 0, first_tick = 0, last_tick = 0, max_level = 0, last_level = 0, flags_or = 0, reason = 0, previous_counter = 0, counter_valid = 0, previous_ts = 0, ts_valid = 0, since_ts = 0}, words = '\000' <repeats 895 times>, run_id = 0, total_xyz = 0, total_ts = 0, last_ms = 0, last_data_ms = 0, config_id = 0, config_generation = 0, max_gap_ms = 5, first_data_timeout_ms = 20, poll_word_limit = 64, axes = 0, full_scale = 0, readback_sequence = 0, ctrl1_verified = 0 '\000', readback_valid = false, cleanup_begin = 0x80080cd <cleanup_begin>, consume = 0x800163d <consume>, consumer = 0x0, error = 0, stop_error = 0, initialized = true, running = false, stopped = false}
+$5 = {card = 0x0, data = 0x0, lba = 0, blocks = 0, block = 0, offset = 0, state = 0, error = 0, begin_us = 0, deadline_us = 0, busy_begin_us = 0, busy_sum_us = 0, complete_us = 0, max_busy_us = 0, block_busy_us = {0, 0, 0, 0, 0, 0, 0, 0, 0}, crc = 0, active = false, done = false, uncertain = false, needs_power_cycle = false}
+$6 = 0
+$7 = {source_index = 0, time_us = 0, xyz = {0, 0, 0}, valid = false, time_valid = false}
+type = struct {
+/*      0      |       8 */    uint64_t source_index;
+/*      8      |       8 */    uint64_t time_us;
+/*     16      |       6 */    int16_t xyz[3];
+/*     22      |       1 */    _Bool valid;
+/*     23      |       1 */    _Bool time_valid;
+
+                               /* total size (bytes):   24 */
+                             }
+[Inferior 1 (Remote target) detached]

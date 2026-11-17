@@ -1,0 +1,15 @@
+{
+  "TR2": "002",
+  "fresh_UID": [
+    "001B0046",
+    "38425018",
+    "20333157"
+  ],
+  "source_sha": "dd2f27ca3d886742b0ab37ab378cd524012a0370",
+  "matched_BIN": "/home/lolo/dev/msm/reports/TR2-002-2H-OBE-20261102/arm/r3_coex.bin",
+  "bytes": 53032,
+  "sha256": "20785017e36617d5b17c5fa1598cc51254388984bb293951fbca16fa484a9692",
+  "full_flash_sha256": "ca275a54998a0730d9067f4107b06830aacc59e3e5789d6e25df579e91731a7e",
+  "fresh_flash_prefix_byte_exact": true,
+  "ELF": "/home/lolo/dev/msm/reports/TR2-002-2H-OBE-20261102/arm/r3_coex.elf"
+}

@@ -1,0 +1,32 @@
+{
+  "flash": {
+    "file": "/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/002-initial-flash-2MiB.bin",
+    "bytes": 2097152,
+    "sha256": "ca275a54998a0730d9067f4107b06830aacc59e3e5789d6e25df579e91731a7e"
+  },
+  "RAM": {
+    "file": "/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/002-initial-ram-768KiB.bin",
+    "bytes": 786432,
+    "sha256": "76839fdf2f691cab553b4d2d9176cc61dde1a1f8aa1bd877adc63444509f4be7"
+  },
+  "raw_WHO_payload": "00",
+  "trace_table_sha256": "6e29beb90d853493999620df692bbaaca1f0a5ee55afb828bae9e762bedb92de",
+  "measurements": {
+    "WHO_AM_I": 0,
+    "expected": 123,
+    "HAL_status": 0,
+    "HAL_error": 0,
+    "rx_remaining": 0,
+    "tx_remaining": 0,
+    "RX_offset": 2,
+    "RX_requested": 2,
+    "SD_commands": 0,
+    "SD_writes": 0,
+    "FRAM_commands": 0
+  },
+  "raw_binaries_location": "Preserved locally; full Flash/RAM not published unnecessarily",
+  "source_schematic": {
+    "URL": "https://download.mikroe.com/documents/add-on-boards/click/rs485_lsolator_2_click/rs485-isolator-2-click-schematic-v102.pdf",
+    "sha256": "204f5c4ba323457f7e08c0c44c0f3a025cad8d06ca73ffc189fd46c73d8b716c"
+  }
+}

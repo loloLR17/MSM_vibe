@@ -1,0 +1,36 @@
+{
+  "mission_id": "TR2-20261117-SHIELD-DUAL-BRINGUP",
+  "initial_head": "d5d3da95697607ad21cc57f95f48534e49ed3bb6",
+  "utc": "2026-11-17T18:17:27.804519+00:00",
+  "user_observations": [
+    "Montage déclaré correct, premier TR2 alimenté par ST-LINK, JP6 sur5V_STLINK, liaison USB-RS485 annoncée",
+    "Carte32Go de test annoncée insérée; pas de multimètre disponible immédiatement",
+    "Click déclaré être le module modifié et déjà essayé, pontageJ2",
+    "Utilisateur confirmeque le premier montageest bienTR2-002 ; autorise de le tester enpremier",
+    "Utilisateur confirmeTR2-001 hors tension/débranché et CN15de002débranché"
+  ],
+  "fresh_USB_observation_20261117T181545Z": {
+    "STLINK": "0032001F3235510C37333439",
+    "historical_board": "TR2-002, not a fresh MCU UID measurement",
+    "COM5": "STLink Virtual COM Port",
+    "USB_RS485_COM_detected": false,
+    "related_STLINK_GDB_TR2_dotnet_python_processes": []
+  },
+  "fresh_MCU_UID": [
+    "001B0046",
+    "38425018",
+    "20333157"
+  ],
+  "flash_or_debug_performed": "GDB attach/read/detach only; no reset or Flash write",
+  "Modbus_transmissions_by_Codex": 0,
+  "unresolved": [
+    "Tensions3V3/modules non mesurées",
+    "CID de la32Go non encore lu",
+    "J5/DE, J7/J8, JP1,TERM/BIAS et raccordementréel à relever"
+  ],
+  "test_order": [
+    "TR2-002",
+    "TR2-001"
+  ],
+  "fresh_PnP_COM4": "FTDI BG04KSSW present; initial WMI inventory alone was incomplete"
+}

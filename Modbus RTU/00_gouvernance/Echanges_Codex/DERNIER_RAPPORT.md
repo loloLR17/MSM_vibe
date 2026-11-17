@@ -1,84 +1,62 @@
 ---
-mission_id: TR2-20261106-SHIELD-V27-PACK-MORVAN-PDF
-status: DONE
+mission_id: TR2-20261117-SHIELD-DUAL-BRINGUP
+status: IN_PROGRESS
 base_ref: main
-base_sha: cc941c9c90051ff0bee78f8caa2b0e1290513907
-initial_head: 50af554db63ab76664df63565f9203e04f2d963e
-result_sha: c7219f1731f3294851700db9ac19cc08d503589e
-completed_at_utc: 2026-11-06T11:45:22Z
-created_at_utc: 2026-11-06T11:43:20Z
+base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
+initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
+result_sha: dd2f27ca3d886742b0ab37ab378cd524012a0370
+created_at_utc: 2026-11-17T18:34:57Z
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: false
-allow_debug: false
+allow_flash: true
+allow_debug: true
 ---
 
-# V2.7 — envoi simplifié :25 STL +2 PDF pour Morvan
+# Deux shields — checkpoint1 :identification et premier refus capteur
 
-**Dossier de diffusion terminé, publié et relu depuis GitHub :un seul nouveau ZIP,27 entrées exactement, aucun fichier technique annexe.** DONE porte sur cette livraison documentaire ; aucune qualification matérielle supplémentaire. Géométrie, quantités, STL/STEP, nomenclature de fabrication, anciens ZIP et950 fichiers historiques du shield strictement conservés. Mission documentaire uniquement ; aucune nouvelle CAO, compilation, ERC/DRC, impression, intervention matérielle ou commande.
+**Mission en cours. TR2-002 est identifié ; premier WHO_AM_I reçu00 au lieu7B. Aucun flash, reset, ordre Modbus, commandeSD ou accèsFRAM effectué à ce stade.** L'utilisateur a explicitement choisi de tester le montage002 en premier, puis001, contrairement à l'ordre initial du contrat. Pas de permutation d'identité des Nucleo ; l'identité des périphériques reste indépendante et à établir.
 
-La revue indépendante ChatGPT publiée surmain àcc941c9c a accordé le **GO impression de prototypes ABS** à V2.7, distinct de la qualification physique. Le contrat actif50af554d (renforcement de l'audit binaire après1bbe6a1d) est lu intégralement ; aucune mission V2.7 ancienne réexécutée. Le journal, intégralement inchangé depuis sa lecture précédente, a été comparé àb1cd6f47 et sa dernière entrée consultée ; gouvernance et protocole inchangés, règles de commit/push applicables vérifiées. Un worktree neuf évite la divergence historique de la racine.
+## État et autorisations physiques
 
-## Archive finale et rôle de Morvan
+Utilisateur :montage correct annoncé (réponse au contrôle orientationC2/soudures/absence de contrainte), alimentation002 parST-LINK, JP6sur5V_STLINK, microSD32Go de test insérée ; pas de multimètre immédiatement disponible. TR2-001 hors tension/débranché et CN15de002débranché ensuite explicitement confirmés. Click déclaré être le module déjà modifié/testé avec pontageJ2. **Résistance3V3/GND, tensions3V3/VDD/VDDIO, positionVCCSEL et autres ponts non mesurées/relevées** ; aucune assimilation à une validation électrique instrumentée.
 
-Chemin :`Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_7_KISS_ABS/pack_Morvan/TR2_V27_ABS_MORVAN_IMPRESSION_SIMPLE_2_PROTOTYPES.zip`.
+L'inventaireWMI initial ne listait queCOM5. L'inventairePnP complet suivant voit **COM4 FTDI BG04KSSW** etCOM5ST-LINK ; ne pas conclure à une déconnexion matérielle depuis la seule listeWMI. Aucun port COM ouvert, processus GDB/STLINK/TR2/dotnet/python Windows concurrent détecté dans cet inventaire. Pas de second maîtreModbus créé. Un seulST-LINK présent :0032001F3235510C37333439/V3J15M7,NUCLEO-U575ZI-Q. Aucun accès auHP historique.
 
-- **1716575 octets**, SHA-256 **`0ce87b103fbc5eaa2602a9687628cc959d092cf5275700c7308e198f59c29c8f`** ; empreinte externe `.zip.sha256` et preuves hors ZIP.
-- Dossier `STL/` :**25 fichiers d'origine**, noms/orientations/unités inchangés, copiés octet pour octet, sans duplication d'un fichier par exemplaire.
-- `01_LIRE_EN_PREMIER_MORVAN.pdf` :3 pages A4, but « imprimer seulement », ABS non chargé,2 prototypes, échelle100 %/mm, caisse158×166×61/plateau+bordure,25 noms exacts et quantités pour les deux prototypes ensemble, consignes ABS reprises sans valeur nouvelle.
-- `02_VUES_DES_PIECES.pdf` :2 pages A4, vues V2.7 existantes réutilisées sans régénérer la CAO ; éclaté avec12 repères agrandis et légendes courantes, boîtier fermé/ouvert. Un prototype illustré, pas une demande d'assemblage.
-- **Aucun MD/CSV/JSON/STEP/BOM/ZIP imbriqué, ancien STL, manifeste interne ou entrée de répertoire inutile.** Notices/formes obsolètes absentes également des textesPDF.
+## Traces effectivement acquises sur002
 
-**Morvan imprime seulement.** Les pièces peuvent être rendues en vrac ; aucun tri, étiquetage manuel, achat de quincaillerie, montage électronique, essai du poussoir ou réglage de carte demandé. Le propriétaire assurera l'assemblage, les réglages et les reprises locales. Les PDF contiennent les informations utiles sans renvoi vers un CSV/MD externe. Le coupon peut être imprimé d'abord si souhaité ; cela ne change pas sa quantité de1. Cote D12612,15..12,35 mentionnée seulement si mesurable, sans exiger des vis ou cartes que Morvan ne possède pas.
+- Chaîne secondecible qualifiée historiquement :`QUALIFICATION_M015_L_BANC_ST.md`. Outils frais :CubeProgrammer2.23.0, GDBserver7.14.0, GDBGNU15.2.90/CubeCLT1.22 ; mêmechaîne Windows locale. LeCLI n'a servi qu'à`--version`/`-l stlink`, **aucune connexionMCU CLI/HOTPLUG**. GDBseul, SNexplicite, UID vérifié, attach/read/detach, aucunecommande reset/flash/OptionBytes.
+- UIDfrais **001B0046 /38425018 /20333157** ; PC080026f0,VTOR08000000,CFSR/HFSR0. Flash2MiB etRAM768KiB conservées localement avant changement. FlashSHA `ca275a54998a0730d9067f4107b06830aacc59e3e5789d6e25df579e91731a7e`. Pas de sauvegarde répétée inutile.
+- Imageprésente **OBE2h**,53 032octets, SHA `20785017e36617d5b17c5fa1598cc51254388984bb293951fbca16fa484a9692`, source `dd2f27ca3d886742b0ab37ab378cd524012a0370`. Tous ses octets comparés à la Flashfraîche, ELF exact retrouvé dans `/home/lolo/dev/msm/reports/TR2-002-2H-OBE-20261102/arm/`. Le SHA du checkpoint documentaire à venir n'est pas le code exécuté.
+- Étatinitial :stage2,run0,commande0, FIFOarrêté, writer inactif/non incertain/sansbesoin de cycle, carte non initialisée, aucun ordreSD. Instruction RAM documentée unique `r3_command=0x44335201`, après gardes de repos, puis debugger détaché. Cette entrée fait WHO puisSD/calibration seulement siWHOconforme ; aucunformatage/fichier/acquisitionlongue demandé.
+- Résultat :stage99,error91,WHO00,who_ok0,run0. Traceunique reg0F,len1,lecture, HAL_OK/error0,Tx/Rxrestants0, RXcomplet2octets en transportduplex8MHz/mode3 configurés ; payloadWHO00. La captureauHALpreclose est préservée, pas une mesure des signaux au fil. GPIO/registreSPI instantanés ne prouvent pas les niveaux analogiques.
+- Garde respecté :SDcommands0/writes0/durable.io_writes0 ; FRAM non accédée ; aucunXYZproduit. Le WHO n'a pas été rejoué. Une lectureGDB ultérieure a seulement conservé la trace et les registres, sans nouvelle requêteSPI. FIFO/writer demeurent inactifs etSDnonaccédée.
 
-## 25 modèles,61 exemplaires :quantités inchangées
+| Ensemble | IdentificationNucleo | IIS3DWB | FRAM | microSD | RS485/Modbus |
+|---|---|---|---|---|---|
+|002|PASS UID/SN/image frais|**FAIL WHO00**, cause non établie|NON_TESTÉ, aucune écriture|NON_TESTÉ, init non atteinte ; CID non lu|NON_TESTÉ, gates matériels non levés|
+|001|NON_TESTÉ, hors tension utilisateur|NON_TESTÉ|NON_TESTÉ|NON_TESTÉ|NON_TESTÉ|
 
-| Groupe de la notice | Modèles | Copies pour deux TR2 |
-|---|---:|---:|
-| Pièces courantes |14|34|
-| D126 (6 utiles +2 réserve) |1|8|
-| Supports à trois hauteurs |6|12|
-| Poussoirs à trois longueurs |3|6|
-| Coupon ABS |1|1|
-| **Total** |**25**|**61**|
+## RS485 :préparation documentaire, pas PASS physique
 
-61 =46 montées +12 alternatives +2 D126 de réserve +1 coupon. Les alternatives ne sont pas montées simultanément ; le propriétaire les choisira. **25 fichiers distincts ne signifient ni61 modèles ni2×25 impressions.** Chaque nombre de la notice comprend déjà les deux prototypes. Le contrat interdit de modifier les quantités ou les formes :aucune réduction supplémentaire du lot61 n'a été décidée implicitement ; l'allègement porte sur le contenu de l'envoi et le travail demandé à Morvan.
+Sources primaires consultées :[Click3863 fabricant](https://www.mikroe.com/rs485-isolator-2-click) et [schéma électriquev102](https://download.mikroe.com/documents/add-on-boards/click/rs485_lsolator_2_click/rs485-isolator-2-click-schematic-v102.pdf). Schéma téléchargé et rendu localement pour lecture des connexions, SHA dans `002-synthese-initiale.json`.
 
-## Signalement trappes/cales :audit réel, pas présomption
+Le schéma distingue **J2 DE/RE** (confirmé par utilisateur), **J7/J8 halfduplex**, J1/VCCSEL3V3 et J3/RE ; le tableau commercial utilise les nomsJP1/JP2 pour les fonctionsVCC/DE. J7 relie les branchesA/Y, J8 les branchesB/Z ; les deux transceivers/paires ne doivent pas être confondus. BIASJ4/J6 et TERMJ5/J9 à relever réellement, sans supposer la polarité d'un convertisseurUSB étiquetéA/B. GND2 isolé ne rejoint pas le GNDlogique du shield.
 
-Les ZIP V2.6 et techniqueV2.7 ont été **réellement décompressés**, tous leurs membres relus et comparés après extraction, CRC vérifiés. Preuves complètes :`diffusion_Morvan/preuves/audit-archives-initiales.json` et `INVENTAIRE_ET_COMPARAISON.md` (inventaires32 et38 entrées, SHA/taille/CRC, tableau des25 STL/rôle/quantité/source/conformité).
+La matrice du shield confirme PG4/CN12-69→J5local5→RTU_DE→ClickDE, RXPG8 etTXPG7. **La femelleJ5 réelle et la commandeDE ne sont pas encore confirmées** ; siJ5 absent, aucune transmissionModbus ne sera déclarée valide. Contrôle des jumpers et du bus demandé à l'utilisateur ; aucune modification de cavalier sous tension ni émission avant gate.
 
-**Huit noms obsolètes existent réellement dans le ZIP V2.6** :`04_cassette_sud.stl`, `05_cassette_SD.stl`, `08_trappe_USER.stl`, `09_trappe_SD.stl`, `12_trappe_outil_RS485.stl`, `23_cale_0p5.stl`, `24_cale_1.stl`, `25_cale_2.stl`. L'ancien ZIP technique V2.7,38 entrées/25 STL, **ne contient ni `trappe_USER`, ni `cale_*`, ni autre de ces formes**. Chaque STL V2.7 extrait est identique au source et au manifeste technique. Le fichier précis consulté/téléchargé par l'utilisateur n'est pas fourni :on ne peut pas l'attribuer formellement à V2.6. Le signalement est étayé par la présence réelle de ces noms dans l'historique, sans supposer une erreur utilisateur.
+## Travail restant / reprise
 
-Ancien ZIP technique V2.7 intact :SHA `7f21033ffeb50732b3223037159ed1aecf0052235d98e4e7c62ca02c599bbb8d`. Les versions antérieures ne sont pas effacées ; **aucune n'est embarquée dans la nouvelle archive de diffusion**.
+1. Obtenir les tensionsVDD/VDDIO et le contrôlevisuelnappe après ce refus réellement observé ; aucune cause capteur/câble/alimentation/transport affirmée. Pas de répétitionaveugle duWHO.
+2. Préparer des tests indépendants FRAM/SD pour éviter qu'un refuscapteur masque les autres interfaces :bootattente, zéroécritureautomatique, RDID/sauvegardeFRAM avant touttestrestore, CID/CSD/FAT avant fichiertemporaire unique et relectureCRC, aucunformatage par défaut.
+3. Qualifier les interfaces de002 dans les possibilités réelles, puis transférer la seule32Go et basculer vers001 uniquement par interventionutilisateur hors tension avec étatSDquiescent établi. Relever chaque périphérique séparément, sans lui inventer un numérodesérie.
+4. PoursuivreRS485 uniquement après relevéJ5/DE etClick/bus ; réceptionpassive si faisable, TX/Modbus conditionnels.
 
-## Contrôles exécutés et preuves
+Preuves versionnées :`Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/` ; rawGDB/scripts/invocations, versions, inventaireWindows, synthèseWHO. Originaux etbinairesFlash/RAM conservés dans `/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/`, leursSHA publiés sans redistribuer inutilement les imagescomplètes. Toute lectureGDB est une observation, pas une qualificationphysique globale.
 
-| Vérification | Résultat observé |
-|---|---|
-| `sources/audit_archives.py` |Extraction réelle des deux archives, inventaires exhaustifs, absence d'obsolètes dans V2.7,25 noms/SHA/taille et CSV concordants|
-| `sources/documents.py` |Deux PDF A4,3+2 pages, texte français sélectionnable et fontsDejaVu incorporées ; vues gelées réutilisées par mise en page seulement|
-| `sources/conditionnement.py` |**Liste blanche explicite** des25 STL,25+2 entrées, relecture intégrale octets/CRC ; aucun balayage glob de l'historique|
-| `sources/validation_finale.py` |**Second contrôle indépendant de la liste du constructeur** :attendus dérivés des blobs Git gelés,25 STL byte-identiques/SHA/taille, ensemble exact27, aucun doublon/auxiliaire/ZIP imbriqué/nom obsolète, CRC complet|
-| Quantités réellement dans le PDF |25 noms reconnus une seule fois ; nombre dans la même ligne et colonne comparé au CSV Git gelé, total61 et décomposition46+12+2+1|
-| PDF |Réouverture des2 PDF depuis les octets de l'archive finale, extraction texte/accents/pagination/tables, limites de page sans débordement, noms obsolètes absents ; fonts incorporées vérifiées|
-| Inspection réelle |**Toutes les5 pages rendues en PNG et vues avec `view_image`** ; textes lisibles, aucun texte coupé/chevauchement ; repères2/3 de l'éclaté resserrés pour rester séparés. Preuves `revue-visuelle.json` et `rendus_pdf/`|
-| Préservation |**950 fichiers historiques du shield** inchangés SHA-256, incluant tous STL/STEP, anciens ZIP, BOM et sources. Aucun fichier de fabrication modifié|
+## Git et journal
 
-Les scripts et preuves sont dans `V2_7_KISS_ABS/diffusion_Morvan/`, hors archive de diffusion. Validation avec Python existant `/home/lolo/dev/msm/cache/shield-v15-cad-venv/bin/python`, `PYTHONPATH=/home/lolo/dev/msm/cache/shield-pylibs`, PyMuPDF/Pillow/NumPy ; standardPython pour audit/ZIP. Pas d'installation, CAO ou logiciel externe appelé. La première mise en page a passé les contrôles textuels ; l'inspection a motivé seulement la séparation visuelle des deux repères proches, sans changer les images sources ni les pièces. Génération finale et second audit réussis.
+Départd5d3da95, worktree neuf `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-DUAL-BRINGUP`, branche`codex/shield-dual-bringup`. Racinehistorique82169af7 propre/divergencepréservée, deuxstashes historiques intacts et120worktrees sanssuppression. Mission archivée, contrat/gouvernance/PCB/Gerber/firmwareinchangés. `ETAT_COURANT_TR2.md` complété avec observations et gates restants. Aucunbuild/testhôte/cross-build nécessaire à ces seules lectures du firmware existant ; pas de validationlogicielle ou physique générale déduite.
 
-Aucun test de géométrie/build firmware/physique déjà acquis rejoué :la preuve pertinente ici est l'identité des fichiers gelés, la sélection du lot et la lisibilité réelle des PDF. Les rendus sont conservés pour contrôle indépendant ; leur lecture par Codex ne simule pas le retrait ABS, l'assemblage, les clics/forces B1 ou la tenue en vibration.
-
-## Git, journal et suite
-
-HEAD initial **50af554db63ab76664df63565f9203e04f2d963e**, référence de contratcc941c9c. Worktree `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V27-PACK-MORVAN-PDF`, branche `codex/shield-v27-pack-morvan-pdf`, destination explicite`HEAD:refs/heads/main`. Racine historique propre à82169af7 et ancien worktree V2.7 préservés ; stashes6251b988…/f3b829e6… inchangés. Aucune suppression, fusion/rebase/reset ou réécriture d'historique.
-
-`ETAT_COURANT_TR2.md` actualisé par ajout documentaire :acceptation prototypeV2.7 par revueChatGPT, nouveau paquet minimal, audit des anciennes formes, conservation du gel et limites physiques. Contrat et règles de gouvernance non modifiés. Permissions exercées :documentation, scripts d'audit/conditionnement, commits et push normaux surmain ; flash/debug interdits et non utilisés.
-
-**Publication technique vérifiée** :commit `c7219f1731f3294851700db9ac19cc08d503589e` — `Shield V27: package frozen STL with two clear Morvan PDFs`, push normal `HEAD:refs/heads/main` réussi, suivi de `git fetch origin main`. Référence récupérée égale àHEAD. **979 blobs complets relus et comparés octet pour octet**, dont950 fichiers historiques conservés et29 ajouts/modifications. Le ZIP distant est rouvert et ses27 membres comparés aux sources individuelles distantes, CRC complets vérifiés. SHA ZIP `0ce87b103fbc5eaa2602a9687628cc959d092cf5275700c7308e198f59c29c8f`, manifeste de relecture `9f854d0f4d8ade02ea553da1384f74912272fc6ee686127671f7dcca2a22e791`. Preuve `diffusion_Morvan/preuves/publication-initiale.json` ; script reproductible `sources/relecture_distante.py` aprèsfetch.
-
-La clôture ajoute seulement le rapportDONE, son archive, cette preuve et la confirmation factuelle dans le journal ; **aucun PDF/STL/STEP/ZIP ou générateur retouché après cette relecture technique**. Son push et sa relecture finale sont vérifiés avant réponse utilisateur ; le SHA de clôture sera donné dans cette réponse, distinct du `result_sha` évalué ci-dessus. Worktree propre après publication ; racine historique propre à82169af7, ancien worktree V2.7,119 worktrees et deux stashes historiques préservés. Aucun reset, merge/rebase, suppression ou force push.
-
-**Aucun envoi à Morvan effectué :ChatGPT décide de remettre le lien après sa revue indépendante du nouveau dossier de diffusion.** Retenir exclusivement le ZIP nommé `IMPRESSION_SIMPLE` pour cette remise, pas les ZIP historiques. L'impression prototype a déjà été autorisée pour la mécanique V2.7 ; aucune libération physique/électrique supplémentaire créée par ces PDF.
+Ce checkpoint est une tranche de diagnostic vérifiée, **pas une clôture**. Commit/push et relecture seront consignés après publication. Prochaine intervention physique requise :mesurescapteur et relevéjumpers, pas une validation intermédiaire du travaillogiciel autorisé. Mission resteIN_PROGRESS.
