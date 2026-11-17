@@ -1,0 +1,70 @@
+{
+  "utc_recorded": "2026-11-17T20:35:39Z",
+  "board_physical": "TR2-001",
+  "operator_measurements_ohm": {
+    "J2_11_to_TP2": 0.1,
+    "J2_4_to_CS": 314000,
+    "J2_6_to_SCL": 576000,
+    "J2_8_to_SDO": 580000,
+    "J2_10_to_SDA": 270000,
+    "J2_6_to_TP3": 0.3,
+    "TP3_to_SCL_later": 600000,
+    "TP3_to_SDO": 0.3
+  },
+  "adapter_reference": "MKIGIBV2; operator explicitly corrected MKIGIBV3 as typing error",
+  "manual_schematic_review": {
+    "author": "STMicroelectronics",
+    "document": "DB4012 Rev3, STEVAL-MKI208V1K, page2 Figure2 MKIGIBV2",
+    "official_schematic_url": "https://www.st.com/resource/en/schematic_pack/steval-mki208v1k_schematic.pdf",
+    "official_web_text_consulted": true,
+    "local_pdf_downloaded_from": "https://xonstorage.z8.web.core.windows.net/pdf/stmicroelectronics_stevalmki208v1k_apr22_xonlink.pdf",
+    "mirror_not_claimed_official_host": true,
+    "local_pdf_sha256": "182b5cd300e0639bf6764c5e409aa0e88574e0aed7b1abff90f371eaaa85fc90",
+    "local_pdf_bytes": 161273,
+    "rendered_page_visually_inspected": true,
+    "local_render_sha256": "711a226e4e570480742c74ad2bcfa14605475c1d80bdc4ffe387525030dd6bc7",
+    "ST_JP2_contacts": {
+      "19": "CS",
+      "20": "SCL",
+      "21": "SDA",
+      "22": "SDO",
+      "23": "NC",
+      "24": "NC"
+    }
+  },
+  "native_KiCad_current_board": {
+    "sha256": "b79f2d6b1a0b44f2269087dcbdc6ba7c4ec9f5f41c704e4ebf77089f2d1729ab",
+    "method": "native KiCad LoadBoard/Pads/GetNetname; read only, no Save/fill/export/mutation",
+    "mapping_mismatches": [
+      {
+        "net": "ACC_CS",
+        "current_J8_contact": 21,
+        "current_ST_function": "SDA",
+        "required_J8_contact": 19
+      },
+      {
+        "net": "ACC_SCK",
+        "current_J8_contact": 22,
+        "current_ST_function": "SDO",
+        "required_J8_contact": 20
+      },
+      {
+        "net": "ACC_MISO",
+        "current_J8_contact": 24,
+        "current_ST_function": "NC",
+        "required_J8_contact": 22
+      },
+      {
+        "net": "ACC_MOSI",
+        "current_J8_contact": 23,
+        "current_ST_function": "NC",
+        "required_J8_contact": 21
+      }
+    ]
+  },
+  "physical_confirmed_segment": "MCU SPI3 SCK/J2-6 -> TP3 -> adapter SDO, not SCL; 0.3ohm on both low-resistance segments, approx600kohm to SCL",
+  "qualification": "Design pinout discrepancy confirmed; physical clock misconnection confirmed on001. Actual sensor health not determined. Same source design affects both shields, no physical clock measurement claimed for002.",
+  "next_state": "No powered tests; no sensor solder rework or module shift; minimal corrective topology prepared for structural decision, CAD untouched",
+  "new_target_operations": false,
+  "new_code_CAD_or_CAM_mutation": false
+}

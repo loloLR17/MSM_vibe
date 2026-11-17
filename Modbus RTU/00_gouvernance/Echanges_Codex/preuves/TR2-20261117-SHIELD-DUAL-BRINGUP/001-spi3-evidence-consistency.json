@@ -1,0 +1,17 @@
+{
+  "mission_id": "TR2-20261117-SHIELD-DUAL-BRINGUP",
+  "checked_at_utc": "2026-11-17T20:44:11Z",
+  "checks_passed": [
+    "native_PCB_hash_matches_actual_file_and_finding",
+    "four_reported_nets_match_native_readback",
+    "J2_6_TP3_J8_22_same_ACC_SCK_net",
+    "operator_TP3_SDO_measurement_recorded",
+    "ST_drawing_manually_reviewed_pinout_consistent",
+    "source_mirror_PDF_and_render_hashes_match",
+    "read_only_script_syntax",
+    "erratum_relative_links_resolve",
+    "no_firmware_CAD_or_CAM_modified",
+    "git_diff_check_pass"
+  ],
+  "qualification": "Documentary evidence consistency only; no new hardware test, build or ERC/DRC rerun. Source pinout based on manual drawing review, not proven by JSON assertions."
+}

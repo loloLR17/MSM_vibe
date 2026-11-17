@@ -1,0 +1,308 @@
+{
+  "source_file": "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-DUAL-BRINGUP\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_3_ARNACO\\cad\\TR2_Shield_Proto_V1.kicad_pcb",
+  "source_sha256": "b79f2d6b1a0b44f2269087dcbdc6ba7c4ec9f5f41c704e4ebf77089f2d1729ab",
+  "method": "native KiCad LoadBoard/Pads/GetNetname; read only, no Save/fill/export/mutation",
+  "pads": [
+    {
+      "ref": "J8",
+      "pin": "",
+      "net": "",
+      "x_mm": 39.0,
+      "y_mm": 20.0
+    },
+    {
+      "ref": "J8",
+      "pin": "",
+      "net": "",
+      "x_mm": 71.0,
+      "y_mm": 54.5
+    },
+    {
+      "ref": "J8",
+      "pin": "1",
+      "net": "+3V3",
+      "x_mm": 45.0,
+      "y_mm": 24.0
+    },
+    {
+      "ref": "J8",
+      "pin": "2",
+      "net": "+3V3",
+      "x_mm": 45.0,
+      "y_mm": 26.54
+    },
+    {
+      "ref": "J8",
+      "pin": "3",
+      "net": "unconnected-(J8-NC-Pad3)",
+      "x_mm": 45.0,
+      "y_mm": 29.08
+    },
+    {
+      "ref": "J8",
+      "pin": "4",
+      "net": "unconnected-(J8-NC-Pad4)",
+      "x_mm": 45.0,
+      "y_mm": 31.62
+    },
+    {
+      "ref": "J8",
+      "pin": "5",
+      "net": "unconnected-(J8-NC-Pad5)",
+      "x_mm": 45.0,
+      "y_mm": 34.16
+    },
+    {
+      "ref": "J8",
+      "pin": "6",
+      "net": "unconnected-(J8-NC-Pad6)",
+      "x_mm": 45.0,
+      "y_mm": 36.7
+    },
+    {
+      "ref": "J8",
+      "pin": "7",
+      "net": "unconnected-(J8-NC-Pad7)",
+      "x_mm": 45.0,
+      "y_mm": 39.24
+    },
+    {
+      "ref": "J8",
+      "pin": "8",
+      "net": "unconnected-(J8-NC-Pad8)",
+      "x_mm": 45.0,
+      "y_mm": 41.78
+    },
+    {
+      "ref": "J8",
+      "pin": "9",
+      "net": "unconnected-(J8-NC-Pad9)",
+      "x_mm": 45.0,
+      "y_mm": 44.32
+    },
+    {
+      "ref": "J8",
+      "pin": "10",
+      "net": "unconnected-(J8-NC-Pad10)",
+      "x_mm": 45.0,
+      "y_mm": 46.86
+    },
+    {
+      "ref": "J8",
+      "pin": "11",
+      "net": "unconnected-(J8-NC-Pad11)",
+      "x_mm": 45.0,
+      "y_mm": 49.4
+    },
+    {
+      "ref": "J8",
+      "pin": "12",
+      "net": "unconnected-(J8-NC-Pad12)",
+      "x_mm": 45.0,
+      "y_mm": 51.94
+    },
+    {
+      "ref": "J8",
+      "pin": "13",
+      "net": "GND",
+      "x_mm": 60.24,
+      "y_mm": 51.94
+    },
+    {
+      "ref": "J8",
+      "pin": "14",
+      "net": "unconnected-(J8-NC-Pad14)",
+      "x_mm": 60.24,
+      "y_mm": 49.4
+    },
+    {
+      "ref": "J8",
+      "pin": "15",
+      "net": "unconnected-(J8-NC-Pad15)",
+      "x_mm": 60.24,
+      "y_mm": 46.86
+    },
+    {
+      "ref": "J8",
+      "pin": "16",
+      "net": "unconnected-(J8-NC-Pad16)",
+      "x_mm": 60.24,
+      "y_mm": 44.32
+    },
+    {
+      "ref": "J8",
+      "pin": "17",
+      "net": "unconnected-(J8-NC-Pad17)",
+      "x_mm": 60.24,
+      "y_mm": 41.78
+    },
+    {
+      "ref": "J8",
+      "pin": "18",
+      "net": "unconnected-(J8-NC-Pad18)",
+      "x_mm": 60.24,
+      "y_mm": 39.24
+    },
+    {
+      "ref": "J8",
+      "pin": "19",
+      "net": "unconnected-(J8-NC-Pad19)",
+      "x_mm": 60.24,
+      "y_mm": 36.7
+    },
+    {
+      "ref": "J8",
+      "pin": "20",
+      "net": "unconnected-(J8-NC-Pad20)",
+      "x_mm": 60.24,
+      "y_mm": 34.16
+    },
+    {
+      "ref": "J8",
+      "pin": "21",
+      "net": "ACC_CS",
+      "x_mm": 60.24,
+      "y_mm": 31.62
+    },
+    {
+      "ref": "J8",
+      "pin": "22",
+      "net": "ACC_SCK",
+      "x_mm": 60.24,
+      "y_mm": 29.08
+    },
+    {
+      "ref": "J8",
+      "pin": "23",
+      "net": "ACC_MOSI",
+      "x_mm": 60.24,
+      "y_mm": 26.54
+    },
+    {
+      "ref": "J8",
+      "pin": "24",
+      "net": "ACC_MISO",
+      "x_mm": 60.24,
+      "y_mm": 24.0
+    },
+    {
+      "ref": "TP3",
+      "pin": "1",
+      "net": "ACC_SCK",
+      "x_mm": 67.0,
+      "y_mm": 30.0
+    },
+    {
+      "ref": "J2",
+      "pin": "1",
+      "net": "unconnected-(J2-NC-Pad1)",
+      "x_mm": 32.619999,
+      "y_mm": 35.16
+    },
+    {
+      "ref": "J2",
+      "pin": "2",
+      "net": "unconnected-(J2-NC-Pad2)",
+      "x_mm": 35.159999,
+      "y_mm": 35.16
+    },
+    {
+      "ref": "J2",
+      "pin": "3",
+      "net": "unconnected-(J2-NC-Pad3)",
+      "x_mm": 32.619999,
+      "y_mm": 37.7
+    },
+    {
+      "ref": "J2",
+      "pin": "4",
+      "net": "ACC_CS",
+      "x_mm": 35.159999,
+      "y_mm": 37.7
+    },
+    {
+      "ref": "J2",
+      "pin": "5",
+      "net": "unconnected-(J2-NC-Pad5)",
+      "x_mm": 32.619999,
+      "y_mm": 40.24
+    },
+    {
+      "ref": "J2",
+      "pin": "6",
+      "net": "ACC_SCK",
+      "x_mm": 35.159999,
+      "y_mm": 40.24
+    },
+    {
+      "ref": "J2",
+      "pin": "7",
+      "net": "+3V3",
+      "x_mm": 32.619999,
+      "y_mm": 42.78
+    },
+    {
+      "ref": "J2",
+      "pin": "8",
+      "net": "ACC_MISO",
+      "x_mm": 35.159999,
+      "y_mm": 42.78
+    },
+    {
+      "ref": "J2",
+      "pin": "9",
+      "net": "unconnected-(J2-NC-Pad9)",
+      "x_mm": 32.619999,
+      "y_mm": 45.32
+    },
+    {
+      "ref": "J2",
+      "pin": "10",
+      "net": "ACC_MOSI",
+      "x_mm": 35.159999,
+      "y_mm": 45.32
+    },
+    {
+      "ref": "J2",
+      "pin": "11",
+      "net": "GND",
+      "x_mm": 32.619999,
+      "y_mm": 47.86
+    },
+    {
+      "ref": "J2",
+      "pin": "12",
+      "net": "unconnected-(J2-NC-Pad12)",
+      "x_mm": 35.159999,
+      "y_mm": 47.86
+    },
+    {
+      "ref": "J2",
+      "pin": "13",
+      "net": "GND",
+      "x_mm": 32.619999,
+      "y_mm": 50.4
+    },
+    {
+      "ref": "J2",
+      "pin": "14",
+      "net": "unconnected-(J2-NC-Pad14)",
+      "x_mm": 35.159999,
+      "y_mm": 50.4
+    },
+    {
+      "ref": "J2",
+      "pin": "15",
+      "net": "unconnected-(J2-NC-Pad15)",
+      "x_mm": 32.619999,
+      "y_mm": 52.94
+    },
+    {
+      "ref": "J2",
+      "pin": "16",
+      "net": "unconnected-(J2-NC-Pad16)",
+      "x_mm": 35.159999,
+      "y_mm": 52.94
+    }
+  ]
+}

@@ -5,7 +5,7 @@ base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
 result_sha: 2e39e2c61b5e9e4960a306aed1a47f517cb70dbf
-created_at_utc: 2026-11-17T20:10:07Z
+created_at_utc: 2026-11-17T20:44:11Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,9 +14,11 @@ allow_flash: true
 allow_debug: true
 ---
 
-# Deux shields : SD001 réussie, FRAM001 réussie à 250 kHz, suite physique requise
+# Défaut de brochage SPI3 confirmé — qualification suspendue, acquis SD/FRAM préservés
 
-**Mission non clôturée.** TR2-001 a réussi le test SD/FAT32 et le test FRAM avec restauration à 250 kHz. La FRAM reste non qualifiée à 1 MHz et le capteur n'est pas identifié. TR2-002 est démonté et hors tension pour reprise des soudures de masse. Les prochaines étapes nécessitent les contrôles physiques demandés ; aucune émission RS485 ou communication Modbus n'est validée.
+**Mission non clôturée.** TR2-001 a réussi le test SD/FAT32 et le test FRAM avec restauration à 250 kHz. La FRAM reste non qualifiée à 1 MHz et le capteur n'est pas identifié. TR2-002 est démonté et hors tension pour reprise des soudures de masse. Le brochage SPI3 erroné impose maintenant une décision corrective avant toute réalimentation des shields ; aucune émission RS485 ou communication Modbus n'est validée.
+
+**Constat nouveau prioritaire : erreur de brochage SPI3 du shield confirmée.** Le PCB raccorde SCK au contact22, qui est **SDO/MISO** sur MKIGIBV2 ; l'utilisateur mesure J2-6→TP3=0,3Ω puis TP3→SDO=0,3Ω, contre≈600kΩ versSCL. Le schéma ST impose CS19/SCL20/SDO22/SDA21, alors que notre PCB utilise21/22/24/23. Ce blocage est une erreur du dossier de conception, pas une preuve de quatre soudures défectueuses. **Aucun nouvel essai alimenté, aucun décalage du module ou pontage à exécuter.** Proposition corrective logique préparée, CAD/CAM inchangés ; décision de périmètre requise.
 
 ## Résultats par ensemble
 
@@ -34,7 +36,7 @@ Les périphériques ont pu être permutés. Aucune association module déduite d
 
 002 a été testé en premier sur demande explicite, sous ST-LINK/JP6STLK, CN15 débranché, montage annoncé correct. Après les mesures de masse anormales, l'utilisateur confirme002 entièrement débranché, shield séparé et prêt pour reprise des soudures. Cette reprise n'est pas encore confirmée terminée.
 
-Pour001 : ST-LINK/JP6STLK, CN15 débranché, même carte de test transférée, RS485 connecté et pont J2 du Click annoncés. L'utilisateur confirme inspection hors tension de C2, modules et soudures sans pont ou contrainte, et **3,3 V aux alimentations des breakouts**. Les résistances de masse de001 n'ont pas été fournies ; elles ne sont pas inventées. Les réponses intermédiaires ambiguës sur le banc démonté ont été clarifiées comme concernant002.
+Pour001 : ST-LINK/JP6STLK, CN15 débranché, même carte de test transférée, RS485 connecté et pont J2 du Click annoncés. L'utilisateur confirme inspection hors tension de C2, modules et soudures sans pont ou contrainte, et **3,3 V aux alimentations des breakouts**. La résistance J2-11/TP2, non disponible au gate initial, a ensuite été rapportée à **0,1 Ω hors tension**. Les réponses intermédiaires ambiguës sur le banc démonté ont été clarifiées comme concernant002.
 
 Les indications CLI de3,28 V sur002 et3,29 V sur001 portent sur la cible MCU et ne remplacent pas les mesures aux modules. Aucun changement physique réalisé par Codex ; un seul banc alimenté selon les confirmations utilisateur. Aucun accès à la512 Go.
 
@@ -100,18 +102,36 @@ PG4/CN12-69→J5local5→ClickDE : présence/continuité non établies. Aucun po
 
 001 : profil250 kHz en place, stage3/command5/sequence2/done_mask34, error0, commande/armement0 ; writer inactif/non incertain, CS relâchées, PG4/ODR0, GDB détaché. Les compteurs SD sont nuls **depuis ce changement de profil**, ce qui n'annule pas les15 secteurs du test précédent. La SD était au repos avant le flash, aucun ordre SD ensuite. Aucun essai ne démarre automatiquement au prochain boot.
 
-**Action utilisateur demandée sur001** : laisser002 hors tension, débrancher ST-LINK et USB-RS485 de001, CN15 débranché et tension TP1/TP2 proche de0 V ; sans déplacer les modules ni forcer l'accès, mesurer J2-11/TP2 puis les quatre continuités capteur : J2-4→JP2-21/CS,6→22/SCL,8→24/SDO,10→23/SDA. Signaler les points inaccessibles. Relever J5 et les positions Click sans modification. Ne pas réalimenter avant examen de ces résultats. Ces actions relèvent d'AGENTS.md §9 et ne constituent pas une demande supplémentaire d'autorisation logicielle.
+**Actions précédentes sur001 supersédées par le constat SPI3 ci-dessous** : les correspondances21/22/24/23 que Codex utilisait étaient erronées. Garder001 hors tension ; aucune nouvelle requête WHO, aucun décalage de module ni pont improvisé. Les mesures TP3/SDO et la lecture du schéma constructeur établissent maintenant un défaut de brochage du PCB.
 
-**Action002** : terminer la reprise annoncée, fournir R11/TP2, R13/TP2 et Ralimentation/masse stabilisé, absence de pont voisin ; puis seulement rails et essais affectés par la réparation. Ne pas déduire que002 est réparé du succès SD001. Aucun test déjà réussi sur code et montage inchangés à relancer.
+**Pour002** : la reprise des masses annoncée reste distincte et peut être terminée hors tension, mais ne pas réalimenter après cette seule réparation ; le même fichier de conception SPI3 s'applique aux deux shields. RepriseGND non encore confirmée, aucune continuitéSPI3 mesurée sur002 revendiquée.
 
-Les limites restantes sont physiques : accès/continuités capteur, réparation002 et configuration RS485. Pas de nouvelle campagne exhaustive de fréquence ni de modification normative implicite ; aucune raison de poursuivre des écritures sans ces vérifications. Statut **BLOCKED**, qualification des deux ensembles incomplète.
+La suite nécessite une décision corrective sur le routage fabriqué, ainsi que les autres contrôles physiques/RS485. Statut **BLOCKED** ; aucune qualification générale des deux ensembles et aucun changement normatif implicite.
 
 ## Validation, publication et journal
 
 Modification limitée au banc isolé et à son paramètre SPI1. Cœur, drivers partagés, HAL, PCB/Gerber et Modbus V1 inchangés. Cross-builds des deux nouveaux profils réussis, configuration interdite refusée ; tests hôte des garde-fous1/1PASS conservés, pas rejoués car logique inchangée. Le validateur général ne construit pas ce projet autonome ; le cross-build ciblé est la preuve pertinente. Avertissements linker nosys conservés, aucun filesystem newlib utilisé. Un build ne vaut pas validation physique.
 
-Worktree `MSM_vibe-SHIELD-DUAL-BRINGUP`, branche `codex/shield-dual-bringup`, publication normale surmain. Racine historique82169af7 et deux stashes conservés ; aucun reset/clean/merge/rebase/force push. Dernier checkpoint **2e39e2c61b5e9e4960a306aed1a47f517cb70dbf**,96 blobs complets relus et comparés après publication. Le présent rapport reçoit son propre SHA après commit/push/relecture, communiqué dans la réponse finale.
+Worktree `MSM_vibe-SHIELD-DUAL-BRINGUP`, branche `codex/shield-dual-bringup`, publication normale sur main. Racine historique82169af7 et deux stashes conservés ; aucun reset/clean/merge/rebase/force push. Code évalué **2e39e2c61b5e9e4960a306aed1a47f517cb70dbf**, 96 blobs relus après publication ; dernier checkpoint documentaire **21f7ea4fda4fbc504309da2bf314b27343844fa5**, 38 blobs relus intégralement. Le présent rapport reçoit son propre SHA après commit/push/relecture, communiqué dans la réponse finale.
 
 Preuves : `Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/`, notamment `001-final-results-fram250-and-SD.json`, scripts/logs/invocations, manifestes et données synthétiques. Originaux et copies complètes Flash/RAM/FRAM dans `/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/`, non redistribués. Logs Windows conservés byte exact ; whitespace contrôlé hors logs bruts, pas de normalisation des preuves.
 
-`ETAT_COURANT_TR2.md` actualisé et entrée de cette mission synthétisée avec les résultats présents, les états matériels et les actions restantes. Historique des étapes et observations conservé dans Git et les preuves. À transmettre à ChatGPT : PASS limités SD001 et FRAM001 à250 kHz, échec1 MHz, capteurs non identifiés et travaux physiques/RS485 en attente ; pas de clôture ni de qualification générale.
+`ETAT_COURANT_TR2.md` actualisé avec les résultats, les états matériels et les actions restantes. Historique conservé dans Git et les preuves. À transmettre à ChatGPT : défaut de brochage SPI3 confirmé, correction de conception à décider, PASS limités SD001 et FRAM001 à 250 kHz préservés, échec FRAM à 1 MHz, capteurs non identifiés et RS485 en attente ; pas de clôture ni de qualification générale.
+
+## Écart de brochage SPI3 confirmé après les mesures utilisateur
+
+Sur001, l'utilisateur rapporte : masseJ2-11/TP2=0,1Ω ;CS314kΩ,SCL576kΩ,SDO580kΩ,SDA270kΩ depuis les contactsJ2 attendus. Puis J2-6/TP3=0,3Ω etTP3/SCL≈600kΩ. L'adaptateur est confirmé **MKIGIBV2**, la mentionV3 étant une faute de frappe. Enfin **TP3/SDO=0,3Ω** : le tronçon d'horloge est physiquement raccordé au mauvais signal. Aucun nouvel accès MCU, SPI ou alimentation pour ces constats.
+
+Le document ST DB4012 Rev3, page2 figure2, récupéré via miroir Xon après échec de téléchargement direct ST, a été rendu et inspecté. Le brochage réel y est CS19,SCL20,SDO22,SDA21 ;23/24NC. Le lien du [schéma officiel ST](https://www.st.com/resource/en/schematic_pack/steval-mki208v1k_schematic.pdf) et le texte constructeur ont été recoupés ; URL du miroir, hash et rendu local sont distingués dans la preuve. Lecture native KiCad du PCB V2.3 conservé :CS21,SCK22,MISO24,MOSI23 et19/20NC. Quatre écarts documentaires ; erreur de la ligne d'horloge aussi confirmée sur le montage001. Le même fichier de conception sert aux deux shields, sans prétendre avoir mesuré cette continuité sur002.
+
+Cela explique structurellement l'impossibilité d'identifier le capteur avec ces raccordements ; son état propre reste à qualifier après correction. Les numéros de broche que Codex utilisait étaient erronés ; le diagnostic imputant possiblement ces quatre liaisons aux soudures a été explicitement corrigé auprès de l'utilisateur. Les PASS ERC/DRC antérieurs ne couvraient pas la validité du brochage constructeur. Aucun problème de ce type n'est déduit pour laSD ou laFRAM, dont les résultats bornés restent distincts.
+
+Proposition préparée dans la [note corrective](preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/ECART_SPI3_MKIGIBV2_ET_REPRISE_PROPOSEE.md) : variante séparée, mêmes broches MCU et interfaces V1, quatre affectations corrigées. Une topologie de reprise théorique comporte deux anciens nets à isoler et quatre liaisons à ajouter ; **aucun lieu de découpe qualifié et aucune instruction d'exécution donnée**. Pas de modification des fichiers PCB/CAM, firmware ou tests gelés. Ne pas ajouter de ponts sans isolement des anciens nets ; ne pas décaler le module. Garder les deux bancs hors tension, y compris002 après la seule reprise des masses.
+
+AGENTS.md §8 prévoit l'escalade lorsque les faits contredisent la spécification ou qu'une modification hors périmètre devient nécessaire. La correction d'un routage fabriqué et le choix reprise/nouvellefabrication nécessitent une décision structurante dans le contrat de bring-up actuel («aucune refonte»). La proposition est publiée pour décision ; statutBLOCKED sur cette incohérence de conception désormais établie, en plus des autres gates physiques.
+
+Preuves :`001-confirmed-SPI3-pinout-mismatch.json`, lecture nativePCB etscriptread-only, note corrective. Journal actualisé ; validation documentaire etnativeKiCad ciblée, pas de rerunERC/DRC oubuild sans pertinence pour ce constat. Dernièrepublication21f7ea4fda4fbc504309da2bf314b27343844fa5 relue intégralement(38blobs).
+
+Le contrôle de cohérence hors ligne (`001-spi3-evidence-consistency.json`) vérifie les empreintes du PCB, du document miroir et du rendu, les quatre nets extraits, les liens des errata et l'absence de changement firmware/CAO/CAM. Il ne remplace ni la lecture visuelle du schéma ST ni une qualification après correction.
+
+Deux avertissements documentaires ont aussi été ajoutés en tête de `SHIELD_PROTO_V1/docs/MATRICE_INTERFACES.md` et `V2_3_ARNACO/README.md` pour empêcher la réutilisation des anciens numéros comme consigne. Les tableaux et sources historiques ne sont pas silencieusement réécrits ; aucune modification KiCad/CAM. Ces notices renforcent l'arrêt déjà justifié par le constat et ne libèrent aucune correction.

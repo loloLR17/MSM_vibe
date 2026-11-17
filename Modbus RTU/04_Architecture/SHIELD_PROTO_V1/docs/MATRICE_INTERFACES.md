@@ -1,5 +1,10 @@
 # Matrice électrique et orientations — candidat V1.4 (liaisons identiques à V1)
 
+> **Erratum électrique du 17/11/2026 — qualification suspendue.** Le routage SPI3 historique décrit dans ce dossier est incompatible avec le brochage MKIGIBV2 vérifié dans le schéma ST. Le shield utilise CS21/SCK22/MISO24/MOSI23 ; les contacts requis sont **CS19/SCL20/SDO22/SDA21**. Sur001, TP3 (horloge) est mesuré continu à SDO, pas à SCL.
+>
+> Les fichiers PCB/CAM historiques restent inchangés pour traçabilité ; aucun feu vert matériel ne découle des anciens ERC/DRC. Garder les deux shields hors tension, ne pas décaler le module ou ajouter de ponts improvisés. Voir la [note d'écart et proposition corrective](../../../00_gouvernance/Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/ECART_SPI3_MKIGIBV2_ET_REPRISE_PROPOSEE.md). La correction et la reprise physique restent à décider ; le tableau historique ci-dessous n'est pas une consigne de câblage corrigée.
+
+
 Toutes les alimentations et E/S retenues sont **3,3 V**, GND logique commun. Aucune liaison à 5 V, VIN Nucleo, CN15 ou source externe n’est créée. L’alimentation actuelle du Nucleo et ses jumpers sont conservés ; le shield n’est pas un circuit de sélection de source.
 
 | Fonction | MCU / connecteur Nucleo | Shield | Module / numéro constructeur |

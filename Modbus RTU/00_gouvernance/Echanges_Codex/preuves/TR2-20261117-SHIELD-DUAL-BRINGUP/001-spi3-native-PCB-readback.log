@@ -1,0 +1,7 @@
+{'ref': 'J8', 'pin': '19', 'net': 'unconnected-(J8-NC-Pad19)', 'x_mm': 60.24, 'y_mm': 36.7}
+{'ref': 'J8', 'pin': '20', 'net': 'unconnected-(J8-NC-Pad20)', 'x_mm': 60.24, 'y_mm': 34.16}
+{'ref': 'J8', 'pin': '21', 'net': 'ACC_CS', 'x_mm': 60.24, 'y_mm': 31.62}
+{'ref': 'J8', 'pin': '22', 'net': 'ACC_SCK', 'x_mm': 60.24, 'y_mm': 29.08}
+{'ref': 'J8', 'pin': '23', 'net': 'ACC_MOSI', 'x_mm': 60.24, 'y_mm': 26.54}
+{'ref': 'J8', 'pin': '24', 'net': 'ACC_MISO', 'x_mm': 60.24, 'y_mm': 24.0}
+{'ref': 'TP3', 'pin': '1', 'net': 'ACC_SCK', 'x_mm': 67.0, 'y_mm': 30.0}

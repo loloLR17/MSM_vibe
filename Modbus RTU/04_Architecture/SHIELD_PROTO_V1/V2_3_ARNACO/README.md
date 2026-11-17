@@ -1,5 +1,10 @@
 # Shield V2.3 — ARNACO ©, candidat pour cinq prototypes
 
+> **Erratum électrique du 17/11/2026 — qualification suspendue.** Le routage SPI3 historique décrit dans ce dossier est incompatible avec le brochage MKIGIBV2 vérifié dans le schéma ST. Le shield utilise CS21/SCK22/MISO24/MOSI23 ; les contacts requis sont **CS19/SCL20/SDO22/SDA21**. Sur001, TP3 (horloge) est mesuré continu à SDO, pas à SCL.
+>
+> Les fichiers PCB/CAM historiques restent inchangés pour traçabilité ; aucun feu vert matériel ne découle des anciens ERC/DRC. Garder les deux shields hors tension, ne pas décaler le module ou ajouter de ponts improvisés. Voir la [note d'écart et proposition corrective](../../../00_gouvernance/Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/ECART_SPI3_MKIGIBV2_ET_REPRISE_PROPOSEE.md). La correction et la reprise physique restent à décider ; le tableau historique ci-dessous n'est pas une consigne de câblage corrigée.
+
+
 Mission `TR2-20261105-SHIELD-V23-ARNACO-SILKSCREEN`, départ `e5b15d978585c9c83907942528d60fcaaa913265`. **GO de préparation CAO/exports pour revue ; envoi au fabricant, coûts et paiement soumis à décision humaine.** Aucune qualification physique nouvelle.
 
 Cette variante dérive exclusivement de `../V1_9_C05/`. Le schéma, le projet, toutes les bibliothèques et les empreintes sont copiés à l'identique. Le PCB ne contient que **trois textes supplémentaires sur F.SilkS**, sans autre changement de son expression native :
