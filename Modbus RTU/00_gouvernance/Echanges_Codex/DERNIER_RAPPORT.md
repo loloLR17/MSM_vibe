@@ -5,7 +5,7 @@ base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
 result_sha: 41c55205a61eb26d406edf52bfed68f7de145fc9
-created_at_utc: 2026-11-17T18:55:01Z
+created_at_utc: 2026-11-17T19:07:57Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,6 +17,8 @@ allow_debug: true
 # Deux shields — résultats TR2-002 et attente de mesures physiques
 
 **Mission non clôturée.** Sur TR2-002, la FRAM réussit l'identification, la double lecture et le test de 64 octets avec restauration intégrale contrôlée. Le capteur renvoie `WHO_AM_I=0x00` et la SD échoue à l'initialisation. Les causes ne sont pas établies. Les mesures et observations physiques demandées sont nécessaires pour poursuivre ; aucun essai identique n'est relancé en boucle. TR2-001 et RS485 restent non testés.
+
+**Actualisation alimentation :** l'utilisateur rapporte **2,3 V entre TP1/TP2 et aux alimentations des breakouts**, contre **3,3 V entre J2-7/J2-11**. Le premier repérage J2-9 a été explicitement corrigé ; aucune conclusion sur le rail5V n'en est tirée. Ces mesures révèlent un écart à localiser sur l'alimentation ou le retour de masse, sans preuve d'un composant défectueux. Essais matériels suspendus ; coupure ST-LINK et contrôles de continuité hors tension demandés, pas encore confirmés.
 
 ## Périmètre et confirmations utilisateur
 
@@ -98,3 +100,15 @@ Preuves versionnées : `Echanges_Codex/preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/
 Git : worktree isolé `MSM_vibe-SHIELD-DUAL-BRINGUP`, branche `codex/shield-dual-bringup`, cible de publication main. Racine historique propre82169af7 et deux stashes historiques préservés ; aucun reset/clean/merge/rebase/force push. Mission archivée sans modifier le contrat humain. Commits publiés et relus intégralement depuis GitHub : `1cb1ced71d6392305c717cdd162d2e2f5971f52d` (31 blobs) puis `41c55205a61eb26d406edf52bfed68f7de145fc9` (7 blobs). Manifests de publication joints ; SHA du présent checkpoint communiqué après push normal et relecture distante.
 
 `ETAT_COURANT_TR2.md` actualisé : image expérimentale en place, FRAM PASS, refus SD/WHO, mesures et gates restants. À transmettre à ChatGPT : qualification incomplète, cause non établie, aucune validation industrielle/endurance/mécanique ni du Modbus bidirectionnel.
+
+## Mesures d'alimentation rapportées — reprise après fc1d2cb7
+
+Le checkpoint `fc1d2cb768dcf13cd3b7b21b6a5c296e92faa808` a été publié et64blobs complets comparés à la référence récupérée deGitHub. Après cette publication, l'utilisateur a relevé2,3V aux alimentations des breakouts etentreTP1/TP2 ;3,3V au connecteurJ2, d'abord indiqué9/11 puis **corrigé7/11**. Points exacts sur chaque breakout, méthode et précision du multimètre non précisés ; valeurs conservées comme observations utilisateur. Elles ne sont pas des mesures effectuées parCodex et ne datent pas rétroactivement la tension pendant le testFRAM.
+
+Netlist officielle ST C05 réutilisée depuis les fichiers de fabrication déjà archivés localement :CN8-7=3V3,CN8-9=5V,CN8-11/13=GND. Le shield J2 reprend ces numéros ; son net+3V3 relie directementJ2-7/TP1, son GND relieJ2-11/13/TP2. Pas de régulateur, diode ou résistance en série prévu entre ces points. Source, SHA256 et lignes consignés dans `ST-C05-CN8-power-pins.json`, observations dans `002-operator-power-discrepancy.json`. La source constructeur reste inchangée.
+
+**Hypothèses à discriminer, aucune cause acquise :** résistance/contact/soudure sur le chemin+3V3, retourGND dégradé, surcharge ou autre anomalie d'assemblage ; le seul écart des deux mesures ne les distingue pas. Ne pas shunter le rail ni alimenter un module séparément pour masquer le problème. Aucun nouveau flash/reset/debug/ordreSPI/SD/Modbus après l'annonce de ces tensions.
+
+**Intervention demandée selonAGENTS.md§9 :** débrancherST-LINK, conserverCN15débranché et001hors tension ; vérifier d'abord enDC queTP1/TP2 est près de0V. Seulement après mise hors tension, mesurer la résistance des pointes court-circuitées, puisJ2-7↔TP1 etJ2-11↔TP2, sans démontage ni contrainte. Rapporter lesohms etnonseulement le bip. En présence d'une tension résiduelle, nepas utiliser l'ohmmètre. Coupure etrésultats nonencoreconfirmés àla publication. La reprise matérielle reste bloquée surce contrôle électrique, aucune permissionlogicielle supplémentaire requise.
+
+Journal actualisé avec cetécart rapporté etle repérage corrigé. La validation de cette tranche est documentaire :lecture croisée netlistST/shield, conservation des valeurs utilisateur etdiff ; aucunbuild/test acquis répété.

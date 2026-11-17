@@ -1,0 +1,65 @@
+{
+  "utc_recorded": "2026-11-17T19:07:41Z",
+  "source": "operator measurements reported in conversation; not measured by Codex",
+  "board_context": "TR2-002, current shield assembly",
+  "reported_voltage_V": {
+    "breakout_supply_terminals": 2.3,
+    "TP1_to_TP2": 2.3,
+    "J2_pin7_to_pin11": 3.3
+  },
+  "pin_correction": "Operator initially said J2-9/J2-11, then explicitly corrected to J2-7/J2-11. Do not infer a measurement on 5V from the superseded answer.",
+  "official_ST_C05": {
+    "source_file": "/home/lolo/dev/msm/reports/TR2-shield-v19-20261105/ST-manufacturing/MB1549C/Netlist/MB1549-C05_PCAD.NET",
+    "sha256": "1dc0c13ea1bb8a5990475d35ed4161c44713d45369ca23369533671b835951d3",
+    "decoding": "latin-1 lossless for source 8-bit bytes",
+    "connector": "CN8 ST C05 = J2 shield",
+    "pins": {
+      "11": {
+        "net": "GND",
+        "line": 7063
+      },
+      "13": {
+        "net": "GND",
+        "line": 7064
+      },
+      "9": {
+        "net": "5V",
+        "line": 7273
+      },
+      "7": {
+        "net": "3V3",
+        "line": 7340
+      }
+    }
+  },
+  "shield_netlist": {
+    "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_3_ARNACO/exports/netlist.xml",
+    "sha256": "d75dc7a5d115ad285ddc77f5f7b53bee2534c433b2fbcb0682208791d38e677b",
+    "connections": {
+      "+3V3": [
+        "J2-7",
+        "TP1-1",
+        "J7-1",
+        "J8-1",
+        "J8-2",
+        "J6-9",
+        "J9-7"
+      ],
+      "GND": [
+        "J2-11",
+        "J2-13",
+        "TP2-1",
+        "J7-2",
+        "J8-13",
+        "J6-7",
+        "J9-8",
+        "J9-9"
+      ]
+    }
+  },
+  "deduction": "Reported approx1V differential between nodes expected equipotential; positive supply vs ground contribution not separated. Does not identify a defective component or connector.",
+  "new_flash_debug_SPI_SD_Modbus_operations": false,
+  "physical_request": "Disconnect ST-LINK; keep CN15 disconnected and TR2-001 off. Verify DC TP1/TP2 near0V before any ohmmeter measurement. Read lead resistance, J2-7 to TP1, J2-11 to TP2 without disassembly.",
+  "power_off_confirmation_received": false,
+  "resistance_results_received": false
+}

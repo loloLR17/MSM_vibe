@@ -1,0 +1,24 @@
+{
+  "source_file": "/home/lolo/dev/msm/reports/TR2-shield-v19-20261105/ST-manufacturing/MB1549C/Netlist/MB1549-C05_PCAD.NET",
+  "sha256": "1dc0c13ea1bb8a5990475d35ed4161c44713d45369ca23369533671b835951d3",
+  "decoding": "latin-1 lossless for source 8-bit bytes",
+  "connector": "CN8 ST C05 = J2 shield",
+  "pins": {
+    "11": {
+      "net": "GND",
+      "line": 7063
+    },
+    "13": {
+      "net": "GND",
+      "line": 7064
+    },
+    "9": {
+      "net": "5V",
+      "line": 7273
+    },
+    "7": {
+      "net": "3V3",
+      "line": 7340
+    }
+  }
+}
