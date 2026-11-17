@@ -844,3 +844,8 @@ Aucun flash/debug/COM/accès microSD/FRAM, manipulation de banc, achat ou fabric
 
 - **Rapporté utilisateur** : TP2↔GND du lecteurSD=0,1 Ω ; pastilleJ2-11 inaccessible. Continuité locale seulement, pas qualification de tout leGND. Liaison entre massesNucleo etréseauGNDshield suspecte ; exact contact/soudure/cuivre toujours indéterminé.
 - **Action utilisateur demandée, nonconfirmée** : toutes alimentations débranchées(ST-LINK,CN15,USB-RS485),DCprès0V ;déboîter shield sans forcer/fléchir ni tirer surmodules, conservermodules/SD/cavaliers. Mesurer shield isolé tiges11/13↔TP2 etcuivreJ2-11↔TP2 siaccessible, inspectersoudures ;pasderemise sous tension/retouche. Cela retirele cheminparallèle Nucleo desmesures. Aucun accèscible ni changementfirmware/PCB/NVM ;publicationf1bf6329relue(3blobs),missionBLOCKEDphysique.
+
+### 2026-11-17 — soudures de masse suspectes, reprise annoncée par l'utilisateur
+
+- **Observation utilisateur** : défauts apparents aux deux soudures désignéesJP2-11/13 ; repère clarifiéJ2-11/13 du shield/CN8 Nucleo. Pas de photo inspectée ni réparation déjàconfirmée. Cohérent avec la résistance élevée entre entréesGND etmasse locale, pas encore preuve de cause unique.
+- **Reprise physique annoncée** : toutes alimentations débranchées, shield séparé, pas de pont entrebroches. Après reprise etavant alimentation :R11↔TP2,R13↔TP2,RTP1↔TP2 stabilisé etinspection de pontsvoisins. Puis seulement rails etessaisciblés si contrôlesconformes. Aucun nouvelaccèscible/NVM/code/CAO,missionBLOCKEDsurconfirmation ;1250511erelu(3blobs).

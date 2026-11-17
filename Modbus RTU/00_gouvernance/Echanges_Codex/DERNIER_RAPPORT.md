@@ -5,7 +5,7 @@ base_ref: main
 base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
 initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
 result_sha: 41c55205a61eb26d406edf52bfed68f7de145fc9
-created_at_utc: 2026-11-17T19:22:15Z
+created_at_utc: 2026-11-17T19:30:57Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -23,6 +23,8 @@ allow_debug: true
 **Dernier relevé Ω utilisateur : J2-11↔TP2=35Ω ; J2-13↔TP2=35Ω ; J2-11↔J2-13=0,1Ω.** Les deux contacts de masse sont reliés entre eux mais présentent une résistance anormale versTP2. La lecture précédente≈26kΩ n’est pas reproduite et reste archivée. La liaison commune vers la masse du shield ou la prise de mesure est à localiser ; aucune soudure précise identifiée. Les tests restent suspendus hors tension.
 
 **Complément : TP2↔GND du lecteurSD=0,1Ω**, rapporté par l'utilisateur ; la pastilleJ2-11 est inaccessible sur le montage assemblé. Cette liaison locale est continue. Il faut maintenant isoler le shield de la Nucleo hors tension pour distinguer broches, soudures et cuivre ; démontage demandé, pas encore confirmé. Aucun module ou microSD à retirer, aucune remise sous tension autorisée à ce stade.
+
+**Inspection utilisateur :** les soudures des deux contacts de masse J2-11/J2-13 semblent présenter des défauts ; reprise annoncée, non encore confirmée. Le repère écrit «JP2» dans le message a été clarifié comme **J2 du shield, correspondant à CN8 Nucleo**. Contrôles de continuité et d'absence de court-circuit demandés après reprise, avant toute alimentation.
 
 ## Périmètre et confirmations utilisateur
 
@@ -148,3 +150,11 @@ La mesure11↔13 réalisée enassemblage peut emprunter le GND de la Nucleo. Pui
 Shield isolé :résistances tigeJ2-11↔TP2, tigeJ2-13↔TP2 etcuivre de pastilleJ2-11↔TP2 siaccessible ; inspectionvisuelle de11/13(fissure,mouillage), sansretouche préalable. Ce changement de configuration est techniquement nécessaire pour éliminer leschemins parallèles de la Nucleo, pasunrejeu d'un testvalidé. Aucune remise sous tension demandée. Retrait du shield etrésultats nonencoreconfirmés.
 
 Preuve `002-local-SD-ground-continuity.json`. Aucun accèsdebug, flash/reset, commandeSPI/SD ouModbus ; code etNVM préservés. Journal actualisé. Publicationprécédentef1bf6329d974958dfb6081f7e5ab5412a60c486a relue intégralement(3blobs). La mission demeureBLOCKEDsurcetaccès physique ; aucune modificationCAO ou réparation déclarée.
+
+## Défauts de soudure suspectés par l'utilisateur — reprise annoncée
+
+L'utilisateur rapporte avoir observé des défauts apparents sur les deux soudures désignées «JP2-11/13» et annonce qu'il va les refaire. Il a été précisé qu'il s'agit des contacts **J2-11 etJ2-13 du shield, correspondant àCN8 Nucleo**, afin d'éviter une confusion de repérage. Aucune photo inspectée parCodex ; observation utilisateur cohérente avec lesmesures, pas constat indépendant ni preuve de réparation déjàeffectuée.
+
+Consigne physique :shield séparé de la Nucleo et toutes alimentations débranchées pour reprise des deuxsoudures, sans pont entrecontacts ; pas de changement de conception, cavalier ou module. Aprèsreprise, conserver hors tension et rapporterJ2-11↔TP2,J2-13↔TP2 (attendues proches des0,1Ω despointes), puisTP1↔TP2 stabilisé etinspection d'absence de pont voisin. La résistance entre alimentation etmasse est uncontrôle d'absence de court-circuit àinterpréter enprésence desmodules, pas une valeur idéale inventée.
+
+Reprise, mesures etabsence de pont **nonencoreconfirmées**. Pas d'alimentation/flash/debug/SPI/SD/Modbus supplémentaire. Même si la continuité est rétablie, confirmer ensuite les rails3,3V avant essais fonctionnels ciblés ; nepas conclure àla résolution desrefusWHO/SD depuis l'aspect des soudures seul. Preuve `002-operator-suspected-ground-solder-joints.json`, journal actualisé ; missionBLOCKEDsurretour physique. Publication1250511ed09d8a7744f2e3fe452d43c43c916d00 relue intégralement(3blobs).
