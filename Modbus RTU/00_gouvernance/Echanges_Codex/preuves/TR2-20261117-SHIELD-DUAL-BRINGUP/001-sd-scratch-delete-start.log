@@ -1,0 +1,6 @@
+0x08001366 in main () at /home/lolo/dev/msm/projects/MSM_vibe-SHIELD-DUAL-BRINGUP/experiments/shield_dual_bringup/src/main.c:162
+162	  while(!probe_command){(void)r3_now(0);__WFI();}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {version = 1, stage = 3, command = 6, sequence = 4, error = 0, done_mask = 68, uid = {4849725, 943869976, 540225879}, fram_crc = 1351935669, fram_mismatches = 9, fram_restore_mismatches = 0, sd_crc = 3236322859, sd_bytes = 4096, sd_file_verified = 1, sd_file_deleted = 0, sd_writes = 12, sensor_count = 0, fram_id = "\004\177H\003", who = 0 '\000', ctrl_before = "\000", ctrl_after = "\000", xyz = {{0, 0, 0} <repeats 16 times>}, sensor_restore_error = 0}
+$2 = "0:/T1700101.TMP"
+[Inferior 1 (Remote target) detached]

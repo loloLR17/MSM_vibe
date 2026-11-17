@@ -14,6 +14,13 @@ et `STM32CUBE_U5_ROOT`. Cible `shield_bringup.elf/.bin`. Tests natifs séparés 
 contrôle d'empreinte conservé. SPI1 1 MHz / SPI2 250 kHz puis 4 MHz / SPI3 2 MHz mode3
 sont des fréquences configurées, pas des mesures aux fils.
 
+Comparaison diagnostique FRAM : `-DBENCH_FRAM_DIVIDER=64` sélectionne 250 kHz.
+La valeur par défaut16 conserve 1 MHz ; seules ces deux valeurs sont acceptées.
+Les comparaisons intégrales, l'exigence de zéro écart et les armements ne changent
+pas. Préserver toute lecture instable avant de changer de profil ; ne pas la
+présenter comme une sauvegarde fiable ni écrire sur cette base. Un succès à
+250 kHz ne qualifie pas 1 MHz et ne prouve pas l'absence de défaut de soudure.
+
 ## Commandes et garde-fous
 
 L'opérateur doit vérifier SN/UID, Flash sauvegardée et image exacte avant flash

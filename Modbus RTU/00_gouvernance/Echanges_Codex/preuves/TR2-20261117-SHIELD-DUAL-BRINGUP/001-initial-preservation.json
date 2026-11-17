@@ -1,0 +1,24 @@
+{
+  "board": "001",
+  "SN": "003500463235510B37333439",
+  "fresh_UID": [
+    "004A003D",
+    "38425018",
+    "20333157"
+  ],
+  "dumps": {
+    "001-initial-flash-2MiB.bin": {
+      "bytes": 2097152,
+      "sha256": "65f4ab9f828ee358e30a1df1b07f21d03848bdaab837b5ac130e311be333fcf5"
+    },
+    "001-initial-ram-768KiB.bin": {
+      "bytes": 786432,
+      "sha256": "ded90b5dcc0cbfb6c8d1f47eec897b973217cb6d02236eed61db0fc84d1324f5"
+    }
+  },
+  "known_CN0_image_byte_exact": true,
+  "known_CN0_bytes": 53340,
+  "known_CN0_source_sha": "6633b0154bf67b4c5437f1d259732fc1b1f21e4a",
+  "MCU_connection_GDB_only": true,
+  "reset_flash_SPI_SD_Modbus_command": false
+}

@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-17T19:42:42.914426+00:00",
+  "TR2_002_unpowered_separated": true,
+  "TR2_001_CN15_disconnected": true,
+  "visual_gate_confirmed": true,
+  "reported_breakout_supply_V": 3.3,
+  "reported_power_source": "STLINK, JP6 5V_STLINK",
+  "test_SD_transferred_reported": true,
+  "Click_J2_bridge_reported": true,
+  "RS485_connected_reported": true,
+  "source": "operator confirmations in conversation, no inspection by Codex",
+  "001_offline_resistance_readings": "not supplied; do not invent values"
+}

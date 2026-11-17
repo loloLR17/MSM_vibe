@@ -1,0 +1,10 @@
+{
+  "path": "0:/T1700101.TMP",
+  "bytes": 4096,
+  "CRC32_host_and_MCU": "c0e65e2b",
+  "sha256": "6dacc631198519e2b23095b12fc431fb4626b150b1bbc4c0997a319f9f1c85bf",
+  "target_memcmp_and_host_full_bytes_equal": true,
+  "CREATE_NEW_only": true,
+  "FAT32_roundtrip_passed": true,
+  "deletion_still_pending": true
+}

@@ -1,0 +1,10 @@
+{
+  "bytes": 262144,
+  "sha256": "1059b169f332da47753f8fc54c56d11a03b645f2dd152b563842a9194119675f",
+  "crc32": "5094e6b5",
+  "second_read_mismatches": 9,
+  "target_first_read_export_CRC_matches": true,
+  "stable_backup_qualified": false,
+  "FRAM_write_permitted": false,
+  "write_occurred": false
+}

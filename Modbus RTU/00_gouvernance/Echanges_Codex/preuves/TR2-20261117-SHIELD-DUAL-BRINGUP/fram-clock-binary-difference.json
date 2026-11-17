@@ -1,0 +1,16 @@
+{
+  "length": 35672,
+  "same_default_BIN_as41c55205": true,
+  "differences": [
+    {
+      "offset": 4596,
+      "at_1MHz": 64,
+      "at_250kHz": 160
+    },
+    {
+      "offset": 4597,
+      "at_1MHz": 83,
+      "at_250kHz": 67
+    }
+  ]
+}

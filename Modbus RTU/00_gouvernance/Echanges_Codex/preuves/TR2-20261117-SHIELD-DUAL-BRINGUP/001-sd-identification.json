@@ -1,0 +1,10 @@
+{
+  "CID": "0353445344333247858bf0923c01927b",
+  "CSD": "400e00325b590000edc87f800a4040c3",
+  "sectors": 62333952,
+  "bytes": 31914983424,
+  "FAT": "FAT32",
+  "read_only_init_passed": true,
+  "writes": 0,
+  "reported_card_backup_and_disposable_authorization": "mission applies to exact32GB only"
+}

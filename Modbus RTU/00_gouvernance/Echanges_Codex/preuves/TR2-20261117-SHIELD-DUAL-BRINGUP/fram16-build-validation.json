@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-17T19:55:18.190247+00:00",
+  "divider": 16,
+  "SPI1_configured_Hz": 1000000,
+  "configure_command": [
+    "cmake",
+    "-S",
+    "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-DUAL-BRINGUP/experiments/shield_dual_bringup",
+    "-B",
+    "/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/arm-fram16",
+    "-G",
+    "Ninja",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-DUAL-BRINGUP/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+    "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+    "-DCMAKE_BUILD_TYPE=Debug",
+    "-DBENCH_FRAM_DIVIDER=16"
+  ],
+  "build_exit": 0,
+  "artifacts": {
+    "shield_bringup.bin": {
+      "bytes": 35672,
+      "sha256": "631b05dbc27843a7cdc780818418790057e193ed454fdd7e26d78dc7390782d7"
+    },
+    "shield_bringup.elf": {
+      "bytes": 1988720,
+      "sha256": "b19b46fc1571a8a7af13c90814b314c713273932602875ac6da8a127a2833bc7"
+    }
+  },
+  "default_BIN_matches_initial_41c55205": true
+}

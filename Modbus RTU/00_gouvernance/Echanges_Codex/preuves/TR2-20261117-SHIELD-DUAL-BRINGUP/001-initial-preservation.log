@@ -1,0 +1,13 @@
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x0800253a in ?? ()
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+pc             0x800253a           0x800253a
+sp             0x200bff48          0x200bff48
+lr             0x8002523           134227235
+xpsr           0x89000000          -1996488704
+0x8000000:	0x200c0000	0x0800cae5	0x0800cb35	0x0800cb35
+0x8000010:	0x0800cb35	0x0800cb35	0x0800cb35	0x0800cb35
+0xe000ed08:	0x08000000
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

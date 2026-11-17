@@ -45,7 +45,15 @@ static int fram_setup(void)
  if(HAL_RCCEx_PeriphCLKConfig(&p)!=HAL_OK)return 101;
  __HAL_RCC_GPIOA_CLK_ENABLE();__HAL_RCC_SPI1_CLK_ENABLE();g.Pin=GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;g.Mode=GPIO_MODE_AF_PP;g.Pull=GPIO_NOPULL;g.Speed=GPIO_SPEED_FREQ_HIGH;g.Alternate=GPIO_AF5_SPI1;HAL_GPIO_Init(GPIOA,&g);
  fram_spi.Instance=SPI1;fram_spi.Init.Mode=SPI_MODE_MASTER;fram_spi.Init.Direction=SPI_DIRECTION_2LINES;fram_spi.Init.DataSize=SPI_DATASIZE_8BIT;
- fram_spi.Init.CLKPolarity=SPI_POLARITY_LOW;fram_spi.Init.CLKPhase=SPI_PHASE_1EDGE;fram_spi.Init.NSS=SPI_NSS_SOFT;fram_spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_16;fram_spi.Init.FirstBit=SPI_FIRSTBIT_MSB;
+ fram_spi.Init.CLKPolarity=SPI_POLARITY_LOW;fram_spi.Init.CLKPhase=SPI_PHASE_1EDGE;fram_spi.Init.NSS=SPI_NSS_SOFT;
+#if BENCH_FRAM_DIVIDER == 16
+ fram_spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_16;
+#elif BENCH_FRAM_DIVIDER == 64
+ fram_spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_64;
+#else
+#error Unsupported_FRAM_clock_divider
+#endif
+ fram_spi.Init.FirstBit=SPI_FIRSTBIT_MSB;
  fram_spi.Init.TIMode=SPI_TIMODE_DISABLE;fram_spi.Init.CRCCalculation=SPI_CRCCALCULATION_DISABLE;fram_spi.Init.CRCPolynomial=7;fram_spi.Init.NSSPMode=SPI_NSS_PULSE_DISABLE;fram_spi.Init.NSSPolarity=SPI_NSS_POLARITY_LOW;fram_spi.Init.FifoThreshold=SPI_FIFO_THRESHOLD_01DATA;fram_spi.Init.MasterSSIdleness=SPI_MASTER_SS_IDLENESS_00CYCLE;fram_spi.Init.MasterInterDataIdleness=SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;fram_spi.Init.MasterReceiverAutoSusp=SPI_MASTER_RX_AUTOSUSP_DISABLE;fram_spi.Init.MasterKeepIOState=SPI_MASTER_KEEP_IO_STATE_ENABLE;fram_spi.Init.IOSwap=SPI_IO_SWAP_DISABLE;fram_spi.Init.ReadyMasterManagement=SPI_RDY_MASTER_MANAGEMENT_INTERNALLY;fram_spi.Init.ReadyPolarity=SPI_RDY_POLARITY_HIGH;
  if(HAL_SPI_Init(&fram_spi)!=HAL_OK)return 102;
  return stm32_fram_storage_init(&fram,&fram_spi,GPIOD,GPIO_PIN_14,100)==TR2_OK?0:103;

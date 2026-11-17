@@ -1,0 +1,15 @@
+{
+  "path": "0:/T1700101.TMP",
+  "deletion_command_separate_and_armed": true,
+  "FAT_f_stat_absence_verified_in_firmware": true,
+  "sd_ready_quiesce_success": true,
+  "writer_active": false,
+  "writer_uncertain": false,
+  "all_CS_released": true,
+  "debugger_detached": true,
+  "probe_sequence": 5,
+  "probe_done_mask": 196,
+  "no_further_writes_armed": true,
+  "DE_GPIO_ODR_low": true,
+  "DE_line_at_Click_measured": false
+}

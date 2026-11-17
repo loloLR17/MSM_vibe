@@ -1,0 +1,86 @@
+{
+  "utc": "2026-11-17T19:58:16Z",
+  "evaluated_code": "41c55205a61eb26d406edf52bfed68f7de145fc9",
+  "001_uid": [
+    "004A003D",
+    "38425018",
+    "20333157"
+  ],
+  "001_sn": "003500463235510B37333439",
+  "001_old_image": "CN0/source6633b0154bf67b4c5437f1d259732fc1b1f21e4a byte exact",
+  "001_gate": {
+    "utc": "2026-11-17T19:42:42.914426+00:00",
+    "TR2_002_unpowered_separated": true,
+    "TR2_001_CN15_disconnected": true,
+    "visual_gate_confirmed": true,
+    "reported_breakout_supply_V": 3.3,
+    "reported_power_source": "STLINK, JP6 5V_STLINK",
+    "test_SD_transferred_reported": true,
+    "Click_J2_bridge_reported": true,
+    "RS485_connected_reported": true,
+    "source": "operator confirmations in conversation, no inspection by Codex",
+    "001_offline_resistance_readings": "not supplied; do not invent values"
+  },
+  "001_results": {
+    "FRAM_RDID": "047f4803",
+    "FRAM_read_compare_mismatches_at_1MHz": 9,
+    "FRAM_error": 113,
+    "FRAM_writes": 0,
+    "FRAM_stable_backup": false,
+    "sensor_WHO_old_and_new": 0,
+    "sensor_expected": 123,
+    "sensor_new_SPI_configured_Hz": 2000000,
+    "sensor_new_valid_trace_count": 1,
+    "sensor_XYZ": 0,
+    "SD_CID": "0353445344333247858bf0923c01927b",
+    "SD_sectors": 62333952,
+    "SD_FAT": "FAT32",
+    "SD_scratch": {
+      "path": "0:/T1700101.TMP",
+      "bytes": 4096,
+      "CRC32_host_and_MCU": "c0e65e2b",
+      "sha256": "6dacc631198519e2b23095b12fc431fb4626b150b1bbc4c0997a319f9f1c85bf",
+      "target_memcmp_and_host_full_bytes_equal": true,
+      "CREATE_NEW_only": true,
+      "FAT32_roundtrip_passed": true,
+      "deletion_still_pending": true
+    },
+    "SD_delete": {
+      "path": "0:/T1700101.TMP",
+      "deletion_command_separate_and_armed": true,
+      "FAT_f_stat_absence_verified_in_firmware": true,
+      "sd_ready_quiesce_success": true,
+      "writer_active": false,
+      "writer_uncertain": false,
+      "all_CS_released": true,
+      "debugger_detached": true,
+      "probe_sequence": 5,
+      "probe_done_mask": 196,
+      "no_further_writes_armed": true,
+      "DE_GPIO_ODR_low": true,
+      "DE_line_at_Click_measured": false
+    },
+    "SD_total_confirmed_sector_writes_including_FAT_metadata": 15,
+    "SD_CRC_errors": 0,
+    "SD_timeouts": 0
+  },
+  "001_errors_documented": {
+    "initial_no_ELF_warning": "First GDB dump deliberately no symbols; later exact ELF loaded after flash byte match",
+    "old_firmware_capture_script_error": "r3_command absent in autonomousCN0 ELF; first read-only capture failed; corrected using actual exported symbols, no reset/trigger/flash for correction"
+  },
+  "FRAM_timing_differential_prepared": {
+    "default_1MHz_BIN_byte_exact_to_41c55205": true,
+    "250k_configured_build_exit": 0,
+    "250k_BIN_sha256": "019569f9d58d09189f12b167be7e71b87ee4fcbbc5f95e3f354fee1ffd0795fd",
+    "250k_not_yet_flashed_or_tested": true,
+    "invalid_divider32_refused": true,
+    "host_safety_gate_logic_unchanged_tests_not_repeated": true,
+    "source_hashes": {
+      "experiments/shield_dual_bringup/README.md": "0373d443c7b89a5ab15198cbce7bade7c5dc5810bf0ed793bb438d97a4df6d95",
+      "experiments/shield_dual_bringup/CMakeLists.txt": "6a08ae162f5fd36e757050b57bd94702b86b2b21439628f46d5a401f27d75029",
+      "experiments/shield_dual_bringup/tests/test_gates.c": "426105828ac586c87c847c3adac67144abad655d19358956a0225af965333299",
+      "experiments/shield_dual_bringup/src/gates.h": "2134f7c51ce4ba9f1f3188d4482ff0c2d49678eeb8a4ee2a7aad08c13abe5cb3",
+      "experiments/shield_dual_bringup/src/main.c": "fa2e2533d284ac26b1f8eacc82b10ed6adccc7a589caa94d5cb3d25e84f6c9d2"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "server": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+    "-d",
+    "-g",
+    "-i",
+    "003500463235510B37333439",
+    "--frequency",
+    "8000",
+    "-p",
+    "23341",
+    "-cp",
+    "C:\\ST\\STM32CubeCLT_1.22.0\\STM32CubeProgrammer\\bin"
+  ],
+  "gdb": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "-nx",
+    "-q",
+    "-batch",
+    "-x",
+    "//wsl.localhost/Debian/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/001-probe-readback-reset.gdb",
+    "//wsl.localhost/Debian/home/lolo/dev/msm/reports/TR2-shield-dual-bringup-20261117/arm/shield_bringup.elf"
+  ],
+  "exit": 0,
+  "utc": "2026-11-17T19:45:23.226780+00:00"
+}
