@@ -1,11 +1,13 @@
 ---
 mission_id: TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 85e7a1ce38fb7d79d10dcb779275ec5c05561e7b
 initial_head: 5045bc7862b02e76b3ca0b0c4c54cc369ad88acc
 result_sha: 811a3eda214ffb9c6c3dfbacd2af2884d87143c4
 host_tools_sha: 73c3d252ccc534576dc72cba1414d4a0312e7dd4
+verified_remote_sha: 2eefbb7e0cff1f1c8c72aa3e38dd495b1d6eddf0
+updated_at_utc: 2026-11-18T20:36:38.354462+00:00
 created_at_utc: 2026-11-18T20:29:33.335884+00:00
 author: Codex
 target_branch: main
@@ -17,7 +19,7 @@ allow_debug: true
 
 # RS485 Click sur shield — RX, TX et Modbus physiquement démontrés
 
-**Les trois critères techniques ciblés sont satisfaits sur TR2-001.** Le statut IN_PROGRESS porte maintenant sur la publication/relecture distante restant à effectuer, pas sur une attente matérielle. Aucun nouvel essai n'est nécessaire pour ces résultats. Le défaut SPI3 J8 et le **NO-GO global E-01 restent inchangés** ; aucune qualification complète du shield ni décision de refabrication.
+**Les trois critères techniques ciblés sont satisfaits sur TR2-001.** Le code, les résultats et les preuves ont été publiés puis relus intégralement depuis GitHub à la référence 2eefbb7e0cff1f1c8c72aa3e38dd495b1d6eddf0 ; la mission ciblée est DONE, sous réserve de la contre-lecture indépendante de ChatGPT. Aucun nouvel essai n'est nécessaire pour ces résultats. Le défaut SPI3 J8 et le **NO-GO global E-01 restent inchangés** ; aucune qualification complète du shield ni décision de refabrication.
 
 ## Résultats et preuves
 
@@ -73,6 +75,6 @@ DWT à 160 MHz nominaux : dernier RX → DE haut **1,782–1,799 ms**, DE haut *
 
 STM32 TR2-001 laissé avec ce seul banc RX : **stage1 / mode1 / error0 / crédits0 / commande0 / arm0**, DE bas, TX inactif/non fautif, timer IDLE, GDB détaché. COM4 fermé, client et GDB server terminés. Aucun bouton ou geste physique supplémentaire requis. Les trois autres supports restent dépeuplés ; aucun module à réinsérer avant mission corrective.
 
-Départ réel main 5045bc78 ; worktree isolé `MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL`, branche `codex/shield-rs485-click-physical`, publication prévue vers main par push normal. Commits locaux logiciels 811a3eda et 73c3d252 ; racine historique 82169af7, autres worktrees et deux stashes 6251b988/f3b829e6 préservés. Pas de merge/rebase/reset/clean/forcepush. Rapport E-01 précédent [archivé byteexact](archives/TR2-20261117-SHIELD-DUAL-BRINGUP/RAPPORT_E01_AVANT_RS485.md), mission humaine inchangée.
+Départ réel main 5045bc78 ; worktree isolé `MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL`, branche `codex/shield-rs485-click-physical`, publication vers main par push normal. Commits logiciels publiés 811a3eda et 73c3d252 ; racine historique 82169af7, autres worktrees et deux stashes 6251b988/f3b829e6 préservés. Pas de merge/rebase/reset/clean/forcepush. Rapport E-01 précédent [archivé byteexact](archives/TR2-20261117-SHIELD-DUAL-BRINGUP/RAPPORT_E01_AVANT_RS485.md), mission humaine inchangée.
 
-Journal `ETAT_COURANT_TR2.md` actualisé avec résultats bornés, configuration, état final et limites. **À transmettre à ChatGPT : contre-lecture indépendante des preuves RX/TX/Modbus ; aucune levée du NO-GO global ou décision PCB déduite.** La référence distante et la preuve de relecture seront consignées après publication avant passage DONE.
+Journal `ETAT_COURANT_TR2.md` actualisé avec résultats bornés, configuration, état final et limites. **À transmettre à ChatGPT : contre-lecture indépendante des preuves RX/TX/Modbus ; aucune levée du NO-GO global ou décision PCB déduite.** Publication normale **2eefbb7e0cff1f1c8c72aa3e38dd495b1d6eddf0**, confirmée par `ls-remote` puis récupération fraîche de `origin/main`. **97 fichiers modifiés relus intégralement et identiques aux fichiers publiés**, à 2026-11-18T20:35:08.268322+00:00. Détail dans [publication-first-readback.json](preuves/TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL/publication-first-readback.json). Le manifest des preuves et les liens du rapport ont également été contrôlés. Le présent commit documentaire de clôture sera vérifié à son tour ; son SHA final est communiqué dans la réponse utilisateur pour éviter une référence circulaire. Aucun essai matériel effectué après les observations finales.

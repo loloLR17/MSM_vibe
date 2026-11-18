@@ -311,6 +311,10 @@
     "bytes": 549,
     "sha256": "735d39ce0c82ce802e54b47170d299bd048fd4cd553161cefc581f3fada0daf5"
   },
+  "publication-first-readback.json": {
+    "bytes": 24042,
+    "sha256": "6f689fddc84753738a8c92930896753df1c4b222e69027d33ad4b5e3f0995306"
+  },
   "001-RAW-01-target.gdb": {
     "bytes": 993,
     "sha256": "a1000c30b878c92064958c0c2304323de67bde17164a78dad9df2d45a1547b5b"
