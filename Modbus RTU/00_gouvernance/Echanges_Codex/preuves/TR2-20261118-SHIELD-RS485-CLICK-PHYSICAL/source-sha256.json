@@ -1,0 +1,16 @@
+{
+  "firmware_code_sha": "811a3eda214ffb9c6c3dfbacd2af2884d87143c4",
+  "host_and_verifier_code_sha": "73c3d252ccc534576dc72cba1414d4a0312e7dd4",
+  "files": {
+    "experiments/shield_rs485_click/README.md": "ec025f7d7cadab2812953f4f14c16bc7d511220fa2bf689dd635c138af0ca944",
+    "experiments/shield_rs485_click/CMakeLists.txt": "d673a477a240a7f8cbd3a61e1bfd8d02b9f654dd65d9671c2626c06cc59efe37",
+    "experiments/shield_rs485_click/tools/host_probe.ps1": "6e8764e3fd7e6597713236e0e4e00e82f2ed11d5dcf49b5e068efecf70db5695",
+    "experiments/shield_rs485_click/tools/ClickHost.cs": "80eb9251594e2c2513ca97f16ca8b6287ea7d30f3e3f3fb16cfbc521b42a0003",
+    "experiments/shield_rs485_click/tools/verify_evidence.py": "9a9e612f95215b48ddbac4c69462e4ee6104b4759fbf7504c7f7551f7265e625",
+    "experiments/shield_rs485_click/tests/policy_test.c": "01f739a982dcabc807550dfb8ca6ce58dbf6fe9cc7dc51416791d39ebbacdd8b",
+    "experiments/shield_rs485_click/src/policy.h": "038cd0e64de7007ea79938ebf401d838ab1721d0776a6f05ffb3588eb01eefbb",
+    "experiments/shield_rs485_click/src/main.c": "bdc2b73cd6a950fa07b464ccb584a56e0e80e39e8ca960f57e1c3d6e1a4d03c4",
+    "experiments/shield_rs485_click/src/policy.c": "172477e9149debc62fd94b32bbd2b7b19b46caa1bc6eeadc159eb654caa7c948"
+  },
+  "native_exe_sha256": "b9282ce70fdb8aa53a8e4e1685b93b61566835fe61bfb21ae553132196ea63c7"
+}

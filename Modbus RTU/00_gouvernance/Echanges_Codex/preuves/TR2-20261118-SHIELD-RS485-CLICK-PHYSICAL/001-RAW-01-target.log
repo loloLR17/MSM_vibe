@@ -1,0 +1,19 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL/experiments/shield_rs485_click/src/main.c:100
+100	            if(!observed_poll(NULL,&event)){click_probe.error=15;click_probe.credits=0;continue;}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 2
+$2 = 0
+$3 = 126
+$4 = 144
+$5 = 18
+$6 = 9
+$7 = 8
+$8 = 8
+$9 = {uart_irq = 350, timer_irq = 26, rx_callback = 126, error_callback = 0, tx_callback = 8, timer_callback = 26, events_pushed = 144, events_dropped = 0, events_polled = 144, bytes_polled = 126, errors_polled = 0, t1_5_polled = 9, t3_5_polled = 9, poll_count = 0, frame_count = 0, crc_valid = 0, crc_bad = 0, frame_invalid = 0, foreign_unit = 0, broadcast = 0, accepted_request = 0, available_status = 0, tx_attempt = 8, tx_started = 8, tx_fail_safe = 0, last_irq_isr = 6422736, last_hal_error = 0, last_rx_byte = 104, last_event = 3, last_codec_result = 0, last_frame_length = 0, last_tx_length = 26, last_frame = '\000' <repeats 255 times>, last_tx = "T18!¿*r\031\a\000\000\000=\000J\000\030PB8W13 "..., before_enable = {valid = 1, cpuid = 1091555860, vtor = 134217728, aircr = 4194640640, primask = 0, basepri = 0, faultmask = 0, control = 0, iser = {0, 0, 0}, ispr = {0, 0, 0}, itns = {0, 0, 0}, uart_isr = 0, uart_cr1 = 0, uart_cr3 = 0, hal_rx_state = 0, hal_error = 0}, after_timer_enable = {valid = 1, cpuid = 1091555860, vtor = 134217728, aircr = 4194640640, primask = 0, basepri = 0, faultmask = 0, control = 0, iser = {0, 131072, 0}, ispr = {0, 0, 0}, itns = {0, 0, 0}, uart_isr = 6291648, uart_cr1 = 5133, uart_cr3 = 0, hal_rx_state = 32, hal_error = 0}, after_uart_enable = {valid = 1, cpuid = 1091555860, vtor = 134217728, aircr = 4194640640, primask = 0, basepri = 0, faultmask = 0, control = 0, iser = {0, 131072, 4}, ispr = {0, 0, 0}, itns = {0, 0, 0}, uart_isr = 6291648, uart_cr1 = 5133, uart_cr3 = 0, hal_rx_state = 32, hal_error = 0}, live = {valid = 0, cpuid = 0, vtor = 0, aircr = 0, primask = 0, basepri = 0, faultmask = 0, control = 0, iser = {0, 0, 0}, ispr = {0, 0, 0}, itns = {0, 0, 0}, uart_isr = 0, uart_cr1 = 0, uart_cr3 = 0, hal_rx_state = 0, hal_error = 0}}
+$10 = false
+$11 = false
+$12 = TR2_RTU_TIMER_IDLE
+$13 = 0
+$14 = 0x0
+$15 = 0x180
+[Inferior 1 (Remote target) detached]

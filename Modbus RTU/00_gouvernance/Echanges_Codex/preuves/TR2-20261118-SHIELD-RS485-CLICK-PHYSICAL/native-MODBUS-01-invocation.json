@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-18T20:24:10.490940+00:00",
+  "command": [
+    "/mnt/c/Users/lolo/AppData/Local/Temp/TR2-CLICK-20261118/ClickHost.exe",
+    "MODBUS",
+    "COM4",
+    "681445059",
+    "8",
+    "PHYSICAL-GATE-CONFIRMED"
+  ],
+  "exit": 0,
+  "no_retry": true
+}

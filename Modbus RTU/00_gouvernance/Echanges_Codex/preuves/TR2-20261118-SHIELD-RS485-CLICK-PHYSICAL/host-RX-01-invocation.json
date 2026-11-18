@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-18T20:12:35.473198+00:00",
+  "command": [
+    "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+    "-NoProfile",
+    "-NonInteractive",
+    "-File",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL\\experiments\\shield_rs485_click\\tools\\host_probe.ps1",
+    "-Mode",
+    "RX",
+    "-Port",
+    "COM4",
+    "-OutputPath",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-shield-rs485-click-20261118\\host-RX-01.json",
+    "-Nonce",
+    "1934358945",
+    "-PhysicalGateConfirmed"
+  ],
+  "exit": 1,
+  "no_retry": true
+}

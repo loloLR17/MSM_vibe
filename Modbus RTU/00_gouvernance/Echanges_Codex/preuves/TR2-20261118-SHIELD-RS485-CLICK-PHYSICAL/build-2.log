@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/host
+Test project /home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/host
+    Start 1: click_policy
+1/1 Test #1: click_policy .....................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec

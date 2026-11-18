@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS_PHYSICAL_RX_BOUNDED",
+  "target": {
+    "version": 1,
+    "stage": 1,
+    "mode": 1,
+    "error": 0,
+    "uid0": 4849725,
+    "uid1": 943869976,
+    "uid2": 540225879,
+    "core_hz": 160000000,
+    "credits": 0,
+    "rx_count": 14,
+    "trace_count": 16,
+    "de_count": 2,
+    "frames": 1,
+    "tx_count": 0
+  },
+  "request_hex": "48 31 38 3f a1 f9 4b 73 00 00 00 00 43 31",
+  "actual_target_RX_hex": "48 31 38 3f a1 f9 4b 73 00 00 00 00 43 31",
+  "byte_exact": true,
+  "host_no_reply": true,
+  "target_no_TX": true,
+  "no_UART_error_observed": true
+}

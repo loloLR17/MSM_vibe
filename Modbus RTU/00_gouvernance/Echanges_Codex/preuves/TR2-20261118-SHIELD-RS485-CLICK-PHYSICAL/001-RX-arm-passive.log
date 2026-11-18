@@ -1,0 +1,4 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL/experiments/shield_rs485_click/src/main.c:96
+96	        if(click_probe.mode==3){
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+[Inferior 1 (Remote target) detached]

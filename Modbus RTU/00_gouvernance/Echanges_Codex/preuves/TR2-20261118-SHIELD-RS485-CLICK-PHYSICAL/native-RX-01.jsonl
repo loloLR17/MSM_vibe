@@ -1,0 +1,5 @@
+{"kind":"opened","utc":"2026-11-18T20:19:20.9248452Z","mode":"RX","port":"COM4","adapter":"FTDIBUS\\VID_0403+PID_6001+BG04KSSWA\\0000","baud":115200,"format":"8E1","exclusive":true}
+{"kind":"request","utc":"2026-11-18T20:19:20.9725928Z","sequence":0,"request_hex":"48 31 38 3F A1 F9 4B 73 00 00 00 00 43 31"}
+{"kind":"response","utc":"2026-11-18T20:19:21.4852281Z","sequence":0,"request_hex":"48 31 38 3F A1 F9 4B 73 00 00 00 00 43 31","response_hex":"","first_rx_ticks":-1,"qpc_hz":10000000,"elapsed_ticks":5064056,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"summary","host_passed":true,"target_proof_required":true,"requests":1}
+{"kind":"closed","utc":"2026-11-18T20:19:21.7105775Z"}

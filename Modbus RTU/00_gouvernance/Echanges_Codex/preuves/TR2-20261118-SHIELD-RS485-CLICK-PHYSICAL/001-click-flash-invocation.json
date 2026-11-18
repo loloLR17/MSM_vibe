@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-18T20:09:01.942155+00:00",
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "//wsl.localhost/Debian/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/arm001/click_bench.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "exit": 0,
+  "code_sha": "811a3eda214ffb9c6c3dfbacd2af2884d87143c4",
+  "bin_sha256": "72e5ab65456a9743e3f0bcfd5d33d751b9daa05792a47be46197e277682f4563",
+  "qualified_normal_standard_only": true
+}

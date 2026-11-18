@@ -1,0 +1,338 @@
+{
+  "001-RX-arm-passive-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "native-host-windows-state.json": {
+    "bytes": 2131,
+    "sha256": "b8db0ffa65ad020fec1bac40c34c82f4e1b1a1c36e79842a4be727d81f8bfc9c"
+  },
+  "native-RX-01.jsonl": {
+    "bytes": 713,
+    "sha256": "5aa57d11adee15cf0e0b78f0cda68af9f5147ee796d9c85bb7badab8a966d55a"
+  },
+  "001-RAW-01-target-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "001-identity-preserve-server.log": {
+    "bytes": 674,
+    "sha256": "ecdfb959676dd4d502a7d25376d25625ce9a0ff5eb9078bc769f7e2ed1f008c4"
+  },
+  "001-RAW-arm.gdb": {
+    "bytes": 542,
+    "sha256": "fd15b6c684fb6e8f58d81aa20fb379872f61345fbd9c461edeeef8e55b109b2d"
+  },
+  "001-click-boot-passive-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "build-1.log": {
+    "bytes": 403,
+    "sha256": "a62be0597e3dc63c3c7f6f4facaf0d71f0397142adf5c2007ea1a4921269ba57"
+  },
+  "001-click-flash.log": {
+    "bytes": 1625,
+    "sha256": "260c76f4f7ac6044398a078aecdbd3e0717e73443035620e9684bdf0e6fec0b4"
+  },
+  "independent-wire-RAM-verification.json": {
+    "bytes": 4127,
+    "sha256": "5a1154fb69f7d7438395e49fd196bd88bedb18d2f2ac0b94aac0a376b4bdc867"
+  },
+  "001-RX-01-target-invocation.json": {
+    "bytes": 711,
+    "sha256": "9d43a2fc53968f9037cbe9fb5d4d7f78cc3fc61dbe618246aeeb7580cebc180f"
+  },
+  "001-preservation.json": {
+    "bytes": 395,
+    "sha256": "4db72c91cefc6c88587357491922a9ef0863de487aa6fc67b9d964a03ae9a171"
+  },
+  "001-final-RX-only-no-credit-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "001-MODBUS-01-target-and-disarm-invocation.json": {
+    "bytes": 726,
+    "sha256": "42680eedda126fb9e2325e9b9c354c57d83aeebc6da989622abd1d53f7638268"
+  },
+  "build-0.log": {
+    "bytes": 474,
+    "sha256": "b2fffdde61fdff89e7a085ec5ee6a8df81b2b03e026bee6587dc04ac3503891f"
+  },
+  "001-RX-01-target.log": {
+    "bytes": 2261,
+    "sha256": "9a7c3d3853b65751cf47fff0fcf6837ac0d3917a9746d1207f01236ca2043cf3"
+  },
+  "001-RAW-arm-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "ClickHost-73c3d252.exe": {
+    "bytes": 21504,
+    "sha256": "b9282ce70fdb8aa53a8e4e1685b93b61566835fe61bfb21ae553132196ea63c7"
+  },
+  "001-MODBUS-arm-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "native-host-selftest-invocation.json": {
+    "bytes": 196,
+    "sha256": "372be240c86449b8fe6c494aac71239b4468f3a5be4bd9a1e50f5d14a08c2ec0"
+  },
+  "native-host-selftest.jsonl": {
+    "bytes": 239,
+    "sha256": "798a5c7ba0d278b66f326708790fee0d00aa8d25a1949ae9a5fc87cfd186f4c2"
+  },
+  "image-review.json": {
+    "bytes": 591,
+    "sha256": "fa01d96caa9d68db1e21012e80250ba1a6a9c82f35ed2d53d1152230cf849a3a"
+  },
+  "build-4.log": {
+    "bytes": 14607,
+    "sha256": "c0d4fd53645aa7cc47b34ce13b2465451d0e96f2ae573014f5a700c634102a65"
+  },
+  "001-MODBUS-01-target-and-disarm-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "001-MODBUS-01-target-and-disarm.log": {
+    "bytes": 2343,
+    "sha256": "3855e14c4a56664bf6014d3bd1dcb5c61f0debd73e6bbfc409727295230033a9"
+  },
+  "001-final-RX-only-no-credit-invocation.json": {
+    "bytes": 722,
+    "sha256": "12a4e944f1b433a984dbacc35f017b92f3d1a24bc492dcef397867e5ea3f1de1"
+  },
+  "source-sha256.json": {
+    "bytes": 1355,
+    "sha256": "714a4592a483a1e51f636654caf62b85752238a40fce8fb97ed90df5b4a5db0e"
+  },
+  "001-click-readback.json": {
+    "bytes": 301,
+    "sha256": "710fdbf5a3f046ea38918feef9f599e3a0594ad39d9a510a23fbee99340d7126"
+  },
+  "001-RAW-01-probe.bin": {
+    "bytes": 27704,
+    "sha256": "dc540f5ebd85d273dbe1a49db0bf5726df366d657e047171db4179b780565b55"
+  },
+  "001-click-boot-passive-corrected-observation-invocation.json": {
+    "bytes": 739,
+    "sha256": "1f6a3b39a3ab472f0b77fd7c588c28031cc7fa699bdd3c7827de9d146ce226e0"
+  },
+  "RAW-01-verdict.json": {
+    "bytes": 742,
+    "sha256": "96af4d78cffc9bb503228bdf8c554485714623ae8d8ac6eecb98ef00448d3412"
+  },
+  "powered-logic-levels-user.json": {
+    "bytes": 390,
+    "sha256": "0640091aeb22a940a1f91061d4d63608c345eb2f8dc5608800b8a656dc0693c3"
+  },
+  "001-RX-01-target.gdb": {
+    "bytes": 982,
+    "sha256": "de00d36fd8e2c271865442f4c77d96af38014b5b9fdb34273762fdee3c03cd93"
+  },
+  "click-configuration-confirmation.json": {
+    "bytes": 285,
+    "sha256": "ab9fb583fef878fdeb41258fc77011b2ccb680d0c89b48371d4c21812e7f8305"
+  },
+  "001-RX-01-target-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "001-click-boot-passive-corrected-observation.gdb": {
+    "bytes": 856,
+    "sha256": "62e0f7ffbb6ed9cf52031da865ac1f098fbc956dbbb8b1ce8d9610efae93ac93"
+  },
+  "001-RX-arm-passive.gdb": {
+    "bytes": 512,
+    "sha256": "85c4ac48977f1500bdd33f5efe528760e8143e1d977808837ae8bfa055c80328"
+  },
+  "native-RAW-01.jsonl": {
+    "bytes": 4113,
+    "sha256": "0be4a7bcf7f281a0df041a62a09791369982c318344e516472bed1f6211454d5"
+  },
+  "physical-gate-user.json": {
+    "bytes": 1346,
+    "sha256": "512a9fe67ca12f5c574b18b4e4840e84adebf09ef814e702f4a087218522e541"
+  },
+  "host-RX-01-invocation.json": {
+    "bytes": 625,
+    "sha256": "459d4823108c5dbde9b5e6a26b0b0a2597dea391efb7a390b21d254a5f1e6acd"
+  },
+  "build-commands.json": {
+    "bytes": 1241,
+    "sha256": "27300fbe17f64c576a8c4f830845569f4bb7eaf8111bc3ccae5bae408df0d530"
+  },
+  "001-MODBUS-01-target-and-disarm.gdb": {
+    "bytes": 1235,
+    "sha256": "933607df87eae646ed27793e84c359ba93c436a9ab6eca21d9f206612b23b983"
+  },
+  "001-RAW-arm-invocation.json": {
+    "bytes": 706,
+    "sha256": "765b5144fd441a580d51b8be94d9739cce42488e7d2ae639db77cbaf744d2089"
+  },
+  "001-click-boot-passive-corrected-observation.log": {
+    "bytes": 919,
+    "sha256": "98487cf9c173ff31bff6341d630acfcad986a34aae5839a2a4df8c117e952a7c"
+  },
+  "001-click-boot-passive.log": {
+    "bytes": 1114,
+    "sha256": "752d4c4748b92ab894a7443d19ff7cb0064d98a2d9166bf0b170e2a41904b024"
+  },
+  "001-RX-01-probe.bin": {
+    "bytes": 27704,
+    "sha256": "423b431ad962e65684d691ba744e0b3cad09abc06f4f80b420611e7122ceda45"
+  },
+  "001-MODBUS-arm-invocation.json": {
+    "bytes": 709,
+    "sha256": "2cf2878aff0e246dd5166629685cb46d13ed2bebc00d150f9374645371188a9e"
+  },
+  "001-MODBUS-arm.log": {
+    "bytes": 304,
+    "sha256": "3c112d5d6e068fe5c74250aae7501351798faba8308901a1d70c676d9b0293c8"
+  },
+  "build-3.log": {
+    "bytes": 596,
+    "sha256": "95acb929ff747d000a4efe44254215a2eb3566d9916bc8f9b8494ed6403da84e"
+  },
+  "001-RX-arm-passive-invocation.json": {
+    "bytes": 713,
+    "sha256": "96ca557f4b8b444aa2fca59d491b62991a5469f8f1ea19eb614721bc46654eec"
+  },
+  "001-identity-preserve.log": {
+    "bytes": 469,
+    "sha256": "7854b86cc10fa7f6f450010069093728b5e94e866fa45df03a809b5707aaa7b7"
+  },
+  "001-RAW-01-target-invocation.json": {
+    "bytes": 712,
+    "sha256": "4e2b043b1d87a382a3ab77e65ca49d90b000600f5f3593f1461db68224bb5f51"
+  },
+  "001-click-boot-passive-corrected-observation-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "001-click-readback-reset-invocation.json": {
+    "bytes": 719,
+    "sha256": "f7a8691c02df2b361f5ce2365d49a66d0d4a6d371333e3956848cb881594e3b3"
+  },
+  "001-click-flash-invocation.json": {
+    "bytes": 589,
+    "sha256": "767455ac56c15cf4cfe321bab05c7106413b6bde3cefd04128342b1cf3d39efd"
+  },
+  "native-RX-01-invocation.json": {
+    "bytes": 272,
+    "sha256": "2b55a20c7483b2aacdfff3b176801be8ae6c0fcc1c43618f7b1c85fafe56dec5"
+  },
+  "host-final-state.json": {
+    "bytes": 2876,
+    "sha256": "3663759ba284a96e23c879a6aa1c07e5119d5be51185ee40a078833bf5b9bac2"
+  },
+  "001-RX-arm-passive.log": {
+    "bytes": 243,
+    "sha256": "196ac67088837f5e88ecb60598d2f22c519f329794c0c536fe3cb61f5d307514"
+  },
+  "001-identity-preserve-invocation.json": {
+    "bytes": 605,
+    "sha256": "a96f9ca732f1706deb71617a50c5c6f9179e1c95f4b07489c2d5be39623035d4"
+  },
+  "001-click-boot-passive.gdb": {
+    "bytes": 855,
+    "sha256": "169bbd5d94f42a5812349acf163a9f85f7c55c3d41dfb00bcc74e25c1882e3b3"
+  },
+  "native-host-build.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "001-MODBUS-01-probe.bin": {
+    "bytes": 27704,
+    "sha256": "35f926e465c1d24cdf10356358ddb9b4df7bc60269d07e5a1d79177c64ff3e7a"
+  },
+  "native-host-build-invocation.json": {
+    "bytes": 542,
+    "sha256": "2fb0636e913d93d9218e4501f7d65ba853150f12a09004dfdd94394b7364feab"
+  },
+  "001-RAW-arm.log": {
+    "bytes": 310,
+    "sha256": "c63a5a5d9605033266898531229c381811c157e6ae2bc559314391b64c3ded0b"
+  },
+  "click_bench-811a3eda-001.bin": {
+    "bytes": 34380,
+    "sha256": "72e5ab65456a9743e3f0bcfd5d33d751b9daa05792a47be46197e277682f4563"
+  },
+  "INCIDENTS_OUTILS.md": {
+    "bytes": 2045,
+    "sha256": "a096831888550b8a4fa06d743be9bf5d334c419efafe22681f2d2055c23ebcc6"
+  },
+  "host-RX-01-console.log": {
+    "bytes": 502,
+    "sha256": "54dbae4853765cf4e6486ce759c86d3e926170b475a3b5ba42952344791ba874"
+  },
+  "RX-01-verdict.json": {
+    "bytes": 574,
+    "sha256": "19f2e8ad6685954180739f353ebbceb8e71b25d27b52d204afce16aa3b182ede"
+  },
+  "001-RAW-01-target.log": {
+    "bytes": 2257,
+    "sha256": "4878f09ef1d7a71dbd9d3413b0ce76639c5120c029fa73a922a0d5c930b61c30"
+  },
+  "host-offline-review.json": {
+    "bytes": 365,
+    "sha256": "5927d271cf082ef8b363713e2be991973c2981de39ef16b3a96ff5551f8811c9"
+  },
+  "native-RAW-01-invocation.json": {
+    "bytes": 257,
+    "sha256": "665ef8a02840640dd781e80e9ff9b50c3b145df489b17690d3b6598509f06c9c"
+  },
+  "001-click-boot-passive-invocation.json": {
+    "bytes": 717,
+    "sha256": "585157c850e9e43485a9274da96c6ae6c4cb37b230e5ad6ed7dd75346252584e"
+  },
+  "001-final-RX-only-no-credit.log": {
+    "bytes": 491,
+    "sha256": "387f0933cb2f3a645997980b8960df9db4a9422c97f154c3826e45d18ae97630"
+  },
+  "native-MODBUS-01-invocation.json": {
+    "bytes": 260,
+    "sha256": "ecca3d57852b4bd1c5f5c79247e7e3e958005163ed93ace2dcb2499ecebfd7b8"
+  },
+  "001-click-readback-reset.log": {
+    "bytes": 374,
+    "sha256": "3e45fb61f3f45d18a76f8d7befe824db97e4e59a1582da569bb36e8078093b63"
+  },
+  "build-2.log": {
+    "bytes": 357,
+    "sha256": "2fda91fc4468522204ec41beb753e0fee0edb684c381852401426d78f7f97844"
+  },
+  "001-click-readback-reset-server.log": {
+    "bytes": 642,
+    "sha256": "c3be44cde4b972f8b3bab07d3906817e0d4d1354e3df284e9d394d2c6b58bf60"
+  },
+  "001-MODBUS-arm.gdb": {
+    "bytes": 549,
+    "sha256": "735d39ce0c82ce802e54b47170d299bd048fd4cd553161cefc581f3fada0daf5"
+  },
+  "001-RAW-01-target.gdb": {
+    "bytes": 993,
+    "sha256": "a1000c30b878c92064958c0c2304323de67bde17164a78dad9df2d45a1547b5b"
+  },
+  "host-before-target.json": {
+    "bytes": 2490,
+    "sha256": "ae919954727badd26653cc5a72f6ca8d58a9949e3801c4d7176555cf04ef9c2f"
+  },
+  "001-identity-preserve.gdb": {
+    "bytes": 544,
+    "sha256": "363e8ff7431b1a14ec694aec6bc1ec9a8c85b80421126b35d9c92384b9d75d83"
+  },
+  "001-click-readback-reset.gdb": {
+    "bytes": 467,
+    "sha256": "41524c0bbf5a3bbd27a90e23d6dc10dcf81eed69b9f1b22ba3538996099b64ab"
+  },
+  "native-MODBUS-01.jsonl": {
+    "bytes": 3372,
+    "sha256": "6fbc6c67a682f9c8c4e42c56390c1dcc4f3185ef52b0fd96a96d269326d9404a"
+  },
+  "001-final-RX-only-no-credit.gdb": {
+    "bytes": 827,
+    "sha256": "dc2e4cd421a92e4ec41fa1cbcdfc43c84c799b611182e8d84bcbf90a8fa10127"
+  }
+}

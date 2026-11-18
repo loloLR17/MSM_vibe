@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-18T20:18:23.913947+00:00",
+  "command": [
+    "/mnt/c/Users/lolo/AppData/Local/Temp/TR2-CLICK-20261118/ClickHost.exe",
+    "selftest"
+  ],
+  "exit": 0,
+  "no_COM_open": true
+}

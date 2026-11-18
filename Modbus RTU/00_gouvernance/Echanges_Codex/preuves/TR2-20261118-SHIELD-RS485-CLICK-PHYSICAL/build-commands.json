@@ -1,0 +1,54 @@
+[
+  {
+    "args": [
+      "cmake",
+      "-S",
+      "experiments/shield_rs485_click",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/host",
+      "-DCLICK_HOST_TESTS=ON"
+    ],
+    "exit_code": 0
+  },
+  {
+    "args": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/host"
+    ],
+    "exit_code": 0
+  },
+  {
+    "args": [
+      "ctest",
+      "--test-dir",
+      "/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/host",
+      "--output-on-failure"
+    ],
+    "exit_code": 0
+  },
+  {
+    "args": [
+      "cmake",
+      "-S",
+      "experiments/shield_rs485_click",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/arm001",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL/experiments/iis3dwb_st_reference/cmake/arm-none-eabi-gcc.cmake",
+      "-DCLICK_BOARD=001",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0"
+    ],
+    "exit_code": 0
+  },
+  {
+    "args": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/arm001",
+      "--target",
+      "click_bench",
+      "-j4"
+    ],
+    "exit_code": 0
+  }
+]

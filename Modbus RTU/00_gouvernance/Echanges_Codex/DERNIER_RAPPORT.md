@@ -1,14 +1,12 @@
 ---
-mission_id: TR2-20261117-SHIELD-DUAL-BRINGUP
-revision: 2
-status: BLOCKED
-audit_status: DELIVERED_FOR_INDEPENDENT_REVIEW
+mission_id: TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL
+status: IN_PROGRESS
 base_ref: main
-base_sha: f019dfbaa4e2cf9cf181031d0534013b89d989e1
-initial_head: d5d3da95697607ad21cc57f95f48534e49ed3bb6
-resume_head: 6b208d29591c4fc50af819e0bfe72d5c92d1f20f
-result_sha: 6b208d29591c4fc50af819e0bfe72d5c92d1f20f
-created_at_utc: 2026-11-17T21:35:26.068253+00:00
+base_sha: 85e7a1ce38fb7d79d10dcb779275ec5c05561e7b
+initial_head: 5045bc7862b02e76b3ca0b0c4c54cc369ad88acc
+result_sha: 811a3eda214ffb9c6c3dfbacd2af2884d87143c4
+host_tools_sha: 73c3d252ccc534576dc72cba1414d4a0312e7dd4
+created_at_utc: 2026-11-18T20:29:33.335884+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,65 +15,64 @@ allow_flash: true
 allow_debug: true
 ---
 
-# E-01 livré pour revue — alimentation des shields toujours NO-GO
+# RS485 Click sur shield — RX, TX et Modbus physiquement démontrés
 
-**L’audit documentaire de la révision 2 est réalisé. La mission matérielle reste BLOCKED** sur le défaut SPI3 et les gates physiques. Ni le bring-up ni la libération électronique ne sont déclarés terminés. Le [rapport BLOCKED précédent](preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/E01/RAPPORT_AVANT_AVENANT_E01.md) est conservé intégralement.
+**Les trois critères techniques ciblés sont satisfaits sur TR2-001.** Le statut IN_PROGRESS porte maintenant sur la publication/relecture distante restant à effectuer, pas sur une attente matérielle. Aucun nouvel essai n'est nécessaire pour ces résultats. Le défaut SPI3 J8 et le **NO-GO global E-01 restent inchangés** ; aucune qualification complète du shield ni décision de refabrication.
 
-## Résultats et livrables
+## Résultats et preuves
 
-- [Audit électrique E-01](preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/E01/AUDIT_E01.md) : sources, orientations, circuits, risques et réserves.
-- [Matrice des 180 contacts](preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/E01/MATRICE_E01_180_CONTACTS.csv) et [synthèse des 17 nets](preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/E01/MATRICE_E01_17_NETS.csv), avec verdict individuel et NC.
-- [RCA historique](preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/E01/RCA_SPI3.md), accompagnée de huit artefacts Git datés et hachés.
-- [Inventaire achat/réemploi et options](preuves/TR2-20261117-SHIELD-DUAL-BRINGUP/E01/REEMPLOI_ET_OPTIONS.md), sans supposer les connecteurs soudés récupérables.
+Dossier [preuves de mission](preuves/TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL/), notamment [comparaison indépendante hôte/RAM](preuves/TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL/independent-wire-RAM-verification.json), [trames RAW](preuves/TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL/native-RAW-01.jsonl), [trames Modbus](preuves/TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL/native-MODBUS-01.jsonl) et [manifest](preuves/TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL/MANIFEST.json).
 
-La référence primaire est construite **sans lire l’ancienne matrice ni les fichiers KiCad** : netlist et PcbDoc ST C05, UM2861 pour les fonctions nominales multiplexées, Eagle Adafruit, dessin ST MKIGIBV2, schéma Click v102. Source/version/URL/SHA, fonction/direction/rail, schéma, PCB et deux cuivres CAM sont traçables. Cette lecture Codex ne remplace pas la seconde lecture indépendante de ChatGPT exigée par E-01.
-
-**174 correspondances documentaires et 6 FAIL sur 180 contacts**, tous sur J8 :
-
-| Contacts | Défaut |
+| Tranche réellement exécutée | Résultat observé |
 |---|---|
-|19 / CS et 20 / SCL|contacts requis laissés NC |
-|21 / SDA|raccordé à ACC_CS au lieu de MOSI |
-|22 / SDO|raccordé à ACC_SCK au lieu de MISO |
-|23 et 24, NC constructeur|raccordés à MOSI et MISO |
+| RX seul, 20:19:20 UTC | 1 challenge de 14 octets, reçu exactement en RAM par le STM32 ; zéro TX, zéro erreur UART |
+| UART brut bidirectionnel, 20:21:15–20 UTC | 8 challenges avec séquences 0..7, 8 réponses de 26 octets exactes, CRC valides ; nonce et UID de TR2-001 présents, réponse distincte de la requête : écho local exclu |
+| Modbus RTU, 20:24:05–10 UTC | 8 requêtes FC03 adresse 1, registre 1000, quantité 1 ; 8 réponses exactes, 8 CRC valides/8 requêtes acceptées côté STM32 |
+| DE et retour RX | 16 paires haut/bas enregistrées, IDR/ODR cohérents ; DE bas, RX réarmé et transport au repos après chaque série |
+| Bilan | 17 requêtes, 190 octets RX comparés entièrement aux journaux hôte, 16 réponses et 16 callbacks TX ; aucune erreur UART, perte d'événement, faute TX ou faute Cortex observée |
 
-La mesure utilisateur sur 001, TP3→SDO=0,3 Ω contre environ 600 kΩ vers SCL, corrobore le défaut physique d’horloge. Aucun relevé de ce segment sur 002 revendiqué. Les noms/types du symbole étaient eux aussi fondés sur la mauvaise affectation. Aucun PASS documentaire ne vaut continuité physique ou conformité d’un module réel.
+Modbus : request `01 03 03 E8 00 01 04 7A`, response `01 03 02 00 00 B8 44`. **UNKNOWN(0)** provient du diagnostic existant B1, initialisation incomplète ; il ne simule aucune mesure capteur ni identité métier. Aucun FC10, START/STOP, accès média ou écriture persistante. Seul FC03 est transmis au serveur PDU dans ce banc expérimental.
 
-## Contrôles réellement exécutés
+Le [vérificateur hors ligne](../../../experiments/shield_rs485_click/tools/verify_evidence.py) relit indépendamment tous les octets hôte, les trois snapshots RAM, CRC, nonce/séquences/UID, compteurs, événements et fronts DE. Exécution : `python3 experiments/shield_rs485_click/tools/verify_evidence.py "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL"`. Ce contrôle ne transmet rien et ne rejoue aucun essai.
 
-Extraction fraîche du schéma par le CLI KiCad et lecture native du PCB, sans sauvegarde, remplissage de zones ou modification. Les 180 contacts des 19 empreintes sont recoupés avec leurs bibliothèques, retournements B.Cu inclus. Comparaison au PcbDoc ST de 106 positions : écart numérique maximal 1,024 nm, **sans prétention de précision de fabrication**. Recoupement des 18 contacts et 4 trous Adafruit. DIL24 MKIGIBV2 géométriquement correctement numéroté, affectation électrique incorrecte. Les 16 contacts du PcbDoc Click v101 concordent ; le natif v102 reste indisponible et n’est pas remplacé implicitement par v101.
+## Montage et gates constatés
 
-Reconstruction géométrique depuis **tous les flashes, traits et régions des deux cuivres Gerber**, au-delà des seuls attributs X2 : 138 groupes après liaison des PTH et 4 vias, soit 17 nets et 121 îlots NC. Aucun court-circuit ou ouvert supplémentaire **par rapport aux nets du PCB** ; cela ne valide pas leur choix constructeur. Tous les perçages comparés aux Excellon. Approximation des cercles en 128 segments et coordonnées 1 µm documentées, sans mesure des PCB fabriqués.
+- Nucleo réellement identifiée TR2-001 : ST-LINK `003500463235510B37333439`, UID `004A003D/38425018/20333157`. Autre banc hors tension selon utilisateur ; aucun accès à TR2-002.
+- Shield V2.3 et seul Click enfiché : FRAM, microSD et MKIGIBV2 retirés, inspection à froid et stabilité sans contact/contrainte confirmées par utilisateur. Révision Click fraîche inaccessible ; il confirme le même Click historiquement utilisé avec pont J2, sans démontage imposé. Référence attendue MIKROE-3863/v102, pas de nouvelle identification de sérigraphie revendiquée.
+- Mesures utilisateur à froid : TP1↔TP2 = 0 V puis 5,18 kΩ stabilisés ; J2-11↔TP2 = 0,2 Ω ; CN12-69/PG4↔CS/DE Click = 0,3 Ω. J5 femelle 2 × 3 confirmé monté. Continuité mesurée en bout de chaîne, pas six contacts mesurés individuellement.
+- Sous ST-LINK seul, CN15 débranché : TP1↔TP2 = 3,3 V ; puis TX Click/J9-13↔TP2 = 3,3 V et DE/J9-3↔TP2 = 0 V avant trafic. Le CLI relève 3,29 V côté cible, mesure distincte.
+- Configuration utilisateur confirmée inchangée : VCCSEL 3V3, J2 DE–/RE, J7 A/Y et J8 B/Z half-duplex ; aucune liaison ajoutée GND2↔GND logique. Blanc Data+ → A, vert Data− → B, noir → GND du bornier isolé. Aucune inversion expérimentale ni modification des straps.
+- Adaptateur fraîchement retrouvé : FTDI `0403:6001`, série `BG04KSSW`, instance `FTDIBUS\VID_0403+PID_6001+BG04KSSWA\0000`, COM4 ; COM ST-LINK exclu. Trois ouvertures exclusives par le client, fermeture explicite dans chaque journal, aucun service arrêté ni double maître observé. TERM/BIAS conservés ; positions individuelles non fraîchement relevées, pas de qualification de topologie longue déduite.
 
-- PCB V2.3 : SHA-256 `b79f2d6b1a0b44f2269087dcbdc6ba7c4ec9f5f41c704e4ebf77089f2d1729ab`.
-- ZIP : neuf membres byte exact aux CAM et au manifeste ; SHA-256 `e91d5ce68ee4339b44ada627fd8fc5dc097b4e9b2a128b15611dd996a6e44d17`.
+GPIOG4/7/8 et domaine VDDIO2 : configuration IOSV/AF8 observée, TX haut mesuré 3,3 V, DE bas mesuré 0 V, niveaux logiques et échanges fonctionnels cohérents. **Pas de mesure directe du rail VDDIO2 ni de son ondulation/marges.** Source primaire : netlist ST C05 déjà archivée dans l'audit E-01 et [UM2861 ST, §7.4.5/table9](https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf). Schéma Click v102 empreinte 204f5c4b…b716c consignée dans l’audit E-01 ; DE est CS mikroBUS 3, pas PWM.
 
-La revue V2.3 autorisait le téléversement, la préparation du devis et la soumission à l’utilisateur d’une commande de 5 prototypes ; elle précisait que le hash ZIP n’avait pas été recalculé indépendamment. **Le reçu/hash de l’upload effectif et les paramètres réellement fabriqués restent inconnus.** La fiche 90×100 mm / 2 couches / FR4 1,6 mm / 1 oz / HASL sans plomb n’en constitue pas une preuve.
+## Logiciel, flash et récupérabilité
 
-Les scripts et sorties sont publiés dans E01. Les comparaisons ont été recalculées après enrichissement des fonctions multiplexées/auxiliaires, résultat inchangé 174/6. Aucun build firmware, ancien essai physique, test hôte ou ERC/DRC acquis n’a été rejoué.
+Nouveau [banc isolé](../../../experiments/shield_rs485_click/README.md), NON-PRODUCTION, zéro driver SPI/SD/FRAM/IIS3DWB lié. Cœur, transport et diagnostic partagés inchangés ; LPUART1 PG7/8, DE PG4, 115200/8E1, horloge CPU 160 MHz / LPUART HSI 16 MHz. Boot RX seul, armement RAM `0xC118A55A` distinct pour RAW puis Modbus, 16 crédits maximum par armement, arrêt sur erreur et aucun retry automatique. Le flag TX est limité à cette cible de qualification, aucun changement du profil permanent/V1.
 
-Erreurs conservées : première lecture KiCad arrêtée sur `PCB_VIA::GetWidth called without a layer argument`, puis API corrigée avec couche explicite ; aucune assertion désactivée. Netlist ST lue ensuite en cp1252 après refus UTF8 ; cache de dépendances explicitement ajouté après import sexpdata absent. Téléchargement ST direct en timeout : dessin ST déjà obtenu via miroir identifié rendu et inspecté, source officielle consultée via outil documentaire. Click v102 retéléchargé avec même hash. Aucun de ces incidents n’est masqué comme un succès initial.
+Code firmware évalué **811a3eda214ffb9c6c3dfbacd2af2884d87143c4** ; client natif/vérificateur **73c3d252ccc534576dc72cba1414d4a0312e7dd4**. BIN de 34 380 octets SHA256 **72e5ab65456a9743e3f0bcfd5d33d751b9daa05792a47be46197e277682f4563**, ELF 6932a60c…52b12. Sources/hashes, BIN et client natif sont publiés dans les preuves ; ELF/map complets restent dans le dossier local de mission.
 
-## Cause et autres interfaces
+Flash initiale de 2 MiB sauvegardée fraîchement et vérifiée SHA256 `374d5153992585ef2cbf57dccdac83a8b8dcdd0775af7ed908713fd0e6fc7547` ; son préfixe correspond exactement à l'ancien banc FRAM 250 kHz / BIN 019569f9…795fd. Un seul flash standard qualifié NORMAL/SWD/SN explicite/freq8000/adresse08000000/verify/reset, secteurs 0..4 seulement. Readback de 2 MiB : image byteexact et tout le suffixe après 40 960 octets inchangé. SHA du readback `21b324f9dff4aee6317683a5450e955f37257dec95f0d07ae12e5fd6f5f53c18`. Reset logiciel GDB après dernier CLI selon RCA NVIC historique ; aucun HOTPLUG, mass erase, OptionBytes/RDP ou changement de boot/sécurité.
 
-Première mauvaise affectation versionnée trouvée : **28 septembre, commit 74517bef**, avant sa reprise dans M015-K. La CAO du **2 novembre, 1d2aa668**, matérialise l’erreur dans le cuivre ; V1.9 conserve les nets en recalant les coordonnées, V2.3 conserve l’électrique en changeant la sérigraphie. Les contrôles ultérieurs vérifiaient une parité interne issue de cette même source erronée. Le décalage +2 est certain ; l’omission initiale des deux NC reste une hypothèse. Les acquisitions à fils réussies ne prouvent pas les numéros globaux réellement câblés. Aucun auteur intellectuel déduit d’un compte Git.
+Sauvegardes intégrales privées et vérifiées : `/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/001-before-flash-2MiB.bin` et `001-click-readback-2MiB.bin`. Original CN0 et acquis de la mission du 17/11 restent conservés séparément. Aucune restauration superflue d'un firmware accédant à des modules désormais absents.
 
-La RCA distingue les demandes de vérification des contrats/décisions des 2, 3 et 5 novembre, les contrôles géométriques Click v101, le schéma v102 cité, les parités internes et la qualification électrique indépendante manquante. Les messages non versionnés ne sont pas inventés.
+## Validations et incidents
 
-**Aucune autre erreur d’affectation de pad trouvée dans les interfaces contrôlées**, avec réserves explicites : ancien libellé «Click PWM/DE» faux mais routage CS/3 correct ; TX MCU→13/TXD11 entrée, RX MCU←14/RXD8 sortie ; /RE via J3, pont J2 déclaré, J5/VCCSEL/J7/J8/TERM/BIAS réels non établis. Terminaison 330/165/110 Ω selon straps, pas 120 Ω supposés. GND2 reste isolé du shield. FRAM VIN/sortie LDO et rappels HOLD/WP/CS vérifiés ; SD SPI/NC vérifiés. Révisions/peuplement réels, contacts, tension VDDIO2 des GPIOG et marges/courant du 3V3 restent non qualifiés.
+- Test hôte nouveau `click_policy` **1/1 PASS**, cross-build ARM001 **PASS**, sans refaire les validations anciennes ni la campagne complète du cœur inchangé. Sources C partagées non modifiées ; choix proportionné au seul nouveau banc. Sorties CMake/ctest/build et commandes exactes publiées. Avertissements nosys `_read/_write/_lseek` conservés ; aucune fonction filesystem utilisée. Aucun symbole HAL_SPI/HAL_SD/FRAM/f_mount/f_write trouvé dans l'ELF lié.
+- Script PowerShell : syntaxe/oracles CRC hors bus PASS ; exécution `.ps1` ensuite refusée avant ouverture COM. Refus conservé, aucun Bypass/déblocage/changement de politique ni chargement détourné du script. Anciens clients métier inspectés mais non lancés.
+- Client natif C# compilé par le csc .NET Framework déjà installé, selftest sans ouverture COM : PASS (CRC, vecteurs connus, UID, nonce, rejet d’écho). Application non signée acceptée par Windows ; SAC=1 et zéro 3033/3077 corrélé dans les fenêtres effectivement relues. Politiques PowerShell inchangées. Ce résultat ne qualifie aucun canal durable de signature.
+- Erreur d'observation GDB : membre `tr2_irq_observer.init` inexistant, corrigé vers le vrai `after_uart_enable`. Journaux conservés ; nouvelle lecture seule sans rejeu de flash/reset/trafic. Incident d’encodage d'inventaire Windows et outils PDF absents également tracés dans [INCIDENTS_OUTILS.md](preuves/TR2-20261118-SHIELD-RS485-CLICK-PHYSICAL/INCIDENTS_OUTILS.md).
 
-## Réemploi et suite
+## Timing et limites
 
-Conserver Nucleo, breakouts enfichés et médias. Une dépose de tous les connecteurs représenterait 164 contacts soudés par shield, avec risque pour pads et plastiques ; récupération non garantie. Quantités BOM et montage réellement constaté restent distingués, J5 potentiellement absent. La commande TME historique de 17,60 € TTC est rapportée comme telle, **sans réemploi de ce chiffre comme prix actuel ou valeur récupérable**. Stocks restants, prix de remplacement et délais non vérifiés : INCONNUS.
+DWT à 160 MHz nominaux : dernier RX → DE haut **1,782–1,799 ms**, DE haut **2,495 ms** pour 26 octets RAW et **0,675 ms** pour 7 octets Modbus, cohérents avec 115200/8E1 et T3.5 = 1750 µs du transport. Le wrapper enregistre l'écriture DE et lit IDR/ODR au MCU ; les deux écritures de boot antérieures à l'initialisation DWT sont exclues de ces calculs. Temps USB/QPC hôte incluent l’ordonnancement et les latences et ne sont pas une mesure directe de la réponse sur paire A/B.
 
-Première option à instruire après revue : reprise locale, deux liaisons à isoler et quatre à ajouter par PCB, sous réserve d’accessibilité et de maintien fiables. Aucun lieu de coupe qualifié : **ce n’est pas un mode opératoire**. Interposeur en repli avec impact de hauteur/contacts sur V2.7, puis nouveau PCB si reprise trop risquée, en réutilisant modules et stock compatible. Aucun choix, achat, dessoudage ou correctif physique exécuté. Aucune variante CAO n’était nécessaire pour établir ces preuves ; CAM historique inchangé.
+**Preuve fonctionnelle bornée du chemin PG4 → J5 → Click**, par continuité froide, mesure de DE bas, transitions MCU et vraies réponses distinctes. Pas de capture oscilloscope au Click, de certification SI/isolement galvanique, de marge électrique/EMC/endurance/longueur de câble ou de qualification du second shield. Pas de tests FRAM/SD/capteur rejoués. SPI3 J8 reste FAIL, ancienne mission globale BLOCKED et E-01 NO-GO préservés.
 
-**Aucune opération MCU, flash/debug/reset, SPI, COM, Modbus ou accès FRAM/SD dans E-01. Garder les deux shields hors tension.** Masse 002 encore à reprendre/contrôler ; FRAM 001 non qualifiée à 1 MHz et PASS 250 kHz borné distincts de SPI3. Acquis SD/FRAM préservés dans le rapport précédent. V2.3, V2.7, banc isolé et firmware inchangés contre 6b208d29 ; seuls errata documentaires ajoutés au vieux guide et à la matrice. Journal actualisé ; règles et mission inchangées.
+## État final et publication
 
-À transmettre à ChatGPT : contre-lire les sources et les 180 chemins, décider la stratégie corrective, puis préparer les contrôles hors tension et seulement ensuite les qualifications conditionnelles. Ne pas rejouer les acquis inchangés. **La tranche d’audit est livrée ; l’alimentation et la libération restent NO-GO.**
+STM32 TR2-001 laissé avec ce seul banc RX : **stage1 / mode1 / error0 / crédits0 / commande0 / arm0**, DE bas, TX inactif/non fautif, timer IDLE, GDB détaché. COM4 fermé, client et GDB server terminés. Aucun bouton ou geste physique supplémentaire requis. Les trois autres supports restent dépeuplés ; aucun module à réinsérer avant mission corrective.
 
-## Git et publication
+Départ réel main 5045bc78 ; worktree isolé `MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL`, branche `codex/shield-rs485-click-physical`, publication prévue vers main par push normal. Commits locaux logiciels 811a3eda et 73c3d252 ; racine historique 82169af7, autres worktrees et deux stashes 6251b988/f3b829e6 préservés. Pas de merge/rebase/reset/clean/forcepush. Rapport E-01 précédent [archivé byteexact](archives/TR2-20261117-SHIELD-DUAL-BRINGUP/RAPPORT_E01_AVANT_RS485.md), mission humaine inchangée.
 
-Worktree isolé `MSM_vibe-SHIELD-E01-AUDIT`, branche `codex/shield-e01-audit`, reprise depuis `6b208d29591c4fc50af819e0bfe72d5c92d1f20f`. Racine historique 82169af7, ancien worktree et deux stashes préservés ; aucun reset/clean/merge/rebase/force push. Commit/push exercés ; flash/debug autorisés mais inutilisés pour cet avenant.
-
-Checkpoint `d485fe44ca98cee72bba55e27caa45a9cc9f89e4` publié et relu intégralement : 20 blobs comparés depuis GitHub. Le présent complément reçoit son SHA après commit/push normal sur `HEAD:refs/heads/main` et relecture intégrale ; SHA final et état Git communiqués dans la réponse finale. BLOCKED porte sur la correction/revue matérielle, pas sur une attente de publication. Aucune qualification indépendante revendiquée.
+Journal `ETAT_COURANT_TR2.md` actualisé avec résultats bornés, configuration, état final et limites. **À transmettre à ChatGPT : contre-lecture indépendante des preuves RX/TX/Modbus ; aucune levée du NO-GO global ou décision PCB déduite.** La référence distante et la preuve de relecture seront consignées après publication avant passage DONE.

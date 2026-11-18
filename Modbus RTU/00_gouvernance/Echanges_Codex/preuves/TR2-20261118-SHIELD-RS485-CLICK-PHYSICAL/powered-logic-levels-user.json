@@ -1,0 +1,8 @@
+{
+  "recorded_at_utc": "2026-11-18T20:12:11.782257+00:00",
+  "source": "User multimeter observations, no remote calibration",
+  "Click_J9_13_TX_to_TP2_V": 3.3,
+  "Click_J9_3_DE_to_TP2_V": 0,
+  "MCU_configuration": "GPIOG7 AF8 idle high; GPIOG4 output low; IOSV enabled; GPIOG8 input observed high. These are not a direct VDDIO2 rail/ripple measurement.",
+  "other_breakouts_absent": true
+}

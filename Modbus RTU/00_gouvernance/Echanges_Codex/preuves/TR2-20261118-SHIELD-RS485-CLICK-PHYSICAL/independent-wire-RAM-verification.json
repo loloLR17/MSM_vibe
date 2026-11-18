@@ -1,0 +1,172 @@
+{
+  "verdict": "PASS_RX_TX_MODBUS_PHYSICAL_BOUNDED",
+  "phases": {
+    "RX": {
+      "verdict": "PASS_PHYSICAL_BOUNDED",
+      "requests": 1,
+      "RX_host_equals_RAM": true,
+      "state": {
+        "version": 1,
+        "stage": 1,
+        "mode": 1,
+        "error": 0,
+        "uid0": 4849725,
+        "uid1": 943869976,
+        "uid2": 540225879,
+        "core_hz": 160000000,
+        "credits": 0,
+        "rx_count": 14,
+        "trace_count": 16,
+        "de_count": 2,
+        "frames": 1,
+        "tx_count": 0
+      }
+    },
+    "RAW": {
+      "verdict": "PASS_PHYSICAL_BOUNDED",
+      "requests": 8,
+      "RX_host_equals_RAM": true,
+      "state": {
+        "version": 1,
+        "stage": 1,
+        "mode": 2,
+        "error": 0,
+        "uid0": 4849725,
+        "uid1": 943869976,
+        "uid2": 540225879,
+        "core_hz": 160000000,
+        "credits": 8,
+        "rx_count": 126,
+        "trace_count": 144,
+        "de_count": 18,
+        "frames": 9,
+        "tx_count": 8
+      }
+    },
+    "MODBUS": {
+      "verdict": "PASS_PHYSICAL_BOUNDED",
+      "requests": 8,
+      "RX_host_equals_RAM": true,
+      "state": {
+        "version": 1,
+        "stage": 1,
+        "mode": 3,
+        "error": 0,
+        "uid0": 4849725,
+        "uid1": 943869976,
+        "uid2": 540225879,
+        "core_hz": 160000000,
+        "credits": 8,
+        "rx_count": 190,
+        "trace_count": 224,
+        "de_count": 34,
+        "frames": 9,
+        "tx_count": 16
+      }
+    }
+  },
+  "DE_pairs_IDR_ODR_consistent": 16,
+  "timings_nominal_MCU_clock": [
+    {
+      "phase": "RAW",
+      "sequence": 0,
+      "RX_last_to_DE_high_nominal_us": 1798.9,
+      "DE_high_nominal_us": 2495.41875
+    },
+    {
+      "phase": "RAW",
+      "sequence": 1,
+      "RX_last_to_DE_high_nominal_us": 1799.24375,
+      "DE_high_nominal_us": 2495.15625
+    },
+    {
+      "phase": "RAW",
+      "sequence": 2,
+      "RX_last_to_DE_high_nominal_us": 1799.2,
+      "DE_high_nominal_us": 2494.875
+    },
+    {
+      "phase": "RAW",
+      "sequence": 3,
+      "RX_last_to_DE_high_nominal_us": 1799.26875,
+      "DE_high_nominal_us": 2494.9875
+    },
+    {
+      "phase": "RAW",
+      "sequence": 4,
+      "RX_last_to_DE_high_nominal_us": 1798.23125,
+      "DE_high_nominal_us": 2495.075
+    },
+    {
+      "phase": "RAW",
+      "sequence": 5,
+      "RX_last_to_DE_high_nominal_us": 1799.20625,
+      "DE_high_nominal_us": 2495.30625
+    },
+    {
+      "phase": "RAW",
+      "sequence": 6,
+      "RX_last_to_DE_high_nominal_us": 1799.175,
+      "DE_high_nominal_us": 2495.48125
+    },
+    {
+      "phase": "RAW",
+      "sequence": 7,
+      "RX_last_to_DE_high_nominal_us": 1798.24375,
+      "DE_high_nominal_us": 2495.21875
+    },
+    {
+      "phase": "MODBUS",
+      "sequence": 0,
+      "RX_last_to_DE_high_nominal_us": 1782.18125,
+      "DE_high_nominal_us": 675.03125
+    },
+    {
+      "phase": "MODBUS",
+      "sequence": 1,
+      "RX_last_to_DE_high_nominal_us": 1782.24375,
+      "DE_high_nominal_us": 674.98125
+    },
+    {
+      "phase": "MODBUS",
+      "sequence": 2,
+      "RX_last_to_DE_high_nominal_us": 1783.9125,
+      "DE_high_nominal_us": 675.06875
+    },
+    {
+      "phase": "MODBUS",
+      "sequence": 3,
+      "RX_last_to_DE_high_nominal_us": 1783.93125,
+      "DE_high_nominal_us": 675.00625
+    },
+    {
+      "phase": "MODBUS",
+      "sequence": 4,
+      "RX_last_to_DE_high_nominal_us": 1782.2625,
+      "DE_high_nominal_us": 675.0625
+    },
+    {
+      "phase": "MODBUS",
+      "sequence": 5,
+      "RX_last_to_DE_high_nominal_us": 1782.25,
+      "DE_high_nominal_us": 674.99375
+    },
+    {
+      "phase": "MODBUS",
+      "sequence": 6,
+      "RX_last_to_DE_high_nominal_us": 1783.9,
+      "DE_high_nominal_us": 674.94375
+    },
+    {
+      "phase": "MODBUS",
+      "sequence": 7,
+      "RX_last_to_DE_high_nominal_us": 1782.25,
+      "DE_high_nominal_us": 674.875
+    }
+  ],
+  "limitations": [
+    "MCU DWT instrumentation, not an oscilloscope at Click",
+    "No calibrated SI timing, rail ripple or HV isolation certification",
+    "B1 UNKNOWN0 is diagnostic, no sensor/media or full shield qualification"
+  ]
+}

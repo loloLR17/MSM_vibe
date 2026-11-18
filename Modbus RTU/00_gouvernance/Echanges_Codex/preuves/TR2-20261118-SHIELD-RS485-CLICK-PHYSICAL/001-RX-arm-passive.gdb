@@ -1,0 +1,18 @@
+set pagination off
+set confirm off
+set print elements 24
+set remotetimeout 10
+target extended-remote localhost:23341
+x/3wx 0x0BFA0700
+if *(unsigned int *)0xBFA0700 != 0x004A003D || *(unsigned int *)0xBFA0704 != 0x38425018 || *(unsigned int *)0xBFA0708 != 0x20333157
+ disconnect
+ quit 3
+end
+if click_probe.stage != 1 || click_probe.mode != 0 || click_probe.error || click_probe.rx_count || click_probe.tx_count || g_serial.tx_busy || (GPIOG->ODR & 16)
+ disconnect
+ quit 7
+end
+set var click_command=1
+
+detach
+quit

@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-18T20:00:54.493381+00:00",
+  "exit_code": 0,
+  "stdout": "{\n    \"parse_errors\":  0,\n    \"request\":  \"01 03 03 E8 00 01 04 7A\",\n    \"response\":  \"01 03 02 00 00 B8 44\",\n    \"serial_port_opened\":  false,\n    \"method\":  \"AST parse and only function definitions evaluated, no top-level script execution\"\n}\n",
+  "stderr": ""
+}

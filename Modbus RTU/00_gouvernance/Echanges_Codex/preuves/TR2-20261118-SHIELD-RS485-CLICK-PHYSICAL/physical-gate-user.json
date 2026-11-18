@@ -1,0 +1,39 @@
+{
+  "recorded_at_utc": "2026-11-18T20:04:17.781028+00:00",
+  "source": "User observations and confirmations in this session; meter not remotely calibrated",
+  "cold_gate": {
+    "STLINK_USB_RS485_CN15_disconnected_during_checks": true,
+    "other_TR2_unpowered": true,
+    "only_Click_fitted_FRAM_SD_MKIGIBV2_removed": true,
+    "visual_no_bridge_contact_strain": true,
+    "TP1_TP2_DC_V": 0,
+    "TP1_TP2_stabilized_ohm": 5180,
+    "J2_11_TP2_ohm": 0.2,
+    "CN12_69_Click_CS_DE_ohm": 0.3,
+    "lead_resistance_not_reported_this_gate": true,
+    "J5_female_fitted": true
+  },
+  "powered_gate": {
+    "STLINK_only_target_power": true,
+    "CN15_disconnected": true,
+    "TP1_TP2_DC_V": 3.3
+  },
+  "Click_configuration_user_confirmed_same_previously_used": {
+    "J2_DE_nRE_bridge": true,
+    "J7_A_Y_and_J8_B_Z_half_duplex": true,
+    "VCCSEL_3V3": true,
+    "adapter_black_GND_at_isolated_bus_terminal": true,
+    "no_added_GND2_to_Nucleo_ground": true,
+    "HW_REV_freshly_unreadable": true
+  },
+  "adapter_wiring": {
+    "white_Data_plus": "A",
+    "green_Data_minus": "B",
+    "black_GND": "bus_GND2"
+  },
+  "limits": [
+    "No new HV isolation or mechanical/endurance qualification",
+    "VDDIO2 physical rail not measured independently yet",
+    "TERM/BIAS physical positions not freshly recorded; no silent strap changes authorized"
+  ]
+}

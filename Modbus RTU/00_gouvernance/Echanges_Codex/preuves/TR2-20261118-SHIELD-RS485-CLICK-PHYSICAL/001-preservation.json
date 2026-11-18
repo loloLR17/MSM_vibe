@@ -1,0 +1,13 @@
+{
+  "bytes": 2097152,
+  "sha256": "374d5153992585ef2cbf57dccdac83a8b8dcdd0775af7ed908713fd0e6fc7547",
+  "known_FRAM250k_prefix_exact": true,
+  "known_image_sha256": "019569f9d58d09189f12b167be7e71b87ee4fcbbc5f95e3f354fee1ffd0795fd",
+  "UID": [
+    "004A003D",
+    "38425018",
+    "20333157"
+  ],
+  "STLINK_SN": "003500463235510B37333439",
+  "no_flash_reset_SPI_COM_command_in_this_read": true
+}

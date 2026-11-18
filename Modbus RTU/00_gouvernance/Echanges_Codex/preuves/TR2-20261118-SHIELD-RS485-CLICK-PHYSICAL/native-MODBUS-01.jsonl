@@ -1,0 +1,19 @@
+{"kind":"opened","utc":"2026-11-18T20:24:05.3132611Z","mode":"MODBUS","port":"COM4","adapter":"FTDIBUS\\VID_0403+PID_6001+BG04KSSWA\\0000","baud":115200,"format":"8E1","exclusive":true}
+{"kind":"request","utc":"2026-11-18T20:24:05.3705981Z","sequence":0,"request_hex":"01 03 03 E8 00 01 04 7A"}
+{"kind":"response","utc":"2026-11-18T20:24:05.8724886Z","sequence":0,"request_hex":"01 03 03 E8 00 01 04 7A","response_hex":"01 03 02 00 00 B8 44","first_rx_ticks":226950,"qpc_hz":10000000,"elapsed_ticks":5015673,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"request","utc":"2026-11-18T20:24:05.9863542Z","sequence":1,"request_hex":"01 03 03 E8 00 01 04 7A"}
+{"kind":"response","utc":"2026-11-18T20:24:06.4980846Z","sequence":1,"request_hex":"01 03 03 E8 00 01 04 7A","response_hex":"01 03 02 00 00 B8 44","first_rx_ticks":315112,"qpc_hz":10000000,"elapsed_ticks":5115487,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"request","utc":"2026-11-18T20:24:06.6102927Z","sequence":2,"request_hex":"01 03 03 E8 00 01 04 7A"}
+{"kind":"response","utc":"2026-11-18T20:24:07.1202408Z","sequence":2,"request_hex":"01 03 03 E8 00 01 04 7A","response_hex":"01 03 02 00 00 B8 44","first_rx_ticks":315210,"qpc_hz":10000000,"elapsed_ticks":5097894,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"request","utc":"2026-11-18T20:24:07.2318650Z","sequence":3,"request_hex":"01 03 03 E8 00 01 04 7A"}
+{"kind":"response","utc":"2026-11-18T20:24:07.7445882Z","sequence":3,"request_hex":"01 03 03 E8 00 01 04 7A","response_hex":"01 03 02 00 00 B8 44","first_rx_ticks":321533,"qpc_hz":10000000,"elapsed_ticks":5125631,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"request","utc":"2026-11-18T20:24:07.8565177Z","sequence":4,"request_hex":"01 03 03 E8 00 01 04 7A"}
+{"kind":"response","utc":"2026-11-18T20:24:08.3682769Z","sequence":4,"request_hex":"01 03 03 E8 00 01 04 7A","response_hex":"01 03 02 00 00 B8 44","first_rx_ticks":317634,"qpc_hz":10000000,"elapsed_ticks":5114893,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"request","utc":"2026-11-18T20:24:08.4705059Z","sequence":5,"request_hex":"01 03 03 E8 00 01 04 7A"}
+{"kind":"response","utc":"2026-11-18T20:24:08.9742371Z","sequence":5,"request_hex":"01 03 03 E8 00 01 04 7A","response_hex":"01 03 02 00 00 B8 44","first_rx_ticks":248387,"qpc_hz":10000000,"elapsed_ticks":5036042,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"request","utc":"2026-11-18T20:24:09.0889461Z","sequence":6,"request_hex":"01 03 03 E8 00 01 04 7A"}
+{"kind":"response","utc":"2026-11-18T20:24:09.6002268Z","sequence":6,"request_hex":"01 03 03 E8 00 01 04 7A","response_hex":"01 03 02 00 00 B8 44","first_rx_ticks":318533,"qpc_hz":10000000,"elapsed_ticks":5110576,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"request","utc":"2026-11-18T20:24:09.7120637Z","sequence":7,"request_hex":"01 03 03 E8 00 01 04 7A"}
+{"kind":"response","utc":"2026-11-18T20:24:10.2237218Z","sequence":7,"request_hex":"01 03 03 E8 00 01 04 7A","response_hex":"01 03 02 00 00 B8 44","first_rx_ticks":317452,"qpc_hz":10000000,"elapsed_ticks":5113965,"host_match":true,"target_RAM_comparison_required":true}
+{"kind":"summary","host_passed":true,"target_proof_required":true,"requests":8}
+{"kind":"closed","utc":"2026-11-18T20:24:10.4642021Z"}

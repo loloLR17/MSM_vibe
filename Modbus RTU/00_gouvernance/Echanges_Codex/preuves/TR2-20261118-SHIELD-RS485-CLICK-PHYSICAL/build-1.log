@@ -1,0 +1,5 @@
+[ 25%] Building C object CMakeFiles/click_policy_test.dir/tests/policy_test.c.o
+[ 50%] Building C object CMakeFiles/click_policy_test.dir/src/policy.c.o
+[ 75%] Building C object CMakeFiles/click_policy_test.dir/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL/Modbus_RTU/05_Firmware/src/modbus/codec.c.o
+[100%] Linking C executable click_policy_test
+[100%] Built target click_policy_test

@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS_PHYSICAL_RX_TX_BOUNDED",
+  "host_replies": 8,
+  "RAM_RX_matches_all_host_requests": true,
+  "UID_and_nonce_sequences_match": true,
+  "adapter_echo_excluded": true,
+  "DE_MCU_high_low_pairs": 8,
+  "DE_IDR_ODR_follow_writes": true,
+  "nominal_DE_high_microseconds": [
+    2495.41875,
+    2495.15625,
+    2494.875,
+    2494.9875,
+    2495.075,
+    2495.30625,
+    2495.48125,
+    2495.21875
+  ],
+  "DE_low_after_TX": true,
+  "target_RX_bytes": 126,
+  "UART_errors_events": 0,
+  "limitations": [
+    "DWT timestamps are nominal-clock debugger observations, not calibrated oscilloscope evidence at Click",
+    "Continuity plus user logic-level observations and real distinct bus replies support functional DE path only"
+  ]
+}

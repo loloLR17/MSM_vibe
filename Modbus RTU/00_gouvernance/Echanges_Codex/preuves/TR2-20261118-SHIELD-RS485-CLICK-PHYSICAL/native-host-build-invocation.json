@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-18T20:18:21.672440+00:00",
+  "command": [
+    "/mnt/c/Windows/Microsoft.NET/Framework64/v4.0.30319/csc.exe",
+    "/nologo",
+    "/optimize+",
+    "/debug-",
+    "/r:System.Web.Extensions.dll",
+    "/r:System.Management.dll",
+    "/out:C:\\Users\\lolo\\AppData\\Local\\Temp\\TR2-CLICK-20261118\\ClickHost.exe",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL\\experiments\\shield_rs485_click\\tools\\ClickHost.cs"
+  ],
+  "exit": 0,
+  "no_security_policy_change": true
+}

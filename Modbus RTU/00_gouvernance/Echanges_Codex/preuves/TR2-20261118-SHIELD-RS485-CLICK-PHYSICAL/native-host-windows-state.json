@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-18T20:18:55.335563+00:00",
+  "command": "[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false);[ordered]@{ExecutionPolicies=@(Get-ExecutionPolicy -List | Select-Object Scope,ExecutionPolicy);SmartAppControl=(Get-ItemProperty 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\CI\\Policy' -ErrorAction SilentlyContinue).VerifiedAndReputablePolicyState;Signature=(Get-AuthenticodeSignature 'C:\\Users\\lolo\\AppData\\Local\\Temp\\TR2-CLICK-20261118\\ClickHost.exe').Status;CorrelatedCI=@(Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-CodeIntegrity/Operational';StartTime=(Get-Date).AddMinutes(-10);Id=3033,3077} -ErrorAction SilentlyContinue | Where-Object { $_.Message -match 'ClickHost.exe|TR2-CLICK-20261118' } | Select-Object TimeCreated,Id,Message)} | ConvertTo-Json -Depth 5",
+  "exit": 0,
+  "stdout": "{\n    \"ExecutionPolicies\":  [\n                              {\n                                  \"Scope\":  4,\n                                  \"ExecutionPolicy\":  5\n                              },\n                              {\n                                  \"Scope\":  3,\n                                  \"ExecutionPolicy\":  5\n                              },\n                              {\n                                  \"Scope\":  0,\n                                  \"ExecutionPolicy\":  5\n                              },\n                              {\n                                  \"Scope\":  1,\n                                  \"ExecutionPolicy\":  5\n                              },\n                              {\n                                  \"Scope\":  2,\n                                  \"ExecutionPolicy\":  5\n                              }\n                          ],\n    \"SmartAppControl\":  1,\n    \"Signature\":  2,\n    \"CorrelatedCI\":  [\n\n                     ]\n}\n",
+  "stderr": "",
+  "exe_sha256": "b9282ce70fdb8aa53a8e4e1685b93b61566835fe61bfb21ae553132196ea63c7",
+  "source_sha256": "80eb9251594e2c2513ca97f16ca8b6287ea7d30f3e3f3fb16cfbc521b42a0003",
+  "no_security_policy_modification": true
+}

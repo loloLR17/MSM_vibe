@@ -1,0 +1,26 @@
+{
+  "server": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+    "-d",
+    "-g",
+    "-i",
+    "003500463235510B37333439",
+    "--frequency",
+    "8000",
+    "-p",
+    "23341",
+    "-cp",
+    "C:\\ST\\STM32CubeCLT_1.22.0\\STM32CubeProgrammer\\bin"
+  ],
+  "gdb": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "-nx",
+    "-q",
+    "-batch",
+    "-x",
+    "//wsl.localhost/Debian/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/001-RX-01-target.gdb",
+    "//wsl.localhost/Debian/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/arm001/click_bench.elf"
+  ],
+  "exit": 0,
+  "utc": "2026-11-18T20:20:00.964853+00:00"
+}

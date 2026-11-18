@@ -1,0 +1,8 @@
+{
+  "code_sha": "811a3eda214ffb9c6c3dfbacd2af2884d87143c4",
+  "image_byte_exact": true,
+  "full_flash_sha256": "21b324f9dff4aee6317683a5450e955f37257dec95f0d07ae12e5fd6f5f53c18",
+  "erase_span_bytes": 40960,
+  "tail_after_erase_span_exact_to_preflash": true,
+  "software_reset_after_last_CLI": true
+}

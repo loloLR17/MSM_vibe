@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-18T20:00:25.944723+00:00",
+  "size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n  34360\t     20\t  33224\t  67604\t  10814\t/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/arm001/click_bench.elf\n",
+  "forbidden_linked_symbols": [],
+  "sha256": {
+    "arm001/click_bench.elf": "6932a60cfffed733755419491bfca888d3cf3892302276964de1c91375d52b12",
+    "arm001/click_bench.bin": "72e5ab65456a9743e3f0bcfd5d33d751b9daa05792a47be46197e277682f4563",
+    "arm001/click_bench.map": "f0b3e28eec746602ee0e12c9466a6e74570e7524fc545d4517e3aaefcc4c9e91"
+  }
+}

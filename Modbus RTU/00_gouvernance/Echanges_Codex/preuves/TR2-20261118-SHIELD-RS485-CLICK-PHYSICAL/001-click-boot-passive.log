@@ -1,0 +1,21 @@
+stm32_poll_event (context=0x20007520 <g_serial>, event=0x200bfe98) at /home/lolo/dev/msm/projects/MSM_vibe-SHIELD-RS485-CLICK-PHYSICAL/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:271
+271	    event->byte = 0u;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {version = 1, stage = 1, mode = 0, error = 0, uid = {4849725, 943869976, 540225879}, core_hz = 160000000, credits = 0, rx_count = 0, trace_count = 0, de_count = 2, frames = 0, tx_count = 0, rx = '\000' <repeats 1023 times>, trace = {{cycles = 0, type = 0, value = 0} <repeats 2048 times>}, de = {{cycles = 693842995, state = 0, idr = 0, odr = 0}, {cycles = 1904, state = 0, idr = 0, odr = 0}, {cycles = 0, state = 0, idr = 0, odr = 0} <repeats 126 times>}}
+$2 = 0
+$3 = 0
+$4 = 0xfffebdff
+$5 = 0x0
+$6 = 0x180
+$7 = {0x80000000, 0x8}
+$8 = 0x20000000
+$9 = 0x38002
+$10 = 0x2
+$11 = false
+$12 = false
+$13 = 0
+$14 = 0x8ae4
+$15 = 0x152d
+$16 = 0x6000d0
+//wsl.localhost/Debian/home/lolo/dev/msm/reports/TR2-shield-rs485-click-20261118/001-click-boot-passive.gdb:27: Error in sourced command file:
+There is no member named init.
