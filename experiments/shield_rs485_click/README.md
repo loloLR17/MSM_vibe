@@ -71,6 +71,24 @@ pour interpréter son rôle. Aucune certification d’isolement galvanique/haute
 
 ## Hôte T1000
 
+La tentative `-File host_probe.ps1` du18/11 a été refusée par la politique
+d'exécution PowerShell avant ouvertureCOM. Ne pas la relancer par `Bypass`,
+`Unblock-File`, chargement intégral en ligne de commande ou changement de politique.
+Les anciens maîtres métier ne conviennent pas à ce banc (lectures B0/commandes).
+
+Le client natif `tools/ClickHost.cs` est construit par le compilateur .NET Framework
+Windows existant (`Framework64/v4.0.30319/csc.exe`, références
+`System.Web.Extensions.dll` et `System.Management.dll`). Il reste soumis aux
+contrôles Windows ordinaires. Son mode `selftest` n'ouvre aucunCOM ; vérifier son
+acceptation effective, l'état des protections et l'absence de refus corrélé avant
+tout échange. Aucun moyen de signature n'est inventé ni aucune politique modifiée.
+Ce client expérimental attend explicitement l'UID001 ; ne pas l'utiliser pour002.
+Syntaxe : `ClickHost.exe RX|RAW|MODBUS COM4 NONCE N PHYSICAL-GATE-CONFIRMED`,
+avec N=1 enRX et1..8 autrement. LeCOM doit être redécouvert ; le client exige
+l'identifiantFTDI BG04KSSWA, pas seulement le nomCOM4. Conserver stdout JSONL
+dans un fichier neuf et relever le vrai code de sortie. Armement cible préalable,
+comparaisonRAM indépendante et préflight restent indispensables.
+
 `tools/host_probe.ps1` n’ouvre aucun port sans `-PhysicalGateConfirmed`. Redécouvrir
 COM et propriétaire avant usage, un seul maître ; adaptateurFTDI BG04KSSW vérifié,
 COM ST-LINK exclu. Ce garde n’est pas une autorisation utilisateur inventée.
