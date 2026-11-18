@@ -1,0 +1,13 @@
+reperes,MPN_exact,besoin_sans_recuperation,quantite_conditionnement_si_achat,MOQ,multiple,stock_affiche_non_reserve,prix_unitaire_affiche,devise,url,reserve
+J1..J4,DS1021-2*40SF11,3 barres 2x40,3,2,1,48700,0.60,USD_HT,https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/,Référence historique; découper 2 jeux de colonnes10/8/15/17. Pas de changement de hauteur.
+J8,DS1023-1*12S21,4,10,10,10,8520,0.14,USD_HT,https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/,Deux rangées par shield; stock restant inconnu.
+J9,DS1023-1*8S21,4,10,10,10,33350,0.11,USD_HT,https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/,Deux rangées par Click; modules Click réutilisés.
+J5,SSW-103-01-F-D,2,2,1,1,,,,https://www.digikey.fr/fr/products/detail/samtec-inc/SSW-103-01-F-D/6678753,Exact Samtec conservé. Stock/prix actuels non confirmés:403; ne pas substituer Connfly2x3 sans profondeur utile documentée.
+J6/J7 nominal,2212S-09G-85,4,4,,,,,,,"Référence active Neltron1x9,H8.5. Offre française/délai non vérifiés; ne pas inventer un panier disponible."
+J6/J7 alternative,M20-7820946,4,4,1,1,,,,https://www.digikey.fr/fr/products/detail/harwin-inc/M20-7820946/3728253,"Alternative nominale V1.8 à recontrôler; pas2.54/H8.5, non recoupable; stock non relu, accès403."
+J6/J7 achat historique,DS1023-1*10S21,4,10,10,10,45440,0.13,USD_HT,https://www.tme.eu/en/details/zl262-10sg/pin-headers/connfly/ds1023-1-10s21/,Dixième contact horsPCB: NE PAS monter comme1x9 sans neutralisation et confirmation des enveloppes M01; pas encore adopté.
+R1..R4,MRS16000C1002FCT00,8,10,1,1,978,0.16,USD_HT,https://www.tme.eu/en/details/mrs16000c1002fct00/tht-resistors/vishay/,10k1%; huit utiles; prix au palier10.
+C1 nominal,C315C104K5R5TA,2,2,,,,,,https://www.digikey.fr/fr/products/detail/kemet/C315C104K5R5TA/12701330,"100nF X7R50V pas2.54, référence active conservée; offre actuelle non relue."
+C1 achat historique,SR205C104KAR,2,2,1,1,2952,0.65,USD_HT,https://www.tme.eu/en/details/sr205c104kar/mlcc-tht-capacitors/kyocera-avx/,"100nF, variante conditionnelle V2.2: dépassements Fab/courtyard connus; pas adoptée sans contrôle M01; mention fournisseur disponibilité limitée."
+C2 nominal,ECA1HM100,2,2,,,,,,https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/ECA1HM100,"10uF50V Ø5H11/pas2, polarité1+2−; valeur nominale du PCB10u_10V inchangée."
+C2 achat historique,EEUFR1H100,2,2,1,1,27546,0.31,USD_HT,https://www.tme.eu/en/details/eeufr1h100/tht-electrolytic-capacitors/panasonic/,"10uF50V Ø5H11/pas2; alternative conditionnelle précédente, pas de changement silencieux de MPN."

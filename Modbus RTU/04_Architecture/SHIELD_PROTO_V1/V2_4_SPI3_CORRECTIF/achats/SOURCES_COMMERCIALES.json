@@ -1,0 +1,143 @@
+{
+  "consulted_at_utc": "2026-11-18T21:08:46.114035+00:00",
+  "method": "Public distributor pages through Web tool; cache age varies from today to months; not a live reserved order",
+  "deadline": "2026-11-21, receipt strictly before Saturday => Friday20/11 latest",
+  "stock_at_user_unknown": true,
+  "historical_order_not_reinterpreted_as_current_stock": true,
+  "TME": {
+    "currency": "USD net on international product pages; not French TTC quote",
+    "observations": [
+      {
+        "refs": "J1..J4",
+        "mpn": "DS1021-2*40SF11",
+        "need": "3 barres 2x40",
+        "lot": "3",
+        "MOQ": "2",
+        "multiple": "1",
+        "displayed_stock": "48700",
+        "unit_price": "0.60",
+        "currency": "USD_HT",
+        "url": "https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/",
+        "limitation": "Référence historique; découper 2 jeux de colonnes10/8/15/17. Pas de changement de hauteur."
+      },
+      {
+        "refs": "J8",
+        "mpn": "DS1023-1*12S21",
+        "need": "4",
+        "lot": "10",
+        "MOQ": "10",
+        "multiple": "10",
+        "displayed_stock": "8520",
+        "unit_price": "0.14",
+        "currency": "USD_HT",
+        "url": "https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/",
+        "limitation": "Deux rangées par shield; stock restant inconnu."
+      },
+      {
+        "refs": "J9",
+        "mpn": "DS1023-1*8S21",
+        "need": "4",
+        "lot": "10",
+        "MOQ": "10",
+        "multiple": "10",
+        "displayed_stock": "33350",
+        "unit_price": "0.11",
+        "currency": "USD_HT",
+        "url": "https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/",
+        "limitation": "Deux rangées par Click; modules Click réutilisés."
+      },
+      {
+        "refs": "J6/J7 achat historique",
+        "mpn": "DS1023-1*10S21",
+        "need": "4",
+        "lot": "10",
+        "MOQ": "10",
+        "multiple": "10",
+        "displayed_stock": "45440",
+        "unit_price": "0.13",
+        "currency": "USD_HT",
+        "url": "https://www.tme.eu/en/details/zl262-10sg/pin-headers/connfly/ds1023-1-10s21/",
+        "limitation": "Dixième contact horsPCB: NE PAS monter comme1x9 sans neutralisation et confirmation des enveloppes M01; pas encore adopté."
+      },
+      {
+        "refs": "R1..R4",
+        "mpn": "MRS16000C1002FCT00",
+        "need": "8",
+        "lot": "10",
+        "MOQ": "1",
+        "multiple": "1",
+        "displayed_stock": "978",
+        "unit_price": "0.16",
+        "currency": "USD_HT",
+        "url": "https://www.tme.eu/en/details/mrs16000c1002fct00/tht-resistors/vishay/",
+        "limitation": "10k1%; huit utiles; prix au palier10."
+      },
+      {
+        "refs": "C1 achat historique",
+        "mpn": "SR205C104KAR",
+        "need": "2",
+        "lot": "2",
+        "MOQ": "1",
+        "multiple": "1",
+        "displayed_stock": "2952",
+        "unit_price": "0.65",
+        "currency": "USD_HT",
+        "url": "https://www.tme.eu/en/details/sr205c104kar/mlcc-tht-capacitors/kyocera-avx/",
+        "limitation": "100nF, variante conditionnelle V2.2: dépassements Fab/courtyard connus; pas adoptée sans contrôle M01; mention fournisseur disponibilité limitée."
+      },
+      {
+        "refs": "C2 achat historique",
+        "mpn": "EEUFR1H100",
+        "need": "2",
+        "lot": "2",
+        "MOQ": "1",
+        "multiple": "1",
+        "displayed_stock": "27546",
+        "unit_price": "0.31",
+        "currency": "USD_HT",
+        "url": "https://www.tme.eu/en/details/eeufr1h100/tht-electrolytic-capacitors/panasonic/",
+        "limitation": "10uF50V Ø5H11/pas2; alternative conditionnelle précédente, pas de changement silencieux de MPN."
+      }
+    ],
+    "France_shipping": {
+      "url": "https://www.tme.eu/fr/how-to-buy/7307/Moyens-et-couts-de-transport/",
+      "economy": {
+        "EUR_TTC": 7.08,
+        "business_days": [
+          2,
+          4
+        ]
+      },
+      "express_UPS_Saver_DHL_FedEx": {
+        "EUR_TTC": 19.08,
+        "business_days": [
+          1,
+          2
+        ],
+        "cutoff_CET": "14:00",
+        "conditions": "Payment, availability, actual order and destination; approximate time only"
+      }
+    }
+  },
+  "DigiKey": {
+    "urls": [
+      "https://www.digikey.fr/fr/products/detail/samtec-inc/SSW-103-01-F-D/6678753",
+      "https://www.digikey.fr/fr/products/detail/harwin-inc/M20-7820946/3728253",
+      "https://www.digikey.fr/fr/products/detail/kemet/C315C104K5R5TA/12701330"
+    ],
+    "fresh_stock_prices_verified": false,
+    "issue": "Partial cached pages then403; old BOM counts/prices not reused",
+    "France_public_page": {
+      "shipping_EUR_displayed": 25,
+      "free_from_EUR": 75,
+      "typical_business_days": 3,
+      "VAT_treatment_shipping_unconfirmed": true,
+      "source": "https://www.digikey.fr/fr/products/detail/harwin-inc/M20-7820946/3728253"
+    }
+  },
+  "Mouser": {
+    "url": "https://www.mouser.com/ProductDetail/Samtec/SSW-103-01-F-D?qs=FESYatJ8odJ8MU68fe585Q%3D%3D",
+    "issue": "Search cached quantity928; direct page cache old and stock section not verified, then redirect unavailable. Not proof of present availability or French delivery."
+  },
+  "no_order_payment_login_upload": true
+}
