@@ -10,8 +10,8 @@
       "sha256": "d2cb6a8b2c200b0775fd124b49caf23f4d8ba1c78487c8ed1ecc9d8a0e89820c"
     },
     "README.md": {
-      "bytes": 4957,
-      "sha256": "2e3e03aa0a199af2d92e7ae1c61f25a8b283a29ab4e26334296386f67345571a"
+      "bytes": 5170,
+      "sha256": "0bac4132f043027acc1a30ba68992e6a80fa36e40a6ce00a0ec92d6aeb619fea"
     },
     "preuves/fill-native.log": {
       "bytes": 149,
@@ -492,6 +492,10 @@
     "preuves/E01/reference-constructeurs.json": {
       "bytes": 64105,
       "sha256": "512e922ae7be7dc1b199d20b9b77a14df8089da5aa34c8ade58e219f825a9799"
+    },
+    "preuves/publication-first-readback.json": {
+      "bytes": 29514,
+      "sha256": "f4a3a35707e4172fc6feaaffd05298582356a9aca9f3b63b6f2eb5217bb89b3d"
     }
   }
 }

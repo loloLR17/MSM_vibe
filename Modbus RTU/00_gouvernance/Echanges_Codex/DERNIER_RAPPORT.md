@@ -1,10 +1,12 @@
 ---
 mission_id: TR2-20261118-SHIELD-V24-SPI3-GERBER-CORRECTIF
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: dcd3be60e147d610e171ff2ca37f099e35054dfe
 initial_head: fb7167548dc1f55eb8250d3d52c8c85dd5caa8c9
 result_sha: dc4ac0414db6795796a1649a9433d4f543d8a310
+verified_remote_sha: 2ad3852b4e87af7b24f98d871f59efcd69aa0969
+verified_at_utc: 2026-11-18T21:57:53.653079+00:00
 created_at_utc: 2026-11-18T21:51:12.377899+00:00
 author: Codex
 target_branch: main
@@ -16,7 +18,7 @@ allow_debug: false
 
 # Shield V2.4 — correctif SPI3 prêt pour revue indépendante
 
-**La correction et les contrôles numériques sont terminés. Les Gerber restent CANDIDATS NON LIBÉRÉS pour fabrication.** Le statut IN_PROGRESS concerne uniquement la publication complète et sa relecture distante. Aucun achat ni accès au matériel n'a été effectué.
+**La correction et les contrôles numériques sont terminés. Les Gerber restent CANDIDATS NON LIBÉRÉS pour fabrication.** Le statut DONE clôt cette mission de correction CAO, de préparation des achats et de publication vérifiée ; il ne libère ni fabrication ni assemblage physique. Aucun achat ni accès au matériel n'a été effectué.
 
 ## Livrables et identité
 
@@ -94,6 +96,8 @@ Sous-total indicatif des quatre lignes TME : **3,76 USD HT**, hors taxes, port e
 - Worktree isolé `MSM_vibe-SHIELD-V24-SPI3-CORRECTIF`, branche `codex/shield-v24-spi3-correctif`, push normal vers `main`. Racine historique `82169af7`, travaux précédents et deux stashes `6251b988`/`f3b829e6` conservés. Aucun merge, rebase, reset, clean ou force push.
 - Journal `ETAT_COURANT_TR2.md` actualisé : correction, preuves, stock réel et J5 adapté, réserves et prochaine décision. Les instantanés mission/rapport RS485 avaient été archivés par ChatGPT avant la présente mission.
 
-La relecture distante complète, ZIP inclus, reste à consigner avant passage DONE. Les seules permissions exercées sont les modifications CAO/documentaires, validations numériques, commits et push autorisés sur `main`. Aucun accès STM32, COM ou média ; firmware, données et acquis RS485 inchangés.
+**Publication complète relue depuis GitHub : `2ad3852b4e87af7b24f98d871f59efcd69aa0969`**, le 2026-11-18T21:57:53.653079+00:00. [Preuve détaillée de relecture](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/publication-first-readback.json) : **126 fichiers relus intégralement**, comparés octet par octet aux fichiers publiés ; manifeste de 123 livrables vérifié, 45 hashes de sources recoupés et 232 fichiers historiques inchangés. Le ZIP issu des octets distants a été ouvert : neuf membres, CRC et SHA-256 de chacun conformes, identiques aux CAM séparés publiés. Aucun diagnostic CAO ou matériel répété pour cette relecture.
+
+Au point relu, HEAD local et `origin/main` sont identiques, sans modification non commitée dans le worktree de mission. La présente clôture documentaire fera l'objet d'un dernier push normal et d'une vérification distante séparée ; son SHA est fourni dans la réponse finale, sans référence circulaire dans ce commit. Les seules permissions exercées sont les modifications CAO/documentaires, validations numériques, commits et push autorisés sur `main`. Aucun accès STM32, COM ou média ; firmware, données et acquis RS485 inchangés.
 
 **Suite à transmettre à ChatGPT :** revue indépendante E-01/M-01 du candidat publié, puis décision avec l'utilisateur avant fabrication. Aucun GO usine délivré par Codex. La V2.3 physique reste défectueuse ; l'assemblage et la qualification complète futurs restent à réaliser.

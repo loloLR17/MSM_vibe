@@ -10,6 +10,8 @@ Mission `TR2-20261118-SHIELD-V24-SPI3-GERBER-CORRECTIF`, départ `fb7167548dc1f5
 - [Contrôles E-01/M-01](CONTROLES_ET_LIMITES.md), [180contacts](preuves/E01/MATRICE_E01_180_CONTACTS.csv), [17nets](preuves/E01/MATRICE_E01_17_NETS.csv), [diff V2.3/V2.4](preuves/diff-V23-V24.json).
 - [Achats urgents mis à jour avec le stock utilisateur](achats/ACHATS_URGENTS.md), [BOMnative](achats/BOM_NATIVE_2_SHIELDS.csv), [liste de préparation](achats/PREPARATION_2_SHIELDS.csv).
 
+La [relecture distante intégrale](preuves/publication-first-readback.json) porte sur les fichiers et les neuf membres du ZIP réellement récupérés depuis GitHub ; elle ne vaut pas libération de fabrication.
+
 ## Correction explicite
 
 | Net MCU conservé | V2.3 fautive | V2.4 | Fonction constructeur |
