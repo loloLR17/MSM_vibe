@@ -1,0 +1,36 @@
+[
+  {
+    "name": "ERC",
+    "command": [
+      "/mnt/c/Program Files/KiCad/10.0/bin/kicad-cli.exe",
+      "sch",
+      "erc",
+      "--format",
+      "json",
+      "--severity-all",
+      "--exit-code-violations",
+      "-o",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V24-SPI3-CORRECTIF\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_4_SPI3_CORRECTIF\\docs\\checks\\ERC.json",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V24-SPI3-CORRECTIF\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_4_SPI3_CORRECTIF\\cad\\TR2_Shield_Proto_V1.kicad_sch"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "DRC",
+    "command": [
+      "/mnt/c/Program Files/KiCad/10.0/bin/kicad-cli.exe",
+      "pcb",
+      "drc",
+      "--schematic-parity",
+      "--all-track-errors",
+      "--format",
+      "json",
+      "--severity-all",
+      "--exit-code-violations",
+      "-o",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V24-SPI3-CORRECTIF\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_4_SPI3_CORRECTIF\\docs\\checks\\DRC.json",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V24-SPI3-CORRECTIF\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_4_SPI3_CORRECTIF\\cad\\TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "exit": 0
+  }
+]

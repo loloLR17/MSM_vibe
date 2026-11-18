@@ -1,0 +1,37 @@
+{
+  "removed_signal_segments": 54,
+  "new_J8": {
+    "19": [
+      "ACC_CS",
+      "CS",
+      "input"
+    ],
+    "20": [
+      "ACC_SCK",
+      "SCL",
+      "input"
+    ],
+    "21": [
+      "ACC_MOSI",
+      "SDA",
+      "input"
+    ],
+    "22": [
+      "ACC_MISO",
+      "SDO",
+      "output"
+    ],
+    "23": [
+      "NC",
+      "NC",
+      "passive"
+    ],
+    "24": [
+      "NC",
+      "NC",
+      "passive"
+    ]
+  },
+  "unchanged_vias": 4,
+  "route_status": "terminal branches removed; rerouting pending; no export allowed"
+}

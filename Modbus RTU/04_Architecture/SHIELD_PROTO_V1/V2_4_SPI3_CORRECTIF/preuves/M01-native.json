@@ -1,0 +1,2121 @@
+{
+  "verdict": "PASS_NATIVE_M01_MECHANICAL_IDENTITY",
+  "source_sha256": "b79f2d6b1a0b44f2269087dcbdc6ba7c4ec9f5f41c704e4ebf77089f2d1729ab",
+  "candidate_sha256": "0492d95930c5d5eabdea8c526dcc225c196e5edf5c9807a055ac5f0dc6ee4a56",
+  "footprints_exact": {
+    "R4": {
+      "position": [
+        98,
+        108
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:R4_10k"
+    },
+    "J6": {
+      "position": [
+        45,
+        59
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:J6_ADAFRUIT_4718"
+    },
+    "TP2": {
+      "position": [
+        57,
+        79
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:TP2_TP_GND"
+    },
+    "TP1": {
+      "position": [
+        52,
+        79
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:TP1_TP_3V3"
+    },
+    "R3": {
+      "position": [
+        55,
+        107
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:R3_10k"
+    },
+    "J8": {
+      "position": [
+        45,
+        24
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:J8_ST_MKIGIBV2"
+    },
+    "C2": {
+      "position": [
+        38,
+        78
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:C2_10u_10V"
+    },
+    "C1": {
+      "position": [
+        38,
+        52
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:C1_100n"
+    },
+    "J7": {
+      "position": [
+        40.5,
+        106
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:J7_ADAFRUIT_4682"
+    },
+    "TP3": {
+      "position": [
+        67,
+        30
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:TP3_TP_ACC_SCK"
+    },
+    "R1": {
+      "position": [
+        37,
+        31
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:R1_10k"
+    },
+    "J9": {
+      "position": [
+        105,
+        80
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:J9_MIKROE_3863"
+    },
+    "R2": {
+      "position": [
+        71,
+        76
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:R2_10k"
+    },
+    "TP4": {
+      "position": [
+        57,
+        99
+      ],
+      "layer": "F.Cu",
+      "library": "TR2:TP4_TP_SD_CS"
+    },
+    "J5": {
+      "position": [
+        85.96,
+        106.305001
+      ],
+      "layer": "B.Cu",
+      "library": "TR2:J5_CN12_65_70_2X3_FEMALE"
+    },
+    "J4": {
+      "position": [
+        78.34,
+        52.94
+      ],
+      "layer": "B.Cu",
+      "library": "TR2:J4_NUCLEO_CN10"
+    },
+    "J2": {
+      "position": [
+        32.619999,
+        35.16
+      ],
+      "layer": "B.Cu",
+      "library": "TR2:J2_NUCLEO_CN8"
+    },
+    "J1": {
+      "position": [
+        78.34,
+        26.016
+      ],
+      "layer": "B.Cu",
+      "library": "TR2:J1_NUCLEO_CN7"
+    },
+    "J3": {
+      "position": [
+        32.619999,
+        58.02
+      ],
+      "layer": "B.Cu",
+      "library": "TR2:J3_NUCLEO_CN9"
+    }
+  },
+  "all_pad_and_hole_mechanics_exact": [
+    {
+      "ref": "R4",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at -3.81 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        98,
+        108
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "R4",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 3.81 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        98,
+        108
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at 0 12.7) (size 2.7 2.7) (drill 2.7) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at 20.32 12.7) (size 2.7 2.7) (drill 2.7) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 2.54 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at 5.08 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at 7.62 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at 10.16 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at 12.7 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "7",
+      "pad_geometry": "(pad \"7\" thru_hole circle (at 15.24 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "8",
+      "pad_geometry": "(pad \"8\" thru_hole circle (at 17.78 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J6",
+      "pin": "9",
+      "pad_geometry": "(pad \"9\" thru_hole circle (at 20.32 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        59
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "TP2",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        57,
+        79
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "TP1",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        52,
+        79
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "R3",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at -3.81 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        55,
+        107
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "R3",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 3.81 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        55,
+        107
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at -6 -4) (size 2.8 2.8) (drill 2.8) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at 26 30.5) (size 3.2 3.2) (drill 3.2) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 0 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at 0 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at 0 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at 0 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at 0 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "7",
+      "pad_geometry": "(pad \"7\" thru_hole circle (at 0 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "8",
+      "pad_geometry": "(pad \"8\" thru_hole circle (at 0 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "9",
+      "pad_geometry": "(pad \"9\" thru_hole circle (at 0 20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "10",
+      "pad_geometry": "(pad \"10\" thru_hole circle (at 0 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "11",
+      "pad_geometry": "(pad \"11\" thru_hole circle (at 0 25.4) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "12",
+      "pad_geometry": "(pad \"12\" thru_hole circle (at 0 27.94) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "13",
+      "pad_geometry": "(pad \"13\" thru_hole circle (at 15.24 27.94) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "14",
+      "pad_geometry": "(pad \"14\" thru_hole circle (at 15.24 25.4) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "15",
+      "pad_geometry": "(pad \"15\" thru_hole circle (at 15.24 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "16",
+      "pad_geometry": "(pad \"16\" thru_hole circle (at 15.24 20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "17",
+      "pad_geometry": "(pad \"17\" thru_hole circle (at 15.24 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "18",
+      "pad_geometry": "(pad \"18\" thru_hole circle (at 15.24 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "19",
+      "pad_geometry": "(pad \"19\" thru_hole circle (at 15.24 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "20",
+      "pad_geometry": "(pad \"20\" thru_hole circle (at 15.24 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "21",
+      "pad_geometry": "(pad \"21\" thru_hole circle (at 15.24 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "22",
+      "pad_geometry": "(pad \"22\" thru_hole circle (at 15.24 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "23",
+      "pad_geometry": "(pad \"23\" thru_hole circle (at 15.24 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J8",
+      "pin": "24",
+      "pad_geometry": "(pad \"24\" thru_hole circle (at 15.24 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        45,
+        24
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "C2",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        38,
+        78
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "C2",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 2 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        38,
+        78
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "C1",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        38,
+        52
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "C1",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 2.54 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        38,
+        52
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at -17.78 -20.32) (size 2.7 2.7) (drill 2.7) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at -17.78 0) (size 2.7 2.7) (drill 2.7) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 0 -2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at 0 -5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at 0 -7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at 0 -10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at 0 -12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "7",
+      "pad_geometry": "(pad \"7\" thru_hole circle (at 0 -15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "8",
+      "pad_geometry": "(pad \"8\" thru_hole circle (at 0 -17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J7",
+      "pin": "9",
+      "pad_geometry": "(pad \"9\" thru_hole circle (at 0 -20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        40.5,
+        106
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "TP3",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        67,
+        30
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "R1",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at -3.81 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        37,
+        31
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "R1",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 3.81 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        37,
+        31
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at -14 -5) (size 2.8 2.8) (drill 2.8) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at -10.5 32.5) (size 3.2 3.2) (drill 3.2) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at -2.54 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at -5.08 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at -7.62 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at -10.16 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at -12.7 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "7",
+      "pad_geometry": "(pad \"7\" thru_hole circle (at -15.24 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "8",
+      "pad_geometry": "(pad \"8\" thru_hole circle (at -17.78 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "9",
+      "pad_geometry": "(pad \"9\" thru_hole circle (at -17.78 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "10",
+      "pad_geometry": "(pad \"10\" thru_hole circle (at -15.24 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "11",
+      "pad_geometry": "(pad \"11\" thru_hole circle (at -12.7 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "12",
+      "pad_geometry": "(pad \"12\" thru_hole circle (at -10.16 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "13",
+      "pad_geometry": "(pad \"13\" thru_hole circle (at -7.62 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "14",
+      "pad_geometry": "(pad \"14\" thru_hole circle (at -5.08 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "15",
+      "pad_geometry": "(pad \"15\" thru_hole circle (at -2.54 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J9",
+      "pin": "16",
+      "pad_geometry": "(pad \"16\" thru_hole circle (at 0 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        105,
+        80
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "R2",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at -3.81 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        71,
+        76
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "R2",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 3.81 0) (size 1.7 1.7) (drill 0.8) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        71,
+        76
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "TP4",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        57,
+        99
+      ],
+      "face": "F.Cu"
+    },
+    {
+      "ref": "J5",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.04) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        85.96,
+        106.305001
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J5",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 2.54 0) (size 1.7 1.7) (drill 1.04) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        85.96,
+        106.305001
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J5",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at 0 2.54) (size 1.7 1.7) (drill 1.04) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        85.96,
+        106.305001
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J5",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at 2.54 2.54) (size 1.7 1.7) (drill 1.04) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        85.96,
+        106.305001
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J5",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at 0 5.08) (size 1.7 1.7) (drill 1.04) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        85.96,
+        106.305001
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J5",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at 2.54 5.08) (size 1.7 1.7) (drill 1.04) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        85.96,
+        106.305001
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 2.54 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at 0 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at 2.54 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at 0 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at 2.54 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "7",
+      "pad_geometry": "(pad \"7\" thru_hole circle (at 0 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "8",
+      "pad_geometry": "(pad \"8\" thru_hole circle (at 2.54 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "9",
+      "pad_geometry": "(pad \"9\" thru_hole circle (at 0 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "10",
+      "pad_geometry": "(pad \"10\" thru_hole circle (at 2.54 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "11",
+      "pad_geometry": "(pad \"11\" thru_hole circle (at 0 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "12",
+      "pad_geometry": "(pad \"12\" thru_hole circle (at 2.54 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "13",
+      "pad_geometry": "(pad \"13\" thru_hole circle (at 0 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "14",
+      "pad_geometry": "(pad \"14\" thru_hole circle (at 2.54 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "15",
+      "pad_geometry": "(pad \"15\" thru_hole circle (at 0 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "16",
+      "pad_geometry": "(pad \"16\" thru_hole circle (at 2.54 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "17",
+      "pad_geometry": "(pad \"17\" thru_hole circle (at 0 20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "18",
+      "pad_geometry": "(pad \"18\" thru_hole circle (at 2.54 20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "19",
+      "pad_geometry": "(pad \"19\" thru_hole circle (at 0 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "20",
+      "pad_geometry": "(pad \"20\" thru_hole circle (at 2.54 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "21",
+      "pad_geometry": "(pad \"21\" thru_hole circle (at 0 25.4) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "22",
+      "pad_geometry": "(pad \"22\" thru_hole circle (at 2.54 25.4) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "23",
+      "pad_geometry": "(pad \"23\" thru_hole circle (at 0 27.94) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "24",
+      "pad_geometry": "(pad \"24\" thru_hole circle (at 2.54 27.94) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "25",
+      "pad_geometry": "(pad \"25\" thru_hole circle (at 0 30.48) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "26",
+      "pad_geometry": "(pad \"26\" thru_hole circle (at 2.54 30.48) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "27",
+      "pad_geometry": "(pad \"27\" thru_hole circle (at 0 33.02) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "28",
+      "pad_geometry": "(pad \"28\" thru_hole circle (at 2.54 33.02) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "29",
+      "pad_geometry": "(pad \"29\" thru_hole circle (at 0 35.56) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "30",
+      "pad_geometry": "(pad \"30\" thru_hole circle (at 2.54 35.56) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "31",
+      "pad_geometry": "(pad \"31\" thru_hole circle (at 0 38.1) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "32",
+      "pad_geometry": "(pad \"32\" thru_hole circle (at 2.54 38.1) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "33",
+      "pad_geometry": "(pad \"33\" thru_hole circle (at 0 40.64) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J4",
+      "pin": "34",
+      "pad_geometry": "(pad \"34\" thru_hole circle (at 2.54 40.64) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        52.94
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 2.54 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at 0 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at 2.54 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at 0 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at 2.54 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "7",
+      "pad_geometry": "(pad \"7\" thru_hole circle (at 0 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "8",
+      "pad_geometry": "(pad \"8\" thru_hole circle (at 2.54 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "9",
+      "pad_geometry": "(pad \"9\" thru_hole circle (at 0 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "10",
+      "pad_geometry": "(pad \"10\" thru_hole circle (at 2.54 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "11",
+      "pad_geometry": "(pad \"11\" thru_hole circle (at 0 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "12",
+      "pad_geometry": "(pad \"12\" thru_hole circle (at 2.54 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "13",
+      "pad_geometry": "(pad \"13\" thru_hole circle (at 0 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "14",
+      "pad_geometry": "(pad \"14\" thru_hole circle (at 2.54 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "15",
+      "pad_geometry": "(pad \"15\" thru_hole circle (at 0 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J2",
+      "pin": "16",
+      "pad_geometry": "(pad \"16\" thru_hole circle (at 2.54 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        35.16
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at -45.724 -4.823869) (size 2.8 2.8) (drill 2.8) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at -44.45 71.374) (size 2.8 2.8) (drill 2.8) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "",
+      "pad_geometry": "(pad \"\" np_thru_hole circle (at 1.27 71.374) (size 2.8 2.8) (drill 2.8) (layers \"*.Cu\" \"*.Mask\"))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 2.54 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at 0 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at 2.54 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at 0 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at 2.54 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "7",
+      "pad_geometry": "(pad \"7\" thru_hole circle (at 0 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "8",
+      "pad_geometry": "(pad \"8\" thru_hole circle (at 2.54 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "9",
+      "pad_geometry": "(pad \"9\" thru_hole circle (at 0 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "10",
+      "pad_geometry": "(pad \"10\" thru_hole circle (at 2.54 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "11",
+      "pad_geometry": "(pad \"11\" thru_hole circle (at 0 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "12",
+      "pad_geometry": "(pad \"12\" thru_hole circle (at 2.54 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "13",
+      "pad_geometry": "(pad \"13\" thru_hole circle (at 0 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "14",
+      "pad_geometry": "(pad \"14\" thru_hole circle (at 2.54 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "15",
+      "pad_geometry": "(pad \"15\" thru_hole circle (at 0 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "16",
+      "pad_geometry": "(pad \"16\" thru_hole circle (at 2.54 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "17",
+      "pad_geometry": "(pad \"17\" thru_hole circle (at 0 20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "18",
+      "pad_geometry": "(pad \"18\" thru_hole circle (at 2.54 20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "19",
+      "pad_geometry": "(pad \"19\" thru_hole circle (at 0 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J1",
+      "pin": "20",
+      "pad_geometry": "(pad \"20\" thru_hole circle (at 2.54 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        78.34,
+        26.016
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "1",
+      "pad_geometry": "(pad \"1\" thru_hole circle (at 0 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "2",
+      "pad_geometry": "(pad \"2\" thru_hole circle (at 2.54 0) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "3",
+      "pad_geometry": "(pad \"3\" thru_hole circle (at 0 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "4",
+      "pad_geometry": "(pad \"4\" thru_hole circle (at 2.54 2.54) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "5",
+      "pad_geometry": "(pad \"5\" thru_hole circle (at 0 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "6",
+      "pad_geometry": "(pad \"6\" thru_hole circle (at 2.54 5.08) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "7",
+      "pad_geometry": "(pad \"7\" thru_hole circle (at 0 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "8",
+      "pad_geometry": "(pad \"8\" thru_hole circle (at 2.54 7.62) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "9",
+      "pad_geometry": "(pad \"9\" thru_hole circle (at 0 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "10",
+      "pad_geometry": "(pad \"10\" thru_hole circle (at 2.54 10.16) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "11",
+      "pad_geometry": "(pad \"11\" thru_hole circle (at 0 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "12",
+      "pad_geometry": "(pad \"12\" thru_hole circle (at 2.54 12.7) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "13",
+      "pad_geometry": "(pad \"13\" thru_hole circle (at 0 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "14",
+      "pad_geometry": "(pad \"14\" thru_hole circle (at 2.54 15.24) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "15",
+      "pad_geometry": "(pad \"15\" thru_hole circle (at 0 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "16",
+      "pad_geometry": "(pad \"16\" thru_hole circle (at 2.54 17.78) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "17",
+      "pad_geometry": "(pad \"17\" thru_hole circle (at 0 20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "18",
+      "pad_geometry": "(pad \"18\" thru_hole circle (at 2.54 20.32) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "19",
+      "pad_geometry": "(pad \"19\" thru_hole circle (at 0 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "20",
+      "pad_geometry": "(pad \"20\" thru_hole circle (at 2.54 22.86) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "21",
+      "pad_geometry": "(pad \"21\" thru_hole circle (at 0 25.4) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "22",
+      "pad_geometry": "(pad \"22\" thru_hole circle (at 2.54 25.4) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "23",
+      "pad_geometry": "(pad \"23\" thru_hole circle (at 0 27.94) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "24",
+      "pad_geometry": "(pad \"24\" thru_hole circle (at 2.54 27.94) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "25",
+      "pad_geometry": "(pad \"25\" thru_hole circle (at 0 30.48) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "26",
+      "pad_geometry": "(pad \"26\" thru_hole circle (at 2.54 30.48) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "27",
+      "pad_geometry": "(pad \"27\" thru_hole circle (at 0 33.02) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "28",
+      "pad_geometry": "(pad \"28\" thru_hole circle (at 2.54 33.02) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "29",
+      "pad_geometry": "(pad \"29\" thru_hole circle (at 0 35.56) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    },
+    {
+      "ref": "J3",
+      "pin": "30",
+      "pad_geometry": "(pad \"30\" thru_hole circle (at 2.54 35.56) (size 1.7 1.7) (drill 1.02) (layers \"*.Cu\" \"*.Mask\") (remove_unused_layers no))",
+      "footprint_at": [
+        32.619999,
+        58.02
+      ],
+      "face": "B.Cu"
+    }
+  ],
+  "vias_exact": [
+    "(via (at 63.9 65.5) (size 0.65) (drill 0.3) (layers \"F.Cu\" \"B.Cu\") (net \"FRAM_CS\") (uuid \"72c251bc-bad7-44e0-9328-194b345ef287\"))",
+    "(via (at 72.6 43.1) (size 0.65) (drill 0.3) (layers \"F.Cu\" \"B.Cu\") (net \"FRAM_SCK\") (uuid \"f5c4e684-0d8d-465e-9810-e9a90e574766\"))",
+    "(via (at 64.8 67.2) (size 0.65) (drill 0.3) (layers \"F.Cu\" \"B.Cu\") (net \"+3V3\") (uuid \"ba824fcc-f1a1-47ef-be64-56815f77b256\"))",
+    "(via (at 49.8 37.5) (size 0.65) (drill 0.3) (layers \"F.Cu\" \"B.Cu\") (net \"ACC_SCK\") (uuid \"dec911ea-65ec-4713-a79c-de3a39df7733\"))"
+  ],
+  "changed_net_contacts": [
+    {
+      "ref": "J8",
+      "pin": "19",
+      "before": "NC",
+      "after": "ACC_CS"
+    },
+    {
+      "ref": "J8",
+      "pin": "20",
+      "before": "NC",
+      "after": "ACC_SCK"
+    },
+    {
+      "ref": "J8",
+      "pin": "21",
+      "before": "ACC_CS",
+      "after": "ACC_MOSI"
+    },
+    {
+      "ref": "J8",
+      "pin": "22",
+      "before": "ACC_SCK",
+      "after": "ACC_MISO"
+    },
+    {
+      "ref": "J8",
+      "pin": "23",
+      "before": "ACC_MOSI",
+      "after": "NC"
+    },
+    {
+      "ref": "J8",
+      "pin": "24",
+      "before": "ACC_MISO",
+      "after": "NC"
+    }
+  ],
+  "contour_stackup_thickness_all_other_native_nodes_exact": true,
+  "all_silkscreen_ARNACO_and_graphics_exact": true,
+  "native_properties_compared": 417,
+  "historical_files_hash_verified": 232,
+  "zone_fill_excluded_from_geometry_comparison_only_as_derived_electrical_copper": true,
+  "remaining_gate": "Read frozen V2.7 STEP/interfaces; native DRC/ERC and E01/CAM; independent ChatGPT review. Not a physical assembly qualification."
+}

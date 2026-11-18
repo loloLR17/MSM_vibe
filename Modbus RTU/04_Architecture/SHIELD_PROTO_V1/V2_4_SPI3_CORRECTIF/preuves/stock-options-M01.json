@@ -1,0 +1,105 @@
+{
+  "status": "PASS_NOMINAL_STOCK_OPTIONS_WITH_LIMITS",
+  "J5_body_extension_beyond_simplified_STEP_y_mm": 0.225,
+  "J5_explanation": "Old STEP box7.68mm long is smaller than actual nominal8.13mm Samtec; not hidden or repaired. Full body checked against frozen other parts in memory with0positive intersections. Fixed PCB and all STL/STEP remain byteexact.",
+  "J5_collision_checks": [
+    {
+      "name": "SSW_103_01_F_D_manufacturer_nominal_body",
+      "bbox": [
+        84.755,
+        89.705,
+        -112.910001,
+        -104.780001,
+        3.74,
+        12.25
+      ],
+      "positive_collisions": [],
+      "overlapping_bbox_shapes_evaluated": 1
+    },
+    {
+      "name": "user_two_1x3_nominal_combined_bounds_not_contact_qualification",
+      "bbox": [
+        84.71,
+        89.75,
+        -112.905001,
+        -104.785001,
+        3.75,
+        12.25
+      ],
+      "positive_collisions": [],
+      "overlapping_bbox_shapes_evaluated": 1
+    }
+  ],
+  "Samtec_nominal_contact_budget": {
+    "male_tip_height_mm": 8.22,
+    "G_mm": 12.25,
+    "body_height_mm": 8.51,
+    "insertion_mm": 4.48,
+    "manufacturer_insertion_range_mm": [
+      3.68,
+      6.35
+    ],
+    "within_range": true,
+    "tolerance_budget": "Reuse unchanged V2.0 source proof; actual body/post/jumper assembly still requires cold validation"
+  },
+  "J6_J7_1x10_body_bounds": {
+    "FRAM": [
+      43.48,
+      69.38,
+      -60.25,
+      -57.75,
+      13.85,
+      22.35
+    ],
+    "SD": [
+      39.25,
+      41.75,
+      -107.52,
+      -81.62,
+      13.85,
+      22.35
+    ]
+  },
+  "J6_J7_frozen_bounds": {
+    "FRAM": [
+      43.08,
+      69.78,
+      -60.25,
+      -57.75,
+      13.85,
+      22.35
+    ],
+    "SD": [
+      39.25,
+      41.75,
+      -107.92,
+      -81.22,
+      13.85,
+      22.35
+    ]
+  },
+  "extra_contact10": "Must be neutralized before eventual assembly to prevent contact with PCB; no trace/pad/hole added, no physical operation requested/executed in this mission",
+  "C1_SR205_max_body_mm": [
+    5.08,
+    3.175,
+    5.08
+  ],
+  "C1_frozen_envelope_mm": [
+    6,
+    4,
+    7
+  ],
+  "C1_native_courtyard_reserved_issue": "Existing native courtyard narrower than AVX body by0.1875mm per side; frozen mechanical envelope explicitly already covers AVX, no silent footprint alteration. Leads/standoff/actual fit remain cold gate.",
+  "C2_EEUFR1H100_max_body_mm": [
+    5,
+    5,
+    11
+  ],
+  "C2_frozen_envelope_mm": [
+    6,
+    6,
+    14
+  ],
+  "J5_adapted_Connfly_contact_depth": "UNKNOWN. Physical previous RS485 result is valid for that assemblage, not Samtec presence or mechanical retention qualification. Not adopted as equivalent final MPN.",
+  "limits": "Nominal vendor/old frozen-envelope model only; material, dimensional production tolerances, contact force, soldered assembly and PLA fit not qualified"
+}

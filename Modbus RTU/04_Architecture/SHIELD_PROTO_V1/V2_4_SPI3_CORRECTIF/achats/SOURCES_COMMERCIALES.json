@@ -2,7 +2,7 @@
   "consulted_at_utc": "2026-11-18T21:08:46.114035+00:00",
   "method": "Public distributor pages through Web tool; cache age varies from today to months; not a live reserved order",
   "deadline": "2026-11-21, receipt strictly before Saturday => Friday20/11 latest",
-  "stock_at_user_unknown": true,
+  "stock_at_user_unknown": false,
   "historical_order_not_reinterpreted_as_current_stock": true,
   "TME": {
     "currency": "USD net on international product pages; not French TTC quote",
@@ -139,5 +139,8 @@
     "url": "https://www.mouser.com/ProductDetail/Samtec/SSW-103-01-F-D?qs=FESYatJ8odJ8MU68fe585Q%3D%3D",
     "issue": "Search cached quantity928; direct page cache old and stock section not verified, then redirect unavailable. Not proof of present availability or French delivery."
   },
-  "no_order_payment_login_upload": true
+  "no_order_payment_login_upload": true,
+  "stock_update": "STOCK_UTILISATEUR.json, reported counts; original distributor snapshot retained below, distinct from updated shortage",
+  "current_TME_minimum_parts_USD_HT_excluding_J5_shipping_VAT": 3.76,
+  "no_total_TTC_invented": true
 }

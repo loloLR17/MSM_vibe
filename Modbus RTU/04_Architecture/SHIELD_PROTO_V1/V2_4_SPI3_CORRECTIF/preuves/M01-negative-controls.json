@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "controls": [
+    {
+      "mutation": "J1 shift1um",
+      "rejected": true
+    },
+    {
+      "mutation": "existing via shift1um",
+      "rejected": true
+    },
+    {
+      "mutation": "ARNACO silkscreen text change",
+      "rejected": true
+    },
+    {
+      "mutation": "unrelated J9 DE reassignment",
+      "rejected": true
+    },
+    {
+      "mutation": "PCB thickness change",
+      "rejected": true
+    },
+    {
+      "mutation": "PTH diameter change",
+      "rejected": true
+    },
+    {
+      "mutation": "original non-SPI3 track loss",
+      "rejected": true
+    },
+    {
+      "mutation": "extra unauthorized ACC-prefixed segment",
+      "rejected": true
+    }
+  ],
+  "mutation_scope": "In-memory AST only, actual V2.4 file unchanged"
+}

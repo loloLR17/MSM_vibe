@@ -1,0 +1,1 @@
+(fp_lib_table (version 7) (lib (name "TR2") (type "KiCad") (uri "${KIPRJMOD}/TR2.pretty") (options "") (descr "Sourced prototype interfaces; see release gate")))

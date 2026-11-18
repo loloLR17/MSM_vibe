@@ -1,0 +1,26 @@
+{
+  "recorded_at_utc": "2026-11-18T21:37:53.465096+00:00",
+  "source": "User inventory in current session; physical counts reported, no remote inspection/MPN reread",
+  "unmounted_stock": {
+    "male_2x20_strips": 1,
+    "female_1x12": 6,
+    "female_1x10": 4,
+    "female_1x8": 6,
+    "resistors_10k": 2,
+    "capacitor_100nF": 1,
+    "capacitor_10uF": 1,
+    "Samtec_SSW_103_01_F_D": 0
+  },
+  "J5_actual_historical_assembly": "User states2adapted female1x3 cut from1x10, side by side, not Samtec; same previously tested Click path",
+  "reuse_soldered_connectors_not_presumed": true,
+  "purchase_shortage": {
+    "male_2x40_strips": 2,
+    "resistors_10k": 6,
+    "capacitor_100nF": 1,
+    "capacitor_10uF": 1,
+    "Samtec_SSW_103_01_F_D": 2
+  },
+  "strip_cut_plan": "Existing2x20->2x10; each new2x40->2x8+2x15+2x17, zero spare columns; assumes cuts between columns without sacrificing a position",
+  "female_1x12_1x8_purchase": 0,
+  "female_1x10": "Four available; both 1x10 envelope models explicitly present in frozen V2.7, but tenth terminal must be neutralized for9PCBholes. Numerical bounds check pending."
+}

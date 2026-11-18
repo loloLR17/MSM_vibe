@@ -1,0 +1,11 @@
+{
+  "verified_sha": "b08f479d84020a7fa635a45b4ca766a1ae329418",
+  "files_read_byte_exact": [
+    "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/README.md",
+    "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/ACHATS_URGENTS.md",
+    "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/PREPARATION_2_SHIELDS.csv",
+    "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/SOURCES_COMMERCIALES.json"
+  ]
+}

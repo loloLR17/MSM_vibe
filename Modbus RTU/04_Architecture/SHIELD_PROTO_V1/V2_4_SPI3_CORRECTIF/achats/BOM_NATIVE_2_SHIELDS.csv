@@ -1,0 +1,20 @@
+repere,valeur_native,empreinte_native,face_montage,reference_native_nominale,quantite_logique_2_shields,precision_approvisionnement
+J1,NUCLEO_CN7,TR2:J1_NUCLEO_CN7,BOTTOM,DS1021-2*40SF11 cut to 2x10,2,tronconmaleadecouper
+J2,NUCLEO_CN8,TR2:J2_NUCLEO_CN8,BOTTOM,DS1021-2*40SF11 cut to 2x8,2,tronconmaleadecouper
+J3,NUCLEO_CN9,TR2:J3_NUCLEO_CN9,BOTTOM,DS1021-2*40SF11 cut to 2x15,2,tronconmaleadecouper
+J4,NUCLEO_CN10,TR2:J4_NUCLEO_CN10,BOTTOM,DS1021-2*40SF11 cut to 2x17,2,tronconmaleadecouper
+J5,CN12_65_70_2X3_FEMALE,TR2:J5_CN12_65_70_2X3_FEMALE,BOTTOM,SSW-103-01-F-D,2,Voiroptionsassemblageetstock
+J6,ADAFRUIT_4718,TR2:J6_ADAFRUIT_4718,TOP,2212S-09G-85,2,Voiroptionsassemblageetstock
+J7,ADAFRUIT_4682,TR2:J7_ADAFRUIT_4682,TOP,2212S-09G-85,2,Voiroptionsassemblageetstock
+J8,ST_MKIGIBV2,TR2:J8_ST_MKIGIBV2,TOP,2 x DS1023-1*12S21,2,J8/J9:deuxbarrettesparshield
+J9,MIKROE_3863,TR2:J9_MIKROE_3863,TOP,2 x DS1023-1*8S21,2,J8/J9:deuxbarrettesparshield
+R1,10k,TR2:R1_10k,TOP,MRS16000C1002FCT00,2,Voiroptionsassemblageetstock
+R2,10k,TR2:R2_10k,TOP,MRS16000C1002FCT00,2,Voiroptionsassemblageetstock
+R3,10k,TR2:R3_10k,TOP,MRS16000C1002FCT00,2,Voiroptionsassemblageetstock
+R4,10k,TR2:R4_10k,TOP,MRS16000C1002FCT00,2,Voiroptionsassemblageetstock
+C1,100n,TR2:C1_100n,TOP,C315C104K5R5TA,2,Voiroptionsassemblageetstock
+C2,10u_10V,TR2:C2_10u_10V,TOP,ECA1HM100,2,Voiroptionsassemblageetstock
+TP1,TP_3V3,TR2:TP1_TP_3V3,TOP,PAD_TEST_PCB,2,"padPCB,sansachat"
+TP2,TP_GND,TR2:TP2_TP_GND,TOP,PAD_TEST_PCB,2,"padPCB,sansachat"
+TP3,TP_ACC_SCK,TR2:TP3_TP_ACC_SCK,TOP,PAD_TEST_PCB,2,"padPCB,sansachat"
+TP4,TP_SD_CS,TR2:TP4_TP_SD_CS,TOP,PAD_TEST_PCB,2,"padPCB,sansachat"

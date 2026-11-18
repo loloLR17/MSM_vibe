@@ -1,0 +1,12 @@
+[
+  {
+    "uuid": "4f9cb109-8c7e-4c7a-af4e-98871e357de0",
+    "layer": "F.Cu",
+    "fill_polygons": 1
+  },
+  {
+    "uuid": "a2e63b99-41b4-4085-bd38-c5cbfeba01c1",
+    "layer": "B.Cu",
+    "fill_polygons": 1
+  }
+]

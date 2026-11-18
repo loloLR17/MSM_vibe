@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/mnt/c/Program Files/KiCad/10.0/bin/python.exe",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V24-SPI3-CORRECTIF\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_4_SPI3_CORRECTIF\\tools\\read_native.py",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V24-SPI3-CORRECTIF\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_4_SPI3_CORRECTIF\\cad\\TR2_Shield_Proto_V1.kicad_pcb",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V24-SPI3-CORRECTIF\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\V2_4_SPI3_CORRECTIF\\preuves\\E01\\native-PCB.json"
+  ],
+  "exit": 0
+}

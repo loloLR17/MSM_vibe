@@ -1,0 +1,1807 @@
+{
+  "status": "PASS",
+  "pins_compared": 180,
+  "rows": [
+    {
+      "ref": "J1",
+      "pin": "1",
+      "vendor_function": "PC6",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "2",
+      "vendor_function": "PB8",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "3",
+      "vendor_function": "PD11",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "4",
+      "vendor_function": "PB9",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "5",
+      "vendor_function": "PB13",
+      "desired_net": "SD_SCK",
+      "symbol_name": "SD_SCK",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "6",
+      "vendor_function": "VREFP_ARD",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "7",
+      "vendor_function": "PD12",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "8",
+      "vendor_function": "GND",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "9",
+      "vendor_function": "PA4 (nominal UM2861; via C05 solder-bridge net NetCN7_9)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "10",
+      "vendor_function": "PA5",
+      "desired_net": "FRAM_SCK",
+      "symbol_name": "FRAM_SCK",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "11",
+      "vendor_function": "PB4 (nominal UM2861; via C05 solder-bridge net NetCN7_11)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "12",
+      "vendor_function": "PA6",
+      "desired_net": "FRAM_MISO",
+      "symbol_name": "FRAM_MISO",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "13",
+      "vendor_function": "PB5 (nominal UM2861; via C05 solder-bridge net NetCN7_13)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "14",
+      "vendor_function": "PA7",
+      "desired_net": "FRAM_MOSI",
+      "symbol_name": "FRAM_MOSI",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "15",
+      "vendor_function": "PB3",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "16",
+      "vendor_function": "PD14",
+      "desired_net": "FRAM_CS",
+      "symbol_name": "FRAM_CS",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "17",
+      "vendor_function": "PA4 (nominal UM2861; via C05 solder-bridge net NetCN7_17)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "18",
+      "vendor_function": "PD15",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "19",
+      "vendor_function": "PB4 (nominal UM2861; via C05 solder-bridge net NetCN7_19)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J1",
+      "pin": "20",
+      "vendor_function": "PF12",
+      "desired_net": "SD_CS",
+      "symbol_name": "SD_CS",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "1",
+      "vendor_function": "RES/NC per UM2861; native header net includes R30",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "2",
+      "vendor_function": "PC8",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "3",
+      "vendor_function": "IOREF",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "4",
+      "vendor_function": "PC9",
+      "desired_net": "ACC_CS",
+      "symbol_name": "ACC_CS",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "5",
+      "vendor_function": "NRST",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "6",
+      "vendor_function": "PC10",
+      "desired_net": "ACC_SCK",
+      "symbol_name": "ACC_SCK",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "7",
+      "vendor_function": "3V3",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "power_out",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "8",
+      "vendor_function": "PC11",
+      "desired_net": "ACC_MISO",
+      "symbol_name": "ACC_MISO",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "9",
+      "vendor_function": "5V",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "10",
+      "vendor_function": "PC12",
+      "desired_net": "ACC_MOSI",
+      "symbol_name": "ACC_MOSI",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "11",
+      "vendor_function": "GND",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "power_out",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "12",
+      "vendor_function": "PD2",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "13",
+      "vendor_function": "GND",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "14",
+      "vendor_function": "PF3",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "15",
+      "vendor_function": "VIN",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J2",
+      "pin": "16",
+      "vendor_function": "PF5",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "1",
+      "vendor_function": "PA3",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "2",
+      "vendor_function": "PD7",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "3",
+      "vendor_function": "PA2 (nominal UM2861; via C05 solder-bridge net NetCN9_3)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "4",
+      "vendor_function": "PD6",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "5",
+      "vendor_function": "PC3",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "6",
+      "vendor_function": "PD5",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "7",
+      "vendor_function": "PB0 (nominal UM2861; via C05 solder-bridge net NetCN9_7)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "8",
+      "vendor_function": "PD4",
+      "desired_net": "SD_MOSI",
+      "symbol_name": "SD_MOSI",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "9",
+      "vendor_function": "PC1",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "10",
+      "vendor_function": "PD3",
+      "desired_net": "SD_MISO",
+      "symbol_name": "SD_MISO",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "11",
+      "vendor_function": "PC0",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "12",
+      "vendor_function": "GND",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "13",
+      "vendor_function": "PB2",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "14",
+      "vendor_function": "PE2",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "15",
+      "vendor_function": "PB6",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "16",
+      "vendor_function": "PE4",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "17",
+      "vendor_function": "PF2",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "18",
+      "vendor_function": "PE5",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "19",
+      "vendor_function": "PF1",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "20",
+      "vendor_function": "PE6",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "21",
+      "vendor_function": "PF0",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "22",
+      "vendor_function": "PE3",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "23",
+      "vendor_function": "GND",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "24",
+      "vendor_function": "PF8",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "25",
+      "vendor_function": "PD0",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "26",
+      "vendor_function": "PF7",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "27",
+      "vendor_function": "PD1",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "28",
+      "vendor_function": "PF9",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "29",
+      "vendor_function": "PG0",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J3",
+      "pin": "30",
+      "vendor_function": "PG1",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "1",
+      "vendor_function": "VDDA",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "2",
+      "vendor_function": "PF13",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "3",
+      "vendor_function": "AGND",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "4",
+      "vendor_function": "PE9",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "5",
+      "vendor_function": "GND",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "6",
+      "vendor_function": "PE11",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "7",
+      "vendor_function": "PB1",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "8",
+      "vendor_function": "PF14",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "9",
+      "vendor_function": "PC2 (nominal UM2861; via C05 solder-bridge net NetCN10_9)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "10",
+      "vendor_function": "PE13",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "11",
+      "vendor_function": "PA1",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "12",
+      "vendor_function": "PF15",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "13",
+      "vendor_function": "PA2 (nominal UM2861; via C05 solder-bridge net NetCN10_13)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "14",
+      "vendor_function": "PG7 via SB25 (SB31 open)",
+      "desired_net": "RTU_TX",
+      "symbol_name": "RTU_TX",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "15",
+      "vendor_function": "PB10 (nominal UM2861; via C05 solder-bridge net NetCN10_15)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "16",
+      "vendor_function": "PG8 via SB27 (SB33 open)",
+      "desired_net": "RTU_RX",
+      "symbol_name": "RTU_RX",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "17",
+      "vendor_function": "GND",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "18",
+      "vendor_function": "PE8",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "19",
+      "vendor_function": "PE15 (nominal UM2861; via C05 solder-bridge net NetCN10_19)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "20",
+      "vendor_function": "PE7",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "21",
+      "vendor_function": "PB0 (nominal UM2861; via C05 solder-bridge net NetCN10_21)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "22",
+      "vendor_function": "GND",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "23",
+      "vendor_function": "PE12 (nominal UM2861; via C05 solder-bridge net NetCN10_23)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "24",
+      "vendor_function": "PE10",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "25",
+      "vendor_function": "PE14 (nominal UM2861; via C05 solder-bridge net NetCN10_25)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "26",
+      "vendor_function": "PE12 (nominal UM2861; via C05 solder-bridge net NetCN10_26)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "27",
+      "vendor_function": "GND",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "28",
+      "vendor_function": "PE14 (nominal UM2861; via C05 solder-bridge net NetCN10_28)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "29",
+      "vendor_function": "PA0 (nominal UM2861; via C05 solder-bridge net NetCN10_29)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "30",
+      "vendor_function": "PE15 (nominal UM2861; via C05 solder-bridge net NetCN10_30)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "31",
+      "vendor_function": "PA8",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "32",
+      "vendor_function": "PB10 (nominal UM2861; via C05 solder-bridge net NetCN10_32)",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "33",
+      "vendor_function": "PE0",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J4",
+      "pin": "34",
+      "vendor_function": "PB11",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J5",
+      "pin": "1",
+      "vendor_function": "PD10",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J5",
+      "pin": "2",
+      "vendor_function": "PG8 via solder bridge",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J5",
+      "pin": "3",
+      "vendor_function": "PG7 via solder bridge",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J5",
+      "pin": "4",
+      "vendor_function": "PG5",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J5",
+      "pin": "5",
+      "vendor_function": "PG4",
+      "desired_net": "RTU_DE",
+      "symbol_name": "RTU_DE",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J5",
+      "pin": "6",
+      "vendor_function": "PG6",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "1",
+      "vendor_function": "HOLD",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "2",
+      "vendor_function": "WP",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "3",
+      "vendor_function": "SS",
+      "desired_net": "FRAM_CS",
+      "symbol_name": "FRAM_CS",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "4",
+      "vendor_function": "MOSI",
+      "desired_net": "FRAM_MOSI",
+      "symbol_name": "FRAM_MOSI",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "5",
+      "vendor_function": "MISO_3.3V",
+      "desired_net": "FRAM_MISO",
+      "symbol_name": "FRAM_MISO",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "6",
+      "vendor_function": "SCK",
+      "desired_net": "FRAM_SCK",
+      "symbol_name": "FRAM_SCK",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "7",
+      "vendor_function": "GND",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "8",
+      "vendor_function": "3.3V",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "power_out",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J6",
+      "pin": "9",
+      "vendor_function": "VIN",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "1",
+      "vendor_function": "3.3V",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "2",
+      "vendor_function": "GND",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "3",
+      "vendor_function": "SCLK",
+      "desired_net": "SD_SCK",
+      "symbol_name": "SD_SCK",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "4",
+      "vendor_function": "DO",
+      "desired_net": "SD_MISO",
+      "symbol_name": "SD_MISO",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "5",
+      "vendor_function": "DI",
+      "desired_net": "SD_MOSI",
+      "symbol_name": "SD_MOSI",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "6",
+      "vendor_function": "CS",
+      "desired_net": "SD_CS",
+      "symbol_name": "SD_CS",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "7",
+      "vendor_function": "DAT1",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "8",
+      "vendor_function": "DAT2",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J7",
+      "pin": "9",
+      "vendor_function": "CARDDET",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "1",
+      "vendor_function": "VDD",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "24",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "2",
+      "vendor_function": "VDDIO",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "23",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "3",
+      "vendor_function": "OCS",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "22",
+      "vendor_function": "SDO",
+      "desired_net": "ACC_MISO",
+      "symbol_name": "SDO",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "4",
+      "vendor_function": "CSX",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "21",
+      "vendor_function": "SDA",
+      "desired_net": "ACC_MOSI",
+      "symbol_name": "SDA",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "5",
+      "vendor_function": "SDX",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "20",
+      "vendor_function": "SCL",
+      "desired_net": "ACC_SCK",
+      "symbol_name": "SCL",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "6",
+      "vendor_function": "OSDO",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "19",
+      "vendor_function": "CS",
+      "desired_net": "ACC_CS",
+      "symbol_name": "CS",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "7",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "18",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "8",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "17",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "9",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "16",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "10",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "15",
+      "vendor_function": "INT2",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "11",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "14",
+      "vendor_function": "INT1",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "12",
+      "vendor_function": "NC",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J8",
+      "pin": "13",
+      "vendor_function": "GND",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "1",
+      "vendor_function": "NC/AN",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "16",
+      "vendor_function": "INVR/PWM",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "2",
+      "vendor_function": "/RE/RST",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "15",
+      "vendor_function": "INVD/INT",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "3",
+      "vendor_function": "DE/CS",
+      "desired_net": "RTU_DE",
+      "symbol_name": "RTU_DE",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "14",
+      "vendor_function": "TX: UART output from RXD8",
+      "desired_net": "RTU_RX",
+      "symbol_name": "RTU_RX",
+      "symbol_type": "output",
+      "connected_direction_required": "output",
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "4",
+      "vendor_function": "NC/SCK",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "13",
+      "vendor_function": "RX: UART input to TXD11",
+      "desired_net": "RTU_TX",
+      "symbol_name": "RTU_TX",
+      "symbol_type": "input",
+      "connected_direction_required": "input",
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "5",
+      "vendor_function": "NC/MISO",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "12",
+      "vendor_function": "NC/SCL",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "6",
+      "vendor_function": "NC/MOSI",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "11",
+      "vendor_function": "NC/SDA",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "7",
+      "vendor_function": "3V3",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "10",
+      "vendor_function": "5V",
+      "desired_net": "NC",
+      "symbol_name": "NC",
+      "symbol_type": "passive",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "8",
+      "vendor_function": "GND1",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "J9",
+      "pin": "9",
+      "vendor_function": "GND1",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "power_in",
+      "connected_direction_required": null,
+      "status": "PASS"
+    },
+    {
+      "ref": "R1",
+      "pin": "1",
+      "vendor_function": "10k pull",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "R1",
+      "pin": "2",
+      "vendor_function": "10k pull",
+      "desired_net": "ACC_CS",
+      "symbol_name": "ACC_CS",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "R2",
+      "pin": "1",
+      "vendor_function": "10k pull",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "R2",
+      "pin": "2",
+      "vendor_function": "10k pull",
+      "desired_net": "FRAM_CS",
+      "symbol_name": "FRAM_CS",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "R3",
+      "pin": "1",
+      "vendor_function": "10k pull",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "R3",
+      "pin": "2",
+      "vendor_function": "10k pull",
+      "desired_net": "SD_CS",
+      "symbol_name": "SD_CS",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "R4",
+      "pin": "1",
+      "vendor_function": "10k pull",
+      "desired_net": "RTU_DE",
+      "symbol_name": "RTU_DE",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "R4",
+      "pin": "2",
+      "vendor_function": "10k pull",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "C1",
+      "pin": "1",
+      "vendor_function": "decoupling",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "C1",
+      "pin": "2",
+      "vendor_function": "decoupling",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "C2",
+      "pin": "1",
+      "vendor_function": "decoupling",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "C2",
+      "pin": "2",
+      "vendor_function": "decoupling",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "TP1",
+      "pin": "1",
+      "vendor_function": "test access",
+      "desired_net": "+3V3",
+      "symbol_name": "+3V3",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "TP2",
+      "pin": "1",
+      "vendor_function": "test access",
+      "desired_net": "GND",
+      "symbol_name": "GND",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "TP3",
+      "pin": "1",
+      "vendor_function": "test access",
+      "desired_net": "ACC_SCK",
+      "symbol_name": "ACC_SCK",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    },
+    {
+      "ref": "TP4",
+      "pin": "1",
+      "vendor_function": "test access",
+      "desired_net": "SD_CS",
+      "symbol_name": "SD_CS",
+      "symbol_type": "passive",
+      "connected_direction_required": "passive",
+      "status": "PASS"
+    }
+  ],
+  "NC_policy": "Deliberately unused input/output/auxiliary pins may have a passive NC alias; vendor function remains explicit in independent reference. This is not a claim that the physical vendor pad is internally NC."
+}

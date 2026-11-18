@@ -1,0 +1,18 @@
+{
+  "zip": "TR2_SHIELD_V24_SPI3_CANDIDAT_NON_LIBERE.zip",
+  "zip_SHA256": "d2a199a1bf3b9d9533bfe788b144510bb8cfd518dc248f05df2c2a644854e7ec",
+  "files": {
+    "TR2_Shield_Proto_V1-B_Cu.gbl": "b37b7745350a25d608ede14f9a654260e632a0b6c3a395fc380005735cc3bf30",
+    "TR2_Shield_Proto_V1-B_Mask.gbs": "b792df5b636a1086cb06e7437cfca13c7c31027026dedeb8e262f6eda15d8c5c",
+    "TR2_Shield_Proto_V1-B_Silkscreen.gbo": "b86b8f893f9466d5cc1889da825dbe2e8eae53ccb753191dfd1e9efad4dcea64",
+    "TR2_Shield_Proto_V1-Edge_Cuts.gm1": "0674e76aafa67ee45f5ece41363f3fb0ee429867d1e5423d6b82b0057d7682ef",
+    "TR2_Shield_Proto_V1-F_Cu.gtl": "f1f6b88148b985d1ddc79fa906f33b54b0ee8465564ac79fb86a7d90dfa5c2ee",
+    "TR2_Shield_Proto_V1-F_Mask.gts": "c0086bb9d3aba9482385a0e5b3f0d37303e03f5e10a565387eb6cb03f27cbb24",
+    "TR2_Shield_Proto_V1-F_Silkscreen.gto": "968036f3296e76b286b585f987a5cf57f04484256476062fcea058b5b010703b",
+    "TR2_Shield_Proto_V1-NPTH.drl": "e2e848ad1fd02971210f0bc15cca2f5f2e1c909e481d7fa9f37847161f3a44e8",
+    "TR2_Shield_Proto_V1-PTH.drl": "a2ccfc782b64c7f6c962b42db5b29d665fe9f9d472b942e37d0c0f9c2c2a9194"
+  },
+  "release": "CANDIDAT_NON_LIBERE",
+  "required_next": "Independent full E01 copper audit and ChatGPT review, no upload/payment/order authorized",
+  "gbrjob_and_drill_maps": "Native informational files outside ZIP, no duplicated outline or mixed historical CAM"
+}

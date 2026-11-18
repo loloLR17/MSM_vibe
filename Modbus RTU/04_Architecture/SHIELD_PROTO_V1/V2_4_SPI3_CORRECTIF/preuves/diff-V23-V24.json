@@ -1,0 +1,108 @@
+{
+  "changed_pad_nets": [
+    {
+      "ref": "J8",
+      "pin": "19",
+      "before": "NC",
+      "after": "ACC_CS",
+      "vendor": "CS",
+      "x": 60.24,
+      "y": 36.7
+    },
+    {
+      "ref": "J8",
+      "pin": "20",
+      "before": "NC",
+      "after": "ACC_SCK",
+      "vendor": "SCL",
+      "x": 60.24,
+      "y": 34.16
+    },
+    {
+      "ref": "J8",
+      "pin": "21",
+      "before": "ACC_CS",
+      "after": "ACC_MOSI",
+      "vendor": "SDA",
+      "x": 60.24,
+      "y": 31.62
+    },
+    {
+      "ref": "J8",
+      "pin": "22",
+      "before": "ACC_SCK",
+      "after": "ACC_MISO",
+      "vendor": "SDO",
+      "x": 60.24,
+      "y": 29.08
+    },
+    {
+      "ref": "J8",
+      "pin": "23",
+      "before": "ACC_MOSI",
+      "after": "NC",
+      "vendor": "NC",
+      "x": 60.24,
+      "y": 26.54
+    },
+    {
+      "ref": "J8",
+      "pin": "24",
+      "before": "ACC_MISO",
+      "after": "NC",
+      "vendor": "NC",
+      "x": 60.24,
+      "y": 24.0
+    }
+  ],
+  "old_native_vs_fresh_reference_mismatches": 6,
+  "candidate_mismatches": 0,
+  "nets": 17,
+  "connected_contacts": 59,
+  "unaffected_CAM_equalities": [
+    {
+      "file": "TR2_Shield_Proto_V1-F_Silkscreen.gto",
+      "plot_commands_equal": true,
+      "before_sha256": "256820ca1d229c2817e71b5d928f144706023e0e6b0889ea30c521c7db0f47c3",
+      "after_sha256": "968036f3296e76b286b585f987a5cf57f04484256476062fcea058b5b010703b"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-Edge_Cuts.gm1",
+      "plot_commands_equal": true,
+      "before_sha256": "75f57b0a62affe32c2dc3b0b9ae30ff8d332a0f67ee0f99e43dc4f1c010f295f",
+      "after_sha256": "0674e76aafa67ee45f5ece41363f3fb0ee429867d1e5423d6b82b0057d7682ef"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-F_Mask.gts",
+      "plot_commands_equal": true,
+      "before_sha256": "609a46481f87cda44b7d838c6707a049949e0a3cf7224b598b72cb965b9a0445",
+      "after_sha256": "c0086bb9d3aba9482385a0e5b3f0d37303e03f5e10a565387eb6cb03f27cbb24"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-NPTH.drl",
+      "plot_commands_equal": true,
+      "before_sha256": "249f8b02a4568ed226e52fe6b80fd37525b735fde5c46742f7c1450a772c120f",
+      "after_sha256": "e2e848ad1fd02971210f0bc15cca2f5f2e1c909e481d7fa9f37847161f3a44e8"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-B_Mask.gbs",
+      "plot_commands_equal": true,
+      "before_sha256": "f73f4a5678001523f832745f9e19a27ee81ce9cb60b3adc12b34548e601519be",
+      "after_sha256": "b792df5b636a1086cb06e7437cfca13c7c31027026dedeb8e262f6eda15d8c5c"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-PTH.drl",
+      "plot_commands_equal": true,
+      "before_sha256": "be8ea31acedf777e577cfc3fffaa80f8b904e1a1be39e2405d79828c14c3a2d0",
+      "after_sha256": "a2ccfc782b64c7f6c962b42db5b29d665fe9f9d472b942e37d0c0f9c2c2a9194"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-B_Silkscreen.gbo",
+      "plot_commands_equal": true,
+      "before_sha256": "f6d11905239e04d257bb69475c13eaf087b358b7d17aeff90394ab3cfb91b2d2",
+      "after_sha256": "b86b8f893f9466d5cc1889da825dbe2e8eae53ccb753191dfd1e9efad4dcea64"
+    }
+  ],
+  "normalization": "Creation date comment lines + LF only; no plotting commands or geometry removed",
+  "all_non_SPI3_native_copper_and_all_vias_unchanged": "Verified independently in M01-native.json"
+}
