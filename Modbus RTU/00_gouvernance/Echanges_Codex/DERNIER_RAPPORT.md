@@ -14,59 +14,86 @@ allow_flash: false
 allow_debug: false
 ---
 
-# Shield V2.4 — correction SPI3 et CAM candidat prêts pour revue
+# Shield V2.4 — correctif SPI3 prêt pour revue indépendante
 
-**La correction CAO et ses contrôles numériques sont réalisés. Le ZIP reste CANDIDAT_NON_LIBERE.** Le statut IN_PROGRESS porte à présent sur publication/relecture distante, pas sur une attente de test matériel. Aucune commande ni opération STM32 n'a été exécutée.
+**La correction et les contrôles numériques sont terminés. Les Gerber restent CANDIDATS NON LIBÉRÉS pour fabrication.** Le statut IN_PROGRESS concerne uniquement la publication complète et sa relecture distante. Aucun achat ni accès au matériel n'a été effectué.
 
-## Livrables
+## Livrables et identité
 
-- [Dossier V2.4 et projet KiCad éditable](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/README.md), schéma/bibliothèque/PCB/routes corrigés dans une variante distincte.
-- [ZIP candidat unique](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/TR2_SHIELD_V24_SPI3_CANDIDAT_NON_LIBERE.zip), [SHA externe](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/TR2_SHIELD_V24_SPI3_CANDIDAT_NON_LIBERE.zip.sha256), [inventaire des9CAM](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/CAM-manifeste.json).
-- [SchémaPDF](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/schema.pdf), [implantation](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/implantation.png), [cuivreavant](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/cuivre-dessus.png), [cuivrearrièremiroir](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/cuivre-dessous-miroir.png), PDF/SVG vectoriels associés.
-- [E-01/M-01 détaillés et limites](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/CONTROLES_ET_LIMITES.md), [180contacts](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/E01/MATRICE_E01_180_CONTACTS.csv), [17nets](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/E01/MATRICE_E01_17_NETS.csv), [diffV2.3/V2.4](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/diff-V23-V24.json), outils de comparaison et sorties natives dans le dossier.
-- [Achats urgents](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/ACHATS_URGENTS.md), [BOMnative19repères](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/BOM_NATIVE_2_SHIELDS.csv), [liste exacte de préparation](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/PREPARATION_2_SHIELDS.csv), inventaire utilisateur et sources commerciales datées.
+- [Projet et mode de reproduction](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/README.md) : KiCad éditable, symboles, bibliothèques, PCB et sources de correction dans une variante électrique distincte.
+- [ZIP candidat unique](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/TR2_SHIELD_V24_SPI3_CANDIDAT_NON_LIBERE.zip), [SHA-256 externe](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/TR2_SHIELD_V24_SPI3_CANDIDAT_NON_LIBERE.zip.sha256), [inventaire des neuf membres](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/CAM-manifeste.json).
+- [Schéma PDF](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/schema.pdf), [implantation](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/implantation.png), [cuivre avant](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/cuivre-dessus.png), [cuivre arrière miroir](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/exports/cuivre-dessous-miroir.png), exports vectoriels PDF/SVG associés.
+- [Contrôles et limites](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/CONTROLES_ET_LIMITES.md), [matrice de 180 contacts](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/E01/MATRICE_E01_180_CONTACTS.csv), [matrice de 17 nets](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/E01/MATRICE_E01_17_NETS.csv), [diff V2.3/V2.4](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/diff-V23-V24.json), sorties brutes et comparateurs dans le même dossier.
+- [Achats urgents](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/ACHATS_URGENTS.md), [BOM native](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/BOM_NATIVE_2_SHIELDS.csv), [préparation pour deux shields](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/achats/PREPARATION_2_SHIELDS.csv), inventaire utilisateur et sources commerciales datées.
 
-Code/CAO réellement évalués **dc4ac0414db6795796a1649a9433d4f543d8a310**. PCB SHA256 **0492d95930c5d5eabdea8c526dcc225c196e5edf5c9807a055ac5f0dc6ee4a56**. ZIP SHA256 **d2a199a1bf3b9d9533bfe788b144510bb8cfd518dc248f05df2c2a644854e7ec**. SeptGerber/deuxExcellon, aucun ZIP ancien ou fichier source mélangé aux9membres. Les noms natifs et marquages historiquesDRAFT/V1.9/ARNACO sont préservés, l'identité correctiveV2.4 est explicite dans dossier/ZIP/manifest. Le gbrjob informatif reste horsZIP ; contour axial90×100mm, épaisseur1,6mm, deuxcuivres35µm inchangés. Sa taille90,05×100,05 inclut le trait, `Finish:None` n'est pas un choix de finition de commande.
+La CAO effectivement évaluée appartient au commit **dc4ac0414db6795796a1649a9433d4f543d8a310**. Les corrections documentaires de publication ne changent pas le PCB ni les CAM :
 
-## Correction et contrôles observés
+- PCB SHA-256 : `0492d95930c5d5eabdea8c526dcc225c196e5edf5c9807a055ac5f0dc6ee4a56`.
+- ZIP SHA-256 : `d2a199a1bf3b9d9533bfe788b144510bb8cfd518dc248f05df2c2a644854e7ec`.
+- Sept Gerber et deux Excellon ; neuf membres, aucun ancien ZIP ou fichier source mélangé. Les cartes de perçage et le gbrjob informatif restent hors ZIP.
 
-| Tranche | Résultat |
+Les noms natifs et marquages historiques V1.9/DRAFT/ARNACO sont préservés par M-01. L'identité corrective V2.4 est portée par le dossier, le ZIP et les manifestes. Le contour axial reste 90 × 100 mm, épaisseur 1,6 mm, deux cuivres de 35 µm. La taille 90,05 × 100,05 du gbrjob inclut le trait ; `Finish:None` n'est pas une sélection de finition de commande.
+
+## Modifications et résultats observés
+
+| Contrôle | Résultat |
 |---|---|
-| J8 SPI3 | PC9/CS→19 ; PC10/SCL→20 ; PC12/SDA→21 ; PC11/SDO→22 ;23/24NC ;1/2/13rails inchangés |
-| Modification native | SixcontactsJ8 seuls changent de net ;54segments terminaux retirés/45reroutés sur les4netsSPI3 ; préfixes, tous autres segments et4vias conservés |
-| ERC/DRC KiCad10.0.6 | **0violation,0non-connecté,0parité** ; règlesprojet et listes ignorées strictement identiques àV2.3, aucun contrôle affaibli |
-| Référence E-01 reconstruite | **180/180PASS**,59contacts reliés,121NC voulus et17nets ; références fabricants indépendantes du projet avant comparaison |
-| Symboles/bibliothèques |180pins externes/embarquées/XML comparées, directions des signaux connectés contrôlées, nomsCS/SCL/SDA/SDO corrigés |
-| CAM géométrique | Deux vrais cuivres reconstruits,180flashes parface,138composantes ; **0court-circuit,0coupure** ; tous trousPTH/NPTH/vias comparés aux Excellon |
-| CAM horscuivres |7fichiers équivalents àV2.3 hors seules dates/LF ; aucune coordonnée/commande de tracé retirée de la comparaison |
-| M-01 natif |19empreintes,191géométries pads/trous,4vias et tous paramètres mécaniques identiques ; contour/stack/épaisseur/sérigraphies inchangés |
-| M-01 gelV2.7 |232fichiers historiques conservés byteexact ; lecture seule duSTEP336solides,191interfaces de perçage et3enveloppes sockets recoupées, G12,25 inchangé |
-| Contrôles négatifs |8mutations interdites rejetées en mémoire, sans modifier le PCB : position, via, perçage, épaisseur, logo, J9, segmentRTU, fauxnetACC |
+| J8 SPI3 | PC9/CS → 19 ; PC10/SCL → 20 ; PC12/SDA → 21 ; PC11/SDO → 22 ; 23/24 NC. Rails 1/2/13 inchangés. |
+| Diff natif | Six contacts J8 changent de net ; 54 segments terminaux retirés, 45 reroutés sur les quatre nets SPI3. Préfixes, autres pistes et quatre vias conservés. |
+| KiCad 10.0.6 | **ERC 0 ; DRC 0 ; non-connectés 0 ; erreurs de parité 0.** Règles et listes de contrôles ignorés identiques à V2.3, aucun contrôle affaibli. |
+| E-01 constructeur | **180/180 PASS**, 59 contacts reliés, 121 NC et 17 nets. Référence reconstruite depuis les sources fabricants avant comparaison au projet. |
+| Symboles | 180 broches comparées entre bibliothèque, schéma et XML ; types des signaux connectés et noms CS/SCL/SDA/SDO contrôlés. |
+| Cuivres CAM réels | 180 flashes par face, 138 composantes ; **zéro court-circuit et zéro coupure**. Tous les trous Excellon PTH/NPTH et vias comparés. |
+| CAM hors cuivres | Sept fichiers équivalents à V2.3 après seules normalisations des dates de création et fins de ligne. |
+| M-01 natif | 19 empreintes, 191 géométries de pads/trous, quatre vias, contour, stack, épaisseur et sérigraphies exactement conservés. |
+| M-01 V2.7 | 232 fichiers historiques intacts ; STEP gelé de 336 solides relu, 191 interfaces de perçage et trois enveloppes de sockets recoupées. G = 12,25 mm inchangé. |
+| Contrôles négatifs | Huit mutations interdites rejetées en mémoire : position, via, perçage, épaisseur, logo, net J9, segment RTU, faux net ACC. |
 
-Les vrais cuivres sont analysés par unions de flashes/traits/régions puis composantes reliées seulement par les trous métallisés et4vias ; les attributsX2 ne remplacent pas ce calcul. Le lecteur refuse les commandes Gerber inconnues. RésolutionCAM1µm et approximation descercles128segments ; pas une métrologie usine.
+Le lecteur de CAM reconstruit les unions géométriques de flashes, traits et régions des deux vrais cuivres. Les traversées ne sont réunies que par les trous métallisés/vias ; les attributs X2 ne remplacent pas ce calcul. Les commandes Gerber inconnues provoquent un refus. Résolution CAM de 1 µm et cercles approchés par 128 segments : cette comparaison n'est pas une métrologie de fabrication.
 
-Validation proportionnée : pureCAO/documentation/achats, aucun build ou test firmware justifiable. Les anciens essais RS485/FRAM/SD/capteur et les validations STL inchangées ne sont pas rejoués. Les nouveaux contrôles portent uniquement sur la correction et la préservation des interfaces. V2.3 et V2.7 ne sont ni retouchées ni réorganisées. GOUVERNANCE/AGENTS/contrat humain inchangés.
+Les commandes et sorties réelles sont conservées dans [native-commands.json](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/docs/checks/native-commands.json), [export-commands.json](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/docs/checks/export-commands.json), les journaux ERC/DRC et les preuves E-01/M-01. Validation proportionnée à une mission CAO/documentation : aucun build firmware ni ancien essai physique rejoué, aucun STL/STEP/kit Morvan régénéré. AGENTS, gouvernance et contrat humain sont inchangés.
 
-## Sources, incidents et réserves
+## Provenance et réserves techniques
 
-Les8sources sont épinglées dans [reference-constructeurs.json](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/E01/reference-constructeurs.json) : ST C05 natifPCAD/PcbDoc/projet et UM2861, EagleAdafruit aux commits exacts, ST MKIGIBV2 et Clickv102. La page schématique officielleST version1/feuille1/Fig2 est consultable viaoutilWeb ; deux téléchargements directs ont expiré. Transcription visuelle recoupée au dessinSTDB4012Rev3/p2/Fig2 conservé via miroir haché ; **aucun hash du PDF officiel local n'est inventé**. Les réserves de provenance sont explicites.
+Les [huit sources constructeur](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/E01/reference-constructeurs.json) sont identifiées par URL/version/hash lorsque disponibles : ST C05 natif PCAD/PcbDoc/projet et UM2861, Eagle Adafruit aux commits exacts, MKIGIBV2 et Click v102. Le schéma officiel ST version 1/feuille 1/Fig. 2 a été consulté par l'outil Web ; deux téléchargements directs ont expiré. La transcription visuelle est recoupée au dessin ST DB4012 Rev. 3/p. 2/Fig. 2 conservé via miroir haché. **Aucun hash d'un PDF officiel local absent n'est prétendu.**
 
-Clickv102 est la source électrique ; le v101 sert uniquement à la géométrie de ses16contacts, sans identité matérielle globale prétendue. Les niveaux/straps/périphériques réels restent des gates du futur assemblage, pas des observations de cette mission.
+Click v102 est la source électrique ; v101 ne sert qu'au contrôle de la géométrie de ses 16 contacts. Cela ne démontre pas la révision réelle du module. Straps, niveaux, références et montage effectifs restent à contrôler à froid lors de l'assemblage futur.
 
-Trois incidentslogiciels ordinaires sont conservés dans [INCIDENTS_OUTILS.md](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/INCIDENTS_OUTILS.md) : formatKiCad10 de nets parnom initialement supposé numérique ; deuxextrémités routesJSON à1nm du natif pour la sélection des segments ; `pinfunction`XML en `nom_numéro`/`+no_connect` au lieu du nombrut. Corrections fondées sur les sorties réelles ; M-01 compare ensuite les coordonnéesexactes. Aucun échecERC/DRC n'a été masqué.
+Les [incidents d'outillage et de publication](../../04_Architecture/SHIELD_PROTO_V1/V2_4_SPI3_CORRECTIF/preuves/INCIDENTS_OUTILS.md) sont conservés : format des nets KiCad 10 initialement mal supposé, sélection de deux extrémités JSON décalées de 1 nm du natif, conventions `pinfunction`/`pintype` XML. Les comparateurs finaux contrôlent les coordonnées exactes ; aucun échec ERC/DRC n'a été masqué.
 
-**Réserve mécaniqueJ5 supplémentaire** : le STEP simplifié mesure7,68mm longitudinalement, contre8,13mm au Samtec. Le corps constructeur complet a été confronté au reste de l'assemblage gelé en mémoire : aucune intersectionpositive, aucun STL/STEP corrigé. Budget d'insertion nominalSamtec4,48mm dans3,68..6,35. Tolerances/forces/tenue et montage PLA ne sont pas physiquement qualifiés.
+**J5 : réserve de représentation mécanique.** Le STEP simplifié mesure 7,68 mm longitudinalement contre 8,13 mm au Samtec. Le corps constructeur complet a été confronté en mémoire au reste de l'assemblage gelé : aucune intersection positive. Aucun modèle imprimé n'a été modifié. Insertion nominale Samtec de 4,48 mm, dans la plage documentée 3,68–6,35 mm ; les tolérances, efforts, maintien et montage PLA restent non qualifiés physiquement.
 
-## Achats : stock pris en compte et délai non garanti
+## Stock réel, achats préparés et délai
 
-Inventaire utilisateur :1barre mâle2×20,6femelles1×12,4femelles1×10,6femelles1×8,2résistances et1condensateur de chaquecapacité ; **Samtec non reçus**. PrécisionJ5 : sur l'assemblage déjà testé, deuxtronçons1×3 issus de1×10 côte à côte, pas un Samtec. La qualificationfonctionnelle RS485 reste valable pour cet assemblage ; elle ne démontre pas une référenceSSW ou sa tenue. Archives précédentes non réécrites.
+Stock NON SOUDÉ rapporté par l'utilisateur : une barre mâle 2×20, six femelles 1×12, quatre femelles 1×10, six femelles 1×8, deux résistances et un condensateur de chaque capacité. **Les Samtec n'ont pas été reçus.**
 
-Plan minimal préparé : **2barres2×40,10résistances10k (palier moinscher que6),1AVX100nF,1Panasonic10µF et2Samtec exacts àapprovisionnementconfirmer**. Aucune femelle1×12/1×8 ni module complet à racheter. Les4femelles1×10 entrent dans les enveloppesV2.7 prévues, avec contact10 àneutraliser au futur montage9trous ; aucun geste exécuté. AVX/Panasonic sont des options historiques numériquement contenues dans les enveloppesgelées, distinctes des MPN natifs. CourtyardC1 plusétroit conservé explicitement ; queues/standoff/pose demeurent réservés. Les connecteurs soudés ne sont pas présumés récupérables.
+Le J5 du montage déjà testé est constitué de **deux tronçons femelles 1×3 côte à côte, adaptés de 1×10**. L'acquis physique RS485 de cet assemblage est conservé ; il ne démontre ni la présence d'un Samtec, ni l'équivalence mécanique de cette adaptation. Les archives précédentes ne sont pas réécrites.
 
-Sous-total des4lignesTME : **3,76USDHT**, hors taxes/port/J5, pas un totalTTC inventé. TMEaffiche les lignes ; [expressFrance](https://www.tme.eu/fr/how-to-buy/7307/Moyens-et-couts-de-transport/)1–2jours ouvrables/19,08€TTC avant14hCET sousconditions. Commandejeudi19 peut arrivervendredi20 oulundi23 : **réception avant samedi21 non garantie**. DigiKey/Mouser : aperçus/caches puis refus d'accès, prix/stock/délaiSamtec actuels non démontrés. Aucun achat, paiement, connexioncompte, envoi au fournisseur ou engagement de délaiPCB.
+Préparation minimale proposée pour deux nouveaux shields :
 
-## État final et publication
+| Composant à acheter si décision utilisateur | Quantité | Référence |
+|---|---:|---|
+| Barre mâle 2×40 | 2 | Connfly DS1021-2*40SF11 |
+| Résistance 10 kΩ | 10 | Vishay MRS16000C1002FCT00 ; palier moins cher que six unités |
+| Condensateur 100 nF | 1 | AVX SR205C104KAR |
+| Condensateur 10 µF | 1 | Panasonic EEUFR1H100 |
+| Femelle J5 2×3 exacte | 2 | Samtec SSW-103-01-F-D ; approvisionnement non confirmé |
 
-Premier checkpoint achats **b08f479d84020a7fa635a45b4ca766a1ae329418**, publié et6fichiers relus intégralement depuis GitHub avant poursuite. Candidat et preuves conservés au commit **dc4ac0414db6795796a1649a9433d4f543d8a310**. Worktreeisolé `MSM_vibe-SHIELD-V24-SPI3-CORRECTIF`, branche `codex/shield-v24-spi3-correctif`, ciblemain ; racinehistorique82169af7 et deuxstashes6251b988/f3b829e6 préservés. Aucun merge/rebase/reset/clean/forcepush. Les instantanés mission/rapportRS485 ont été archivés parChatGPT avant cette mission.
+Aucun rachat de femelles 1×12/1×8 ou de module complet proposé. Le plan de découpe des mâles n'a aucune réserve : une troisième barre ne serait qu'une option de précaution. Les quatre femelles 1×10 entrent numériquement dans les enveloppes V2.7 prévues pour J6/J7, avec dixième contact à neutraliser au futur montage à neuf trous. Leur profondeur utile n'est pas transférée à J5. Aucun geste matériel exécuté.
 
-Journal `ETAT_COURANT_TR2.md` actualisé avec correction, résultats numériques, inventaire/J5 réel, réserves et suite. **À transmettre à ChatGPT : revue indépendante E-01/M-01 du nouveau candidat puis décisionutilisateur avant fabrication ; aucun GO usine délivré par Codex.** Le NO-GO desV2.3 physiques, montage/intégration futurs et étatsfirmware/données restent inchangés ; aucun accèsSTM32/COM/média dans cette mission. Publication complète et relecture des octetsZIP distants restent la dernière étape avant passageDONE.
+Les options AVX/Panasonic et 1×10 restent distinctes des MPN de la BOM native. Corps contenus dans les enveloppes gelées ; courtyard C1 plus étroit explicitement réservé, queues/standoff/pose à contrôler. Les connecteurs déjà soudés ne sont pas présumés récupérables.
+
+Sous-total indicatif des quatre lignes TME : **3,76 USD HT**, hors taxes, port et J5 ; ce n'est pas un total TTC en euros. [Transport TME France](https://www.tme.eu/fr/how-to-buy/7307/Moyens-et-couts-de-transport/) : express affiché 1–2 jours ouvrables, 19,08 € TTC, avant 14 h CET et sous conditions. Une commande jeudi 19 peut arriver vendredi 20 ou lundi 23 : **réception avant samedi 21 non garantie**. DigiKey/Mouser : aperçus/caches puis accès refusés ; prix, stock actuel et délai du Samtec non démontrés. Aucun achat, paiement, accès à un compte fournisseur ou envoi de fichier effectué.
+
+## Git, publication et continuité
+
+- Départ réel : `fb7167548dc1f55eb8250d3d52c8c85dd5caa8c9` ; référence du contrat : `dcd3be60e147d610e171ff2ca37f099e35054dfe`.
+- Premier checkpoint achats : **b08f479d84020a7fa635a45b4ca766a1ae329418**, publié et six fichiers relus intégralement depuis GitHub avant poursuite.
+- Lot CAO : **dc4ac0414db6795796a1649a9433d4f543d8a310** ; rapport provisoire : **1078d465b5ec50d2a40497ceb789acc8c7addc24**.
+- La vérification d'inventaire après cette publication a détecté le ZIP omis par `*.zip` de `.gitignore`. Ajout explicite du seul ZIP candidat, sans modifier les exclusions ni régénérer le lot. Le `.kicad_prl` local est conservé mais retiré du manifeste de sources, car état GUI hors livrables.
+- Worktree isolé `MSM_vibe-SHIELD-V24-SPI3-CORRECTIF`, branche `codex/shield-v24-spi3-correctif`, push normal vers `main`. Racine historique `82169af7`, travaux précédents et deux stashes `6251b988`/`f3b829e6` conservés. Aucun merge, rebase, reset, clean ou force push.
+- Journal `ETAT_COURANT_TR2.md` actualisé : correction, preuves, stock réel et J5 adapté, réserves et prochaine décision. Les instantanés mission/rapport RS485 avaient été archivés par ChatGPT avant la présente mission.
+
+La relecture distante complète, ZIP inclus, reste à consigner avant passage DONE. Les seules permissions exercées sont les modifications CAO/documentaires, validations numériques, commits et push autorisés sur `main`. Aucun accès STM32, COM ou média ; firmware, données et acquis RS485 inchangés.
+
+**Suite à transmettre à ChatGPT :** revue indépendante E-01/M-01 du candidat publié, puis décision avec l'utilisateur avant fabrication. Aucun GO usine délivré par Codex. La V2.3 physique reste défectueuse ; l'assemblage et la qualification complète futurs restent à réaliser.

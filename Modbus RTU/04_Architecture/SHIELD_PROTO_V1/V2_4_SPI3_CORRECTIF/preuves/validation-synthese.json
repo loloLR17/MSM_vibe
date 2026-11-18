@@ -20,7 +20,6 @@
   "source_tree_sha256": {
     "cad/routes.json": "28935a53fe77a7284a6f9d778f97311c4b414a108e2b74d4ee6c14a0e24a3dbf",
     "cad/fp-lib-table": "4be354bcbcb7c6486dd1990bb33b310386cd31467f3003cd47f3fd2bfa6dcaf7",
-    "cad/TR2_Shield_Proto_V1.kicad_prl": "047a4a463238d79602cc0f9b8f53961f4fe476dcfbb04be3e794f2da23fbd65d",
     "cad/TR2_Shield_Proto_V1.kicad_sch": "afcbae268e0458a5271893ba9b6696f357f4fe72d76927689d7b1234a6f450a0",
     "cad/TR2_Shield_Proto_V1.kicad_pro": "8c077c4fc90dc8fe73b778e3fccfeb764cc4dca59667a8a04d85bc7cc1bb61f6",
     "cad/sym-lib-table": "1d685831c1974c27683e8e65c7cb638986d370db894b88180621db50361efe79",
@@ -64,5 +63,6 @@
     "tools/audit_orientations.py": "95c98bd38f8c1dbd7f983d0f0b118de6cda91e127bededa8d48feabd60cecce9",
     "tools/merge_zone_fills.py": "7c2d840fa32be956e49c09b7e95798e4b699fe2b8ce3e456a0b8f8b481654ed2",
     "tools/negative_m01_controls.py": "ee6a1e56aaadf0e1a2c6c5c06aa07cb2a9ce4ac545b9c2c157c9d8bf247af038"
-  }
+  },
+  "excluded_local_metadata": "The ignored KiCad .kicad_prl stores local GUI state, is not a design source or deliverable, and is intentionally not published."
 }

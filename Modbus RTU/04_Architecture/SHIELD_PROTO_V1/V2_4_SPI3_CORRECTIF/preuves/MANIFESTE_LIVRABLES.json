@@ -38,8 +38,8 @@
       "sha256": "f4f7b24fc49c7512d2ccc5f3690b5d0ceda7c86ad931130430e2185a78084e7d"
     },
     "preuves/validation-synthese.json": {
-      "bytes": 5754,
-      "sha256": "9745e54ab639d6a26b22b4a7df88fbcaee16bceed46868c3f0d08395b4755bd5"
+      "bytes": 5805,
+      "sha256": "2a4513f3d6c75a3fa8628986bcb2ba2bee91fb60e92c6feb4e11acf3f4ce2830"
     },
     "preuves/M01-STEP-V27.json": {
       "bytes": 1275,
@@ -62,8 +62,8 @@
       "sha256": "8857ac15039fff1a8ebe6eed192532ba1fa2bb6d93db4ca19094d30ab17054e6"
     },
     "preuves/INCIDENTS_OUTILS.md": {
-      "bytes": 1799,
-      "sha256": "1cd967eaf24cdc253865f468e263d5071727110e1800f6726c222336614ee0d3"
+      "bytes": 2734,
+      "sha256": "f1d6c2f73a0d47c258636df161470017d0833c26e34b0118c847f4f9f0fbb75e"
     },
     "preuves/purchase-checkpoint-publication.json": {
       "bytes": 599,
@@ -108,10 +108,6 @@
     "cad/fp-lib-table": {
       "bytes": 162,
       "sha256": "4be354bcbcb7c6486dd1990bb33b310386cd31467f3003cd47f3fd2bfa6dcaf7"
-    },
-    "cad/TR2_Shield_Proto_V1.kicad_prl": {
-      "bytes": 2306,
-      "sha256": "047a4a463238d79602cc0f9b8f53961f4fe476dcfbb04be3e794f2da23fbd65d"
     },
     "cad/TR2_Shield_Proto_V1.kicad_sch": {
       "bytes": 88278,
