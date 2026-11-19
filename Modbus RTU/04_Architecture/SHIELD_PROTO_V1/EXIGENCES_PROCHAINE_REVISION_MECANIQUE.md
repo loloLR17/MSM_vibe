@@ -8,6 +8,7 @@ Retour d’essai à blanc du 19 novembre 2026 sur les pièces imprimées du kit 
 2. **Augmenter légèrement les trous de passage des vis M2 dans les selles FRAM et microSD.** Prévoir un jeu qui absorbe les écarts d’impression et permette de passer les vis à la main, sans forcer sur les selles. Déterminer le diamètre sur pièces imprimées.
 3. **Fixer la Nucleo dans la caisse sans pièces d’appui séparées.** Réduire le nombre de petites pièces. Une fixation traversant le fond de la caisse aux points existants A1, A2 et A3 est une piste à évaluer.
 4. **Rendre la visserie accessible aux étapes où elle doit être serrée ou desserrée.** Prévoir un ordre de montage qui garde l’accès aux têtes des vis des supports FRAM et microSD ainsi qu’aux écrous nylon, notamment sous la microSD. La fixation des cartes et celle des modules doivent pouvoir s’enchaîner sans démontage imposé par une tête ou un écrou devenu inaccessible.
+5. **Si les étriers du capteur MKI et du Click sont conservés, agrandir légèrement leurs trous de passage des vis M2×30.** Vérifier sur pièces imprimées que les vis passent à la main sans forcer et que les étriers gardent leur fonction de retenue, avec les patins isolants au droit des zones nues du circuit imprimé. Le choix de conserver ces étriers et le diamètre de passage restent à déterminer.
 
 ## Constats qui motivent la révision
 
